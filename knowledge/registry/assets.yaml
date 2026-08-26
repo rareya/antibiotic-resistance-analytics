@@ -1,0 +1,711 @@
+# ============================================================
+# AMR KNOWLEDGE REGISTRY
+# ASSETS
+# Version 1.0
+# ============================================================
+
+registry:
+  name: amr_asset_registry
+  version: "1.0"
+  description: >
+    Registry of concrete datasets, databases, dashboards,
+    publications, methodologies, platforms and other
+    retrievable knowledge assets used by the AMR AI system.
+
+  schema:
+    file: asset.schema.yaml
+    version: "1.0"
+
+  governance:
+    source_of_truth: assets.yaml
+    source_registry: sources.yaml
+    require_provenance: true
+    require_source_link: true
+    track_versions: true
+    track_licenses: true
+
+
+# ============================================================
+# ASSETS
+# ============================================================
+
+assets:
+
+  # ==========================================================
+  # WHO GLASS
+  # ==========================================================
+
+  who_glass_dashboard:
+
+    id: who_glass_dashboard
+
+    source_id: who_glass
+
+    name: WHO GLASS Data Visualization Dashboard
+
+    description: >
+      Interactive WHO dashboard presenting antimicrobial
+      resistance and antimicrobial use surveillance data
+      from the Global Antimicrobial Resistance and Use
+      Surveillance System.
+
+    asset_type: dashboard
+
+    status: active
+
+    access: public
+
+    knowledge_role: surveillance_data
+
+    identifiers:
+
+      last_updated: "2025"
+
+    access_details:
+
+      canonical_url: https://www.who.int/initiatives/glass
+
+      retrieval_modes:
+        - metadata
+        - structured
+        - keyword
+        - document
+
+      format:
+        - web_dashboard
+        - interactive_visualization
+
+      authentication_required: false
+
+    data:
+
+      geographic_scope:
+        - global
+        - country
+        - territory
+        - area
+
+      temporal_scope: "2016-2023"
+
+      population:
+        - human
+
+      organisms:
+        - bacterial_pathogens
+
+      resistance_measures:
+        - resistance_proportion
+        - AST_results
+
+      granularity: country/regional/global
+
+    provenance:
+
+      publisher: World Health Organization
+
+      producing_organization: World Health Organization
+
+      original_source: WHO GLASS
+
+    ai_usage:
+
+      usable_for_retrieval: true
+      usable_for_embeddings: true
+      usable_for_training: false
+      usable_for_numeric_answers: false
+      citation_required: true
+
+      restrictions:
+        - >
+          Numeric answers must preserve the underlying
+          surveillance context and reporting period.
+
+    quality:
+
+      authority_level: authoritative
+      data_quality: quality_assured_surveillance
+      completeness: variable_by_country
+      machine_readability: medium
+      update_frequency: periodic
+
+    notes:
+      - >
+        Dashboard provides direct access to GLASS AMR and
+        AMU surveillance information.
+      - >
+        Country-level reporting coverage varies.
+
+
+  who_glass_amr_manual_2023:
+
+    id: who_glass_amr_manual_2023
+
+    source_id: who_glass
+
+    name: GLASS manual for antimicrobial resistance surveillance in common bacteria causing human infection
+
+    description: >
+      WHO methodology manual describing objectives, methods
+      and metrics for GLASS-AMR surveillance.
+
+    asset_type: methodology
+
+    status: active
+
+    access: public
+
+    knowledge_role: methodology
+
+    identifiers:
+
+      isbn: "978-92-4-007660-0"
+
+      publication_date: "2023-08-31"
+
+      version: "2023"
+
+    access_details:
+
+      canonical_url: https://www.who.int/publications/i/item/9789240076600
+
+      retrieval_modes:
+        - document
+        - metadata
+        - keyword
+
+      format:
+        - pdf
+
+      authentication_required: false
+
+    data:
+
+      geographic_scope:
+        - global
+
+      population:
+        - human
+
+    provenance:
+
+      publisher: World Health Organization
+
+      producing_organization: World Health Organization
+
+    licensing:
+
+      license: CC BY-NC-SA 3.0 IGO
+
+      commercial_use: false
+
+      redistribution_allowed: true
+
+      attribution_required: true
+
+    ai_usage:
+
+      usable_for_retrieval: true
+      usable_for_embeddings: true
+      usable_for_training: false
+      usable_for_numeric_answers: false
+      citation_required: true
+
+      restrictions:
+        - >
+          Use primarily for methodology and interpretation,
+          not as a primary numerical surveillance dataset.
+
+    quality:
+
+      authority_level: authoritative
+      data_quality: methodological_standard
+      completeness: high
+      machine_readability: high
+      update_frequency: superseded_when_new_manual_is_published
+
+
+  who_glass_2025_report:
+
+    id: who_glass_2025_report
+
+    source_id: who_glass
+
+    name: Global antibiotic resistance surveillance report 2025
+
+    description: >
+      WHO global report presenting findings from GLASS
+      antimicrobial resistance surveillance.
+
+    asset_type: report
+
+    status: active
+
+    access: public
+
+    knowledge_role: surveillance_data
+
+    identifiers:
+
+      publication_date: "2025-10-13"
+
+      version: "2025"
+
+    access_details:
+
+      canonical_url: https://www.who.int/initiatives/glass
+
+      retrieval_modes:
+        - document
+        - metadata
+        - keyword
+
+      format:
+        - pdf
+        - web
+
+      authentication_required: false
+
+    data:
+
+      geographic_scope:
+        - global
+        - regional
+        - country
+
+      population:
+        - human
+
+      organisms:
+        - bacterial_pathogens
+
+      resistance_measures:
+        - resistance_proportion
+        - surveillance_trends
+
+    provenance:
+
+      publisher: World Health Organization
+
+      producing_organization: World Health Organization
+
+    ai_usage:
+
+      usable_for_retrieval: true
+      usable_for_embeddings: true
+      usable_for_training: false
+      usable_for_numeric_answers: false
+      citation_required: true
+
+      restrictions:
+        - >
+          Numerical claims must preserve report year and
+          surveillance methodology.
+
+    quality:
+
+      authority_level: authoritative
+      data_quality: quality_assured_surveillance
+      completeness: global_but_variable
+      machine_readability: medium
+      update_frequency: annual
+
+
+  # ==========================================================
+  # CARD
+  # ==========================================================
+
+  card_database:
+
+    id: card_database
+
+    source_id: card
+
+    name: Comprehensive Antibiotic Resistance Database
+
+    description: >
+      Curated molecular database containing information on
+      antibiotic resistance genes, proteins, mutations,
+      antibiotics and associated resistance mechanisms.
+
+    asset_type: database
+
+    status: active
+
+    access: public
+
+    knowledge_role: molecular_resistance
+
+    access_details:
+
+      canonical_url: https://card.mcmaster.ca/
+
+      download_url: https://card.mcmaster.ca/download
+
+      retrieval_modes:
+        - structured
+        - downloadable_dataset
+        - metadata
+
+      format:
+        - database
+        - downloadable_files
+
+      authentication_required: false
+
+    data:
+
+      geographic_scope:
+        - global
+
+      organisms:
+        - bacteria
+
+      antibiotics:
+        - antibacterial_agents
+
+      resistance_measures:
+        - resistance_genes
+        - resistance_mutations
+        - resistance_mechanisms
+
+      granularity: molecular
+
+    provenance:
+
+      producing_organization: McMaster University
+
+      original_source: Comprehensive Antibiotic Resistance Database
+
+    ai_usage:
+
+      usable_for_retrieval: true
+      usable_for_embeddings: true
+      usable_for_training: true
+      usable_for_numeric_answers: true 
+      citation_required: true
+
+      restrictions:
+        - >
+          Molecular resistance evidence must not be interpreted
+          as clinical treatment guidance.
+
+    quality:
+
+      authority_level: authoritative_research_resource
+      data_quality: curated
+      completeness: evolving
+      machine_readability: high
+      update_frequency: periodic
+
+
+  # ==========================================================
+  # WRIGHT LAB
+  # ==========================================================
+
+  wright_lab_antibiotic_resistance_platform:
+
+    id: wright_lab_antibiotic_resistance_platform
+
+    source_id: wright_lab_antibiotic_resistance_platform
+
+    name: Wright Lab Antibiotic Resistance Platform
+
+    description: >
+      Research platform associated with the Wright laboratory
+      providing antibiotic resistance research resources.
+
+    asset_type: platform
+
+    status: active
+
+    access: public
+
+    knowledge_role: molecular_resistance
+
+    access_details:
+
+      canonical_url: https://www.thewrightlab.com/antibiotic-resistance-platform
+
+      retrieval_modes:
+        - metadata
+        - document
+        - keyword
+
+      format:
+        - web
+
+      authentication_required: false
+
+    data:
+
+      geographic_scope:
+        - global
+
+      organisms:
+        - bacteria
+
+    provenance:
+
+      producing_organization: Wright Lab
+
+    ai_usage:
+
+      usable_for_retrieval: true
+      usable_for_embeddings: true
+      usable_for_training: false
+      usable_for_numeric_answers: false
+      citation_required: true
+
+    quality:
+
+      authority_level: research_resource
+      data_quality: curated_research_resource
+      completeness: unknown
+      machine_readability: medium
+      update_frequency: unknown
+
+
+  # ==========================================================
+  # WHO AMR FACT SHEET
+  # ==========================================================
+
+  who_amr_fact_sheet:
+
+    id: who_amr_fact_sheet
+
+    source_id: who_amr_fact_sheet
+
+    name: WHO Antimicrobial Resistance Fact Sheet
+
+    description: >
+      WHO authoritative overview of antimicrobial resistance,
+      its causes, consequences and public health significance.
+
+    asset_type: educational_reference
+
+    status: active
+
+    access: public
+
+    knowledge_role: contextual_reference
+
+    access_details:
+
+      canonical_url: https://www.who.int/news-room/fact-sheets/detail/antimicrobial-resistance
+
+      retrieval_modes:
+        - document
+        - keyword
+        - metadata
+
+      format:
+        - web
+
+      authentication_required: false
+
+    provenance:
+
+      publisher: World Health Organization
+
+      producing_organization: World Health Organization
+
+    ai_usage:
+
+      usable_for_retrieval: true
+      usable_for_embeddings: true
+      usable_for_training: false
+      usable_for_numeric_answers: false
+      citation_required: true
+
+    quality:
+
+      authority_level: authoritative
+      data_quality: authoritative_context
+      completeness: contextual
+      machine_readability: high
+      update_frequency: periodic
+
+
+  # ==========================================================
+  # IHME
+  # ==========================================================
+
+  ihme_amr_estimates:
+
+    id: ihme_amr_estimates
+
+    source_id: ihme_amr
+
+    name: IHME Antimicrobial Resistance Research and Analysis
+
+    description: >
+      IHME research resources providing modeled estimates of the
+      global burden, epidemiology and health impact of
+      antimicrobial resistance. These estimates are generated
+      through statistical and epidemiological modeling and should
+      not be interpreted as direct surveillance observations.
+
+    asset_type: model
+
+    status: active
+
+    access: public
+
+    knowledge_role: burden_estimation
+
+    access_details:
+
+      canonical_url: https://www.healthdata.org/research-analysis/health-topics/antimicrobial-resistance
+
+      retrieval_modes:
+        - document
+        - metadata
+        - keyword
+
+      format:
+        - web
+        - research_outputs
+
+      authentication_required: false
+
+    provenance:
+
+      producing_organization: Institute for Health Metrics and Evaluation
+
+    ai_usage:
+
+      usable_for_retrieval: true
+      usable_for_embeddings: true
+      usable_for_training: false
+      usable_for_numeric_answers: false
+      citation_required: true
+
+      restrictions:
+        - >
+          Estimates must be identified as modeled estimates
+          rather than direct surveillance observations.
+
+    quality:
+
+      authority_level: authoritative_research_resource
+      data_quality: modeled
+      completeness: global
+      machine_readability: medium
+      update_frequency: periodic
+
+
+  # ==========================================================
+  # NCBI
+  # ==========================================================
+
+  ncbi_antibiotic_resistance_reference:
+
+    id: ncbi_antibiotic_resistance_reference
+
+    source_id: ncbi_antibiotic_resistance
+
+    name: NCBI Antibiotic Resistance Reference
+
+    description: >
+      NCBI reference material providing scientific and
+      biomedical context relevant to antibiotic resistance.
+
+    asset_type: educational_reference
+
+    status: active
+
+    access: public
+
+    knowledge_role: contextual_reference
+
+    access_details:
+
+      canonical_url: https://www.ncbi.nlm.nih.gov/books/NBK513277/
+
+      retrieval_modes:
+        - document
+        - keyword
+        - metadata
+
+      format:
+        - web
+
+      authentication_required: false
+
+    provenance:
+
+      producing_organization: National Center for Biotechnology Information
+
+    ai_usage:
+
+      usable_for_retrieval: true
+      usable_for_embeddings: true
+      usable_for_training: false
+      usable_for_numeric_answers: false
+      citation_required: true
+
+    quality:
+
+      authority_level: authoritative
+      data_quality: reference
+      completeness: contextual
+      machine_readability: high
+      update_frequency: periodic
+
+
+  # ==========================================================
+  # RESEARCH PAPER / RAG METHODOLOGY
+  # ==========================================================
+
+  antibiotic_rag_research:
+
+    id: antibiotic_rag_research
+
+    source_id: antibiotic_rag_research
+
+    name: Antibiotic Resistance RAG Research
+
+    description: >
+      Research asset concerning retrieval-augmented generation
+      or AI-based interaction with antibiotic resistance
+      knowledge.
+
+    asset_type: scientific_paper
+
+    status: active
+
+    access: public
+
+    knowledge_role: ai_methodology
+
+    access_details:
+
+      retrieval_modes:
+        - document
+        - metadata
+        - keyword
+
+      format:
+        - scientific_paper
+
+      authentication_required: false
+
+    provenance:
+
+      original_source: Research literature
+
+    ai_usage:
+
+      usable_for_retrieval: true
+      usable_for_embeddings: true
+      usable_for_training: true
+      usable_for_numeric_answers: false
+      citation_required: true
+
+    quality:
+
+      authority_level: research_evidence
+      data_quality: methodology
+      completeness: unknown
+      machine_readability: medium
+      update_frequency: unknown

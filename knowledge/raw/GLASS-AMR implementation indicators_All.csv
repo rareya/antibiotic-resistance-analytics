@@ -1,0 +1,33 @@
+Filters
+Region filter: All
+
+National Coordination Centre (NCC)
+"Names","Value","Percentage"
+"Available",85,65.385
+"In progress",12,9.231
+"Not available",13,10
+"No data",20,15.385
+
+National Reference Laboratory (NRL)
+"Names","Value","Percentage"
+"Available",101,77.692
+"Not available",9,6.923
+"No data",20,15.385
+
+External Quality Assurance (EQA) of NRL
+"Names","Value","Percentage"
+"Available",97,74.615
+"Not available",11,8.462
+"No data",22,16.923
+
+EQA of all laboratories reporting AST to GLASS
+"Names","Value","Percentage"
+"Available",68,52.308
+"Not available",23,17.692
+"No data",39,30
+
+International standards for AST
+"Names","Value","Percentage"
+"Available",108,83.077
+"Not available",1,0.769
+"No data",21,16.154

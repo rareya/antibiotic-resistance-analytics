@@ -1,0 +1,12 @@
+Filters
+CTAs filter: Afghanistan
+Infection Type filter: Bloodstream
+Year filter: 2023
+
+
+Frequency of bloodstream BCIs due to bacterial pathogens under surveillance per 100 000 tested patients
+"Iso3","Year","Specimen","PathogenName","PercentFrequency","LowerLimit","UpperLimit"
+
+
+Frequency of drug-resistant bloodstream BCIs due to bacterial pathogens under surveillance per 100 000 tested patients
+"Iso3","Year","Specimen","PathogenName","AntibioticGroup","NumSampledPatients","TotalPathogenIsolates","Resistant","PercentFrequency","LowerLimit","UpperLimit"

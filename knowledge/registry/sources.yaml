@@ -1,365 +1,1147 @@
 # ============================================================
-# AMR INTELLIGENCE — KNOWLEDGE SOURCE REGISTRY
-# ============================================================
+# AMR INTELLIGENCE PLATFORM
+# Knowledge & Evidence Registry
 #
-# Tier 1 = primary / authoritative sources.
+# Version: 1.0
+# Purpose:
+#   Defines authoritative and supporting knowledge sources,
+#   their capabilities, evidence priority, retrieval strategy,
+#   provenance requirements, and permitted uses.
 #
-# Important:
-# - This registry describes sources and their retrieval role.
-# - It does NOT contain the source content itself.
-# - Document content, structured data, and database records will
-#   be ingested separately according to source_type.
-#
-# Retrieval principle:
-#   authoritative guidance > surveillance authority > evidence
-#   literature > general supporting material
-#
+# IMPORTANT:
+#   A SOURCE is not the same thing as a DOCUMENT or DATASET.
+#   Source = publisher/database/platform identity
+#   Asset  = individual document, dataset, release, report, etc.
 # ============================================================
 
-knowledge_base:
-  name: "AMR Intelligence Knowledge Base"
-  version: "0.1.0"
-  tier_1_source_count: 4
+registry:
+  id: amr_knowledge_registry
+  name: AMR Intelligence Knowledge & Evidence Registry
+  version: "1.0.0"
+  status: active
 
-  retrieval_policy:
-    primary_sources_first: true
+  purpose:
+    >
+    Define trusted external knowledge sources for the AMR Intelligence
+    Platform and provide machine-readable rules for source selection,
+    retrieval, provenance, versioning, evidence ranking, and AI grounding.
+
+  principles:
+
+    - primary_sources_first
+    - authoritative_sources_over_general_web
+    - source_version_must_be_preserved
+    - document_version_must_be_preserved
+    - structured_data_preferred_for_numeric_statistics
+    - citations_required_for_external_claims
+    - provenance_must_survive_ingestion
+    - source_scope_must_be_respected
+    - cross_source_synthesis_allowed_only_when_sources_are_compatible
+    - clinical_interpretation_must_not_be_invented_by_the_llm
+    - model_output_must_be_distinguished_from_external_evidence
+    - observed_surveillance_data_must_be_distinguished_from_modeled_estimates
+
+
+# ============================================================
+# EVIDENCE HIERARCHY
+# ============================================================
+
+evidence_tiers:
+
+  tier_1:
+    name: authoritative
+    priority: 100
+    description:
+      >
+      Primary authoritative standards, surveillance systems,
+      government/international health organizations, and curated
+      specialist databases.
+
+  tier_2:
+    name: high_quality_supporting
+    priority: 70
+    description:
+      >
+      High-quality datasets, national surveillance resources,
+      major research institutions, and strongly established
+      scientific resources.
+
+  tier_3:
+    name: scientific_supporting
+    priority: 40
+    description:
+      >
+      Peer-reviewed research, systematic reviews, methodological
+      studies, educational references, and other supporting evidence.
+
+  fallback:
+    name: general
+    priority: 10
+    description:
+      >
+      General web or non-curated material. Not an authoritative
+      source for medical or scientific claims.
+
+
+# ============================================================
+# SOURCE SELECTION RULES
+# ============================================================
+
+source_selection:
+
+  default_priority:
+    - tier_1
+    - tier_2
+    - tier_3
+    - fallback
+
+  primary_sources_first: true
+
+  allow_cross_source_synthesis: true
+
+  cross_source_synthesis_requirements:
+    - compatible_topic
+    - compatible_scope
+    - compatible_time_period
+    - compatible_jurisdiction
+    - compatible_definition
+    - source_provenance_available
+
+  numeric_statistics:
+    preferred_retrieval:
+      - structured
+      - api
+      - sql
+      - downloadable_dataset
+
+    vector_search_as_primary_source: false
+
+  clinical_interpretation:
+    require_authoritative_standard: true
+    allowed_standards:
+      - eucast
+      - clsi
+
+    never_infer_breakpoint_from:
+      - general_literature
+      - llm_prior_knowledge
+      - secondary_summary
+      - unrelated_surveillance_dataset
+
+  generated_answers:
     require_source_attribution: true
-    preserve_original_url: true
-    preserve_source_version: true
-    allow_cross_source_synthesis: true
+    require_citations: true
+    allow_uncited_medical_claims: false
+    distinguish_model_output_from_source_evidence: true
+    distinguish_observed_data_from_modeled_estimates: true
 
-    source_priority:
-      tier_1: 100
-      tier_2: 70
-      tier_3: 40
 
-# ------------------------------------------------------------
-# SOURCE 1 — EUCAST
-# ------------------------------------------------------------
+# ============================================================
+# SOURCE TYPE TAXONOMY
+# ============================================================
+
+source_types:
+
+  guideline:
+    description: Clinical or laboratory interpretation guidance.
+
+  surveillance_system:
+    description: Standardized AMR/AMU surveillance framework.
+
+  surveillance_dataset:
+    description: Structured epidemiological or surveillance data.
+
+  resistance_database:
+    description: Curated molecular/genomic AMR database.
+
+  experimental_platform:
+    description: Experimental or laboratory resistance resource.
+
+  research_dataset:
+    description: Peer-reviewed research dataset.
+
+  scientific_paper:
+    description: Peer-reviewed methodological or scientific publication.
+
+  burden_model:
+    description: Modeled epidemiological burden estimates.
+
+  educational_reference:
+    description: Secondary educational or clinical reference.
+
+  ai_methodology:
+    description: Research evaluating AI/RAG/LLM methods relevant to AMR.
+
+
+# ============================================================
+# SOURCES
+# ============================================================
 
 sources:
 
-  - id: "eucast_resistance_detection"
 
-    name: "EUCAST Resistance Detection"
+  # ----------------------------------------------------------
+  # 1. EUCAST
+  # ----------------------------------------------------------
 
-    authority: "EUCAST"
+  eucast:
+    name: European Committee on Antimicrobial Susceptibility Testing
+    authority: European scientific committee
+    source_type:
+      - guideline
+      - laboratory_standard
 
-    source_type: "clinical_guidance"
+    tier: tier_1
+    priority: 100
 
-    tier: 1
-    priority: 1
+    jurisdiction:
+      - Europe
+      - international_reference
 
-    url:
-      canonical: "https://www.eucast.org/bacteria/important-additional-information/resistance-detection/"
+    domains:
+      - antimicrobial_susceptibility_testing
+      - resistance_detection
+      - phenotypic_resistance
+      - clinical_microbiology
 
-    description: >
-      EUCAST guidance for detecting resistance mechanisms and specific
-      resistances of clinical and/or epidemiological importance, including
-      phenotypic screening approaches and interpretation-related guidance.
-
-    primary_role:
-      - "resistance_detection"
-      - "resistance_mechanisms"
-      - "phenotypic_screening"
-      - "clinical_interpretation"
-      - "epidemiological_resistance_detection"
-
-    knowledge_type:
-      - "document"
-      - "guideline"
-
-    retrieval_mode:
-      - "vector"
-      - "keyword"
-      - "metadata"
+    capabilities:
+      - resistance_mechanism_detection
+      - phenotypic_screening
+      - expected_resistance_phenotypes
+      - susceptibility_interpretation
+      - breakpoint_interpretation
+      - laboratory_guidance
 
     preferred_for:
-      - "How is a resistance mechanism detected?"
-      - "What phenotypic screening approach is recommended?"
-      - "What resistance phenotype should be expected?"
-      - "How should clinically relevant resistance be interpreted?"
-      - "What guidance exists for resistance screening?"
+      - resistance_detection
+      - phenotypic_screening
+      - clinical_microbiology_interpretation
+      - susceptibility_interpretation
 
-    metadata:
-      jurisdiction: "Europe / international clinical microbiology"
-      domain: "antimicrobial_susceptibility_testing"
-      evidence_type: "guideline"
-      authority_level: "primary"
+    retrieval_modes:
+      - document
+      - keyword
+      - metadata
 
-    current_page_notes:
-      includes:
-        - "resistance mechanism detection guidance"
-        - "phenotypic screening tests"
-        - "expected phenotypes"
-        - "clinical and epidemiological relevance"
+    structured_lookup_required_for:
+      - breakpoint_values
+      - susceptibility_categories
 
-# ------------------------------------------------------------
-# SOURCE 2 — WHO GLASS
-# ------------------------------------------------------------
+    limitations:
+      - >
+        Resistance-detection guidance must not be treated as equivalent
+        to the complete EUCAST breakpoint framework.
+      - >
+        Individual EUCAST documents have independent publication dates
+        and versions and must therefore be versioned separately.
+      - >
+        EUCAST guidance should not automatically be treated as the
+        applicable interpretation standard for every jurisdiction.
 
-  - id: "who_glass"
+    ai_restrictions:
+      cannot_be_used_for:
+        - patient_specific_prescription
+        - unsupported_clinical_recommendations
+        - extrapolation_beyond_document_scope
 
-    name: "WHO Global Antimicrobial Resistance and Use Surveillance System (GLASS)"
+    provenance:
+      required:
+        - source_id
+        - document_id
+        - document_version
+        - publication_date
+        - canonical_source
+        - retrieval_timestamp
 
-    authority: "World Health Organization"
 
-    source_type: "surveillance_framework"
+  # ----------------------------------------------------------
+  # 2. WHO GLASS
+  # ----------------------------------------------------------
 
-    tier: 1
-    priority: 2
+  who_glass:
+    name: Global Antimicrobial Resistance and Use Surveillance System
+    publisher: World Health Organization
+    authority: international_health_organization
 
-    url:
-      canonical: "https://www.who.int/initiatives/glass"
+    source_type:
+      - surveillance_system
+      - surveillance_methodology
+      - surveillance_dataset
 
-    description: >
-      WHO's global framework for standardized antimicrobial resistance and
-      antimicrobial use surveillance, including approaches to data collection,
-      analysis, interpretation, sharing, and capacity building.
+    tier: tier_1
+    priority: 100
 
-    primary_role:
-      - "amr_surveillance"
-      - "surveillance_methodology"
-      - "data_standardization"
-      - "amr_reporting"
-      - "antimicrobial_use_surveillance"
-      - "emerging_resistance_surveillance"
+    jurisdiction:
+      - global
+      - international
 
-    knowledge_type:
-      - "document"
-      - "framework"
-      - "surveillance_standard"
+    domains:
+      - antimicrobial_resistance
+      - antimicrobial_use
+      - surveillance
+      - emerging_resistance
+      - one_health
+      - fungal_surveillance
+      - epidemiology
 
-    retrieval_mode:
-      - "vector"
-      - "keyword"
-      - "metadata"
+    capabilities:
+      - amr_surveillance_methodology
+      - amr_data_standardization
+      - surveillance_metrics
+      - emerging_resistance_surveillance
+      - antimicrobial_consumption_surveillance
+      - global_comparison
+      - surveillance_quality_guidance
+      - one_health_surveillance_framework
 
-    preferred_for:
-      - "How should AMR surveillance be structured?"
-      - "What is GLASS?"
-      - "How are AMR data standardized?"
-      - "What surveillance modules exist?"
-      - "How should AMR surveillance data be interpreted?"
-      - "How is emerging resistance monitored?"
-
-    metadata:
-      jurisdiction: "global"
-      domain: "amr_surveillance"
-      evidence_type: "surveillance_framework"
-      authority_level: "primary"
-
-    known_modules:
-      - "GLASS-AMR"
-      - "GLASS-AMU"
-      - "GLASS-EAR"
-      - "GLASS-FUNGI"
-      - "EGASP"
-      - "One Health"
-      - "PPS-AMU"
-      - "BURDEN"
-
-# ------------------------------------------------------------
-# SOURCE 3 — WHO AMR DATA DASHBOARD
-# ------------------------------------------------------------
-
-  - id: "who_amr_data_dashboard"
-
-    name: "WHO AMR Data Dashboard"
-
-    authority: "World Health Organization"
-
-    source_type: "surveillance_data"
-
-    tier: 1
-    priority: 3
-
-    url:
-      canonical: "https://data.who.int/dashboards/amr/overview"
-
-    description: >
-      WHO's AMR data dashboard providing structured antimicrobial resistance
-      surveillance indicators and data visualizations.
-
-    primary_role:
-      - "amr_surveillance_data"
-      - "amr_indicators"
-      - "country_comparison"
-      - "trend_analysis"
-      - "surveillance_visualization"
-
-    knowledge_type:
-      - "structured_data"
-      - "dashboard"
-      - "indicator_dataset"
-
-    retrieval_mode:
-      - "sql"
-      - "api"
-      - "structured_lookup"
-      - "metadata"
+    modules:
+      - GLASS_AMR
+      - GLASS_AMC
+      - GLASS_EAR
+      - GLASS_FUNGI
+      - EGASP
+      - One_Health
+      - PPS_AMU
+      - BURDEN
 
     preferred_for:
-      - "What is the observed AMR indicator for a country?"
-      - "How does resistance compare across countries?"
-      - "What is the observed trend over time?"
-      - "What surveillance indicators are available?"
-      - "What does WHO currently report for AMR?"
+      - surveillance_design
+      - surveillance_metrics
+      - data_standardization
+      - global_amr_context
+      - emerging_resistance
+      - antimicrobial_use
+      - surveillance_quality
 
-    metadata:
-      jurisdiction: "global"
-      domain: "amr_surveillance_data"
-      evidence_type: "surveillance_data"
-      authority_level: "primary"
+    retrieval_modes:
+      - document
+      - structured
+      - api
+      - metadata
 
-    rag_policy:
+    important_assets:
+      - glass_amr_manual_2023
+      - glass_reports
+      - glass_amr_data
+      - glass_amc_data
+      - glass_emerging_amr_reporting
+      - glass_wgs_guidance
+      - glass_molecular_methods_guidance
+
+    limitations:
+      - >
+        GLASS data represent surveillance submissions and should not
+        automatically be interpreted as a complete representation of
+        global AMR prevalence.
+      - >
+        Individual GLASS reports and manuals have separate dates,
+        versions, methodologies, and scopes.
+      - >
+        GLASS surveillance data must retain reporting-year and
+        methodological metadata.
+
+    ai_restrictions:
+      cannot_be_used_for:
+        - patient_specific_prescription
+        - individual_diagnosis
+        - unsupported_local_prevalence_claims
+
+    provenance:
+      required:
+        - source_id
+        - asset_id
+        - asset_version
+        - publication_or_release_date
+        - reporting_period
+        - jurisdiction
+        - retrieval_timestamp
+
+
+  # ----------------------------------------------------------
+  # 3. WHO AMR DATA DASHBOARD
+  # ----------------------------------------------------------
+
+  who_amr_data_dashboard:
+    name: WHO Antimicrobial Resistance Data
+    publisher: World Health Organization
+    authority: international_health_organization
+
+    source_type:
+      - surveillance_dataset
+      - structured_data_platform
+
+    tier: tier_1
+    priority: 100
+
+    jurisdiction:
+      - global
+      - country
+      - territory
+      - area
+
+    domains:
+      - antimicrobial_resistance
+      - antimicrobial_use
+      - surveillance
+      - national_action
+      - diagnostics
+      - governance
+
+    capabilities:
+      - structured_amr_statistics
+      - country_comparison
+      - temporal_analysis
+      - indicator_lookup
+      - surveillance_indicator_analysis
+      - antimicrobial_use_indicators
+
+    retrieval_modes:
+      - api
+      - sql
+      - structured_lookup
+      - metadata
+
+    preferred_for:
+      - numeric_amr_statistics
+      - country_comparison
+      - surveillance_indicators
+      - trend_analysis
+      - structured_queries
+
+    structured_data_policy:
+      primary_source_for_numeric_values: true
       embed_numeric_values_as_primary_source: false
       use_structured_lookup_for_statistics: true
-      cite_original_dashboard: true
 
-    # Important:
-    # Exact current numeric values should preferably come from the
-    # structured dashboard/data layer rather than from an LLM's
-    # vector-retrieved text chunk.
+    limitations:
+      - >
+        Dashboard values must retain reporting period, country/area,
+        indicator definition, and dataset version where available.
+      - >
+        Dashboard indicators must not be confused with individual
+        patient-level observations.
+      - >
+        Data completeness and representativeness may differ by country
+        and indicator.
 
-# ------------------------------------------------------------
-# SOURCE 4 — MEGARES
-# ------------------------------------------------------------
+    ai_restrictions:
+      cannot_be_used_for:
+        - individual_patient_prediction
+        - molecular_mechanism_explanation_without_molecular_source
+        - clinical_prescription
 
-  - id: "megares"
+    provenance:
+      required:
+        - source_id
+        - dataset_id
+        - dataset_version
+        - reporting_period
+        - geography
+        - indicator
+        - retrieval_timestamp
 
-    name: "MEGARes"
 
-    authority: "Microbial Ecology Group"
+  # ----------------------------------------------------------
+  # 4. MEGARES
+  # ----------------------------------------------------------
 
-    source_type: "resistance_database"
+  megares:
+    name: MEGARes
+    authority: curated_molecular_amr_database
+    source_type:
+      - resistance_database
+      - molecular_amr_database
 
-    tier: 1
-    priority: 4
+    tier: tier_1
+    priority: 100
 
-    url:
-      canonical: "https://www.meglab.org/megares/"
+    jurisdiction:
+      - global
 
-    description: >
-      Curated antimicrobial-resistance sequence database providing molecular
-      resistance determinants and hierarchical annotation for resistance
-      profiling and downstream analysis of sequence data.
+    domains:
+      - antimicrobial_resistance
+      - resistance_genes
+      - molecular_mechanisms
+      - genomic_amr
+      - metagenomics
 
-    primary_role:
-      - "resistance_genes"
-      - "resistance_determinants"
-      - "resistance_mechanisms"
-      - "molecular_amr"
-      - "sequence_based_resistance_profiling"
+    capabilities:
+      - resistance_gene_lookup
+      - resistance_classification
+      - molecular_mechanism_annotation
+      - genomic_amr_analysis
+      - high_throughput_resistance_profiling
 
-    knowledge_type:
-      - "structured_database"
-      - "molecular_knowledge"
-
-    retrieval_mode:
-      - "structured_lookup"
-      - "keyword"
-      - "vector"
-      - "metadata"
+    retrieval_modes:
+      - structured
+      - metadata
+      - keyword
 
     preferred_for:
-      - "Which resistance genes are associated with a mechanism?"
-      - "What molecular determinants are associated with resistance?"
-      - "Which genes belong to a resistance category?"
-      - "What is known about a resistance determinant?"
+      - resistance_gene_questions
+      - molecular_amr
+      - genomic_resistance
+      - resistance_mechanism_lookup
 
-    metadata:
-      domain: "molecular_amr"
-      evidence_type: "curated_database"
-      authority_level: "primary"
+    limitations:
+      - >
+        MEGARes is a molecular/genomic AMR resource and should not be
+        treated as a clinical breakpoint authority.
+      - >
+        Database release versions must be preserved.
+      - >
+        Gene presence does not automatically establish phenotypic
+        resistance in every biological or clinical context.
 
-    rag_policy:
-      prefer_structured_lookup: true
-      preserve_database_version: true
-      cite_database_source: true
+    ai_restrictions:
+      cannot_be_used_for:
+        - clinical_breakpoint_interpretation
+        - patient_specific_treatment
+        - automatic_equivalence_between_gene_presence_and_clinical_resistance
+
+    provenance:
+      required:
+        - source_id
+        - database_version
+        - release_date
+        - sequence_or_annotation_identifier
+        - retrieval_timestamp
+
+
+  # ----------------------------------------------------------
+  # 5. CARD
+  # ----------------------------------------------------------
+
+  card:
+    name: Comprehensive Antibiotic Resistance Database
+    abbreviation: CARD
+    authority: McMaster University / CARD research consortium
+
+    source_type:
+      - resistance_database
+      - molecular_amr_database
+      - ontology
+
+    tier: tier_1
+    priority: 100
+
+    jurisdiction:
+      - global
+
+    domains:
+      - antimicrobial_resistance
+      - resistance_genes
+      - resistance_mechanisms
+      - ontology
+      - genomic_amr
+
+    capabilities:
+      - resistance_gene_lookup
+      - antibiotic_resistance_ontology
+      - resistance_mechanism_annotation
+      - gene_drug_relationships
+      - genomic_amr_analysis
+      - resistance_gene_identification
+
+    retrieval_modes:
+      - structured
+      - metadata
+      - keyword
+
+    important_assets:
+      - card_ontology
+      - card_data_release
+      - resistance_gene_identifier
+      - aro
+
+    preferred_for:
+      - resistance_gene_lookup
+      - molecular_mechanism_lookup
+      - ontology_mapping
+      - genomic_amr
+
+    limitations:
+      - >
+        CARD releases and ontology revisions must be versioned independently.
+      - >
+        Ontology concepts and database release content must not be
+        treated as immutable.
+      - >
+        Molecular resistance evidence must not automatically be converted
+        into clinical susceptibility interpretation.
+
+    licensing:
+      track_per_asset: true
+      do_not_assume_uniform_license: true
+
+    ai_restrictions:
+      cannot_be_used_for:
+        - clinical_breakpoint_interpretation
+        - patient_specific_prescription
+        - unsupported_phenotype_inference
+
+    provenance:
+      required:
+        - source_id
+        - asset_id
+        - database_version
+        - release_date
+        - ontology_identifier
+        - retrieval_timestamp
+
+
+  # ----------------------------------------------------------
+  # 6. WRIGHT LAB ANTIBIOTIC RESISTANCE PLATFORM
+  # ----------------------------------------------------------
+
+  wright_lab_antibiotic_resistance_platform:
+    name: Antibiotic Resistance Platform
+    publisher: Wright Lab
+    authority: academic_research_lab
+
+    source_type:
+      - experimental_platform
+      - molecular_amr_resource
+
+    tier: tier_2
+    priority: 70
+
+    jurisdiction:
+      - global
+
+    domains:
+      - resistance_genes
+      - molecular_mechanisms
+      - experimental_amr
+      - antibiotic_discovery
+
+    capabilities:
+      - experimental_resistance_reference
+      - resistance_element_lookup
+      - molecular_mechanism_context
+      - antibiotic_adjuvant_research_context
+
+    retrieval_modes:
+      - document
+      - metadata
+      - structured
+
+    preferred_for:
+      - experimental_resistance_context
+      - molecular_mechanism_context
+      - antibiotic_discovery_research
+
+    limitations:
+      - >
+        Experimental resistance resources are not equivalent to
+        population-level surveillance data.
+      - >
+        Experimental evidence should not be generalized to clinical
+        prevalence without supporting evidence.
+      - >
+        The platform should not be treated as a clinical interpretation
+        standard.
+
+    ai_restrictions:
+      cannot_be_used_for:
+        - clinical_breakpoint_interpretation
+        - population_prevalence_estimation_without_external_data
+        - patient_specific_treatment
+
+
+  # ----------------------------------------------------------
+  # 7. CARD FOUNDATIONAL PAPER
+  # ----------------------------------------------------------
+
+  card_foundational_paper_2013:
+    name: >
+      The Comprehensive Antibiotic Resistance Database
+      (McArthur et al., 2013)
+
+    publisher: peer_reviewed_scientific_literature
+    authority: peer_reviewed_research
+
+    source_type:
+      - scientific_paper
+
+    tier: tier_3
+    priority: 40
+
+    domains:
+      - resistance_ontology
+      - molecular_amr
+      - bioinformatics
+      - genomic_amr
+
+    capabilities:
+      - historical_context
+      - ontology_methodology
+      - resistance_database_methodology
+      - molecular_amr_methodology
+
+    retrieval_modes:
+      - document
+      - keyword
+      - metadata
+
+    preferred_for:
+      - understanding_card_architecture
+      - historical_methodology
+      - resistance_ontology_context
+
+    limitations:
+      - >
+        This is a foundational publication and does not represent
+        the current CARD database release.
+      - >
+        Current database facts must be obtained from the current CARD
+        release rather than inferred from this publication.
+
+    ai_restrictions:
+      cannot_be_used_for:
+        - current_card_version_information
+        - current_resistance_gene_counts
+        - current_clinical_guidance
+
+
+  # ----------------------------------------------------------
+  # 8. SCIENCEDIRECT ANTIBIOTIC RAG PAPER
+  # ----------------------------------------------------------
+
+  antibiotic_rag_research:
+    name: Antibiotic chatbot / retrieval-augmented generation research
+    authority: peer_reviewed_research
+
+    source_type:
+      - scientific_paper
+      - ai_methodology
+
+    tier: tier_3
+    priority: 40
+
+    domains:
+      - artificial_intelligence
+      - llm
+      - rag
+      - antibiotic_information
+      - clinical_information_retrieval
+
+    capabilities:
+      - rag_methodology
+      - ai_evaluation
+      - antibiotic_question_answering
+      - retrieval_evaluation
+
+    retrieval_modes:
+      - document
+      - keyword
+      - metadata
+
+    preferred_for:
+      - designing_ai_architecture
+      - rag_evaluation
+      - ai_grounding_methodology
+      - antibiotic_chatbot_research
+
+    limitations:
+      - >
+        This is methodological evidence for AI/RAG design, not
+        authoritative clinical guidance.
+      - >
+        Its conclusions must not be treated as AMR surveillance evidence.
+
+    ai_restrictions:
+      cannot_be_used_for:
+        - clinical_guideline_replacement
+        - current_surveillance_statistics
+        - standalone_treatment_recommendations
+
+
+  # ----------------------------------------------------------
+  # 9. WHO AMR FACT SHEET
+  # ----------------------------------------------------------
+
+  who_amr_fact_sheet:
+    name: Antimicrobial Resistance
+    publisher: World Health Organization
+    authority: international_health_organization
+
+    source_type:
+      - educational_reference
+      - authoritative_context
+
+    tier: tier_1
+    priority: 100
+
+    jurisdiction:
+      - global
+
+    domains:
+      - antimicrobial_resistance
+      - public_health
+      - epidemiology
+      - stewardship
+      - global_context
+
+    capabilities:
+      - amr_context
+      - public_health_context
+      - global_amr_overview
+      - drivers_of_resistance
+      - response_framework_context
+
+    retrieval_modes:
+      - document
+      - metadata
+
+    preferred_for:
+      - general_amr_context
+      - public_health_explanations
+      - high_level_amr_background
+
+    limitations:
+      - >
+        A fact sheet is not a substitute for detailed surveillance
+        methodology or structured surveillance data.
+      - >
+        Numeric claims should preferentially be traced to the underlying
+        WHO dataset/report where available.
+
+    ai_restrictions:
+      cannot_be_used_for:
+        - detailed_statistical_analysis
+        - clinical_breakpoint_interpretation
+        - individual_patient_decisions
+
+
+  # ----------------------------------------------------------
+  # 10. IHME / GBD AMR
+  # ----------------------------------------------------------
+
+  ihme_amr:
+    name: Antimicrobial Resistance research and analysis
+    publisher: Institute for Health Metrics and Evaluation
+    authority: global_health_research_institution
+
+    source_type:
+      - burden_model
+      - research_dataset
+      - scientific_analysis
+
+    tier: tier_2
+    priority: 70
+
+    jurisdiction:
+      - global
+      - country
+      - regional
+
+    domains:
+      - antimicrobial_resistance
+      - disease_burden
+      - mortality
+      - morbidity
+      - epidemiological_modeling
+
+    capabilities:
+      - amr_burden_estimation
+      - mortality_estimation
+      - morbidity_estimation
+      - global_comparison
+      - epidemiological_modeling_context
+
+    retrieval_modes:
+      - structured
+      - document
+      - metadata
+
+    preferred_for:
+      - burden_estimation
+      - mortality_context
+      - global_amr_impact
+      - epidemiological_modeling
+
+    limitations:
+      - >
+        IHME estimates are modeled estimates and must not be represented
+        as direct microbiology surveillance observations.
+      - >
+        Model estimates depend on input data, assumptions, and methodology.
+      - >
+        Burden estimates and resistance prevalence are different quantities.
+
+    ai_restrictions:
+      cannot_be_used_for:
+        - direct_claim_of_observed_surveillance_prevalence
+        - clinical_breakpoint_interpretation
+        - individual_patient_risk_without_validated_model
+
+
+  # ----------------------------------------------------------
+  # 11. NCBI BOOKSHELF / STATPEARLS
+  # ----------------------------------------------------------
+
+  ncbi_antibiotic_resistance:
+    name: Antibiotic Resistance
+    publisher: NCBI Bookshelf / StatPearls
+    authority: secondary_clinical_reference
+
+    source_type:
+      - educational_reference
+
+    tier: tier_3
+    priority: 40
+
+    jurisdiction:
+      - international
+
+    domains:
+      - antimicrobial_resistance
+      - microbiology
+      - clinical_background
+      - resistance_mechanisms
+      - stewardship
+
+    capabilities:
+      - educational_explanation
+      - resistance_mechanism_background
+      - clinical_context
+      - stewardship_background
+
+    retrieval_modes:
+      - document
+      - keyword
+      - metadata
+
+    preferred_for:
+      - beginner_explanations
+      - background_context
+      - terminology
+      - conceptual_explanations
+
+    limitations:
+      - >
+        Secondary educational content should not outrank primary
+        guidelines or surveillance sources.
+      - >
+        Current clinical recommendations should be verified against
+        current authoritative guidelines.
+
+    ai_restrictions:
+      cannot_be_used_for:
+        - replacing_eucast_or_clsi
+        - current_surveillance_statistics
+        - patient_specific_prescription
+
+
+  # ----------------------------------------------------------
+  # 12. ANTIBIOTIC RESISTANCE MICROBIOLOGY DATASET
+  # ----------------------------------------------------------
+
+  armd:
+    name: Antibiotic Resistance Microbiology Dataset
+    authority: peer_reviewed_dataset_publication
+
+    source_type:
+      - research_dataset
+      - scientific_paper
+
+    tier: tier_2
+    priority: 70
+
+    jurisdiction:
+      - dataset_specific
+
+    domains:
+      - antimicrobial_resistance
+      - microbiology
+      - susceptibility_testing
+      - machine_learning
+      - data_science
+
+    capabilities:
+      - microbiology_dataset
+      - resistance_prediction
+      - exploratory_analysis
+      - machine_learning_benchmarking
+      - dataset_methodology
+
+    retrieval_modes:
+      - structured
+      - downloadable_dataset
+      - document
+      - metadata
+
+    preferred_for:
+      - model_development
+      - ml_benchmarking
+      - exploratory_amr_analysis
+      - microbiology_data_engineering
+      - dataset_validation
+
+    limitations:
+      - >
+        Dataset-specific inclusion criteria, geography, laboratory
+        methods, sampling strategy, and missingness must be preserved.
+      - >
+        A research dataset must not automatically be interpreted as
+        nationally representative surveillance.
+      - >
+        Dataset labels and definitions must be documented before ML use.
+
+    ai_restrictions:
+      cannot_be_used_for:
+        - unsupported_population_prevalence_claims
+        - clinical_prescription
+        - generalized_global_amr_estimates
+
+    provenance:
+      required:
+        - source_id
+        - dataset_id
+        - dataset_version
+        - publication
+        - dataset_license
+        - retrieval_timestamp
+        - original_dataset_location
+
 
 # ============================================================
-# SOURCE-LEVEL RETRIEVAL RULES
+# FUTURE SOURCE FAMILIES
+# ============================================================
+#
+# These are deliberately NOT included as active sources yet.
+# They represent gaps/capabilities to be evaluated before adding
+# another source.
 # ============================================================
 
-retrieval_rules:
+future_source_families:
 
-  - rule: "resistance_detection"
-    preferred_sources:
-      - "eucast_resistance_detection"
-      - "megares"
+  clinical_ast_standard:
+    status: planned
+    purpose:
+      >
+      Add an explicit CLSI source so that the AI can distinguish
+      EUCAST and CLSI susceptibility interpretation frameworks.
 
-  - rule: "clinical_interpretation"
-    preferred_sources:
-      - "eucast_resistance_detection"
+  india_amr_surveillance:
+    status: planned
+    purpose:
+      >
+      Add authoritative Indian AMR surveillance sources, including
+      national/institutional surveillance systems where appropriate.
 
-  - rule: "amr_surveillance_methodology"
-    preferred_sources:
-      - "who_glass"
+  genomic_amr:
+    status: planned
+    purpose:
+      >
+      Evaluate additional curated genomic AMR resources only where
+      they provide capabilities not adequately covered by CARD/MEGARes.
 
-  - rule: "surveillance_statistics"
-    preferred_sources:
-      - "who_amr_data_dashboard"
-      - "who_glass"
+  peer_reviewed_literature:
+    status: planned
+    purpose:
+      >
+      Establish a controlled scientific-literature ingestion policy
+      rather than indiscriminately embedding papers.
 
-  - rule: "resistance_genes_or_molecular_mechanisms"
-    preferred_sources:
-      - "megares"
-      - "eucast_resistance_detection"
+  one_health_amr:
+    status: planned
+    purpose:
+      >
+      Extend the system beyond human AMR into animal/environmental
+      surveillance when the core human-AMR system is stable.
 
-  - rule: "emerging_resistance"
-    preferred_sources:
-      - "who_glass"
-      - "who_amr_data_dashboard"
-      - "eucast_resistance_detection"
-
-  - rule: "country_level_amr_comparison"
-    preferred_sources:
-      - "who_amr_data_dashboard"
 
 # ============================================================
-# PROVENANCE REQUIREMENTS
+# ASSET MODEL
+# ============================================================
+
+asset_model:
+
+  source:
+    meaning: >
+      Stable identity of a publisher, organization, database,
+      platform, or surveillance system.
+
+  asset:
+    meaning: >
+      Specific document, dataset, report, database release,
+      guideline, or other retrievable knowledge object.
+
+  version:
+    meaning: >
+      Explicit release/version of an asset. Never infer a version
+      when the publisher does not provide one.
+
+  ingestion:
+    meaning: >
+      A particular retrieval/processing event for an asset.
+
+  required_relationship:
+    - source
+    - asset
+    - version
+    - ingestion
+
+
+# ============================================================
+# PROVENANCE MODEL
 # ============================================================
 
 provenance:
 
-  required_fields:
-    - "source_id"
-    - "source_name"
-    - "source_type"
-    - "canonical_url"
-    - "retrieval_timestamp"
+  minimum_required_fields:
+    - source_id
+    - asset_id
+    - asset_version
+    - canonical_source
+    - retrieval_timestamp
 
-  document_chunks:
-    preserve:
-      - "document_id"
-      - "chunk_id"
-      - "title"
-      - "section"
-      - "source_id"
-      - "source_authority"
+  document_fields:
+    - document_id
+    - title
+    - publication_date
+    - version
+    - section
+    - page
+    - source_id
 
-  generated_answers:
-    require_citations: true
-    allow_uncited_medical_claims: false
+  structured_data_fields:
+    - dataset_id
+    - dataset_version
+    - record_identifier
+    - reporting_period
+    - geography
+    - indicator
+    - source_id
+
+  ai_claim_fields:
+    - claim_id
+    - claim_text
+    - source_id
+    - asset_id
+    - asset_version
+    - evidence_location
+    - retrieval_timestamp
+
 
 # ============================================================
 # INGESTION STATUS
 # ============================================================
 
-ingestion:
+ingestion_status:
 
-  status:
-    eucast_resistance_detection: "pending"
-    who_glass: "pending"
-    who_amr_data_dashboard: "pending"
-    megares: "pending"
+  registered: true
+  audited: true
+  ingested: false
 
-  next_step:
-    - "ingest_source"
-    - "extract_or_connect"
-    - "normalize"
-    - "attach_metadata"
-    - "chunk_documents"
-    - "build_index"
-    - "run_retrieval_evaluation"
+  next_state:
+    - source_validation
+    - asset_discovery
+    - license_validation
+    - version_capture
+    - ingestion
+    - extraction
+    - provenance_validation
+    - retrieval_evaluation
