@@ -1,0 +1,365 @@
+# ============================================================
+# AMR INTELLIGENCE — KNOWLEDGE SOURCE REGISTRY
+# ============================================================
+#
+# Tier 1 = primary / authoritative sources.
+#
+# Important:
+# - This registry describes sources and their retrieval role.
+# - It does NOT contain the source content itself.
+# - Document content, structured data, and database records will
+#   be ingested separately according to source_type.
+#
+# Retrieval principle:
+#   authoritative guidance > surveillance authority > evidence
+#   literature > general supporting material
+#
+# ============================================================
+
+knowledge_base:
+  name: "AMR Intelligence Knowledge Base"
+  version: "0.1.0"
+  tier_1_source_count: 4
+
+  retrieval_policy:
+    primary_sources_first: true
+    require_source_attribution: true
+    preserve_original_url: true
+    preserve_source_version: true
+    allow_cross_source_synthesis: true
+
+    source_priority:
+      tier_1: 100
+      tier_2: 70
+      tier_3: 40
+
+# ------------------------------------------------------------
+# SOURCE 1 — EUCAST
+# ------------------------------------------------------------
+
+sources:
+
+  - id: "eucast_resistance_detection"
+
+    name: "EUCAST Resistance Detection"
+
+    authority: "EUCAST"
+
+    source_type: "clinical_guidance"
+
+    tier: 1
+    priority: 1
+
+    url:
+      canonical: "https://www.eucast.org/bacteria/important-additional-information/resistance-detection/"
+
+    description: >
+      EUCAST guidance for detecting resistance mechanisms and specific
+      resistances of clinical and/or epidemiological importance, including
+      phenotypic screening approaches and interpretation-related guidance.
+
+    primary_role:
+      - "resistance_detection"
+      - "resistance_mechanisms"
+      - "phenotypic_screening"
+      - "clinical_interpretation"
+      - "epidemiological_resistance_detection"
+
+    knowledge_type:
+      - "document"
+      - "guideline"
+
+    retrieval_mode:
+      - "vector"
+      - "keyword"
+      - "metadata"
+
+    preferred_for:
+      - "How is a resistance mechanism detected?"
+      - "What phenotypic screening approach is recommended?"
+      - "What resistance phenotype should be expected?"
+      - "How should clinically relevant resistance be interpreted?"
+      - "What guidance exists for resistance screening?"
+
+    metadata:
+      jurisdiction: "Europe / international clinical microbiology"
+      domain: "antimicrobial_susceptibility_testing"
+      evidence_type: "guideline"
+      authority_level: "primary"
+
+    current_page_notes:
+      includes:
+        - "resistance mechanism detection guidance"
+        - "phenotypic screening tests"
+        - "expected phenotypes"
+        - "clinical and epidemiological relevance"
+
+# ------------------------------------------------------------
+# SOURCE 2 — WHO GLASS
+# ------------------------------------------------------------
+
+  - id: "who_glass"
+
+    name: "WHO Global Antimicrobial Resistance and Use Surveillance System (GLASS)"
+
+    authority: "World Health Organization"
+
+    source_type: "surveillance_framework"
+
+    tier: 1
+    priority: 2
+
+    url:
+      canonical: "https://www.who.int/initiatives/glass"
+
+    description: >
+      WHO's global framework for standardized antimicrobial resistance and
+      antimicrobial use surveillance, including approaches to data collection,
+      analysis, interpretation, sharing, and capacity building.
+
+    primary_role:
+      - "amr_surveillance"
+      - "surveillance_methodology"
+      - "data_standardization"
+      - "amr_reporting"
+      - "antimicrobial_use_surveillance"
+      - "emerging_resistance_surveillance"
+
+    knowledge_type:
+      - "document"
+      - "framework"
+      - "surveillance_standard"
+
+    retrieval_mode:
+      - "vector"
+      - "keyword"
+      - "metadata"
+
+    preferred_for:
+      - "How should AMR surveillance be structured?"
+      - "What is GLASS?"
+      - "How are AMR data standardized?"
+      - "What surveillance modules exist?"
+      - "How should AMR surveillance data be interpreted?"
+      - "How is emerging resistance monitored?"
+
+    metadata:
+      jurisdiction: "global"
+      domain: "amr_surveillance"
+      evidence_type: "surveillance_framework"
+      authority_level: "primary"
+
+    known_modules:
+      - "GLASS-AMR"
+      - "GLASS-AMU"
+      - "GLASS-EAR"
+      - "GLASS-FUNGI"
+      - "EGASP"
+      - "One Health"
+      - "PPS-AMU"
+      - "BURDEN"
+
+# ------------------------------------------------------------
+# SOURCE 3 — WHO AMR DATA DASHBOARD
+# ------------------------------------------------------------
+
+  - id: "who_amr_data_dashboard"
+
+    name: "WHO AMR Data Dashboard"
+
+    authority: "World Health Organization"
+
+    source_type: "surveillance_data"
+
+    tier: 1
+    priority: 3
+
+    url:
+      canonical: "https://data.who.int/dashboards/amr/overview"
+
+    description: >
+      WHO's AMR data dashboard providing structured antimicrobial resistance
+      surveillance indicators and data visualizations.
+
+    primary_role:
+      - "amr_surveillance_data"
+      - "amr_indicators"
+      - "country_comparison"
+      - "trend_analysis"
+      - "surveillance_visualization"
+
+    knowledge_type:
+      - "structured_data"
+      - "dashboard"
+      - "indicator_dataset"
+
+    retrieval_mode:
+      - "sql"
+      - "api"
+      - "structured_lookup"
+      - "metadata"
+
+    preferred_for:
+      - "What is the observed AMR indicator for a country?"
+      - "How does resistance compare across countries?"
+      - "What is the observed trend over time?"
+      - "What surveillance indicators are available?"
+      - "What does WHO currently report for AMR?"
+
+    metadata:
+      jurisdiction: "global"
+      domain: "amr_surveillance_data"
+      evidence_type: "surveillance_data"
+      authority_level: "primary"
+
+    rag_policy:
+      embed_numeric_values_as_primary_source: false
+      use_structured_lookup_for_statistics: true
+      cite_original_dashboard: true
+
+    # Important:
+    # Exact current numeric values should preferably come from the
+    # structured dashboard/data layer rather than from an LLM's
+    # vector-retrieved text chunk.
+
+# ------------------------------------------------------------
+# SOURCE 4 — MEGARES
+# ------------------------------------------------------------
+
+  - id: "megares"
+
+    name: "MEGARes"
+
+    authority: "Microbial Ecology Group"
+
+    source_type: "resistance_database"
+
+    tier: 1
+    priority: 4
+
+    url:
+      canonical: "https://www.meglab.org/megares/"
+
+    description: >
+      Curated antimicrobial-resistance sequence database providing molecular
+      resistance determinants and hierarchical annotation for resistance
+      profiling and downstream analysis of sequence data.
+
+    primary_role:
+      - "resistance_genes"
+      - "resistance_determinants"
+      - "resistance_mechanisms"
+      - "molecular_amr"
+      - "sequence_based_resistance_profiling"
+
+    knowledge_type:
+      - "structured_database"
+      - "molecular_knowledge"
+
+    retrieval_mode:
+      - "structured_lookup"
+      - "keyword"
+      - "vector"
+      - "metadata"
+
+    preferred_for:
+      - "Which resistance genes are associated with a mechanism?"
+      - "What molecular determinants are associated with resistance?"
+      - "Which genes belong to a resistance category?"
+      - "What is known about a resistance determinant?"
+
+    metadata:
+      domain: "molecular_amr"
+      evidence_type: "curated_database"
+      authority_level: "primary"
+
+    rag_policy:
+      prefer_structured_lookup: true
+      preserve_database_version: true
+      cite_database_source: true
+
+# ============================================================
+# SOURCE-LEVEL RETRIEVAL RULES
+# ============================================================
+
+retrieval_rules:
+
+  - rule: "resistance_detection"
+    preferred_sources:
+      - "eucast_resistance_detection"
+      - "megares"
+
+  - rule: "clinical_interpretation"
+    preferred_sources:
+      - "eucast_resistance_detection"
+
+  - rule: "amr_surveillance_methodology"
+    preferred_sources:
+      - "who_glass"
+
+  - rule: "surveillance_statistics"
+    preferred_sources:
+      - "who_amr_data_dashboard"
+      - "who_glass"
+
+  - rule: "resistance_genes_or_molecular_mechanisms"
+    preferred_sources:
+      - "megares"
+      - "eucast_resistance_detection"
+
+  - rule: "emerging_resistance"
+    preferred_sources:
+      - "who_glass"
+      - "who_amr_data_dashboard"
+      - "eucast_resistance_detection"
+
+  - rule: "country_level_amr_comparison"
+    preferred_sources:
+      - "who_amr_data_dashboard"
+
+# ============================================================
+# PROVENANCE REQUIREMENTS
+# ============================================================
+
+provenance:
+
+  required_fields:
+    - "source_id"
+    - "source_name"
+    - "source_type"
+    - "canonical_url"
+    - "retrieval_timestamp"
+
+  document_chunks:
+    preserve:
+      - "document_id"
+      - "chunk_id"
+      - "title"
+      - "section"
+      - "source_id"
+      - "source_authority"
+
+  generated_answers:
+    require_citations: true
+    allow_uncited_medical_claims: false
+
+# ============================================================
+# INGESTION STATUS
+# ============================================================
+
+ingestion:
+
+  status:
+    eucast_resistance_detection: "pending"
+    who_glass: "pending"
+    who_amr_data_dashboard: "pending"
+    megares: "pending"
+
+  next_step:
+    - "ingest_source"
+    - "extract_or_connect"
+    - "normalize"
+    - "attach_metadata"
+    - "chunk_documents"
+    - "build_index"
+    - "run_retrieval_evaluation"
