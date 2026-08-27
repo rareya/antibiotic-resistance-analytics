@@ -1,0 +1,216 @@
+{
+  "format": "csv",
+  "source_file": "knowledge/raw/csv/GLASS-AMR implementation indicators_All.csv",
+  "output_file": "knowledge/extracted/csv/glass-amr_implementation_indicators_all.csv",
+  "metadata_file": "knowledge/extracted/csv/glass-amr_implementation_indicators_all.metadata.json",
+  "encoding": "utf-8-sig",
+  "delimiter": ",",
+  "header_detection": {
+    "header_line": 5,
+    "header_score": 33.0,
+    "candidate_headers": [
+      {
+        "line_number": 5,
+        "score": 33.0,
+        "columns": [
+          "Names",
+          "Value",
+          "Percentage"
+        ]
+      },
+      {
+        "line_number": 12,
+        "score": 33.0,
+        "columns": [
+          "Names",
+          "Value",
+          "Percentage"
+        ]
+      },
+      {
+        "line_number": 18,
+        "score": 33.0,
+        "columns": [
+          "Names",
+          "Value",
+          "Percentage"
+        ]
+      },
+      {
+        "line_number": 24,
+        "score": 33.0,
+        "columns": [
+          "Names",
+          "Value",
+          "Percentage"
+        ]
+      },
+      {
+        "line_number": 30,
+        "score": 33.0,
+        "columns": [
+          "Names",
+          "Value",
+          "Percentage"
+        ]
+      },
+      {
+        "line_number": 6,
+        "score": 25.0,
+        "columns": [
+          "Available",
+          "85",
+          "65.385"
+        ]
+      },
+      {
+        "line_number": 7,
+        "score": 25.0,
+        "columns": [
+          "In progress",
+          "12",
+          "9.231"
+        ]
+      },
+      {
+        "line_number": 8,
+        "score": 25.0,
+        "columns": [
+          "Not available",
+          "13",
+          "10"
+        ]
+      },
+      {
+        "line_number": 9,
+        "score": 25.0,
+        "columns": [
+          "No data",
+          "20",
+          "15.385"
+        ]
+      },
+      {
+        "line_number": 13,
+        "score": 25.0,
+        "columns": [
+          "Available",
+          "101",
+          "77.692"
+        ]
+      }
+    ]
+  },
+  "metadata_before_table": {
+    "lines_before_header": 3,
+    "raw_lines": [
+      "Filters",
+      "Region filter: All",
+      "National Coordination Centre (NCC)"
+    ]
+  },
+  "row_count": 24,
+  "column_count": 3,
+  "removed_empty_rows": 0,
+  "columns": [
+    {
+      "name": "Names",
+      "normalized_name": "names",
+      "dtype": "object",
+      "non_null_count": 24,
+      "null_count": 0,
+      "unique_count": 9,
+      "sample_values": [
+        "Available",
+        "In progress",
+        "Not available",
+        "No data",
+        "National Reference Laboratory (NRL)"
+      ]
+    },
+    {
+      "name": "Value",
+      "normalized_name": "value",
+      "dtype": "object",
+      "non_null_count": 20,
+      "null_count": 4,
+      "unique_count": 16,
+      "sample_values": [
+        "85",
+        "12",
+        "13",
+        "20",
+        "Value"
+      ]
+    },
+    {
+      "name": "Percentage",
+      "normalized_name": "percentage",
+      "dtype": "object",
+      "non_null_count": 20,
+      "null_count": 4,
+      "unique_count": 16,
+      "sample_values": [
+        "65.385",
+        "9.231",
+        "10",
+        "15.385",
+        "Percentage"
+      ]
+    }
+  ],
+  "numeric_summary": {},
+  "preview": [
+    {
+      "names": "Available",
+      "value": "85",
+      "percentage": "65.385"
+    },
+    {
+      "names": "In progress",
+      "value": "12",
+      "percentage": "9.231"
+    },
+    {
+      "names": "Not available",
+      "value": "13",
+      "percentage": "10"
+    },
+    {
+      "names": "No data",
+      "value": "20",
+      "percentage": "15.385"
+    },
+    {
+      "names": "National Reference Laboratory (NRL)",
+      "value": null,
+      "percentage": null
+    },
+    {
+      "names": "Names",
+      "value": "Value",
+      "percentage": "Percentage"
+    },
+    {
+      "names": "Available",
+      "value": "101",
+      "percentage": "77.692"
+    },
+    {
+      "names": "Not available",
+      "value": "9",
+      "percentage": "6.923"
+    },
+    {
+      "names": "No data",
+      "value": "20",
+      "percentage": "15.385"
+    },
+    {
+      "names": "External Quality Assurance (EQA) of NRL",
+      "value": null,
+      "percentage": null
+    }
+  ],
+  "extraction_status": "success"
+}

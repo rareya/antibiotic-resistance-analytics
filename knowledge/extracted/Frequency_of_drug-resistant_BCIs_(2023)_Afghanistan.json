@@ -1,0 +1,24 @@
+{
+  "asset_type": "csv",
+  "source_file": "knowledge/raw/csv/Frequency of drug-resistant BCIs (2023)_Afghanistan.csv",
+  "source_size_bytes": 558,
+  "encoding": "utf-8-sig",
+  "delimiter": ",",
+  "header_row": 11,
+  "columns": [
+    "Iso3",
+    "Year",
+    "Specimen",
+    "PathogenName",
+    "AntibioticGroup",
+    "NumSampledPatients",
+    "TotalPathogenIsolates",
+    "Resistant",
+    "PercentFrequency",
+    "LowerLimit",
+    "UpperLimit"
+  ],
+  "row_count": 0,
+  "records": [],
+  "extracted_at": "2026-08-26T11:51:14.586162+00:00"
+}

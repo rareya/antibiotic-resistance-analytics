@@ -1,0 +1,356 @@
+{
+  "format": "csv",
+  "source_file": "knowledge/raw/csv/Global maps of testing coverage by bacterial pathogen and antibiotic group_2023-BLOOD.csv",
+  "output_file": "knowledge/extracted/csv/global_maps_of_testing_coverage_by_bacterial_pathogen_and_antibiotic_group_2023-blood.csv",
+  "metadata_file": "knowledge/extracted/csv/global_maps_of_testing_coverage_by_bacterial_pathogen_and_antibiotic_group_2023-blood.metadata.json",
+  "encoding": "utf-8-sig",
+  "delimiter": ",",
+  "header_detection": {
+    "header_line": 10,
+    "header_score": 35.0,
+    "candidate_headers": [
+      {
+        "line_number": 10,
+        "score": 35.0,
+        "columns": [
+          "Algeria",
+          "6.1",
+          "280",
+          "4.6",
+          "211",
+          "75.4"
+        ]
+      },
+      {
+        "line_number": 11,
+        "score": 35.0,
+        "columns": [
+          "Argentina",
+          "12.9",
+          "587",
+          "12.3",
+          "560",
+          "95.4"
+        ]
+      },
+      {
+        "line_number": 12,
+        "score": 35.0,
+        "columns": [
+          "Australia",
+          "5.4",
+          "143",
+          "4.7",
+          "125",
+          "87.4"
+        ]
+      },
+      {
+        "line_number": 13,
+        "score": 35.0,
+        "columns": [
+          "Austria",
+          "8.1",
+          "74",
+          "6.7",
+          "61",
+          "82.4"
+        ]
+      },
+      {
+        "line_number": 14,
+        "score": 35.0,
+        "columns": [
+          "Bahrain",
+          "67.5",
+          "106",
+          "64.3",
+          "101",
+          "95.3"
+        ]
+      },
+      {
+        "line_number": 15,
+        "score": 35.0,
+        "columns": [
+          "Bangladesh",
+          "0.4",
+          "77",
+          "0.4",
+          "76",
+          "98.7"
+        ]
+      },
+      {
+        "line_number": 16,
+        "score": 35.0,
+        "columns": [
+          "Belgium",
+          "13.8",
+          "162",
+          "13.8",
+          "162",
+          "100"
+        ]
+      },
+      {
+        "line_number": 17,
+        "score": 35.0,
+        "columns": [
+          "Benin",
+          "12.2",
+          "172",
+          "11.8",
+          "166",
+          "96.5"
+        ]
+      },
+      {
+        "line_number": 18,
+        "score": 35.0,
+        "columns": [
+          "Bhutan",
+          "22.9",
+          "18",
+          "20.3",
+          "16",
+          "88.9"
+        ]
+      },
+      {
+        "line_number": 19,
+        "score": 35.0,
+        "columns": [
+          "Bosnia and Herzegovina",
+          "68.1",
+          "217",
+          "68.1",
+          "217",
+          "100"
+        ]
+      }
+    ]
+  },
+  "metadata_before_table": {
+    "lines_before_header": 7,
+    "raw_lines": [
+      "Filters",
+      "\"Year filter: 2023\"",
+      "\"Region filter: All\"",
+      "\"Infection type filter: Bloodstream\"",
+      "\"Bacterial pathogen filter: Acinetobacter spp.\"",
+      "\"Antibiotic group filter: Carbapenems\"",
+      "\"CountryTerritoryArea\",\"Total Acinetobacter spp. BCIs per million population\",\"Absolute number of Acinetobacter spp. BCIs\",\"Total Acinetobacter spp. BCIs with AST (Carbapenems) per million population\",\"Absolute number of Acinetobacter spp. BCIs with AST (Carbapenems)\",\"% of Acinetobacter spp. BCIs with AST\""
+    ]
+  },
+  "row_count": 95,
+  "column_count": 6,
+  "removed_empty_rows": 0,
+  "columns": [
+    {
+      "name": "Algeria",
+      "normalized_name": "algeria",
+      "dtype": "object",
+      "non_null_count": 95,
+      "null_count": 0,
+      "unique_count": 95,
+      "sample_values": [
+        "Argentina",
+        "Australia",
+        "Austria",
+        "Bahrain",
+        "Bangladesh"
+      ]
+    },
+    {
+      "name": "6.1",
+      "normalized_name": "6_1",
+      "dtype": "float64",
+      "non_null_count": 95,
+      "null_count": 0,
+      "unique_count": 81,
+      "sample_values": [
+        "12.9",
+        "5.4",
+        "8.1",
+        "67.5",
+        "0.4"
+      ]
+    },
+    {
+      "name": "280",
+      "normalized_name": "280",
+      "dtype": "int64",
+      "non_null_count": 95,
+      "null_count": 0,
+      "unique_count": 84,
+      "sample_values": [
+        "587",
+        "143",
+        "74",
+        "106",
+        "77"
+      ]
+    },
+    {
+      "name": "4.6",
+      "normalized_name": "4_6",
+      "dtype": "float64",
+      "non_null_count": 95,
+      "null_count": 0,
+      "unique_count": 76,
+      "sample_values": [
+        "12.3",
+        "4.7",
+        "6.7",
+        "64.3",
+        "0.4"
+      ]
+    },
+    {
+      "name": "211",
+      "normalized_name": "211",
+      "dtype": "int64",
+      "non_null_count": 95,
+      "null_count": 0,
+      "unique_count": 81,
+      "sample_values": [
+        "560",
+        "125",
+        "61",
+        "101",
+        "76"
+      ]
+    },
+    {
+      "name": "75.4",
+      "normalized_name": "75_4",
+      "dtype": "float64",
+      "non_null_count": 95,
+      "null_count": 0,
+      "unique_count": 67,
+      "sample_values": [
+        "95.4",
+        "87.4",
+        "82.4",
+        "95.3",
+        "98.7"
+      ]
+    }
+  ],
+  "numeric_summary": {
+    "6_1": {
+      "min": 0.0,
+      "max": 346.4,
+      "mean": 22.695789473684204,
+      "median": 9.9
+    },
+    "280": {
+      "min": 1.0,
+      "max": 11310.0,
+      "mean": 571.0631578947368,
+      "median": 118.0
+    },
+    "4_6": {
+      "min": 0.0,
+      "max": 346.4,
+      "mean": 20.692631578947367,
+      "median": 9.2
+    },
+    "211": {
+      "min": 1.0,
+      "max": 9946.0,
+      "mean": 504.5473684210526,
+      "median": 94.0
+    },
+    "75_4": {
+      "min": 4.0,
+      "max": 100.0,
+      "mean": 85.46631578947367,
+      "median": 91.6
+    }
+  },
+  "preview": [
+    {
+      "algeria": "Argentina",
+      "6_1": 12.9,
+      "280": 587,
+      "4_6": 12.3,
+      "211": 560,
+      "75_4": 95.4
+    },
+    {
+      "algeria": "Australia",
+      "6_1": 5.4,
+      "280": 143,
+      "4_6": 4.7,
+      "211": 125,
+      "75_4": 87.4
+    },
+    {
+      "algeria": "Austria",
+      "6_1": 8.1,
+      "280": 74,
+      "4_6": 6.7,
+      "211": 61,
+      "75_4": 82.4
+    },
+    {
+      "algeria": "Bahrain",
+      "6_1": 67.5,
+      "280": 106,
+      "4_6": 64.3,
+      "211": 101,
+      "75_4": 95.3
+    },
+    {
+      "algeria": "Bangladesh",
+      "6_1": 0.4,
+      "280": 77,
+      "4_6": 0.4,
+      "211": 76,
+      "75_4": 98.7
+    },
+    {
+      "algeria": "Belgium",
+      "6_1": 13.8,
+      "280": 162,
+      "4_6": 13.8,
+      "211": 162,
+      "75_4": 100.0
+    },
+    {
+      "algeria": "Benin",
+      "6_1": 12.2,
+      "280": 172,
+      "4_6": 11.8,
+      "211": 166,
+      "75_4": 96.5
+    },
+    {
+      "algeria": "Bhutan",
+      "6_1": 22.9,
+      "280": 18,
+      "4_6": 20.3,
+      "211": 16,
+      "75_4": 88.9
+    },
+    {
+      "algeria": "Bosnia and Herzegovina",
+      "6_1": 68.1,
+      "280": 217,
+      "4_6": 68.1,
+      "211": 217,
+      "75_4": 100.0
+    },
+    {
+      "algeria": "Brazil",
+      "6_1": 1.1,
+      "280": 242,
+      "4_6": 1.0,
+      "211": 213,
+      "75_4": 88.0
+    }
+  ],
+  "extraction_status": "success"
+}

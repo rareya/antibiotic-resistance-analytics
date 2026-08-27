@@ -1,0 +1,617 @@
+{
+  "chunker_version": "1.0",
+  "asset_id": "source_attripdf",
+  "source_id": "source_attripdf",
+  "source_type": "pdf",
+  "source_file": "knowledge/raw/pdf/source_attripdf.pdf",
+  "chunk_count": 40,
+  "chunking": {
+    "strategy": "page-aware semantic paragraph chunking",
+    "target_chars": 1400,
+    "max_chars": 1800,
+    "overlap_chars": 220
+  },
+  "chunks": [
+    {
+      "chunk_id": "chunk_13edcb5aa04570745f9f",
+      "chunk_type": "document",
+      "content": "Source Attribution and Risk Assessment of Antimicrobial Resistance SARA M. PIRES, 1 ANA SOFIA DUARTE,2 and TINE HALD 2 1Risk Beneﬁt Research Group, Division of Diet, Disease Prevention and Toxicology, National Food Institute, Technical University of Denmark, 2800 Kgs. Lyngby; 2Unit for Genomic Epidemiology, National Food Institute, Technical University of Denmark, 2800 Kgs. Lyngby, Denmark ABSTRACT Source attribution and microbial risk assessment methods have been widely applied for the control of several foodborne pathogens worldwide by identifying (i) the most important pathogen sources and (ii) the risk represented by speciﬁc foods and the critical points in these foods ’ production chains for microbial control. Such evidence has proved crucial for risk managers to identify and prioritize e ﬀective food safety and public health strategies. In the context of antimicrobial resistance (AMR) from livestock and pets, the utility of these methods is recognized, but a number of challenges have largely prevented their application and routine use. One key challenge has been to de ﬁne the hazard in question: Is it the antimicrobial drug use in animals, the antimicrobial-resistant bacteria in animals and foods, or the antimicrobial resistance genes that can be transferred between commensal and pathogenic bacteria in the animal or human gut or in the environment? Other important limitations include the lack of occurrence and transmission data and the lack of evidence to inform dose-response relationships. We present the main principles, available methods, strengths, and weaknesses of source attribution and risk assessment methods, discuss their utility to identify sources and estimate risks of AMR from livestock and pets, and provide an overview of conducted studies. In addition, we discuss remaining challenges and current and future opportunities to improve methods and knowledge of the sources and transmission routes of AMR from animals through food, direct contact, or the environment, including improvements in surveillance and developments in genotypic typing methods. INTRODUCTION Antimicrobial use in humans and animals has been iden- tiﬁed as a main driver of antimicrobial resistance (AMR), and bacteria harboring resistance to antimicrobials can be found in humans, animals, foods, and the environ- ment. As a consequence, humans can be exposed to antimicrobial-resistant bacteria through a wide range of sources and transmission pathways. To inform policies aimed at reducing the burden of AMR in animals and foods, risk managers need evidence about the most im- portant sources and transmission routes and the critical points throughout the production chain for the preven- tion and control of AMR. While this process is com- plex and deeply reliant on the integration of surveillance data from humans, animals, and foods, it is supported by scientiﬁc disciplines that have evolved rapidly in the past decades, including source attribution and quantitative risk assessment. Source attribution is a relatively new discipline that has been developed to assist risk managers to identify and prioritize effective food safety intervention measures. It is de ﬁned as the partitioning of the human disease burden of one or more foodborne illnesses to speci ﬁc sources, where the term source includes reservoirs and Received: 26 January 2018, Accepted: 7 February 2018, Published: 7 June 2018 Editors: Frank Møller Aarestrup, Technical University of Denmark, Lyngby, Denmark; Stefan Schwarz, Freie Universität Berlin, Berlin, Germany; Jianzhong Shen, China Agricultural University, Beijing, China, and Lina Cavaco, Statens Serum Institute, Copenhagen, Denmark Citation: Pires SM, Duarte AS, Hald T. 2018. Source attribution and risk assessment of antimicrobial resistance. Microbiol Spectrum 6(3): ARBA-0027-2017. doi:10.1128/microbiolspec.ARBA-0027-2017. Correspondence: Sara M. Pires, smpi@food.dtu.dk © 2018 American Society for Microbiology. All rights reserved. ASMscience.org/MicrobiolSpectrum 1",
+      "metadata": {
+        "asset_id": "source_attripdf",
+        "source_id": "source_attripdf",
+        "source_type": "pdf",
+        "source_file": "knowledge/raw/pdf/source_attripdf.pdf",
+        "section": "Document",
+        "page_start": 1,
+        "page_end": 1,
+        "version": null
+      }
+    },
+    {
+      "chunk_id": "chunk_707281d73c3dac93d261",
+      "chunk_type": "document",
+      "content": "l Spectrum 6(3): ARBA-0027-2017. doi:10.1128/microbiolspec.ARBA-0027-2017. Correspondence: Sara M. Pires, smpi@food.dtu.dk © 2018 American Society for Microbiology. All rights reserved. ASMscience.org/MicrobiolSpectrum 1 vehicles (1). A variety of source attribution methods is available to estimate the relative contribution of dif- ferent reservoirs or vehicles of foodborne pathogens, including methods relying on data on the occurrence of the pathogen in sources and humans, epidemiologi- cal studies, intervention studies, and expert elicitations. These methods have been applied to inform food safety policy-making at the national or international level, particularly regarding Salmonella and Campylobacter intervention strategies (see, e.g., 2–6). Source attribution methods differ in their approaches and data require- ments, and as a consequence, they attribute disease at different points along the food chain (points of attri- bution), i.e., at the point of reservoir (e.g., animal pro- duction stage, environment emissions) or the point of exposure (end of the transmission chain) ( Fig. 1 ). The application and utility of each method, therefore, de- pends on the risk management question being addressed and on the availability of data. Microbial risk assessment is a systematic and science- based approach to estimating the risk of microbial hazards in the production-to-consumption chain ( 8, 9). Microbial risk assessment can be used to detect criti- cal control points along the food chain and for the as- sessment of control and intervention strategies.",
+      "metadata": {
+        "asset_id": "source_attripdf",
+        "source_id": "source_attripdf",
+        "source_type": "pdf",
+        "source_file": "knowledge/raw/pdf/source_attripdf.pdf",
+        "section": "Document",
+        "page_start": 2,
+        "page_end": 2,
+        "version": null
+      }
+    },
+    {
+      "chunk_id": "chunk_db2e2ab75e43e417f0c6",
+      "chunk_type": "document",
+      "content": "It is a well-established discipline that has been widely applied to estimate the risk of an extensive variety of pathogen- food commodity pairs, and it is also systematically ap- plied to inform food safety risk management in many countries and international bodies such as the European Food Safety Authority (e.g., 10–12). In coordination with source attribution studies, it is particularly useful to focus on the production chain of the most impor- tant source(s) of the hazard of interest (as identi ﬁed in FIGURE 1 Routes of transmission of zoonotic pathogens and points of source attribution. Adapted from reference 7. 2 ASMscience.org/MicrobiolSpectrum",
+      "metadata": {
+        "asset_id": "source_attripdf",
+        "source_id": "source_attripdf",
+        "source_type": "pdf",
+        "source_file": "knowledge/raw/pdf/source_attripdf.pdf",
+        "section": "Document",
+        "page_start": 2,
+        "page_end": 2,
+        "version": null
+      }
+    },
+    {
+      "chunk_id": "chunk_108f1216b7292a209feb",
+      "chunk_type": "document",
+      "content": "the source attribution step), identify the steps in the food chain that are critical for hazard control, and identify and suggest strategies for reduction of the risk to humans. While source attribution and risk assessment have been widely used to provide evidence that can support strategies to reduce the burden of a number of food- borne pathogens, the transmission and spread of path- ogens carrying resistance to antimicrobials adds an extra layer of complexity to this integrated food safety paradigm. On one hand, virtually any foodborne path- ogen can acquire resistance to antimicrobials, which may lead to prolonged and more severe disease and even be life-threatening, when antimicrobial therapy is re- quired but fails to succeed due to resistance to the pre- scribed drug(s). On the other hand, the potential transfer of AMR genes (i.e., the gene[s] carrying the resistance trait) between pathogenic and commensal bacteria in the human gut can amplify the public health impact of foodborne AMR ( 13). As a consequence, it is not only challenging to estimate the direct risk posed by resistant foodborne pathogens, but also to quantify the relative contribution to risk of the transfer of AMR genes, e.g., from commensals originating from animal reservoirs to human pathogens. This article describes the overall concepts and meth- ods in source attribution and microbial risk assess- ment, describes the state of the art of their application in the area of AMR, and discusses current challenges and future perspectives for the development of methods to inform policies to reduce the disease burden of AMR in human populations. SOURCE ATTRIBUTION Source Attribution of AMR The purpose of applying source attribution methods to antimicrobial-resistant pathogens (i.e., a pathogen that has acquired resistance to at least one antimicrobial drug) or AMR genes is to identify the most important sources and transmission routes for human exposure to AMR. It is widely recognized that one of the main drivers of resistance in zoonotic bacteria is antimicrobial use in livestock production (i.e., in the reservoirs) ( 14). Identi- fying the most important reservoirs for human exposure to AMR is hence critical to direct policy-making aimed at reducing antimicrobial use at the primary production level. In addition, knowledge of the transmission routes from reservoirs to humans is crucial for the prioritization of risk management along the food chain. While a range of source attribution methods attrib- uting disease to the original reservoirs or to exposure routes of foodborne pathogens exists, only a few studies have applied these in the context of AMR, and the rel- ative importance of transmission pathways of resistance remains a critical knowledge gap. The challenges of applying source attribution meth- ods for AMR include the fact that virtually any patho- gen can become resistant to antimicrobials and that most zoonotic pathogens can be transmitted to humans via a variety of foodborne and nonfoodborne routes. Thus far, source attribution has typically focused on a single pathogen (e.g., Salmonella or Escherichia coli ) and on resistance pro ﬁles found among that pathogen in different sources (15–17). In addition, AMR genes are often located on plasmids, which can be transferred between bacterial species (plasmid-mediated horizontal gene transfer) and therefore also from commensal bac- teria to human pathogens (e.g., Klebsiella spp.). Focus- ing on a single bacterial species is therefore likely to underestimate the overall exposure and thus the risk posed by AMR. To address this challenge, source attribution of the AMR determinant may be more ef ﬁcient. Such studies require knowledge of and data on the prevalence, abun- dance, and transmission of genes and on horizontal gene transfer rates, which is still being gathered (e.g., in the European Union project EFFORT — Ecology from Farm to Fork of Microbial Drug Resistance and Transmission; http://www.effort-against-amr.eu/). Existing Source Attribution Approaches Microbial subtyping The microbial subtyping approach involves character- ization of the hazard by subtyping methods (e.g., phe- notypic or genotypic subtyping of bacterial strains), and the principle is to compare the subtypes of isolates from different sources (e.g., animals, food) with the subtypes isolated from humans. The subtyping approach attri- butes illness at the point of reservoir and is enabled by the identiﬁcation of strong associations between some of the dominant subtypes and a speci ﬁc reservoir or source, providing a heterogeneous distribution of subtypes among the sources (1). Microbial subtyping methods for source attribution include frequency-matched models and population ge- netic models. While the frequency-matched methods are based on the comparison of human strain types and the distribution of those types in the sources, the population genetic models are based on modeling the organism’s evolutionary history ( 18). In the frequency- matched models, subtypes exclusively or almost exclu- sively isolated from one source are regarded as indicators ASMscience.org/MicrobiolSpectrum 3",
+      "metadata": {
+        "asset_id": "source_attripdf",
+        "source_id": "source_attripdf",
+        "source_type": "pdf",
+        "source_file": "knowledge/raw/pdf/source_attripdf.pdf",
+        "section": "Document",
+        "page_start": 3,
+        "page_end": 3,
+        "version": null
+      }
+    },
+    {
+      "chunk_id": "chunk_6087f53f82ca4a2a6c7b",
+      "chunk_type": "document",
+      "content": "on modeling the organism’s evolutionary history ( 18). In the frequency- matched models, subtypes exclusively or almost exclu- sively isolated from one source are regarded as indicators ASMscience.org/MicrobiolSpectrum 3 for the human health impact of that particular source, assuming that all human cases caused by these subtypes originate only from that source. Human cases of dis- ease caused by subtypes found in several reservoirs are then distributed relative to the prevalence of the indica- tor types ( 2, 3, 19). Population genetics approaches use genotyping data to infer evolutionary and clonal rela- tionships among different strains, including the occur- rence of novel (combinations of) alleles in strains from humans that are unobserved in source populations ( 20). All microbial subtyping models require a collection of temporally and spatially related isolates from various sources and thus are facilitated by an integrated food- borne disease surveillance program providing a collection of isolates from the major animal reservoirs of foodborne diseases. These models do not require prevalence data and can rely on the distribution of the isolates ’subtypes in the different sources and in humans. Both types of models have been applied to attribute foodborne pathogens to sources in a variety of countries. Microbial subtyping approaches have been particularly successful to attribute Salmonella and Campylobacter infections (see e.g., 3, 21–24). This method has also been applied to other pathogens (namely, Listeria monocyto- genes and Shiga toxin-producing E. coli [25, 26]), even though less frequently due to a lack of available sur- veillance data in most countries.",
+      "metadata": {
+        "asset_id": "source_attripdf",
+        "source_id": "source_attripdf",
+        "source_type": "pdf",
+        "source_file": "knowledge/raw/pdf/source_attripdf.pdf",
+        "section": "Document",
+        "page_start": 4,
+        "page_end": 4,
+        "version": null
+      }
+    },
+    {
+      "chunk_id": "chunk_c2a980123e45771558f9",
+      "chunk_type": "document",
+      "content": "The microbial subtyping approach has seldom been used to estimate the relative contribution of sources of antimicrobial-resistant pathogens to AMR in humans. To our knowledge, two frequency-matched studies have been conducted, both using antimicrobial susceptibility patterns as a typing method for Salmonella (15, 16). Both studies demonstrate that AMR data can be used to characterize pathogen subtypes in a microbial subtyping source-attribution model and discuss its utility in terms of discriminatory power but do not focus on the source origin of speci ﬁc AMR genes. Microbial subtyping methods are recognized as one of the most robust types of data-driven methods for source attribution. They have the advantage of attrib- uting illness to the reservoirs of the pathogens, thus in- forming risk-management strategies that are the closest possible to the original sources and preventing further spread to other routes or sources of transmission ( 1). Another advantage of this approach is that it does not require data on the prevalence and concentration of the pathogen in the different sources (which is often difﬁcult to obtain) or on the exposure frequency in the population. Still, these methods are often limited by the requirement of comparable subtyping data originating from an operative integrated surveillance of human cases and food/animals. In addition, the methods cannot distinguish between different transmission routes from a speciﬁc animal reservoir to humans. Comparative exposure assessment Comparative exposure assessments determine the rela- tive importance of the known transmission routes by estimating the human exposure to the hazard (e.g., pathogen) via each route.",
+      "metadata": {
+        "asset_id": "source_attripdf",
+        "source_id": "source_attripdf",
+        "source_type": "pdf",
+        "source_file": "knowledge/raw/pdf/source_attripdf.pdf",
+        "section": "Document",
+        "page_start": 4,
+        "page_end": 4,
+        "version": null
+      }
+    },
+    {
+      "chunk_id": "chunk_6738d5725b1a09011e15",
+      "chunk_type": "document",
+      "content": "For each known transmission route, this approach requires information on the prev- alence and/or dose/concentration of the pathogen in the source, the changes of the prevalence and quantity of the pathogen throughout the transmission chain, and the frequency at which humans are exposed by that route (e.g., consumption data). Exposure doses are then compared, and the relative contribution of each of the various transmission routes to human exposure in the population is estimated, proportionally to the size of each exposure dose. The data requirements of the comparative exposure assessment approach depend on the overall transmis- sion groups considered in the model (i.e., foodborne, environmental, and/or contact with animals), as well as on the point in the transmission chain where the “origin” of the pathogen is set. In general, contamina- tion data for each source, information on the main steps in the transmission chain and data on the effects of these on contamination, and exposure data are needed. If transmission via contact with live animals is consid- ered, the exposure model needs to be expanded to con- sider different possibilities for direct and indirect contact with a contaminated animal. Exposure assessments have been used with different degrees of success to source-attribute disease by several microbial agents (namely, Listeria, Campylobacter, Verocytotoxigenic Escherichia coli (VTEC), and Toxo- plasma gondii ) and by chemical hazards (a ﬂatoxins, cadmium, and lead) ( 27–34). In the context of AMR, this approach is particularly useful to address a widely recognized knowledge gap, which is understanding the relative contribution of the exposure routes of AMR from animals to humans.",
+      "metadata": {
+        "asset_id": "source_attripdf",
+        "source_id": "source_attripdf",
+        "source_type": "pdf",
+        "source_file": "knowledge/raw/pdf/source_attripdf.pdf",
+        "section": "Document",
+        "page_start": 4,
+        "page_end": 4,
+        "version": null
+      }
+    },
+    {
+      "chunk_id": "chunk_a461644790f6bdd8a595",
+      "chunk_type": "document",
+      "content": "Speciﬁcally, it can be used to estimate the relative im- portance of the food chain, companion animals, and the environment for exposure of the general population to antimicrobial-resistant bacteria or AMR genes. Thus far (and to our knowledge), two comparative exposure assessments have been applied to estimate the relative contribution of different types of meat to the expo- sure of consumers to extended-spectrum beta-lactamase- 4 ASMscience.org/MicrobiolSpectrum",
+      "metadata": {
+        "asset_id": "source_attripdf",
+        "source_id": "source_attripdf",
+        "source_type": "pdf",
+        "source_file": "knowledge/raw/pdf/source_attripdf.pdf",
+        "section": "Document",
+        "page_start": 4,
+        "page_end": 4,
+        "version": null
+      }
+    },
+    {
+      "chunk_id": "chunk_a5cef3cfaab9ae2fe67c",
+      "chunk_type": "document",
+      "content": "producing and AmpC beta-lactamase-producing E. coli in the Netherlands ( 17) and in Denmark ( 35). An important drawback of this approach is that, due to data limitations and gaps (e.g., in food preparation habits and the effect of these on the contamination of foods), exposure estimates for microbial pathogens are likely to present wide uncertainty intervals. Fur- thermore, in the context of AMR, these studies focus on speciﬁc antimicrobial-resistant pathogens and do not address all concomitant transmission routes contribut- ing to overall transmission of resistance to humans (e.g., the same AMR determinant present in other members of the meat bacterial community), which adds to the uncertainty of the relative exposure estimates. Epidemiological approaches Epidemiological approaches for source attribution in- clude analyses of data from outbreak investigations and studies of sporadic infections; both approaches attri- bute illness at the point of exposure. An outbreak is here de ﬁned as (i) the occurrence of two or more cases of a similar illness resulting from the exposure to a com- mon source (36) or (ii) a situation in which the observed number of cases exceeds the expected number and where the cases are linked to the same food source. Sporadic cases are those that have not been associated with known outbreaks ( 37). Even though outbreak-associated cases are more likely to be captured by public health surveil- lance systems, an unknown proportion of cases classiﬁed as sporadic may be part of undetected outbreaks. Many outbreak investigations are successful in iden- tifying the speci ﬁc contaminated source or ingredient causing human infections. A simple descriptive analy- sis or summary of outbreak investigations is useful for quantifying the relative contribution of different foods to outbreak illnesses. However, these implicated foods may be composed of multiple ingredients, and thus outbreak data do not always allow pinpointing of the actual source of infection. Probabilistic models using outbreak data to estimate the total number of illnesses in the population attributable to different foods provide a useful way to generalize outbreak data to a broader pop- ulation of foodborne illnesses. These models are used not only to generalize the results of outbreak investiga- tions, but also to estimate the contaminated sources in composite or “complex” foods. Analyses of data from outbreak investigations bene ﬁt from detailed data on each reported outbreak and re- quire the adoption of a food categorization scheme for classiﬁcation of implicated foods (see, e.g., 38). Com- posite foods are assigned to two or more food categories depending on the number and nature of their ingre- dients. By assigning a probability to each ingredient, corresponding to the likelihood that it was the source of the outbreak, outbreak data, including data about both simple and complex foods, can be used to attribute foodborne illnesses to sources. Several analyses of outbreak data for source attribu- tion have been published in recent years, most of them modeling ( 39–41) or summarizing ( 42, 43) data from multiple pathogens. The strength of this method is that it uses data that is readily available in many countries worldwide, and thus its use is not restricted to countries with integrated foodborne disease surveillance pro- grams. Also, it attributes foodborne illnesses at the point of exposure, which means that it is particularly useful to identify which foods (including processed foods) most frequently cause disease, as well as which risk factors contribute more to contamination of foods at the end of the food chain (e.g., cross-contamination). This type of information is valuable to de ﬁne interventions at the processing and consumption level but does not provide evidence to inform risk management strategies at the origin of the pathogen (reservoirs). Several outbreaks caused by antimicrobial-resistant pathogens have been reported and investigated in the past decades (see, e.g., 44, 45). A review of outbreak data has also been used for source attribution of anti- microbial-resistant Salmonella in the United States, sug- gesting that antimicrobial susceptibility data on isolates from foodborne outbreaks can help determine which foods are associated with resistant infections ( 46). Even though few countries or regions are likely to have suf- ﬁcient data for a robust source attribution analysis using AMR-related outbreaks, summarizing available infor- mation may provide evidence on the relative contribu- tion of different foods to infection with antimicrobial- resistant pathogens. Another epidemiological approach that can be used for source attribution of foodborne disease is the case control study of sporadic cases. Case-control studies are a valuable tool to identify potential risk factors for hu- man illness, including sources and predisposing, behav- ioral, or seasonal factors ( 47). In addition to individual case-control studies, a systematic review of published case-control studies of sporadic infections of a given pathogen can provide an overview of the relevant ex- posures and risk factors for that disease and a summary of the estimated population-attributable fractions for each exposure ( 48). A systematic review follows a rig- orous search strategy to identify all potentially rele- vant peer-reviewed case-control studies for a hazard, ASMscience.org/MicrobiolSpectrum 5",
+      "metadata": {
+        "asset_id": "source_attripdf",
+        "source_id": "source_attripdf",
+        "source_type": "pdf",
+        "source_file": "knowledge/raw/pdf/source_attripdf.pdf",
+        "section": "Document",
+        "page_start": 5,
+        "page_end": 5,
+        "version": null
+      }
+    },
+    {
+      "chunk_id": "chunk_1260bf582cc6c7841c77",
+      "chunk_type": "document",
+      "content": "table fractions for each exposure ( 48). A systematic review follows a rig- orous search strategy to identify all potentially rele- vant peer-reviewed case-control studies for a hazard, ASMscience.org/MicrobiolSpectrum 5 studies being conducted in a variety of countries and time periods, designed with different settings, and poten- tially focused on speci ﬁc age groups within the popu- lation. A meta-analysis is then performed to compare and combine information from different studies. To do this, risk factors may be strati ﬁed according to source- categorization schemes, location of exposures, and if ap- propriate, frequency of exposure. An overall population- attributable fraction derived from a meta-analysis or weighted summary of several case-control studies of a certain hazard can be combined with estimates of the burden of disease caused by that hazard to estimate the burden of disease attributed to each exposure. This method is particularly useful for hazards that do not frequently cause outbreaks but that have been extensively studied ( 49). In addition, it is valuable to attribute illness at a regional or global level when data are scarce in most countries. A number of case-control studies have been conducted to investigate risk factors for infection with foodborne pathogens resistant to antimicrobials (see, e.g., 50, 51). However, the utility of a meta-analysis of case-control studies to investigate the relative contribution of different sources and risk fac- tors to infection with antimicrobial-resistant pathogens may be limited if a low number of case-control studies focused on speci ﬁc antimicrobial-resistant pathogens or AMR genes have been conducted.",
+      "metadata": {
+        "asset_id": "source_attripdf",
+        "source_id": "source_attripdf",
+        "source_type": "pdf",
+        "source_file": "knowledge/raw/pdf/source_attripdf.pdf",
+        "section": "Document",
+        "page_start": 6,
+        "page_end": 6,
+        "version": null
+      }
+    },
+    {
+      "chunk_id": "chunk_fdead34036f495400799",
+      "chunk_type": "document",
+      "content": "Other approaches Other approaches for source attribution of foodborne pathogens include intervention studies and expert elicita- tions. Intervention studies are large-scale, well-structured prospective studies that are speci ﬁcally tailored to eval- uate direct impacts of a speci ﬁc intervention on the risk of disease in a population. While they would be the“gold standard” of attribution studies, they have the disad- vantages of being resource-demanding, expensive, and difﬁcult to implement because other concurrent factors may affect occurrence of disease. Expert elicitations can be designed as structured methods to gather and analyze knowledge from experts, which is communicated with a measure of uncertainty. They are particularly useful to attribute the burden of foodborne diseases to the main transmission path- ways (i.e., foodborne, environmental, direct contact), for which data-driven methods are typically insuf ﬁcient (49). There are numerous methods used for expert elic- itation, including methods that are based on iteration and ﬁnding consensus among a small group of experts (e.g., the Delphi method). Expert judgments are subjec- tive by nature and may be biased by the speci ﬁc back- ground and scienti ﬁc expertise of the respondents, and several methods to evaluate the experts ’ performance have been described. Several expert elicitation studies have been conducted for source attribution of foodborne disease (e.g., 52, 53). The World Health Organization ’s Initiative to Estimate the Global Burden of Foodborne Diseases (WHO-FERG) has undertaken a large-scale and successful expert elicitation to attribute disease due to 19 foodborne hazards to main transmission groups at global, regional, and subregional levels ( 54).",
+      "metadata": {
+        "asset_id": "source_attripdf",
+        "source_id": "source_attripdf",
+        "source_type": "pdf",
+        "source_file": "knowledge/raw/pdf/source_attripdf.pdf",
+        "section": "Document",
+        "page_start": 6,
+        "page_end": 6,
+        "version": null
+      }
+    },
+    {
+      "chunk_id": "chunk_00c8cc449a74e11f4109",
+      "chunk_type": "document",
+      "content": "The study applied structured expert judgment using Cooke ’s clas- sical model ( 55) to obtain estimates for the relative con- tributions of different transmission pathways for several foodborne hazards. Applications and Results Despite the increased recognition of the importance of source attribution of foodborne pathogens to direct risk management strategies, and the growing use of these approaches in several countries and research groups, source attribution of AMR is still in its infancy. There are few published examples of the methods described here, and the identi ﬁed challenges are still being ad- dressed. The two microbial subtyping studies that have been published are both frequency-matched studies that used antimicrobial susceptibility patterns as a typing method for Salmonella (15, 16). These studies use AMR proﬁles as a typing method (i.e., to characterize patho- gen subtypes) but do not focus on the source origin of speciﬁc AMR genes. Still, they are able to estimate the distribution of AMR in human cases attributed to dif- ferent sources, as is done routinely in the Salmonella source attribution activities in Denmark ( 56). Similarly, the two comparative exposure assessments that have been applied to estimate the relative contribution of different types of meat to the exposure of consumers to AMR have focused on the same causative agent, ex- tended spectrum beta-lactamase-producing and AmpC beta-lactamase-producing E. coli (17, 35). These studies demonstrate that the method could be extended to other countries and agents.",
+      "metadata": {
+        "asset_id": "source_attripdf",
+        "source_id": "source_attripdf",
+        "source_type": "pdf",
+        "source_file": "knowledge/raw/pdf/source_attripdf.pdf",
+        "section": "Document",
+        "page_start": 6,
+        "page_end": 6,
+        "version": null
+      }
+    },
+    {
+      "chunk_id": "chunk_5299afb8f01aabbf5a79",
+      "chunk_type": "document",
+      "content": "The recent review of outbreak data for source attribution of antimicrobial-resistant Salmo- nella in the United States suggests that antimicrobial susceptibility data on isolates from foodborne outbreaks can help determine which foods are associated with re- sistant infections ( 46). This method could be applied in countries that have suf ﬁcient data or to regional data in an attempt to gather information from multiple coun- tries. Numerous epidemiological studies of sporadic in- fections (case-control or cohort studies) investigating risk factors for antimicrobial-resistant infections in humans 6 ASMscience.org/MicrobiolSpectrum",
+      "metadata": {
+        "asset_id": "source_attripdf",
+        "source_id": "source_attripdf",
+        "source_type": "pdf",
+        "source_file": "knowledge/raw/pdf/source_attripdf.pdf",
+        "section": "Document",
+        "page_start": 6,
+        "page_end": 6,
+        "version": null
+      }
+    },
+    {
+      "chunk_id": "chunk_683d8d4ec14f60cd349d",
+      "chunk_type": "document",
+      "content": "demonstrate these methods’usefulness to identify routes of AMR (e.g., 57–59). While their use focusing on food- borne or direct or indirect contact to animals ’transmis- sion has been limited, available studies still provide information that is useful for food safety risk manage- ment (50, 51). Strengths and Weaknesses Source attribution of AMR genes and of antimicrobial- resistant pathogens is a research area under active de- velopment. The application of the methods described here remains a challenge, for reasons that depend on each method considered. For the application of subtyping frequency-matched studies, two of the main challenges are the limited avail- ability of animal, food, and human AMR data from established surveillance systems and the dif ﬁculty of deﬁning the number of AMR pro ﬁles highly speci ﬁct o a particular source/transmission route, a cornerstone of this method. Furthermore, the fact that the method does not determine the actual transmission route from each speciﬁc reservoir to humans is another limitation for the use of frequency-matched models. Due to the public health need for understanding the transmission of AMR, population genetics approaches may eventually be a good complement to frequency-matched models, espe- cially considering the increasing availability of whole- genome sequencing and metagenomics data, which describe the occurrence of AMR genes in populations. For instance, population genetics can help in identifying reservoir-speciﬁc AMR genes ’patterns that can then be used in frequency-matched models. New-generation se- quencing data may also contribute to unraveling details that contribute to a more accurate source attribution, such as the evolution of AMR patterns over time in different sources and resistance in humans that is not transmitted from animals or foods. While single genomics and metagenomics studies may support the development of novel subtyping source- attribution methods, they may hinder the application of comparative exposure assessment. Information on the prevalence and quantity of AMR genes or antimicrobial- resistant pathogens in each source, as well as their changes throughout the transmission chain, are dif ﬁcult to assess from those data and are impaired by a high degree of uncertainty. Epidemiological methods of source attribution, e.g., those based on outbreak investigation, have the advan- tage of not relying on a sophisticated, data-abundant, and integrated surveillance system encompassing animal reservoirs, foods, and humans. However, they require consistent AMR investigation on food sources and hu- man cases, based at least on bacterial isolation and phe- notypic susceptibility testing. Eventually, new-generation sequencing may overtake traditional diagnostic methods in outbreak investigation (14, 60), which will also require modiﬁcation of the current epidemiological approaches. Intervention studies have, in the context of AMR, the same limitations as when applied to bacterial pathogens. It is dif ﬁcult to evaluate the exact impact of a speci ﬁc intervention (e.g., reducing antimicrobial use at the farm level) on the population where disease is attributed (e.g., AMR occurrence in humans). Control measures that reduced antimicrobial use in primary production have been successfully implemented with the aim of reducing AMR in animals (e.g., the antimicrobial growth promoter intervention, the voluntary ban on the use of cephalo- sporins, and the yellow card antimicrobial scheme in swine herds in Denmark [61–63]). However, to assess the real success of such measures in terms of public health impact, it is necessary to collect data prior to and fol- lowing the intervention ( 14), at all dimensions of AMR transmission to humans, i.e., also including other trans- mission routes such as the environment and antimicrobial use in humans. RISK ASSESSMENT Microbial risk assessment of AMR Risk assessment is the process of estimating the likeli- hood that exposure to a biological, chemical, or physical hazard will result in an adverse health effect in exposed individuals. Microbial risk assessment has been estab- lished as a part of the food safety risk analysis paradigm by international and national bodies in recent decades, with harmonized guidelines being proposed and widely adopted worldwide ( 8, 64). In the context of AMR, risk assessments are useful to inform regulatory decision- making for the mitigation of potential health con- sequences in both humans and animals ( 65). While the importance and need for AMR risk assessments have been recognized for decades ( 66), their application has been complicated by several knowledge gaps. Challenges of the development of AMR risk assessment include the following:  The nature of the hazard is dif ﬁcult to identify and will determine the nature of the adverse con- sequence of the exposure. In the context of AMR risk assessment, different hazards can be consid- ered ( 67, 68). For example, Salisbury et al. ( 67) discussed three interrelated hazards that can be ASMscience.org/MicrobiolSpectrum 7",
+      "metadata": {
+        "asset_id": "source_attripdf",
+        "source_id": "source_attripdf",
+        "source_type": "pdf",
+        "source_file": "knowledge/raw/pdf/source_attripdf.pdf",
+        "section": "Document",
+        "page_start": 7,
+        "page_end": 7,
+        "version": null
+      }
+    },
+    {
+      "chunk_id": "chunk_284810c9edba974c7d6a",
+      "chunk_type": "document",
+      "content": "he exposure. In the context of AMR risk assessment, different hazards can be consid- ered ( 67, 68). For example, Salisbury et al. ( 67) discussed three interrelated hazards that can be ASMscience.org/MicrobiolSpectrum 7 assessed separately: the antimicrobial drug, the antimicrobial-resistant bacteria, and the AMR de- terminant, leading to three different health con- sequences, respectively— development of resistance, infection and treatment failure, and transference of resistance. Similarly, Manaia ( 68) describes that resistome-associated risks have been discussed con- sidering the microbial community, the genome, and transmission of resistance.  The nature of the risk posed by antimicrobial use and AMR to human health is inherently complex and logically linked to the nature of the hazard, as mentioned above. In other words, while the like- lihood that humans will be infected by pathogens that are resistant to one or several antimicrobials can be estimated, the resulting adverse health con- sequences can be one or several of the following: development of disease due to infection with the pathogen, failure of treatment of the infection due to resistance to the drug(s) used, and spread of AMR genes to commensal bacteria in the human host (which can amplify the risk and extend the impact of an isolated exposure in time).  Numerous factors are involved in the process of selection and spread of resistance in bacterial populations, between and within animal species, humans, and the environment and within differ- ent bacterial populations in those same reservoirs. These factors include the several drivers of the emergence and spread of AMR in food produc- tion, speci ﬁcally at the farm.",
+      "metadata": {
+        "asset_id": "source_attripdf",
+        "source_id": "source_attripdf",
+        "source_type": "pdf",
+        "source_file": "knowledge/raw/pdf/source_attripdf.pdf",
+        "section": "Document",
+        "page_start": 8,
+        "page_end": 8,
+        "version": null
+      }
+    },
+    {
+      "chunk_id": "chunk_a088a54bd5eb5cb0b969",
+      "chunk_type": "document",
+      "content": "At this level, anti- microbial use is recognized as the most important driver but is not always necessary (if, for example, coresistance and coselection occur) and not always sufﬁcient; additional drivers are, e.g., poor pre- vention and control of infectious diseases leading to increased antimicrobial use and the spread of clones that have established themselves in the herd/ environment and keep selective pressure, even if antimicrobial use is interrupted. These factors, among many others, in ﬂuence the development of exposure assessment in microbial risk assessment.  In addition to the challenges described above, esti- mating the likelihood of adverse health effects, given exposure to an antimicrobial-resistant pathogen or determinant, is difﬁcult due to the absence of a well- deﬁned dose-response effect for AMR and the ex- istence of various possibilities of adverse effects. Recognizing the need for AMR risk assessments to identify strategies aimed at preventing and reducing the disease burden of AMR transmitted through foods, a number of reviews and scienti ﬁc articles proposed frameworks for such risk assessments in the late 1990s and early 2000s ( 66, 67, 69). Even though such pro- posals were comprehensive and structured to address the challenges identi ﬁed at that time, they were not widely adopted, mostly due to remaining knowledge and data gaps regarding AMR transmission and impact. More recent frameworks apply current available data and are either mostly qualitative or semiquantitative (see, e.g., 70, 71), take a linear approach (e.g., 72), and/or focus on marketing authorization applications for antimi- crobial veterinary medicinal products for use in food- producing species ( 73).",
+      "metadata": {
+        "asset_id": "source_attripdf",
+        "source_id": "source_attripdf",
+        "source_type": "pdf",
+        "source_file": "knowledge/raw/pdf/source_attripdf.pdf",
+        "section": "Document",
+        "page_start": 8,
+        "page_end": 8,
+        "version": null
+      }
+    },
+    {
+      "chunk_id": "chunk_7fb36efdc29d9147b015",
+      "chunk_type": "document",
+      "content": "The Four Steps of Microbial Risk Assessment Focusing on AMR The microbial risk assessment process is, as described by the Codex Alimentarius guidelines ( 8), constituted by four main components: hazard identi ﬁcation, hazard characterization, exposure assessment, and risk charac- terization. In an AMR risk assessment, the hazard can be the an- timicrobial drug, the antimicrobial-resistant pathogen, or the AMR determinant. Ultimately, the identi ﬁcation of the hazard of interest depends on the risk-assessment question to be addressed. In a traditional microbial risk assessment (i.e., focused on a pathogen-food pair, with- out considering resistance to antimicrobial drugs), the hazard identi ﬁcation step consists of the qualitative de- scription of the hazard, including the evaluation of the presence of the pathogen in a food product available for consumption in a population and the host interface (types of disease caused, susceptible populations). In the context of AMR, this step is complicated by a number of factors: (i) selection of resistance in a pathogen can occur by multiple mechanisms (namely, mutation and horizontal gene transfer of mobile genetic elements con- taining AMR genes) ( 74); (ii) one or more genes may be necessary for the development of AMR; (iii) AMR genes can be located in chromosomal or extra-chromosomal DNA, such as plasmids ( 74); and (iv) several bacterial species or strains can harbor and serve as a reservoir for resistance.",
+      "metadata": {
+        "asset_id": "source_attripdf",
+        "source_id": "source_attripdf",
+        "source_type": "pdf",
+        "source_file": "knowledge/raw/pdf/source_attripdf.pdf",
+        "section": "Document",
+        "page_start": 8,
+        "page_end": 8,
+        "version": null
+      }
+    },
+    {
+      "chunk_id": "chunk_474878449020879b525d",
+      "chunk_type": "document",
+      "content": "The hazard characterization step of a risk assessment consists of the review and collection of information on the relationship between the dose of the hazard and the onset of disease in the exposed individuals (i.e., in- fectious dose) and the relationship between different doses and the probability of occurrence of disease (i.e., dose-response). The response of a human population to 8 ASMscience.org/MicrobiolSpectrum",
+      "metadata": {
+        "asset_id": "source_attripdf",
+        "source_id": "source_attripdf",
+        "source_type": "pdf",
+        "source_file": "knowledge/raw/pdf/source_attripdf.pdf",
+        "section": "Document",
+        "page_start": 8,
+        "page_end": 8,
+        "version": null
+      }
+    },
+    {
+      "chunk_id": "chunk_57316baf03192f580193",
+      "chunk_type": "document",
+      "content": "exposure to a foodborne pathogen is highly variable, reﬂecting the fact that the incidence of disease is de- pendent on a variety of factors such as the virulence characteristics of the pathogen, the numbers of cells ingested, the general health and immune status of the hosts, and the attributes of the food that alter microbial- host interactions ( 75). Thus, the likelihood that any in- dividual becomes ill due to an exposure to a foodborne pathogen is dependent on the integration of host, path- ogen, and food matrix effects. Again, in AMR risk as- sessment, the required data to assess a dose-response relationship depend on the hazard considered; it can be one of the three: the dose level of the antimicrobial for observing resistance usually expressed by the MIC breakpoint ( 74), or any other factor that can affect the development or ampli ﬁcation of resistance, the dose of the pathogen needed to cause disease, or any factor re- lated to the stability and transfer potential of the AMR gene in a bacterial population ( 67). In the exposure assessment step, the likelihood that an individual or a population will be exposed to a hazard and the numbers of the microorganism that are likely to be ingested are estimated ( 76). The exposure assessment requires data on the prevalence and concentration of the hazard in the food source(s), as well as information on the potential changes of the pathogen load through- out the food-processing chain (e.g., growth, reduction) (77); in addition, it requires data on the frequency and amount of food consumed by individuals of the popu- lation. As mentioned above, numerous factors in ﬂuence the process of selection and spread of resistance, conse- quently inﬂuencing the ﬁnal exposure of the consumer to AMR genes or antimicrobial-resistant pathogens. These factors are either still unknown or there are limited data reporting their inﬂuence on AMR transmission through- out the food chain. In the last component of a risk assessment, risk characterization, the ﬁnal risk to the consumer is esti- mated by integrating the previous three components. Speciﬁcally, the measure of exposure (i.e., the likely dose an individual is exposed to in a given food consumption/ exposure event) is integrated with the dose-response relationship to estimate the likelihood of an adverse health effect. In the context of AMR microbial risk as- sessment, even after an appropriate de ﬁnition of the risk question and the targeted hazard identi ﬁcation (which determine the adverse effect to be assessed) and the es- timation of the likelihood of exposure to the hazard of interest, characterizing the risk in the absence of an appropriate and comprehensive hazard characteriza- tion step remains a challenge. A “dose-response” step becomes particularly demanding when the “dose” at exposure is expressed in genotypic terms (by use of ge- nomics or metagenomics AMR data) and the “response” must be expressed in phenotypic terms (e.g., expres- sion of resistance in a pathogen or horizontal transfer of an AMR gene between commensal and pathogenic bacteria). Applications and Results A number of risk assessments focused on speci ﬁc antimicrobial-resistant pathogen-food/animal pairs have been conducted since the publication of the various proposed guidelines. These include qualitative, semi- quantitative, and quantitative risk assessments per- formed by food authorities, academia, or industry. Here, we provide examples of the three types of risk assess- ment that have been important to highlight the chal- lenges and limitations they still face, the applications of their results, and the need for further studies. Qualitative risk assessments One of the ﬁrst studies published assessed the health impact of residues of antibacterial and antiparasitic drugs in foods of animal origin and was published over 2 decades ago ( 78). It was a qualitative and comprehen- sive review that focused on residues of a variety of drugs in multiple foods, and it was an important step for the recognition of several of the challenges described in this chapter. More drug- and pathogen-focused qualitative assessments have been conducted since then, including in recent years, such as the qualitative risk assessment focused on methicillin-resistant Staphylococcus aureus (MRSA) conducted by a multisectorial and interdisci- plinary expert group in Denmark ( 79). This study is a good example of an applied risk assessment, conducted upon request from the food and veterinary authorities with the aims of (i) assessing the risk of livestock MRSA based on the existing knowledge and the results of vet- erinary screening studies conducted in herds and (ii) providing a recommendation for control measures to reduce the spread of MRSA from the affected herds to the surrounding environment and community. The method consisted of a comprehensive evaluation of all available data on the prevalence of MRSA in animals and humans, as well as on the risk factors for infection by livestock MRSA from the environment, from meat, from occupational activities (e.g., risk for slaughter- house or farm workers), and from the community. The risk assessment consisted of a descriptive evaluation of the risk of these types of transmission in the Danish population. ASMscience.org/MicrobiolSpectrum 9",
+      "metadata": {
+        "asset_id": "source_attripdf",
+        "source_id": "source_attripdf",
+        "source_type": "pdf",
+        "source_file": "knowledge/raw/pdf/source_attripdf.pdf",
+        "section": "Document",
+        "page_start": 9,
+        "page_end": 9,
+        "version": null
+      }
+    },
+    {
+      "chunk_id": "chunk_11e310054b212f2938ef",
+      "chunk_type": "document",
+      "content": "slaughter- house or farm workers), and from the community. The risk assessment consisted of a descriptive evaluation of the risk of these types of transmission in the Danish population. ASMscience.org/MicrobiolSpectrum 9 Another recent study has applied the risk assessment framework developed by the European Medicines Agency (73) to assess the AMR risk to public health due to use of antimicrobials in pigs, using pleuromutilins as an example ( 80). Livestock-associated MRSA of clonal complex 398 (MRSA CC398) and enterococci were identiﬁed as relevant hazards. This framework followed the International Organization for Animal Health ’s ap- proach to risk assessment and consisted of four steps describing the risk pathway, combined into a risk esti- mate. The study applied a qualitative approach, where the output of each step was de ﬁned on a scale. Likewise, the level of uncertainty was described qualitatively in the different steps and the output (as high, medium, or low). The authors discuss the value of mathematical modeling as a tool to simulate pathways and identify ways of re- ducing resistance. Still, they stress that the relationship between reducing consumption of antibiotics and re- ducing resistance is not necessarily linear and defend that this relationship needs to be better established for modeling to have full value ( 80). Despite the fact that this study is recent at the time of writing of this chapter and thus could build on all newly available evidence on AMR mechanisms, it still dealt with substantial data and knowledge gaps that enhanced uncertainty around outputs (80). Another example of a qualitative assessment is the WHO’s list of critically important antimicrobials ( 70).",
+      "metadata": {
+        "asset_id": "source_attripdf",
+        "source_id": "source_attripdf",
+        "source_type": "pdf",
+        "source_file": "knowledge/raw/pdf/source_attripdf.pdf",
+        "section": "Document",
+        "page_start": 10,
+        "page_end": 10,
+        "version": null
+      }
+    },
+    {
+      "chunk_id": "chunk_a71ed7f46cf7c6619a8d",
+      "chunk_type": "document",
+      "content": "The list applies criteria to rank antimicrobials accord- ing to their relative importance in human medicine. The purpose of this assessment is to provide clinicians, reg- ulatory agencies, policy-makers, and other stakeholders ’ with information to develop risk management strategies for the use of antimicrobials in food-production ani- mals globally. The ﬁrst WHO list of critically important antimicrobials was developed in a WHO expert meet- ing in 2005, where participants considered the list of all antimicrobial classes used in human medicine and categorized them into the three groups “critically im- portant,”“ highly important, ” and “important” based on two criteria that describe, ﬁrst, the availability or lack of availability of alternatives to the antimicrobial for treatment of serious bacterial infections in people, and second, if the antimicrobial is used to treat infections by (i) bacteria that may be transmitted to humans from nonhuman sources or (ii) bacteria that may acquire re- sistance genes from nonhuman sources. The output of the qualitative assessment is a list of classes of drugs that meet all three of a set of de ﬁned priorities. Since its original publication, the assessment has been revised several times and is now in its ﬁfth edition. Semiquantitative risk assessments One example of a semiquantitative assessment is the study integrating a probabilistic quantitative risk as- sessment conducted in Denmark to assess the human health risk of macrolide-resistant Campylobacter in- fection associated with the use of macrolides in Danish pig production (81).",
+      "metadata": {
+        "asset_id": "source_attripdf",
+        "source_id": "source_attripdf",
+        "source_type": "pdf",
+        "source_file": "knowledge/raw/pdf/source_attripdf.pdf",
+        "section": "Document",
+        "page_start": 10,
+        "page_end": 10,
+        "version": null
+      }
+    },
+    {
+      "chunk_id": "chunk_6941e8298ca04ea3cb17",
+      "chunk_type": "document",
+      "content": "This model was able to account for exposure through imported and domestic meat (i.e., that could be a vehicle for antimicrobial-resistant bacteria as a consequence of antimicrobial drug use in animal production in that country) and used evidence available at the time. One important feature of this study is that, while it measured exposure probabilistically and thus reﬂected model and data uncertainty, the ﬁnal step of the risk assessment— risk characterization— used an ordinal scale, and thus risk was described in a qualitative scale. Quantitative risk assessments Several quantitative risk assessments have been published since the early 2000s. These include the high-pro ﬁle as- sessment of ﬂuoroquinolone-resistant Campylobacter from chicken in the United States ( 82), which ultimately prompted the Food and Drug Administration to propose withdrawal of the approval of new animal drug appli- cations for ﬂuoroquinolone use in poultry, an action that would prohibit ﬂuoroquinolone use in chickens and turkeys in that country ( 83). Another early study employed probabilistic method- ology to analyze the potential public health risk from Campylobacter jejuni and ﬂuoroquinolone-resistant C. jejuni due to fresh beef and ground beef consumption (84). The model focused on the beef product at retail and modelled consumer handling in the kitchen, processing, and consumption. The model estimated, ﬁrst, the risk of Campylobacter infection through consumption of beef and then the risk of treatment failure given infection, concluding an increased health impact due to resistance.",
+      "metadata": {
+        "asset_id": "source_attripdf",
+        "source_id": "source_attripdf",
+        "source_type": "pdf",
+        "source_file": "knowledge/raw/pdf/source_attripdf.pdf",
+        "section": "Document",
+        "page_start": 10,
+        "page_end": 10,
+        "version": null
+      }
+    },
+    {
+      "chunk_id": "chunk_5728527c488e5d8133d5",
+      "chunk_type": "document",
+      "content": "In another study, a risk assessment followed the Food and Drug Administration ’s Center for Veterinary Medicine Guidance ( 85) and was commissioned by a pharmaceutical company to estimate the risk of human infection treatment failure associated with the use of an antimicrobial drug in food animals ( 86). The determin- istic model included all uses of two macrolides in poul- try, swine, and beef cattle. The hazard was de ﬁned as illness (i) caused by foodborne bacteria with a resistance determinant, (ii) attributed to a speci ﬁed animal-derived meat commodity, and (iii) treated with a human use drug of the same class. Risk was de ﬁned as the proba- bility of this hazard combined with the consequence of treatment failure due to resistant Campylobacter spp. 10 ASMscience.org/MicrobiolSpectrum",
+      "metadata": {
+        "asset_id": "source_attripdf",
+        "source_id": "source_attripdf",
+        "source_type": "pdf",
+        "source_file": "knowledge/raw/pdf/source_attripdf.pdf",
+        "section": "Document",
+        "page_start": 10,
+        "page_end": 10,
+        "version": null
+      }
+    },
+    {
+      "chunk_id": "chunk_fc128da3e59fe5dbf29b",
+      "chunk_type": "document",
+      "content": "or Enterococcus faecium . At the time, this microbial risk assessment had the advantage of being quantitative and thus more transparent when compared to previous assessments focusing on AMR. Thus, the authors high- lighted several limitations, particularly with regard to data gaps on the probability of treatment failure due to the antimicrobial-resistant bacteria and the proba- bility of resistant determinant development. In con- trast to many evidence and risk assessments conducted elsewhere, the results of this study led the authors to conclude that the current use of macrolides in cattle, poultry, and swine created a risk much lower than the potential bene ﬁt to food safety, animal welfare, and public health ( 86). The same author published another risk assessment a few years later, applying a similar approach to estimate the risk of a different combination of antimicrobial- pathogen-ﬂuoroquinolone-resistant Salmonella and Campylobacter in beef in the United States ( 87). This approach was able to provide a better measure of un- certainty but was similar in its ﬁndings, concluding that the risk of health consequences in humans was minimal. The most recent quantitative risk assessment study published is also the more novel and promising of the AMR studies reviewed here ( 88). It considered the ex- istence of environmental compartments resulting from sewage-treatment plants, agriculture production, and manufacturing industries and assessed their roles in the maintenance, emergence, and possible dissemination of antibiotic resistance. This study used probabilistic meth- ods to assess the risks of antibiotic resistance develop- ment and neutralizing antibiotic pressures in hotspot environments. Importantly, this study presents a mod- eling approach to assess the selective pressure exerted by antibiotics in bacterial communities and to calculate antibiotic resistance development risks. While the de- scribed approach was exemplarily when used to model antibiotic resistance risks in an intensive aquaculture production scenario of Southeast Asia, it has the po- tential to be applied to other cases, including other types of animal production, settings, and drugs. Strengths and Weaknesses Microbial risk assessment is a science-based tool with proven bene ﬁts in supporting food safety authorities in policy-making. It is hence commended to continue its use in assessing the consequences for the consumer of the transmission of AMR genes/pathogens through the food chain. The fact that it is a well-de ﬁned, stepwise- structured method facilitates its adaptation to the food safety challenge of AMR. However, several limitations have already been identiﬁed and require the joint focus of the scientiﬁc community, risk assessors, and authorities. Examples of a few critical challenges are the following:  The deﬁnition of AMR is critical for the four steps of microbial risk assessment and needs, therefore, to be well established at the start of a risk assess- ment study. Martínez et al. ( 74) explains the exis- tence of several possible de ﬁnitions of resistance (namely, clinical, epidemiological, and operational) and two de ﬁnitions of resistance gene (ecological and operational). The adoption of standard con- cepts and terminology is a requirement for the transparency of microbial risk assessment and an important part of its development. Although trans- mission of AMR genes and antimicrobial-resistant bacteria may be perceived and have been de ﬁned as two separate hazards, it has also been recently suggested that the risk of AMR transmission to hu- mans cannot be estimated unless the AMR gene pool and the presence and quantity of antimicrobial- resistant bacteria that are able to colonize and multiply in the human body are both taken into consideration (68).  Exposure assessment often relies on available knowledge of the changes in the microbial hazard levels throughout the food chain, due to, e.g., growth or inactivation. In the context of micro- biomes and resistomes, it is dif ﬁcult to model these changes, because the very composition of the microbial population (and corresponding AMR genes) may signi ﬁcantly change between “farm” and “fork” (89, 90). Consequently, microbial risk assessment for AMR is highly dependent on data collected at several points of the transmission path- way, both from the source(s) of AMR and from exposed human subjects.  While new-generation sequencing attractively pro- vides a broad characterization of the presence and abundance of AMR genes in a particular pathogen or in the microbiome from a particular reservoir, it remains a challenge to determine variability of the resistome and of the potential to exchange AMR genes (i.e., presence of phage recombination sites, plasmids, integrons, or transposons) between different pathogen strains ( 68). This knowledge is crucial to assign the AMR genes detected with metagenomics to the corresponding bacterial hosts and to account for the occurrence of horizontal gene transfer between commensal and pathogenic bacteria in a population. ASMscience.org/MicrobiolSpectrum 11",
+      "metadata": {
+        "asset_id": "source_attripdf",
+        "source_id": "source_attripdf",
+        "source_type": "pdf",
+        "source_file": "knowledge/raw/pdf/source_attripdf.pdf",
+        "section": "Document",
+        "page_start": 11,
+        "page_end": 11,
+        "version": null
+      }
+    },
+    {
+      "chunk_id": "chunk_8cd68f4305845fc4f21e",
+      "chunk_type": "document",
+      "content": "detected with metagenomics to the corresponding bacterial hosts and to account for the occurrence of horizontal gene transfer between commensal and pathogenic bacteria in a population. ASMscience.org/MicrobiolSpectrum 11  An important challenge for the integration of meta- genomics data in microbial risk assessment is the harmonization of languages between the “omics” and the food microbiology communities (91).  Risk characterization requires knowledge of the relationship between a “dose,” resulting from the exposure assessment, and a “response,” i.e., the adverse health effect of exposure. However, the infective dose and the modes of transmission of most of the antimicrobial-resistant bacteria of rel- evance are still unknown ( 68), which represents an important knowledge gap for the development of microbial risk assessment for AMR.  Finally, a major limitation of the current microbial risk assessment frameworks is that they do not allow estimation of the long-term impact of ex- posure to AMR. Particularly serious public health consequences of AMR arise when multiresistant bacteria emerge and become widespread. There is therefore the need to develop microbial risk as- sessment methods that include a different char- acterization of the risk of AMR. In addition to immediate consequences to human health due to a single exposure to an antimicrobial-resistant pathogen, it is necessary to estimate the likelihood that such exposure (eventually together with past and subsequent ones, to the same or other types of AMR) will lead to the development of antimicro- bial multiresistance in the future.",
+      "metadata": {
+        "asset_id": "source_attripdf",
+        "source_id": "source_attripdf",
+        "source_type": "pdf",
+        "source_file": "knowledge/raw/pdf/source_attripdf.pdf",
+        "section": "Document",
+        "page_start": 12,
+        "page_end": 12,
+        "version": null
+      }
+    },
+    {
+      "chunk_id": "chunk_be78b969ec5e01645063",
+      "chunk_type": "document",
+      "content": "Also, it is neces- sary to assess the potential of multiresistance spread, to characterize the severity of the consequences of exposure to multiresistance, and to estimate the time from initial exposure to those consequences. DISCUSSION AND FUTURE PERSPECTIVES Several position and stakeholder papers have stressed the need for improved quality and an increased amount of data for risk assessment of AMR (see, e.g., 92). These include, e.g., data on antimicrobial use in animal pro- duction; AMR surveillance data in animals, foods, and humans; and gene transfer and spread of AMR genes. All data requirements apply for most source attribu- tion studies, and thus are transversal to the methods described in this article. Likewise, many of the chal- lenges to the application of these methods in the context of AMR are common to source attribution and risk as- sessment approaches ( Table 1). The studies described here all show the importance of knowledge of (i) the most important sources and routes of transmission of antimicrobial-resistant bacte- ria or AMR genes, (ii) the actual risk for human health, and (iii) the points in the transmission chain where in- terventions could be effective to reduce this risk. While all ﬁndings so far have been crucial to direct policies and raise awareness to the public health impact of AMR in animals and foods, they are insuf ﬁcient for a complete understanding of the underlying transmission mecha- nisms and the real impact of AMR. Several challenges have been addressed, including the fact that emergence and spread of AMR is complex. From an epidemiolog- ical point of view, the risk of AMR probably follows the “sufﬁcient-component causes ” principle ( 93) .",
+      "metadata": {
+        "asset_id": "source_attripdf",
+        "source_id": "source_attripdf",
+        "source_type": "pdf",
+        "source_file": "knowledge/raw/pdf/source_attripdf.pdf",
+        "section": "Document",
+        "page_start": 12,
+        "page_end": 12,
+        "version": null
+      }
+    },
+    {
+      "chunk_id": "chunk_6cfea220c9464d349af4",
+      "chunk_type": "document",
+      "content": "The suf- ﬁcient-component causes principle is an epidemiological causal modeling approach that can be used to explain diseases, or conditions like AMR, characterized by many causes, none of which alone is necessary or suf ﬁcient. The relations among the causes are described such that a TABLE 1 Deﬁnition, overview of methods and main challenges of source attribution and microbial risk assessment approaches Source attribution Microbial risk assessment Deﬁnition Partitioning of human cases of illness to the responsible sources (e.g., foods, animal reservoirs) Systematic and science-based approach to estimate the risk of microbial hazards in the production-to-consumption chain Methods Microbial subtyping Comparative exposure assessment Outbreak-data analysis Case-control studies Expert elicitations Intervention studies Qualitative RAa Semiquantitative RA Quantitative RA Deterministic Probabilistic Main challenges in the context of AMR Hazard identiﬁcation, e.g., the antimicrobial drug, the antimicrobial-resistant pathogen, or the AMR determinant Lack of occurrence/prevalence data Deﬁnition of the health outcome, i.e., infection with antimicrobial-resistant agent, treatment failure (in case treatment is needed), or spread of resistance determinant between commensal and pathogenic organisms Lack of epidemiological data Establishment of dose-response relationship Determining variability of the resistome and of the potential to exchange AMR genes between diﬀerent pathogen strains aRA. risk assessment. 12 ASMscience.org/MicrobiolSpectrum",
+      "metadata": {
+        "asset_id": "source_attripdf",
+        "source_id": "source_attripdf",
+        "source_type": "pdf",
+        "source_file": "knowledge/raw/pdf/source_attripdf.pdf",
+        "section": "Document",
+        "page_start": 12,
+        "page_end": 12,
+        "version": null
+      }
+    },
+    {
+      "chunk_id": "chunk_60e5ccf6fc725e396be4",
+      "chunk_type": "document",
+      "content": "“sufﬁcient cause ” is a set of minimal conditions that will de ﬁnitely lead to the outcome (e.g., antimicrobial- resistant infection), and a “component cause ” is one of the minimal conditions included in a suf ﬁcient cause (93). For example, a particular resistance gene can be a component cause of an antimicrobial-resistant infection, but the suf ﬁcient cause of the latter includes other con- ditions, such as the bacterial strain carrying that par- ticular gene, that pathogen causing infection, treatment of the infection with antimicrobial(s) for which resis- tance is encoded in the gene, and the actual expression of that resistance gene. The future of microbial risk as- sessment for AMR may therefore include de ﬁning the components sufﬁcient to cause AMR transmission from animals/foods/the environment to humans followed by treatment failure of infections by antimicrobial-resistant pathogens. Recent developments in omics technologies (whole- genome sequencing and metagenomics, transcriptomics, proteomics, metabolomics, ﬂuxomics) provide unique opportunities to ﬁll in some of our knowledge gaps. It is now widely recognized that these omics technologies have advantages compared to traditional phenotypic culture-based methods for characterizing microorgan- isms (91, 94). Brul et al. ( 91) described in detail how omics can be integrated in each step of microbial risk assessment, contributing to a mechanistic insight into the interaction between microorganisms and their hosts, new perspec- tives on strain diversity and variability and physiological uncertainty, and overall more robust risk assessments. den Besten et al. ( 94) discussed the utility of omics tech- nologies applied by the food industry, to help identify the in ﬂuence of different bacterial ecosystems on both pathogen survival and growth — information that can eventually contribute to the future de ﬁnition of food safety objectives. A particular advantage of metagenomics is that it provides a picture of the whole microbial community and its resistome, which is key to understanding AMR emergence and spread in a population. Importantly, these new “typing” techniques have been rapidly fol- lowed by new bioinformatics and new statistics/model- ing tools that allow for the analysis and sense-making of such (big) data ( 91, 95). For example, machine learning has the potential to be applied on the analysis of omics data. Combining machine learning approaches with metagenomics and farm-speci ﬁc data could allow for describing, e.g., health, production ef ﬁciency, and the relative abundance of AMR genes, based on the identiﬁcation of (clusters of) genetic factors in the farm microbiome. In addition, such techniques could be used to examine the predictive importance of (clusters of) genetic factors to characterize (i) a “healthy farm microbiome” or (ii) AMR genes in a speci ﬁc animal re- servoir. They can also be used to identify (combinations of) speciﬁc husbandry practices that are associated with, e.g., a particular resistome or a healthy farm micro- biome. The latter could lead to recommendations on how to shift the farm microbiome to improve the overall health of the farm and consequently, in the long term, to reduce the level of antimicrobial use and antimicrobial- resistant bacteria. It is possible that promoting a healthy farm microbiome will have a more long-term impact on the overall reduction of AMR than focusing exclusively on the farm resistome. Metagenomics and other omics technologies hence have enormous potential for the fu- ture development of source attribution and microbial risk assessment of AMR through foods. To explore their full potential, different technologies will be com- bined. For example, genomics studies should be coupled with proteomics, because gene-expression studies do not always re ﬂect the actual protein levels ( 91). Also, genomic similarities may not imply similarities in be- havior, because the surrounding environment (food matrix, bacterial ecosystem, etc.) also plays a role ( 94). Furthermore, omics data are not suf ﬁcient without ac- companying epidemiological data that allow for the identiﬁcation of risk factors for AMR. CONCLUDING REMARKS Recent developments in source-attribution and micro- bial risk assessment of AMR are promising and have signiﬁcantly contributed to the evolution of each of these methods. However, the adaptation to the omics big data era is happening at a much slower pace than the speed at which these data are becoming available. This is due to the many challenges encountered when interpreting those data. AMR at the animal reservoir, food, environment, and human levels is increasingly described by the character- ization of the resistomes of single bacteria isolates (by whole-genome sequencing) or the bacterial whole com- munity (by metagenomics) representing each of those populations. Gradually, AMR surveillance will convert from phenotypic to genotypic (e.g., PulseNet Interna- tional is already on its way to standardizing whole- genome sequencing-based subtyping of foodborne dis- ease [95]). For a successful transition, it is crucial to pair genomic data with phenotypic data and relevant ex- planatory epidemiological data. ASMscience.org/MicrobiolSpectrum 13",
+      "metadata": {
+        "asset_id": "source_attripdf",
+        "source_id": "source_attripdf",
+        "source_type": "pdf",
+        "source_file": "knowledge/raw/pdf/source_attripdf.pdf",
+        "section": "Document",
+        "page_start": 13,
+        "page_end": 13,
+        "version": null
+      }
+    },
+    {
+      "chunk_id": "chunk_b24dac35a1fbe570a5bf",
+      "chunk_type": "document",
+      "content": "cing-based subtyping of foodborne dis- ease [95]). For a successful transition, it is crucial to pair genomic data with phenotypic data and relevant ex- planatory epidemiological data. ASMscience.org/MicrobiolSpectrum 13 This transition will require a parallel adaptation of the existing analysis methods, which will include the development of new source-attribution and microbial risk assessment modeling approaches. It is therefore with great expectation that we foresee in the near future a surge of in ﬂuencing and inspiring scienti ﬁc output in both ﬁelds. REFERENCES 1. Pires SM, Evers EG, van Pelt W, Ayers T, Scallan E, Angulo FJ, Havelaar A, Hald T, Schroeter A, Brisabois A, Thebault A, Käsbohrer A, Schroeder C, Frank C, Guo C, Wong DLF, Döpfer D, Snary E, Nichols G, Spitznagel H, Wahlström H, David J, Pancer K, Stark K, Forshell LP, Nally P, Sanders P, Hiller P, Med-Vet-Net Workpackage 28 Working Group. 2009. Attributing the human disease burden of foodborne infec- tions to speci ﬁc sources. Foodborne Pathog Dis 6:417–424 http://dx.doi .org/10.1089/fpd.2008.0208. 2. Mullner P, Jones G, Noble A, Spencer SEF, Hathaway S, French NP. 2009. Source attribution of food-borne zoonoses in New Zealand: a modiﬁed Hald model. Risk Anal 29:970–984 http://dx.doi.org/10.1111 /j.1539-6924.2009.01224.x. 3. Hald T, Vose D, Wegener HC, Koupeev T. 2004. A Bayesian approach to quantify the contribution of animal-food sources to human salmo- nellosis. Risk Anal 24:255–269 http://dx.doi.org/10.1111/j.0272-4332 .2004.00427.x. 4. DE Knegt LV, Pires SM, Hald T. 2015. Using surveillance and moni- toring data of different origins in a Salmonella source attribution model: a European Union example with challenges and proposed solutions.",
+      "metadata": {
+        "asset_id": "source_attripdf",
+        "source_id": "source_attripdf",
+        "source_type": "pdf",
+        "source_file": "knowledge/raw/pdf/source_attripdf.pdf",
+        "section": "Document",
+        "page_start": 14,
+        "page_end": 14,
+        "version": null
+      }
+    },
+    {
+      "chunk_id": "chunk_409a06fe9ca3005a9360",
+      "chunk_type": "document",
+      "content": "Epidemiol Infect 143:1148–1165 http://dx.doi.org/10.1017/S09502688 14000429. 5. Pires SM, Vigre H, Makela P, Hald T. 2010. Using outbreak data for source attribution of human salmonellosis and campylobacteriosis in Europe. Foodborne Pathog Dis 7:1351–1361 http://dx.doi.org/10.1089 /fpd.2010.0564. 6. Guo C, Hoekstra RM, Schroeder CM, Pires SM, Ong KL, Hartnett E, Naugle A, Harman J, Bennett P, Cieslak P, Scallan E, Rose B, Holt KG, Kissler B, Mbandi E, Roodsari R, Angulo FJ, Cole D. 2011. Application of Bayesian techniques to model the burden of human salmonellosis attrib- utable to U.S. food commodities at the point of processing: adaptation of a Danish model. Foodborne Pathog Dis 8:509–516 http://dx.doi.org /10.1089/fpd.2010.0714. 7. Pires SM, Evers EG, van Pelt W, Ayers T, Scallan E, Angulo FJ, Havelaar A, Hald T, Med-Vet-Net Workpackage 28 Working Group. 2009. Attributing the human disease burden of foodborne infections to speci ﬁc sources. Foodborne Pathog Dis 6:417–424 http://dx.doi.org /10.1089/fpd.2008.0208. 8. FAO. 1999. Principles and Guidelines for the Conduct of Microbio- logical Risk Assessment . FAO, Rome, Italy. 9. Ofﬁce International des Epizooties. 2002. International Animal Health Code, eleventh edition. Rue de Prony 12, 75017 Paris, France. 10. USDA. 2012. Microbial Risk Assessment Guideline: Pathogenic Microorganisms with Focus on Food and Water. Prepared by the Interagency Microbiological Risk Assessment Guideline Workgroup Microbial Risk Assessment Guideline. US Department of Agriculture, Washington, DC. 11. Wegener HC. 2010. Danish initiatives to improve the safety of meat products. Meat Sci 84:276–283 http://dx.doi.org/10.1016/j.meatsci.2009 .06.025. 12. Snary EL, Swart AN, Hald T. 2016.",
+      "metadata": {
+        "asset_id": "source_attripdf",
+        "source_id": "source_attripdf",
+        "source_type": "pdf",
+        "source_file": "knowledge/raw/pdf/source_attripdf.pdf",
+        "section": "Document",
+        "page_start": 14,
+        "page_end": 14,
+        "version": null
+      }
+    },
+    {
+      "chunk_id": "chunk_478c3c0d7b5ea38d29f7",
+      "chunk_type": "document",
+      "content": "Quantitative microbiological risk assessment and source attribution for Salmonella: taking it further. Risk Anal 36:433–436 http://dx.doi.org/10.1111/risa.12605. 13. Lester CH, Frimodt-Møller N, Sørensen TL, Monnet DL, Hammerum AM. 2006. In vivo transfer of the vanA resistance gene from an Entero- coccus faecium isolate of animal origin to an E. faecium isolate of human origin in the intestines of human volunteers.Antimicrob Agents Chemother 50:596–599 http://dx.doi.org/10.1128/AAC.50.2.596-599.2006. 14. Aarestrup FM. 2015. The livestock reservoir for antimicrobial resis- tance: a personal view on changing patterns of risks, effects of interven- tions and the way forward. Philos Trans R Soc Lond B Biol Sci 370: 20140085 http://dx.doi.org/10.1098/rstb.2014.0085. 15. Hald T, Lo Fo Wong DM, Aarestrup FM. 2007. The attribution of human infections with antimicrobial resistant Salmonella bacteria in Denmark to sources of animal origin. Foodborne Pathog Dis 4:313–326 http://dx.doi.org/10.1089/fpd.2007.0002. 16. Vieira AR, Grass J, Fedorka-Cray PJ, Plumblee JR, Tate H, Cole DJ. 2016. Attribution of Salmonella enterica serotype Hadar infections using antimicrobial resistance data from two points in the food supply system. Epidemiol Infect 144:1983–1990 http://dx.doi.org/10.1017/S09502688 16000066. 17. Evers EG, Pielaat A, Smid JH, van Duijkeren E, Vennemann FBC, Wijnands LM, Chardon JE. 2017. Comparative exposure assessment of ESBL-producing Escherichia coli through meat consumption. PLoS One 12:e0169589 http://dx.doi.org/10.1371/journal.pone.0169589. 18. Barco L, Barrucci F, Olsen JE, Ricci A. 2013. Salmonella source at- tribution based on microbial subtyping. Int J Food Microbiol 163:193– 203 http://dx.doi.org/10.1016/j.ijfoodmicro.2013.03.005. 19.",
+      "metadata": {
+        "asset_id": "source_attripdf",
+        "source_id": "source_attripdf",
+        "source_type": "pdf",
+        "source_file": "knowledge/raw/pdf/source_attripdf.pdf",
+        "section": "Document",
+        "page_start": 14,
+        "page_end": 14,
+        "version": null
+      }
+    },
+    {
+      "chunk_id": "chunk_360636fe98bd434906b8",
+      "chunk_type": "document",
+      "content": "Mughini-Gras L, Barrucci F, Smid JH, Graziani C, Luzzi I, Ricci A, Barco L, Rosmini R, Havelaar AH, Van Pelt W, Busani L. 2014. Attri- bution of human Salmonella infections to animal and food sources in Italy (2002-2010): adaptations of the Dutch and modi ﬁed Hald source attribution models. Epidemiol Infect 142:1070–1082 http://dx.doi.org /10.1017/S0950268813001829. 20. Wilson DJ, Gabriel E, Leatherbarrow AJH, Cheesbrough J, Gee S, Bolton E, Fox A, Fearnhead P, Hart CA, Diggle PJ. 2008. Tracing the source of campylobacteriosis. PLoS Genet 4:e1000203 http://dx.doi.org /10.1371/journal.pgen.1000203. 21. Pires SM, Vieira AR, Hald T, Cole D. 2014. Source attribution of human salmonellosis: an overview of methods and estimates. Foodborne Pathog Dis 11:667–676 http://dx.doi.org/10.1089/fpd.2014.1744. 22. de Knegt LV, Pires SM, Löfström C, Sørensen G, Pedersen K, Torpdahl M, Nielsen EM, Hald T. 2016. Application of molecular typing results in source attribution models: the case of multiple locus variable number tandem repeat analysis (MLVA) of Salmonella isolates obtained from integrated surveillance in Denmark. Risk Anal 36:571–588 http://dx .doi.org/10.1111/risa.12483. 23. Boysen L, Rosenquist H, Larsson JT, Nielsen EM, Sørensen G, Nordentoft S, Hald T. 2014. Source attribution of human campylo- bacteriosis in Denmark. Epidemiol Infect 142:1599–1608. 24. Mullner P, Spencer SEF, Wilson DJ, Jones G, Noble AD, Midwinter AC, Collins-Emerson JM, Carter P, Hathaway S, French NP. 2009. Assigning the source of human campylobacteriosis in New Zealand: a comparative genetic and epidemiological approach. Infect Genet Evol 9:1311–1319 http://dx.doi.org/10.1016/j.meegid.2009.09.003. 25. Little CL, Pires SM, Gillespie IA, Grant K, Nichols GL. 2010.",
+      "metadata": {
+        "asset_id": "source_attripdf",
+        "source_id": "source_attripdf",
+        "source_type": "pdf",
+        "source_file": "knowledge/raw/pdf/source_attripdf.pdf",
+        "section": "Document",
+        "page_start": 14,
+        "page_end": 14,
+        "version": null
+      }
+    },
+    {
+      "chunk_id": "chunk_9c63c7ee50c9665fffd7",
+      "chunk_type": "document",
+      "content": "Attri- bution of human Listeria monocytogenes infections in England and Wales to ready-to-eat food sources placed on the market: adaptation of the Hald Salmonella source attribution model. Foodborne Pathog Dis 7:749–756 http://dx.doi.org/10.1089/fpd.2009.0439. 26. Mughini-Gras L, van Pelt W, van der Voort M, Heck M, Friesema I, Franz E. 2018. Attribution of human infections with Shiga toxin- producing Escherichia coli (STEC) to livestock sources and identi ﬁcation of source-speci ﬁc risk factors, The Netherlands (2010-2014). Zoonoses Public Health 65:e8–e22. 27. Evers EG, Van Der Fels-Klerx HJ, Nauta MJ, Schijven JF, Havelaar AH. 2008. Campylobacter source attribution by exposure assessment. Int J Risk Assess Manag 8:174 http://dx.doi.org/10.1504/IJRAM.2008 .016151. 14 ASMscience.org/MicrobiolSpectrum",
+      "metadata": {
+        "asset_id": "source_attripdf",
+        "source_id": "source_attripdf",
+        "source_type": "pdf",
+        "source_file": "knowledge/raw/pdf/source_attripdf.pdf",
+        "section": "Document",
+        "page_start": 14,
+        "page_end": 14,
+        "version": null
+      }
+    },
+    {
+      "chunk_id": "chunk_abd1faf83a3d7890a410",
+      "chunk_type": "document",
+      "content": "28. Kosmider RD, Nally P, Simons RRL, Brouwer A, Cheung S, Snary EL, Wooldridge M. 2010. Attribution of human VTEC O157 infection from meat products: a quantitative risk assessment approach. Risk Anal 30:753–765 http://dx.doi.org/10.1111/j.1539-6924.2009.01317.x. 29. Opsteegh M, Prickaerts S, Frankena K, Evers EG. 2011. A quantitative microbial risk assessment for meatborne Toxoplasma gondii infection in The Netherlands. Int J Food Microbiol 150:103–114 http://dx.doi.org /10.1016/j.ijfoodmicro.2011.07.022. 30. FDA. 2003. Quantitative assessment of relative risk to public health from foodborne Listeria monocytogenes among selected categories of ready-to-eat foods. Summary of public comments and FDA/FSIS revisions to risk assessment. https://www.fda.gov/Food/FoodScienceResearch/Risk SafetyAssessment/ucm183966.htm. 31. EFSA. 2009. Scientiﬁc opinion: cadmium in food. Scienti ﬁc opinion of the Panel on Contaminants in the Food Chain. EFSA J 980:1–139. 32. EFSA. 2010. Scientiﬁc opinion on lead in food. EFSA J 8:1570 http:// dx.doi.org/10.2903/j.efsa.2010.1570. 33. Cassini A, Hathaway S, Havelaar A, Koopmans M, Koutsoumanis K, Messens W, Müller-Seitz G, Nørrung B, Rizzi V, Scheutz F. 2016. Mi- crobiological risk assessment. EFSA J 14:1–10 http://dx.doi.org/10.2903 /j.efsa.2016.s0507. 34. EFSA. 2007. Opinion of the scienti ﬁc panel on contaminants in the food chain [CONTAM] related to the potential increase of consumer health risk by a possible increase of the existing maximum levels for aﬂatoxins in almonds, hazelnuts and pistachios and derived products. EFSA J 5:446 http://dx.doi.org/10.2903/j.efsa.2007.446. 35. Carmo LP, Nielsen LR, da Costa PM, Alban L. 2014. Exposure as- sessment of extended-spectrum beta-lactamases/AmpC beta-lactamases- producing Escherichia coli in meat in Denmark. Infect Ecol Epidemiol 4:1–10 http://dx.doi.org/10.3402/iee.v4.22924. 36. Olsen SJ, MacKinnon LC, Goulding JS, Bean NH, Slutsker L. 2000. Surveillance for foodborne-disease outbreaks: United States, 1993-1997. MMWR CDC Surveill Summ 49:1–62. 37. Neimann J, Engberg J, Mølbak K, Wegener HC. 2003. A case-control study of risk factors for sporadic campylobacter infections in Denmark. Epidemiol Infect 130:353–366 http://dx.doi.org/10.1017/S0950268803 008355. 38. Painter JA, Ayers T, Woodruff R, Blanton E, Perez N, Hoekstra RM, Grifﬁn PM, Braden C. 2009. Recipes for foodborne outbreaks: a scheme for categorizing and grouping implicated foods. Foodborne Pathog Dis 6:1259–1264 http://dx.doi.org/10.1089/fpd.2009.0350. 39. Pires SM, Vigre H, Makela P, Hald T. 2010. Using outbreak data for source attribution of human salmonellosis and campylobacteriosis in Europe. Foodborne Pathog Dis 7:1351–1361 http://dx.doi.org/10.1089 /fpd.2010.0564. 40. Painter JA, Hoekstra RM, Ayers T, Tauxe RV, Braden CR, Angulo FJ, Grifﬁn PM. 2013. Attribution of foodborne illnesses, hospitalizations, and deaths to food commodities by using outbreak data, United States, 1998-2008. Emerg Infect Dis 19:407–415 http://dx.doi.org/10.3201 /eid1903.111866. 41. Pires SM, Vieira AR, Perez E, Lo Fo Wong D, Hald T. 2012. Attrib- uting human foodborne illness to food sources and water in Latin America and the Caribbean using data from outbreak investigations. Int J Food Microbiol 152:129–138 http://dx.doi.org/10.1016/j.ijfoodmicro.2011.04 .018. 42. Ravel A, Greig J, Tinga C, Todd E, Campbell G, Cassidy M, Marshall B, Pollari F. 2009. Exploring historical Canadian foodborne outbreak data sets for human illness attribution. J Food Prot 72:1963–1976 http:// dx.doi.org/10.4315/0362-028X-72.9.1963. 43. King N, Lake R, Campbell D. 2011. Source attribution of nontyphoid salmonellosis in New Zealand using outbreak surveillance data. J Food Prot 74:438–445 http://dx.doi.org/10.4315/0362-028X.JFP-10-323. 44. Jones TF, Kellum ME, Porter SS, Bell M, Schaffner W. 2002. An outbreak of community-acquired foodborne illness caused by methicillin- resistant Staphylococcus aureus . Emerg Infect Dis 8:82–84 http://dx.doi .org/10.3201/eid0801.010174. 45. Mølbak K, Baggesen DL, Aarestrup FM, Ebbesen JM, Engberg J, Frydendahl K, Gerner-Smidt P, Petersen AM, Wegener HC. 1999. An outbreak of multidrug-resistant, quinolone-resistant Salmonella enterica serotype typhimurium DT104. N Engl J Med 341:1420–1425 http://dx .doi.org/10.1056/NEJM199911043411902. 46. Brown AC, Grass JE, Richardson LC, Nisler AL, Bicknese AS, Gould LH. 2017. Antimicrobial resistance in Salmonella that caused foodborne disease outbreaks: United States, 2003-2012. Epidemiol Infect 145:766– 774 http://dx.doi.org/10.1017/S0950268816002867. 47. Engberg J. 2006. Contributions to the epidemiology of Campylobacter infections: a review of clinical and microbiological studies. Dan Med Bull 53:361–389. 48. Domingues AR, Pires SM, Halasa T, Hald T. 2012. Source attribution of human campylobacteriosis using a meta-analysis of case-control studies of sporadic infections. Epidemiol Infect 140:970–981 http://dx.doi.org /10.1017/S0950268811002676. 49. Pires SM. 2013. Assessing the applicability of currently available methods for attributing foodborne disease to sources, including food and food commodities. Foodborne Pathog Dis 10:206–213 http://dx.doi.org /10.1089/fpd.2012.1134. 50. Varma JK, Marcus R, Stenzel SA, Hanna SS, Gettner S, Anderson BJ, Hayes T, Shiferaw B, Crume TL, Joyce K, Fullerton KE, Voetsch AC, Angulo FJ. 2006. Highly resistant Salmonella Newport-MDRAmpC transmitted through the domestic US food supply: a FoodNet case-control study of sporadic Salmonella Newport infections, 2002-2003. J Infect Dis 194:222–230 http://dx.doi.org/10.1086/505084. 51. Kassenborg HD, Smith KE, Vugia DJ, Rabatsky-Ehr T, Bates MR, Carter MA, Dumas NB, Cassidy MP, Marano N, Tauxe RV, Angulo FJ, Emerging Infections Program FoodNet Working Group. 2004. Fluoroquinolone-resistant Campylobacter infections: eating poultry out- side of the home and foreign travel are risk factors. Clin Infect Dis 38 (Suppl 3):S279–S284 http://dx.doi.org/10.1086/381597. 52. Havelaar AH, Galindo AV, Kurowicka D, Cooke RM. 2008. Attri- bution of foodborne pathogens using structured expert elicitation. Food- borne Pathog Dis 5:649–659 http://dx.doi.org/10.1089/fpd.2008.0115. 53. Ravel A, Davidson VJ, Ruzante JM, Fazil A. 2010. Foodborne pro- portion of gastrointestinal illness: estimates from a Canadian expert elic- itation survey. Foodborne Pathog Dis 7:1463–1472 http://dx.doi.org /10.1089/fpd.2010.0582. 54. Hald T, Aspinall W, Devleesschauwer B, Cooke R, Corrigan T, Havelaar AH, Gibb HJ, Torgerson PR, Kirk MD, Angulo FJ, Lake RJ, Speybroeck N, Hoffmann S. 2016. World Health Organization estimates of the relative contributions of food to the burden of disease due to se- lected foodborne hazards: a structured expert elicitation. PLoS One 11: e0145839 http://dx.doi.org/10.1371/journal.pone.0145839. 55. Cooke R. 1991. Experts in Uncertainty: Opinion and Subjective Probability in Science . Oxford University Press, Oxford, UK. 56. Anonymous. 2017. Annual Report on Zoonoses in Denmark 2016 . National Food Institute, Technical University of Denmark, Kgs. Lyngby, Denmark. 57. Kim H, Kim YA, Park YS, Choi MH, Lee GI, Lee K. 2017. Risk factors and molecular features of sequence type (ST) 131 extended-spectrum β-lactamase-producing Escherichia coli in community-onset bacteremia. Sci Rep 7:14640 http://dx.doi.org/10.1038/s41598-017-14621-4. 58. Vos T, Barber RM, Bell B, Bertozzi-Villa A, Biryukov S, Bolliger I, Charlson F, Davis A, Degenhardt L, Dicker D, Duan L, Erskine H, Feigin VL, Ferrari AJ, Fitzmaurice C, Fleming T, Graetz N, Guinovart C, Haagsma J, Hansen GM, Hanson SW, Heuton KR, Higashi H, Kassebaum N, Kyu H, Laurie E, Liang X, Lofgren K, Lozano R, MacIntyre MF, Moradi-Lakeh M, Naghavi M, Nguyen G, Odell S, Ortblad K, Roberts DA, Roth GA, Sandar L, Serina PT, Stanaway JD, Steiner C, Thomas B, Vollset SE, Whiteford H, Wolock TM, Ye P, Zhou M, Ãvila MA, Aasvang ASMscience.org/MicrobiolSpectrum 15",
+      "metadata": {
+        "asset_id": "source_attripdf",
+        "source_id": "source_attripdf",
+        "source_type": "pdf",
+        "source_file": "knowledge/raw/pdf/source_attripdf.pdf",
+        "section": "Document",
+        "page_start": 15,
+        "page_end": 15,
+        "version": null
+      }
+    },
+    {
+      "chunk_id": "chunk_b86a215345c7eb124ed4",
+      "chunk_type": "document",
+      "content": "Naghavi M, Nguyen G, Odell S, Ortblad K, Roberts DA, Roth GA, Sandar L, Serina PT, Stanaway JD, Steiner C, Thomas B, Vollset SE, Whiteford H, Wolock TM, Ye P, Zhou M, Ãvila MA, Aasvang ASMscience.org/MicrobiolSpectrum 15 GM, Abbafati C, et al. 2015. Global, regional, and national incidence, prevalence, and years lived with disability for 301 acute and chronic diseases and injuries in 188 countries, 1990-2013: a systematic analysis for the Global Burden of Disease Study 2013. Lancet 386:743–800. 59. Harb A, O’Dea M, Hanan ZK, Abraham S, Habib I. 2017. Prevalence, risk factors and antimicrobial resistance of Salmonella diarrhoeal infec- tion among children in Thi-Qar Governorate, Iraq. Epidemiol Infect 145: 3486–3496 http://dx.doi.org/10.1017/S0950268817002400. 60. Loman NJ, Constantinidou C, Christner M, Rohde H, Chan JZ-M, Quick J, Weir JC, Quince C, Smith GP, Betley JR, Aepfelbacher M, Pallen MJ. 2013. A culture-independent sequence-based metagenomics approach to the investigation of an outbreak of Shiga-toxigenic Escherichia coli O104:H4. JAMA 309:1502–1510 http://dx.doi.org/10.1001/jama.2013 .3231. 61. Aarestrup FM, Seyfarth AM, Emborg HD, Pedersen K, Hendriksen RS, Bager F. 2001. Effect of abolishment of the use of antimicrobial agents for growth promotion on occurrence of antimicrobial resistance in fecal en- terococci from food animals in Denmark. Antimicrob Agents Chemother 45:2054–2059 http://dx.doi.org/10.1128/AAC.45.7.2054-2059.2001. 62. Jensen VF, de Knegt LV, Andersen VDWA, Wingstrand A. 2014. Temporal relationship between decrease in antimicrobial prescription for Danish pigs and the “Yellow Card ” legal intervention directed at reduc- tion of antimicrobial use. Prev Vet Med 117:554–564 http://dx.doi.org /10.1016/j.prevetmed.2014.08.006. 63.",
+      "metadata": {
+        "asset_id": "source_attripdf",
+        "source_id": "source_attripdf",
+        "source_type": "pdf",
+        "source_file": "knowledge/raw/pdf/source_attripdf.pdf",
+        "section": "Document",
+        "page_start": 16,
+        "page_end": 16,
+        "version": null
+      }
+    },
+    {
+      "chunk_id": "chunk_9e5719abd3a1ee34d628",
+      "chunk_type": "document",
+      "content": "Agersø Y, Aarestrup FM. 2013. Voluntary ban on cephalosporin use in Danish pig production has effectively reduced extended-spectrum cephalosporinase-producing Escherichia coli in slaughter pigs. J Anti- microb Chemother 68:569–572 http://dx.doi.org/10.1093/jac/dks427. 64. Alban L, Olsen AM, Nielsen B, Sørensen R, Jessen B, OIE. 2002. Qualitative and quantitative risk assessment for human salmonellosis due to multi-resistant Salmonella Typhimurium DT104 from consumption of Danish dry-cured pork sausages. Prev Vet Med 52:251–265 http://dx.doi .org/10.1016/S0167-5877(01)00258-6. 65. Claycamp HG, Hooberman BH. 2004. Antimicrobial resistance risk assessment in food safety. J Food Prot 67:2063–2071 http://dx.doi.org /10.4315/0362-028X-67.9.2063. 66. Snary EL, Kelly LA, Davison HC, Teale CJ, Wooldridge M. 2004. Antimicrobial resistance: a microbial risk assessment perspective. J Anti- microb Chemother 53:906–917 http://dx.doi.org/10.1093/jac/dkh182. 67. Salisbury JG, Nicholls TJ, Lammerding AM, Turnidge J, Nunn MJ. 2002. A risk analysis framework for the long-term management of anti- biotic resistance in food-producing animals. Int J Antimicrob Agents 20:153–164. 68. Manaia CM. 2017. Assessing the risk of antibiotic resistance trans- mission from the environment to humans: non-direct proportionality be- tween abundance and risk. Trends Microbiol 25:173–181 http://dx.doi .org/10.1016/j.tim.2016.11.014. 69. Bezoen A, Van Haren W, Hanekamp JC. 1999. Emergence of a Debate: AGPs and Public Health . HAN, Amsterdam, The Netherlands. 70. WHO. 2016. Critically Important Antimicrobials for Human Medi- cine, 5th revision. WHO, Geneva, Switzerland. 71. Collineau L, Carmo LP, Endimiani A, Magouras I, Müntener C, Schüpbach-Regula G, Stärk KDC. 2017.",
+      "metadata": {
+        "asset_id": "source_attripdf",
+        "source_id": "source_attripdf",
+        "source_type": "pdf",
+        "source_file": "knowledge/raw/pdf/source_attripdf.pdf",
+        "section": "Document",
+        "page_start": 16,
+        "page_end": 16,
+        "version": null
+      }
+    },
+    {
+      "chunk_id": "chunk_80861529c0a48d2bf986",
+      "chunk_type": "document",
+      "content": "Risk ranking of antimicrobial- resistant hazards found in meat in Switzerland. Risk Anal http://dx.doi .org/10.1111/risa.12901. 72. Bartholomew MJ, Vose DJ, Tollefson LR, Travis CC. 2005. A linear model for managing the risk of antimicrobial resistance originating in food animals. Risk Anal 25:99–108 http://dx.doi.org/10.1111/j.0272-4332 .2005.00570.x. 73. CVMP. 2013. Guideline on the assessment of the risk to public health from antimicrobial resistance due to the use of an antimicrobial VMPs in food-producing animals. Available at http://www.ema.europa.eu/docs /en_GB/document_library/Scienti ﬁc_guideline/2015/03/WC500183774 .pdf. 74. Martínez JL, Coque TM, Baquero F. 2015. What is a resistance gene? Ranking risk in resistomes. Nat Rev Microbiol 13:116–123 http://dx.doi .org/10.1038/nrmicro3399. 75. Buchanan RL, Smith JL, Long W. 2000. Microbial risk assessment: dose-response relations and risk characterization. Int J Food Microbiol 58:159–172 http://dx.doi.org/10.1016/S0168-1605(00)00270-1. 76. Lammerding AM, Fazil A. 2000. Hazard identi ﬁcation and exposure assessment for microbial food safety risk assessment. Int J Food Microbiol 58:147–157. http://dx.doi.org/10.1016/S0168-1605(00)00269-5 77. Nauta MJ. 2008. The modular process risk model (MPRM): a structured approach to food chain exposure assessment, p 99 –136. In Schaffner DW (ed), Microbial Risk Analysis of Foods . ASM Press, Washington, DC. 78. Waltner-Toews D, McEwen SA. 1994. Residues of antibacte- rial and antiparasitic drugs in foods of animal origin: a risk assessment.Prev Vet Med 20:219–234 http://dx.doi.org/10.1016/0167-5877(94)90084-1. 79. Anonymous. 2014. MRSA risk assessment. Prepared by the MRSA expert group.",
+      "metadata": {
+        "asset_id": "source_attripdf",
+        "source_id": "source_attripdf",
+        "source_type": "pdf",
+        "source_file": "knowledge/raw/pdf/source_attripdf.pdf",
+        "section": "Document",
+        "page_start": 16,
+        "page_end": 16,
+        "version": null
+      }
+    },
+    {
+      "chunk_id": "chunk_43cbbe8a26180ccceb1a",
+      "chunk_type": "document",
+      "content": "Available at https://www.foedevarestyrelsen.dk/english/Site CollectionDocuments/Dyresundhed/Rapport_fra_MRSA-ekspertgruppe %20EN.pdf 80. Alban L, Ellis-Iversen J, Andreasen M, Dahl J, Sönksen UW. 2017. Assessment of the risk to public health due to use of antimicrobials in pigs: an example of pleuromutilins in Denmark. Front Vet Sci 4:74 http://dx .doi.org/10.3389/fvets.2017.00074. 81. Alban L, Nielsen EO, Dahl J. 2008. A human health risk assessment for macrolide-resistant Campylobacter associated with the use of macro- lides in Danish pig production. Prev Vet Med 83:115–129 http://dx.doi .org/10.1016/j.prevetmed.2007.06.006. 82. FDA. 2000. Human health impact of ﬂuoroquinolone resistant cam- pylobacter attributed to the consumption of chicken . Food and Drug Administration Center for Veterinary Medicine, Rockville, MD. 83. Nelson JM, Chiller TM, Powers JH, Angulo FJ.2007. Fluoroquinolone- resistant Campylobacter species and the withdrawal of ﬂuoroquinolones from use in poultry: a public health success story. Clin Infect Dis 44:977– 980 http://dx.doi.org/10.1086/512369. 84. Anderson SA, Woo RWY, Crawford LM. 2001. Risk assessment of the impact on human health of resistant Campylobacter jejuni from ﬂuoroquinolone use in beef cattle. Food Control 12:13–25. 85. FDA. 2003. Guidance for industry #152: evaluating the safety of antimicrobial new animal drugs with regard to their microbiological effects on bacteria of human health concern . Food and Drug Adminis- tration Center for Veterinary Medicine, Rockville, MD. 86. Hurd HS, Doores S, Hayes D, Mathew A, Maurer J, Silley P, Singer RS, Jones RN. 2004. Public health consequences of macrolide use in food animals: a deterministic risk assessment. J Food Prot 67:980–992 http://dx.doi.org/10.4315/0362-028X-67.5.980. 87.",
+      "metadata": {
+        "asset_id": "source_attripdf",
+        "source_id": "source_attripdf",
+        "source_type": "pdf",
+        "source_file": "knowledge/raw/pdf/source_attripdf.pdf",
+        "section": "Document",
+        "page_start": 16,
+        "page_end": 16,
+        "version": null
+      }
+    },
+    {
+      "chunk_id": "chunk_0875d1efa8f62655ee5e",
+      "chunk_type": "document",
+      "content": "Hurd HS, Vaughn MB, Holtkamp D, Dickson J, Warnick L. 2010. Quantitative risk from ﬂuoroquinolone-resistant Salmonella and Cam- pylobacter due to treatment of dairy heifers with enro ﬂoxacin for bovine respiratory disease. Foodborne Pathog Dis 7:1305–1322. 88. Rico A, Jacobs R, Van den Brink PJ, Tello A. 2017. A probabilistic approach to assess antibiotic resistance development risks in environmental compartments and its application to an intensive aquaculture production scenario. Environ Pollut 231:918–928 http://dx.doi.org/10.1016/j.envpol .2017.08.079. 89. Chaillou S, Chaulot-Talmon A, Caekebeke H, Cardinal M, Christieans S, Denis C, Desmonts MH, Dousset X, Feurer C, Hamon E, Joffraud J-J, La Carbona S, Leroi F, Leroy S, Lorre S, Macé S, Pilet M-F, Prévost H, Rivollier M, Roux D, Talon R, Zagorec M, Champomier- Vergès M-C. 2015. Origin and ecological selection of core and food- speciﬁc bacterial communities associated with meat and seafood spoilage. ISME J 9:1105–1118 http://dx.doi.org/10.1038/ismej.2014.202. 90. De Filippis F, La Storia A, Villani F, Ercolini D. 2013. Exploring the sources of bacterial spoilers in beefsteaks by culture-independent high- 16 ASMscience.org/MicrobiolSpectrum",
+      "metadata": {
+        "asset_id": "source_attripdf",
+        "source_id": "source_attripdf",
+        "source_type": "pdf",
+        "source_file": "knowledge/raw/pdf/source_attripdf.pdf",
+        "section": "Document",
+        "page_start": 16,
+        "page_end": 16,
+        "version": null
+      }
+    },
+    {
+      "chunk_id": "chunk_a4e26e26403b6cccdca7",
+      "chunk_type": "document",
+      "content": "throughput sequencing. PLoS One 8:e70222 http://dx.doi.org/10.1371 /journal.pone.0070222. 91. Brul S, Bassettb J, Cookc P. 2012. “Omics” technologies in quanti- tative microbial risk assessment. Trends Food Sci Technol 27:12–24 http://dx.doi.org/10.1016/j.tifs.2012.04.004. 92. McEwen SA, Singer RS. 2006. Stakeholder position paper: the need for antimicrobial use data for risk assessment. Prev Vet Med 73:169–176 http://dx.doi.org/10.1016/j.prevetmed.2005.09.017. 93. Madsen AM, Hodge SE, Ottman R. 2011. Causal models for inves- tigating complex disease. I. A primer. Hum Hered 72:54–62 http://dx.doi .org/10.1159/000330779. 94. den Besten HMW, Amézquita A, Bover-Cid S, Dagnas S, Ellouze M, Guillou S, Nychas G, O ’Mahony C, Pérez-Rodriguez F, Membré J-M. 2017. Next generation of microbiological risk assessment: potential of omics data for exposure assessment. Int J Food Microbiol . doi:10.1016 /j.ijfoodmicro.2017.10.006. [Epub ahead of print.] 95. Nadon C, Van Walle I, Gerner-Smidt P, Campos J, Chinen I, Concepcion-Acevedo J, Gilpin B, Smith AM, Man Kam K, Perez E, Trees E, Kubota K, Takkinen J, Nielsen EM, Carleton H, FWD-NEXT Expert Panel. 2017. PulseNet International: vision for the implementation of whole genome sequencing (WGS) for global food-borne disease sur- veillance. Euro Surveill 22:30544 http://dx.doi.org/10.2807/1560-7917 .ES.2017.22.23.30544. ASMscience.org/MicrobiolSpectrum 17",
+      "metadata": {
+        "asset_id": "source_attripdf",
+        "source_id": "source_attripdf",
+        "source_type": "pdf",
+        "source_file": "knowledge/raw/pdf/source_attripdf.pdf",
+        "section": "Document",
+        "page_start": 17,
+        "page_end": 17,
+        "version": null
+      }
+    }
+  ],
+  "generated_at": "2026-08-27T06:43:24.747672+00:00"
+}

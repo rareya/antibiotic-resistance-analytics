@@ -1,0 +1,130 @@
+{
+  "manifest_version": "1.0",
+  "pipeline": "amr_knowledge_asset_chunking",
+  "chunker_version": "1.0",
+  "generated_at": "2026-08-27T06:43:24.750658+00:00",
+  "input": {
+    "extraction_manifest": "knowledge\\extracted\\extraction_manifest.json",
+    "extraction_manifest_version": "2.1"
+  },
+  "output_directory": "knowledge\\chunks",
+  "design": {
+    "pdf_strategy": "page-aware semantic paragraph chunking",
+    "owl_strategy": "RDF triples preserved as ontology units",
+    "csv_strategy": "structured registry only; no embedding chunks",
+    "embedding_generated": false
+  },
+  "assets_discovered": 12,
+  "successful": 12,
+  "failed": 0,
+  "statistics": {
+    "pdf_chunks": 237,
+    "owl_units": 147546,
+    "structured_csv_assets": 6
+  },
+  "assets": [
+    {
+      "asset_id": "Frequency_of_drug-resistant_BCIs_(2023)_Afghanistan",
+      "source_file": "knowledge/raw/csv/Frequency of drug-resistant BCIs (2023)_Afghanistan.csv",
+      "format": "csv",
+      "status": "success",
+      "output": "knowledge\\chunks\\structured\\Frequency_of_drug-resistant_BCIs_(2023)_Afghanistan.json",
+      "chunks": 0,
+      "rows": 0
+    },
+    {
+      "asset_id": "GLASS-AMR_implementation_indicators_All",
+      "source_file": "knowledge/raw/csv/GLASS-AMR implementation indicators_All.csv",
+      "format": "csv",
+      "status": "success",
+      "output": "knowledge\\chunks\\structured\\GLASS-AMR_implementation_indicators_All.json",
+      "chunks": 0,
+      "rows": 24
+    },
+    {
+      "asset_id": "Global_maps_of_testing_coverage_by_bacterial_pathogen_and_antibiotic_group_2023-BLOOD",
+      "source_file": "knowledge/raw/csv/Global maps of testing coverage by bacterial pathogen and antibiotic group_2023-BLOOD.csv",
+      "format": "csv",
+      "status": "success",
+      "output": "knowledge\\chunks\\structured\\Global_maps_of_testing_coverage_by_bacterial_pathogen_and_antibiotic_group_2023-BLOOD.json",
+      "chunks": 0,
+      "rows": 96
+    },
+    {
+      "asset_id": "Testing_coverage_by_bacterial_pathogen_and_antibiotic_group_BLOOD-All",
+      "source_file": "knowledge/raw/csv/Testing coverage by bacterial pathogen and antibiotic group_BLOOD-All.csv",
+      "format": "csv",
+      "status": "success",
+      "output": "knowledge\\chunks\\structured\\Testing_coverage_by_bacterial_pathogen_and_antibiotic_group_BLOOD-All.json",
+      "chunks": 0,
+      "rows": 104
+    },
+    {
+      "asset_id": "Testing_coverage_by_infection_type_All",
+      "source_file": "knowledge/raw/csv/Testing coverage by infection type_All.csv",
+      "format": "csv",
+      "status": "success",
+      "output": "knowledge\\chunks\\structured\\Testing_coverage_by_infection_type_All.json",
+      "chunks": 0,
+      "rows": 32
+    },
+    {
+      "asset_id": "Time_series_of_resistance_to_antibiotics_(2018-2023)_All-BLOOD",
+      "source_file": "knowledge/raw/csv/Time series of resistance to antibiotics (2018-2023)_All-BLOOD.csv",
+      "format": "csv",
+      "status": "success",
+      "output": "knowledge\\chunks\\structured\\Time_series_of_resistance_to_antibiotics_(2018-2023)_All-BLOOD.json",
+      "chunks": 0,
+      "rows": 132
+    },
+    {
+      "asset_id": "aro",
+      "source_file": "knowledge/raw/owl/aro.owl",
+      "format": "owl",
+      "status": "success",
+      "output": "knowledge\\chunks\\ontology\\aro.json",
+      "chunks": 147546
+    },
+    {
+      "asset_id": "EUCAST_detection_of_resistance_mechanisms_170711",
+      "source_file": "knowledge/raw/pdf/EUCAST_detection_of_resistance_mechanisms_170711.pdf",
+      "format": "pdf",
+      "status": "success",
+      "output": "knowledge\\chunks\\documents\\EUCAST_detection_of_resistance_mechanisms_170711.json",
+      "chunks": 114
+    },
+    {
+      "asset_id": "genome_wodepdf",
+      "source_file": "knowledge/raw/pdf/genome_wodepdf.pdf",
+      "format": "pdf",
+      "status": "success",
+      "output": "knowledge\\chunks\\documents\\genome_wodepdf.json",
+      "chunks": 37
+    },
+    {
+      "asset_id": "megarespdf",
+      "source_file": "knowledge/raw/pdf/megarespdf.pdf",
+      "format": "pdf",
+      "status": "success",
+      "output": "knowledge\\chunks\\documents\\megarespdf.json",
+      "chunks": 22
+    },
+    {
+      "asset_id": "pubmedpdf",
+      "source_file": "knowledge/raw/pdf/pubmedpdf.pdf",
+      "format": "pdf",
+      "status": "success",
+      "output": "knowledge\\chunks\\documents\\pubmedpdf.json",
+      "chunks": 24
+    },
+    {
+      "asset_id": "source_attripdf",
+      "source_file": "knowledge/raw/pdf/source_attripdf.pdf",
+      "format": "pdf",
+      "status": "success",
+      "output": "knowledge\\chunks\\documents\\source_attripdf.json",
+      "chunks": 40
+    }
+  ],
+  "failed_assets": []
+}

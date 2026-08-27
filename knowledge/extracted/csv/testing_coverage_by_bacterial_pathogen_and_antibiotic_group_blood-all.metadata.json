@@ -1,0 +1,627 @@
+{
+  "format": "csv",
+  "source_file": "knowledge/raw/csv/Testing coverage by bacterial pathogen and antibiotic group_BLOOD-All.csv",
+  "output_file": "knowledge/extracted/csv/testing_coverage_by_bacterial_pathogen_and_antibiotic_group_blood-all.csv",
+  "metadata_file": "knowledge/extracted/csv/testing_coverage_by_bacterial_pathogen_and_antibiotic_group_blood-all.metadata.json",
+  "encoding": "utf-8-sig",
+  "delimiter": ",",
+  "header_detection": {
+    "header_line": 6,
+    "header_score": 56.0,
+    "candidate_headers": [
+      {
+        "line_number": 6,
+        "score": 56.0,
+        "columns": [
+          "Year",
+          "Specimen",
+          "PathogenName",
+          "AntibioticName",
+          "CTAs with Reported BCIs",
+          "CTAs with Reported BCIs with AST >= 80 BCIs",
+          "Total BCIs",
+          "Total BCIs with AST",
+          "Min",
+          "Q1",
+          "Median",
+          "Q3",
+          "Max"
+        ]
+      },
+      {
+        "line_number": 7,
+        "score": 40.0,
+        "columns": [
+          "2016",
+          "BLOOD",
+          "Acinetobacter spp.",
+          "",
+          "NA",
+          "NA",
+          "NA",
+          "NA",
+          "0.019676404",
+          "2.602823282",
+          "6.179744758",
+          "11.465119454",
+          "45.493770089"
+        ]
+      },
+      {
+        "line_number": 8,
+        "score": 40.0,
+        "columns": [
+          "2017",
+          "BLOOD",
+          "Acinetobacter spp.",
+          "",
+          "NA",
+          "NA",
+          "NA",
+          "NA",
+          "0.012331509",
+          "1.873586961",
+          "7.14049113",
+          "12.643273594",
+          "98.944226051"
+        ]
+      },
+      {
+        "line_number": 9,
+        "score": 40.0,
+        "columns": [
+          "2018",
+          "BLOOD",
+          "Acinetobacter spp.",
+          "",
+          "NA",
+          "NA",
+          "NA",
+          "NA",
+          "0.024461375",
+          "1.354517676",
+          "7.45272014",
+          "14.20797469",
+          "93.468882783"
+        ]
+      },
+      {
+        "line_number": 10,
+        "score": 40.0,
+        "columns": [
+          "2019",
+          "BLOOD",
+          "Acinetobacter spp.",
+          "",
+          "NA",
+          "NA",
+          "NA",
+          "NA",
+          "0.018191404",
+          "1.65097223",
+          "6.869584558",
+          "19.026344727",
+          "223.637842234"
+        ]
+      },
+      {
+        "line_number": 11,
+        "score": 40.0,
+        "columns": [
+          "2020",
+          "BLOOD",
+          "Acinetobacter spp.",
+          "",
+          "NA",
+          "NA",
+          "NA",
+          "NA",
+          "0.012026601",
+          "1.133594711",
+          "8.343844598",
+          "15.391462488",
+          "297.270475901"
+        ]
+      },
+      {
+        "line_number": 12,
+        "score": 40.0,
+        "columns": [
+          "2021",
+          "BLOOD",
+          "Acinetobacter spp.",
+          "",
+          "NA",
+          "NA",
+          "NA",
+          "NA",
+          "0",
+          "2.461600598",
+          "9.047013391",
+          "21.859264348",
+          "212.33274174"
+        ]
+      },
+      {
+        "line_number": 13,
+        "score": 40.0,
+        "columns": [
+          "2022",
+          "BLOOD",
+          "Acinetobacter spp.",
+          "",
+          "NA",
+          "NA",
+          "NA",
+          "NA",
+          "0.035422284",
+          "2.609989556",
+          "9.597694435",
+          "18.372135693",
+          "206.425544063"
+        ]
+      },
+      {
+        "line_number": 14,
+        "score": 40.0,
+        "columns": [
+          "2023",
+          "BLOOD",
+          "Acinetobacter spp.",
+          "",
+          "NA",
+          "NA",
+          "NA",
+          "NA",
+          "0.020552196",
+          "2.774296769",
+          "8.245277872",
+          "19.535744104",
+          "346.443722505"
+        ]
+      },
+      {
+        "line_number": 15,
+        "score": 40.0,
+        "columns": [
+          "2016",
+          "BLOOD",
+          "Acinetobacter spp.",
+          "Carbapenems",
+          "19",
+          "18",
+          "3930",
+          "3764",
+          "0.029514606",
+          "2.83337744",
+          "6.302541471",
+          "11.989560814",
+          "45.493770089"
+        ]
+      }
+    ]
+  },
+  "metadata_before_table": {
+    "lines_before_header": 3,
+    "raw_lines": [
+      "Filters",
+      "\"Infection type filter: Bloodstream\"",
+      "\"Region filter: All\""
+    ]
+  },
+  "row_count": 104,
+  "column_count": 13,
+  "removed_empty_rows": 0,
+  "columns": [
+    {
+      "name": "Year",
+      "normalized_name": "year",
+      "dtype": "int64",
+      "non_null_count": 104,
+      "null_count": 0,
+      "unique_count": 8,
+      "sample_values": [
+        "2016",
+        "2017",
+        "2018",
+        "2019",
+        "2020"
+      ]
+    },
+    {
+      "name": "Specimen",
+      "normalized_name": "specimen",
+      "dtype": "object",
+      "non_null_count": 104,
+      "null_count": 0,
+      "unique_count": 1,
+      "sample_values": [
+        "BLOOD",
+        "BLOOD",
+        "BLOOD",
+        "BLOOD",
+        "BLOOD"
+      ]
+    },
+    {
+      "name": "PathogenName",
+      "normalized_name": "pathogenname",
+      "dtype": "object",
+      "non_null_count": 104,
+      "null_count": 0,
+      "unique_count": 6,
+      "sample_values": [
+        "Acinetobacter spp.",
+        "Acinetobacter spp.",
+        "Acinetobacter spp.",
+        "Acinetobacter spp.",
+        "Acinetobacter spp."
+      ]
+    },
+    {
+      "name": "AntibioticName",
+      "normalized_name": "antibioticname",
+      "dtype": "object",
+      "non_null_count": 64,
+      "null_count": 40,
+      "unique_count": 5,
+      "sample_values": [
+        "Carbapenems",
+        "Carbapenems",
+        "Carbapenems",
+        "Carbapenems",
+        "Carbapenems"
+      ]
+    },
+    {
+      "name": "CTAs with Reported BCIs",
+      "normalized_name": "ctas_with_reported_bcis",
+      "dtype": "float64",
+      "non_null_count": 64,
+      "null_count": 40,
+      "unique_count": 31,
+      "sample_values": [
+        "19.0",
+        "48.0",
+        "60.0",
+        "69.0",
+        "83.0"
+      ]
+    },
+    {
+      "name": "CTAs with Reported BCIs with AST >= 80 BCIs",
+      "normalized_name": "ctas_with_reported_bcis_with_ast_80_bcis",
+      "dtype": "float64",
+      "non_null_count": 64,
+      "null_count": 40,
+      "unique_count": 40,
+      "sample_values": [
+        "18.0",
+        "42.0",
+        "43.0",
+        "61.0",
+        "72.0"
+      ]
+    },
+    {
+      "name": "Total BCIs",
+      "normalized_name": "total_bcis",
+      "dtype": "float64",
+      "non_null_count": 64,
+      "null_count": 40,
+      "unique_count": 48,
+      "sample_values": [
+        "3930.0",
+        "13633.0",
+        "20741.0",
+        "24047.0",
+        "25978.0"
+      ]
+    },
+    {
+      "name": "Total BCIs with AST",
+      "normalized_name": "total_bcis_with_ast",
+      "dtype": "float64",
+      "non_null_count": 64,
+      "null_count": 40,
+      "unique_count": 64,
+      "sample_values": [
+        "3764.0",
+        "12329.0",
+        "18688.0",
+        "22281.0",
+        "24532.0"
+      ]
+    },
+    {
+      "name": "Min",
+      "normalized_name": "min",
+      "dtype": "float64",
+      "non_null_count": 104,
+      "null_count": 0,
+      "unique_count": 63,
+      "sample_values": [
+        "0.019676404",
+        "0.012331509",
+        "0.024461375",
+        "0.018191404",
+        "0.012026601"
+      ]
+    },
+    {
+      "name": "Q1",
+      "normalized_name": "q1",
+      "dtype": "float64",
+      "non_null_count": 104,
+      "null_count": 0,
+      "unique_count": 103,
+      "sample_values": [
+        "2.602823282",
+        "1.873586961",
+        "1.354517676",
+        "1.65097223",
+        "1.133594711"
+      ]
+    },
+    {
+      "name": "Median",
+      "normalized_name": "median",
+      "dtype": "float64",
+      "non_null_count": 104,
+      "null_count": 0,
+      "unique_count": 97,
+      "sample_values": [
+        "6.179744758",
+        "7.14049113",
+        "7.45272014",
+        "6.869584558",
+        "8.343844598"
+      ]
+    },
+    {
+      "name": "Q3",
+      "normalized_name": "q3",
+      "dtype": "float64",
+      "non_null_count": 104,
+      "null_count": 0,
+      "unique_count": 101,
+      "sample_values": [
+        "11.465119454",
+        "12.643273594",
+        "14.20797469",
+        "19.026344727",
+        "15.391462488"
+      ]
+    },
+    {
+      "name": "Max",
+      "normalized_name": "max",
+      "dtype": "float64",
+      "non_null_count": 104,
+      "null_count": 0,
+      "unique_count": 87,
+      "sample_values": [
+        "45.493770089",
+        "98.944226051",
+        "93.468882783",
+        "223.637842234",
+        "297.270475901"
+      ]
+    }
+  ],
+  "numeric_summary": {
+    "year": {
+      "min": 2016.0,
+      "max": 2023.0,
+      "mean": 2019.5,
+      "median": 2019.5
+    },
+    "ctas_with_reported_bcis": {
+      "min": 18.0,
+      "max": 97.0,
+      "mean": 65.296875,
+      "median": 68.0
+    },
+    "ctas_with_reported_bcis_with_ast_80_bcis": {
+      "min": 14.0,
+      "max": 76.0,
+      "mean": 50.796875,
+      "median": 53.0
+    },
+    "total_bcis": {
+      "min": 1973.0,
+      "max": 354741.0,
+      "mean": 115647.421875,
+      "median": 92451.0
+    },
+    "total_bcis_with_ast": {
+      "min": 1753.0,
+      "max": 322744.0,
+      "mean": 107879.703125,
+      "median": 87620.5
+    },
+    "min": {
+      "min": 0.0,
+      "max": 0.191571234,
+      "mean": 0.03235937998076923,
+      "median": 0.018497264
+    },
+    "q1": {
+      "min": 0.231601474,
+      "max": 6.081093288,
+      "mean": 2.552783560326923,
+      "median": 2.417491322
+    },
+    "median": {
+      "min": 1.002653858,
+      "max": 56.714971691,
+      "mean": 18.041764042596153,
+      "median": 14.092285166
+    },
+    "q3": {
+      "min": 4.806926807,
+      "max": 301.717828719,
+      "mean": 95.20626679147115,
+      "median": 83.99935101
+    },
+    "max": {
+      "min": 12.605082942,
+      "max": 2778.304246826,
+      "mean": 485.8829399481634,
+      "median": 273.169346594
+    }
+  },
+  "preview": [
+    {
+      "year": 2016,
+      "specimen": "BLOOD",
+      "pathogenname": "Acinetobacter spp.",
+      "antibioticname": null,
+      "ctas_with_reported_bcis": null,
+      "ctas_with_reported_bcis_with_ast_80_bcis": null,
+      "total_bcis": null,
+      "total_bcis_with_ast": null,
+      "min": 0.019676404,
+      "q1": 2.602823282,
+      "median": 6.179744758,
+      "q3": 11.465119454,
+      "max": 45.493770089
+    },
+    {
+      "year": 2017,
+      "specimen": "BLOOD",
+      "pathogenname": "Acinetobacter spp.",
+      "antibioticname": null,
+      "ctas_with_reported_bcis": null,
+      "ctas_with_reported_bcis_with_ast_80_bcis": null,
+      "total_bcis": null,
+      "total_bcis_with_ast": null,
+      "min": 0.012331509,
+      "q1": 1.873586961,
+      "median": 7.14049113,
+      "q3": 12.643273594,
+      "max": 98.944226051
+    },
+    {
+      "year": 2018,
+      "specimen": "BLOOD",
+      "pathogenname": "Acinetobacter spp.",
+      "antibioticname": null,
+      "ctas_with_reported_bcis": null,
+      "ctas_with_reported_bcis_with_ast_80_bcis": null,
+      "total_bcis": null,
+      "total_bcis_with_ast": null,
+      "min": 0.024461375,
+      "q1": 1.354517676,
+      "median": 7.45272014,
+      "q3": 14.20797469,
+      "max": 93.468882783
+    },
+    {
+      "year": 2019,
+      "specimen": "BLOOD",
+      "pathogenname": "Acinetobacter spp.",
+      "antibioticname": null,
+      "ctas_with_reported_bcis": null,
+      "ctas_with_reported_bcis_with_ast_80_bcis": null,
+      "total_bcis": null,
+      "total_bcis_with_ast": null,
+      "min": 0.018191404,
+      "q1": 1.65097223,
+      "median": 6.869584558,
+      "q3": 19.026344727,
+      "max": 223.637842234
+    },
+    {
+      "year": 2020,
+      "specimen": "BLOOD",
+      "pathogenname": "Acinetobacter spp.",
+      "antibioticname": null,
+      "ctas_with_reported_bcis": null,
+      "ctas_with_reported_bcis_with_ast_80_bcis": null,
+      "total_bcis": null,
+      "total_bcis_with_ast": null,
+      "min": 0.012026601,
+      "q1": 1.133594711,
+      "median": 8.343844598,
+      "q3": 15.391462488,
+      "max": 297.270475901
+    },
+    {
+      "year": 2021,
+      "specimen": "BLOOD",
+      "pathogenname": "Acinetobacter spp.",
+      "antibioticname": null,
+      "ctas_with_reported_bcis": null,
+      "ctas_with_reported_bcis_with_ast_80_bcis": null,
+      "total_bcis": null,
+      "total_bcis_with_ast": null,
+      "min": 0.0,
+      "q1": 2.461600598,
+      "median": 9.047013391,
+      "q3": 21.859264348,
+      "max": 212.33274174
+    },
+    {
+      "year": 2022,
+      "specimen": "BLOOD",
+      "pathogenname": "Acinetobacter spp.",
+      "antibioticname": null,
+      "ctas_with_reported_bcis": null,
+      "ctas_with_reported_bcis_with_ast_80_bcis": null,
+      "total_bcis": null,
+      "total_bcis_with_ast": null,
+      "min": 0.035422284,
+      "q1": 2.609989556,
+      "median": 9.597694435,
+      "q3": 18.372135693,
+      "max": 206.425544063
+    },
+    {
+      "year": 2023,
+      "specimen": "BLOOD",
+      "pathogenname": "Acinetobacter spp.",
+      "antibioticname": null,
+      "ctas_with_reported_bcis": null,
+      "ctas_with_reported_bcis_with_ast_80_bcis": null,
+      "total_bcis": null,
+      "total_bcis_with_ast": null,
+      "min": 0.020552196,
+      "q1": 2.774296769,
+      "median": 8.245277872,
+      "q3": 19.535744104,
+      "max": 346.443722505
+    },
+    {
+      "year": 2016,
+      "specimen": "BLOOD",
+      "pathogenname": "Acinetobacter spp.",
+      "antibioticname": "Carbapenems",
+      "ctas_with_reported_bcis": 19.0,
+      "ctas_with_reported_bcis_with_ast_80_bcis": 18.0,
+      "total_bcis": 3930.0,
+      "total_bcis_with_ast": 3764.0,
+      "min": 0.029514606,
+      "q1": 2.83337744,
+      "median": 6.302541471,
+      "q3": 11.989560814,
+      "max": 45.493770089
+    },
+    {
+      "year": 2017,
+      "specimen": "BLOOD",
+      "pathogenname": "Acinetobacter spp.",
+      "antibioticname": "Carbapenems",
+      "ctas_with_reported_bcis": 48.0,
+      "ctas_with_reported_bcis_with_ast_80_bcis": 42.0,
+      "total_bcis": 13633.0,
+      "total_bcis_with_ast": 12329.0,
+      "min": 0.012331509,
+      "q1": 1.583320668,
+      "median": 6.988011229,
+      "q3": 12.441095852,
+      "max": 101.826999554
+    }
+  ],
+  "extraction_status": "success"
+}

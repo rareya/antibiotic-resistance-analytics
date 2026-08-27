@@ -1,546 +1,124 @@
+# ============================================================
+# AMR KNOWLEDGE SOURCE REGISTRY SCHEMA
+# Version 1.0
+# ============================================================
+
 schema:
-  name: AMR Knowledge Source Schema
-  version: "1.0.0"
+  name: amr_source_registry_schema
+  version: "1.0"
   description: >
-    Machine-readable schema defining the structure, validation rules,
-    evidence hierarchy, retrieval capabilities, AI restrictions,
-    licensing metadata, and provenance requirements for AMR knowledge
-    sources registered in sources.yaml.
-
-
-source:
-
-  required:
-    - id
-    - name
-    - authority
-    - source_type
-    - tier
-    - priority
-    - jurisdiction
-    - domains
-    - capabilities
-    - retrieval_modes
-
-
-  properties:
-
-    id:
-      type: string
-      required: true
-      pattern: "^[a-z0-9_]+$"
-      min_length: 2
-      description: >
-        Stable machine-readable identifier for the source.
-        Must not change merely because the source releases a new
-        document or database version.
-
-    name:
-      type: string
-      required: true
-      min_length: 1
-      description: >
-        Human-readable name of the source.
-
-    abbreviation:
-      type: string
-      required: false
-      nullable: true
-      description: >
-        Common abbreviation where applicable, such as CARD or WHO.
-
-    publisher:
-      type: string
-      required: false
-      nullable: true
-      description: >
-        Organization responsible for publishing or maintaining
-        the source.
-
-    authority:
-      type: string
-      required: true
-      min_length: 1
-      description: >
-        Authority classification of the source.
-
-    source_type:
-      type: array
-      required: true
-      min_items: 1
-      items:
-        type: string
-        enum:
-          - guideline
-          - laboratory_standard
-          - surveillance_system
-          - surveillance_methodology
-          - surveillance_dataset
-          - structured_data_platform
-          - resistance_database
-          - molecular_amr_database
-          - experimental_platform
-          - molecular_amr_resource
-          - research_dataset
-          - scientific_paper
-          - scientific_analysis
-          - burden_model
-          - educational_reference
-          - authoritative_context
-          - ai_methodology
-          - ontology
-
-    tier:
-      type: string
-      required: true
-      enum:
-        - tier_1
-        - tier_2
-        - tier_3
-
-    priority:
-      type: integer
-      required: true
-      minimum: 1
-      maximum: 100
-
-    jurisdiction:
-      type: array
-      required: false
-      min_items: 1
-      items:
-        type: string
-
-    domains:
-      type: array
-      required: true
-      min_items: 1
-      items:
-        type: string
-
-    capabilities:
-      type: array
-      required: true
-      min_items: 1
-      items:
-        type: string
-
-    modules:
-      type: array
-      required: false
-      items:
-        type: string
-
-    important_assets:
-      type: array
-      required: false
-      items:
-        type: string
-
-    preferred_for:
-      type: array
-      required: false
-      items:
-        type: string
-
-    retrieval_modes:
-      type: array
-      required: true
-      min_items: 1
-      items:
-        type: string
-        enum:
-          - document
-          - keyword
-          - metadata
-          - structured
-          - structured_lookup
-          - api
-          - sql
-          - downloadable_dataset
-
-    limitations:
-      type: array
-      required: false
-      items:
-        type: string
-
-    licensing:
-      type: object
-      required: false
-
-      properties:
-
-        track_per_asset:
-          type: boolean
-          required: false
-
-        do_not_assume_uniform_license:
-          type: boolean
-          required: false
-
-        default_license:
-          type: string
-          required: false
-          nullable: true
-
-
-    structured_data_policy:
-      type: object
-      required: false
-
-      properties:
-
-        primary_source_for_numeric_values:
-          type: boolean
-          required: false
-
-        embed_numeric_values_as_primary_source:
-          type: boolean
-          required: false
-
-        use_structured_lookup_for_statistics:
-          type: boolean
-          required: false
-
-
-    ai_restrictions:
-      type: object
-      required: false
-
-      properties:
-
-        cannot_be_used_for:
-          type: array
-          required: false
-          items:
-            type: string
-
-
-    provenance:
-      type: object
-      required: false
-
-      properties:
-
-        required:
-          type: array
-          required: false
-          items:
-            type: string
-
-
-# ============================================================
-# ENUMERATIONS
-# ============================================================
-
-enums:
-
-  tiers:
-
-    tier_1:
-      priority_range:
-        minimum: 90
-        maximum: 100
-
-      description: >
-        Authoritative standards, international health organizations,
-        official surveillance systems, and highly curated specialist
-        databases.
-
-    tier_2:
-      priority_range:
-        minimum: 60
-        maximum: 89
-
-      description: >
-        High-quality research datasets, national surveillance sources,
-        academic research platforms, and major scientific institutions.
-
-    tier_3:
-      priority_range:
-        minimum: 20
-        maximum: 59
-
-      description: >
-        Peer-reviewed scientific literature, methodological research,
-        educational references, and supporting evidence.
-
-
-  authorities:
-
-    - international_health_organization
-    - european_scientific_committee
-    - government_health_authority
-    - national_surveillance_system
-    - curated_molecular_amr_database
-    - academic_research_institution
-    - academic_research_lab
-    - peer_reviewed_research
-    - peer_reviewed_dataset_publication
-    - secondary_clinical_reference
-
-
-# ============================================================
-# VALIDATION RULES
-# ============================================================
-
-validation_rules:
-
-  # ----------------------------------------------------------
-  # General
-  # ----------------------------------------------------------
-
-  unique_source_ids:
-    rule: true
-    description: >
-      Every source ID must be unique within sources.yaml.
-
-
-  non_empty_required_fields:
-    rule: true
-    description: >
-      Required fields must not be null or empty.
-
-    jurisdiction_when_required:
-    rule: >
-      Sources representing surveillance systems, surveillance datasets,
-      burden models, or geographically scoped standards should define
-      jurisdiction. Methodological papers and general scientific
-      literature may omit jurisdiction when no specific geographic
-      scope applies.
-
-  # ----------------------------------------------------------
-  # Evidence hierarchy
-  # ----------------------------------------------------------
-
-  tier_1_requires_authority:
-    rule: >
-      tier == "tier_1" requires authority to be an accepted
-      authoritative organization or curated specialist database.
-
-  tier_1_priority:
-    rule: >
-      tier == "tier_1" requires priority >= 90.
-
-  tier_2_priority:
-    rule: >
-      tier == "tier_2" requires 60 <= priority <= 89.
-
-  tier_3_priority:
-    rule: >
-      tier == "tier_3" requires 20 <= priority <= 59.
-
-
-  # ----------------------------------------------------------
-  # Retrieval
-  # ----------------------------------------------------------
-
-  structured_numeric_data:
-    rule: >
-      If source_type contains surveillance_dataset,
-      structured_data_platform, research_dataset, or burden_model,
-      structured retrieval should be declared when the source
-      exposes machine-readable numerical data.
-
-  api_requires_structured:
-    rule: >
-      If retrieval_modes contains api, structured or sql,
-      the source must define an appropriate structured-data capability.
-
-  downloadable_dataset:
-    rule: >
-      If retrieval_modes contains downloadable_dataset,
-      source_type should include research_dataset,
-      surveillance_dataset, resistance_database, or
-      molecular_amr_database.
-
-
-  # ----------------------------------------------------------
-  # Clinical interpretation
-  # ----------------------------------------------------------
-
-  clinical_interpretation_requires_authority:
-    rule: >
-      A source intended for susceptibility interpretation or
-      clinical breakpoint interpretation must be an authoritative
-      clinical/laboratory standard.
-
-  molecular_database_cannot_be_breakpoint_authority:
-    rule: >
-      resistance_database and molecular_amr_database sources
-      cannot independently provide clinical breakpoint interpretation.
-
-  educational_source_cannot_override_guideline:
-    rule: >
-      educational_reference sources cannot override tier_1
-      clinical or laboratory standards.
-
-
-  # ----------------------------------------------------------
-  # Surveillance
-  # ----------------------------------------------------------
-
-  surveillance_data_requires_scope:
-    rule: >
-      Surveillance datasets must define jurisdiction and domains.
-
-  surveillance_data_requires_provenance:
-    rule: >
-      Surveillance sources must define provenance requirements
-      sufficient to preserve reporting period, geography and
-      source identity.
-
-
-  # ----------------------------------------------------------
-  # Burden models
-  # ----------------------------------------------------------
-
-  burden_model_distinction:
-    rule: >
-      burden_model sources must explicitly distinguish modeled
-      estimates from observed surveillance measurements.
-
-
-  # ----------------------------------------------------------
-  # Molecular AMR
-  # ----------------------------------------------------------
-
-  molecular_sources_require_versioning:
-    rule: >
-      resistance_database and molecular_amr_database sources must
-      track asset/database release versions.
-
-
-  # ----------------------------------------------------------
-  # Licensing
-  # ----------------------------------------------------------
-
-  licensing_tracking:
-    rule: >
-      Sources containing downloadable datasets or database releases
-      should track licensing at the asset level.
-
-  no_assumed_license:
-    rule: >
-      The system must never infer that a source is freely reusable
-      merely because its webpage or dataset is publicly accessible.
-
-
-# ============================================================
-# PROVENANCE REQUIREMENTS
-# ============================================================
-
-provenance_requirements:
-
-  minimum:
-
-    - source_id
-    - asset_id
-    - asset_version
-    - canonical_source
-    - retrieval_timestamp
-
-
-  document_sources:
-
-    - document_id
-    - title
-    - source_id
-    - asset_id
-    - asset_version
-    - publication_date
-    - section
-    - page
-    - canonical_url
-    - retrieval_timestamp
-
-
-  structured_sources:
-
-    - source_id
-    - dataset_id
-    - dataset_version
-    - record_identifier
-    - reporting_period
-    - geography
-    - indicator
-    - retrieval_timestamp
-
-
-  molecular_databases:
-
-    - source_id
-    - database_version
-    - release_date
-    - sequence_or_record_identifier
-    - retrieval_timestamp
-
-
-# ============================================================
-# AI GOVERNANCE
-# ============================================================
-
-ai_governance:
-
-  source_priority:
-    description: >
-      The retrieval system should prefer higher-tier sources when
-      multiple sources answer the same question.
-
-  conflict_resolution:
-    rules:
-
-      - >
-        Prefer current authoritative guidance over older supporting
-        literature for clinical interpretation.
-
-      - >
-        Prefer structured surveillance data over secondary summaries
-        for numerical claims.
-
-      - >
-        Prefer current database releases over historical database papers
-        for current database content.
-
-      - >
-        Preserve disagreement between authoritative sources rather than
-        silently merging incompatible definitions.
-
-  numeric_claims:
-    rule: >
-      Numeric claims must retain their source, reporting period,
-      geography, indicator definition, and version where available.
-
-  modeled_estimates:
-    rule: >
-      Modeled estimates must be explicitly labeled as modeled estimates.
-
-  molecular_evidence:
-    rule: >
-      Detection of a resistance gene or mechanism must not automatically
-      be represented as phenotypic clinical resistance.
-
-  clinical_decisions:
-    rule: >
-      The AI must not generate clinical interpretation by combining
-      unrelated sources when an authoritative clinical standard exists.
-
-
-# ============================================================
-# SCHEMA COMPATIBILITY
-# ============================================================
-
-compatibility:
-
-  sources_yaml_version:
-    minimum: "1.0.0"
-
-  forward_compatible:
-    allow_unknown_optional_fields: true
-
-  strict_required_fields:
-    enabled: true
-
-  strict_enum_validation:
-    enabled: true
+    Schema defining authoritative external knowledge sources
+    used by the AMR AI knowledge system.
+
+required_fields:
+  - id
+  - name
+  - description
+  - authority
+  - source_type
+  - tier
+  - priority
+  - domains
+  - capabilities
+  - retrieval_modes
+
+field_rules:
+
+  id:
+    type: string
+    required: true
+    min_length: 1
+
+  name:
+    type: string
+    required: true
+    min_length: 1
+
+  description:
+    type: string
+    required: true
+    min_length: 1
+
+  authority:
+    type: string
+    required: true
+    min_length: 1
+
+  source_type:
+    type: list
+    required: true
+    min_items: 1
+    item_type: string
+
+  tier:
+    type: string
+    required: true
+    allowed:
+      - primary
+      - authoritative
+      - research
+      - reference
+      - secondary
+
+  priority:
+    type: integer
+    required: true
+    minimum: 1
+    maximum: 100
+
+  domains:
+    type: list
+    required: true
+    min_items: 1
+    item_type: string
+
+  capabilities:
+    type: list
+    required: true
+    min_items: 1
+    item_type: string
+
+  retrieval_modes:
+    type: list
+    required: true
+    min_items: 1
+    item_type: string
+
+  canonical_url:
+    type: string
+    required: false
+
+  organization:
+    type: string
+    required: false
+
+  country:
+    type: string
+    required: false
+
+  geographic_scope:
+    type: list
+    required: false
+    item_type: string
+
+  languages:
+    type: list
+    required: false
+    item_type: string
+
+  update_frequency:
+    type: string
+    required: false
+
+  license:
+    type: string
+    required: false
+
+  access:
+    type: string
+    required: false
+
+  notes:
+    type: list
+    required: false
+    item_type: string

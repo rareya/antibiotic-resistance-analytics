@@ -1,0 +1,377 @@
+{
+  "chunker_version": "1.0",
+  "asset_id": "pubmedpdf",
+  "source_id": "pubmedpdf",
+  "source_type": "pdf",
+  "source_file": "knowledge/raw/pdf/pubmedpdf.pdf",
+  "chunk_count": 24,
+  "chunking": {
+    "strategy": "page-aware semantic paragraph chunking",
+    "target_chars": 1400,
+    "max_chars": 1800,
+    "overlap_chars": 220
+  },
+  "chunks": [
+    {
+      "chunk_id": "chunk_b0ef4ad7fc8e97ef1c07",
+      "chunk_type": "document",
+      "content": "The Comprehensive Antibiotic Resistance Database Andrew G. McArthur ,b Nicholas Waglechner ,a Fazmin Nizam ,a Austin Yan ,a Marisa A. Azad ,a Alison J. Baylay ,c Kirandeep Bhullar ,a Marc J. Canova ,a Gianfranco De Pascale ,a Linda Ejim ,a Lindsay Kalan ,a Andrew M. King ,a Kalinka Koteva ,a Mariya Morar ,a Michael R. Mulvey ,d Jonathan S. O’Brien ,a Andrew C. Pawlowski ,a Laura J. V. Piddock ,c Peter Spanogiannopoulos ,a Arlene D. Sutherland ,a Irene Tang ,a Patricia L. Taylor ,a Maulik Thaker ,a Wenliang Wang ,a Marie Yan ,a Tennison Yu ,a Gerard D. Wright a M.G. DeGroote Institute for Infectious Disease Research, Department of Biochemistry and Biomedical Sciences, McMaster University, Hamilton, Ont ario, Canadaa; Andrew McArthur Consulting, Hamilton, Ontario, Canadab; School of Immunity and Infection and Institute of Microbiology and Infection, College of Medical and Dental Sciences, University of Birmingham, Birmingham, United Kingdomc; National Microbiology Laboratory, Public Health Agency of Canada, Winnipeg, Manitoba, Canada d The ﬁeld of antibiotic drug discovery and the monitoring of new antibiotic resistance elements have yet to fully exploit the power of the genome revolution. Despite the fact that the ﬁrst genomes sequenced of free living organisms were those of bacteria, there have been few specialized bioinformatic tools developed to mine the growing amount of genomic data associated with patho- gens. In particular, there are few tools to study the genetics and genomics of antibiotic resistance and how it impacts bacterial populations, ecology, and the clinic. We have initiated development of such tools in the form of the Comprehensive Antibiotic Research Database (CARD; http://arpcard.mcmaster.ca). The CARD integrates disparate molecular and sequence data, provides a unique organizing principle in the form of the Antibiotic Resistance Ontology (ARO), and can quickly identify putative antibi- otic resistance genes in new unannotated genome sequences. This unique platform provides an informatic tool that bridges anti- biotic resistance concerns in health care, agriculture, and the environment. A ntibiotic resistance is an increasing crisis as both the range of microbial antibiotic resistance in clinical settings expands and the pipeline for development of new antibiotics contracts (1). This problem is compounded by the global genomic scope of the antibiotic resistome, such that antibiotic resistance spans a con- tinuum from genes in pathogens found in the clinic to those of benign environmental microbes along with their proto-resistance gene progenitors ( 2, 3). The recent emergence of New Delhi metallo-ß-lactamase (NDM-1) in Gram-negative organisms ( 4), which can hydrolyze all /H9252-lactams with the exception of mono- bactams, illustrates the capacity of new antibiotic resistance genes to emerge rapidly from as-yet-undetermined reservoirs. Surveys of genes originating from both clinical and environmental sources (microbes and metagenomes) will provide increasing insight into these reservoirs and offer predictive capacity for the emergence and epidemiology of antibiotic resistance. The increasing opportunity to prepare a broader and comprehen- sive antibiotic resistance gene census is facilitated by the power and falling costs of next-generation DNA sequencing. For example, whole-genome sequencing (WGS) is being increasingly used to ex- amine new antibiotic-resistant isolates discovered in clinical settings (5). Additionally, culture-independent metagenomic surveys are adding tremendously to the pool of known genes and their distribu- tion outside clinical settings (6, 7). These approaches have the advan- tage of providing a rapid survey of the antibiotic resistome of new strains, the discovery of newly emergent antibiotic resistance genes, the epidemiology of antibiotic resistance genes, and the horizontal gene transfer (HGT) of known antibiotic resistance genes through plasmids and transposable elements. However, despite the existence of tools for general annotation of prokaryotic genomes (see, e.g., ref- erence 8), prediction of an antibiotic resistance phenotype from a genome sequence is not straightforward and, to date, computational tools for comprehensive prediction of antibiotic resistance genes within genomes have been lacking. The proliferation of genetic and biochemical information on antibiotic resistance is resulting in a massive increase in molecular information that will facilitate our understanding of the evalua- tion, spread, and mechanism of antibiotic resistance. However, mining of this information is greatly hampered by the lack of a database that can unify information in a fashion that enables the gath- ering of over 5 decades of literature and data and includes up-to-date entry of new antibiotic resistance elements and curation of known and new genes. Such databases are increasingly common in other areas of biology and medicine, for example, InnateDB for innate im- munity interactions and pathways (http://innatedb.ca/)( 9). There have been efforts to establish such knowledge resources in the area of antibiotic resistance: for example, the Lahey clinic database on Ser /H9252-lactamases (www.lahey.org/studies/), the Repository of Antibiotic Resistance Cassettes (http://www2.chi.unsw.edu.au:8080/rac/)( 10) that lists a number of antibiotic resistance elements and provides some automatic annotation, the Resistance Map (http://www.cddep .org/resistancemap/) that offers an interactive format to view antibi- otic resistance surveillance data, and the Antibiotic Resistance Genes Database (http://ardb.cbcb.umd.edu/)( 11). These databases have proven too narrow in scope, are not regularly updated, or offer lim- ited resources and data to integrate molecular information from genes and their products, antibiotics, and the associated literature. Here we describe our effort to provide a unifying resource for the antibiotic resistance community: the Comprehensive Antibiotic Re- sistance Database (CARD;http://arpcard.mcmaster.ca). The CARD seeks to include data describing antibiotics and their targets along with antibiotic resistance genes, associated proteins, and antibiotic resistance literature. At the core of the CARD is a highly developed Received 28 February 2013 Returned for modiﬁcation 29 March 2013 Accepted 29 April 2013 Published ahead of print 6 May 2013 Address correspondence to Gerard D. Wright, wrightge@mcmaster.ca. Copyright © 2013, American Society for Microbiology. All Rights Reserved. doi:10.1128/AAC.00419-13 3348 aac.asm.org Antimicrobial Agents and Chemotherapy p. 3348 –3357 July 2013 Volume 57 Number 7",
+      "metadata": {
+        "asset_id": "pubmedpdf",
+        "source_id": "pubmedpdf",
+        "source_type": "pdf",
+        "source_file": "knowledge/raw/pdf/pubmedpdf.pdf",
+        "section": "Document",
+        "page_start": 1,
+        "page_end": 1,
+        "version": null
+      }
+    },
+    {
+      "chunk_id": "chunk_f9bc29d7cb39ee3e27ee",
+      "chunk_type": "document",
+      "content": "wrightge@mcmaster.ca. Copyright © 2013, American Society for Microbiology. All Rights Reserved. doi:10.1128/AAC.00419-13 3348 aac.asm.org Antimicrobial Agents and Chemotherapy p. 3348 –3357 July 2013 Volume 57 Number 7 Antibiotic Resistance Ontology (ARO) for the classiﬁcation of anti- biotic resistance gene data. Ontologies, also known as controlled vo- cabularies, form the foundation of genomic bioinformatics; they pro- vide consistent vocabularies for genes and their products that link them to their activities and enable robust investigation of molecular data (12). Furthermore, the CARD includes bioinformatic tools that enable the identiﬁcation of antibiotic resistance genes from whole- or partial-genome sequence data, including unannotated raw sequence assembly contigs. The result is a robustly curated database in a user- friendly format that assembles over 1,600 known antibiotic resistance genes, enabling sophisticated analysis and query of antibiotic resis- tance in a fashion that will serve the broader biomedical research community. MATERIALS AND METHODS The CARD runs on a HP Proliant BL460C G6 Blade Special server using Ubuntu linux 10.04 (64 bit). The CARD was developed using the Generic Model Organism Database (GMOD) Chado database schema (version 1.1) (13) running on PostgreSQL (version 8.4.4) as the underlying orga- nizing principle for storing sequence data, ontologies, citations, and other data. GMOD is a collection of open source software tools for development of genomic database tools and underlies several widely used model organ- ism databases (yeast,Drosophila, Caenorhabditis elegans, etc.) (13). In par- ticular, GMOD’s Chado relational database schema provides a mature, modular, ﬂexible, and extensible schema for storage of molecular and related data.",
+      "metadata": {
+        "asset_id": "pubmedpdf",
+        "source_id": "pubmedpdf",
+        "source_type": "pdf",
+        "source_file": "knowledge/raw/pdf/pubmedpdf.pdf",
+        "section": "Document",
+        "page_start": 2,
+        "page_end": 2,
+        "version": null
+      }
+    },
+    {
+      "chunk_id": "chunk_d663cf135514067cd0fe",
+      "chunk_type": "document",
+      "content": "The Web front end for the CARD is provided using a com- bination of Apache 2.2.17, PHP 5.3.2, Drupal 6.17, and custom Drupal modules and themes developed speciﬁcally for the CARD. Visualization of molecular sequence data (genes, plasmids, genomes) is provided by GMOD’s GBrowse tool (version 2.1) (14) conﬁgured to use the Bio:DB: Das:Chado adaptor to have GBrowse read data directly from Chado. The CARD’s BLAST tools rely upon NCBI’s open source BLAST software (15). Molecular sequences are imported into the CARD from GenBank us- ing custom software developed speciﬁcally for the CARD, with retention of all annotations, NCBI accession numbers, taxonomy identiﬁcation (ID) numbers of the host pathogen, and associated PubMed publications. By rule, only sequences available in GenBank and associated with a peer- reviewed publication(s) are included in the CARD. Import follows a two- step process in which sequences are ﬁrst acquired from GenBank in GFF3 format (www.sequenceontology.org) and then loaded into the CARD’s Chado database. All GFF3 ﬁles are curated prior to loading into Chado to ensure accuracy and kept in a ﬁle repository for future reference. To re- cord distributions of genes among pathogens, the CARD additionally uses a pruned form of NCBI’s taxonomy system (16) in the form of a custom NCBI Taxonomy ontology as described below. The CARD’s GFF3 loader script tags all new sequences with terms from the CARD’s NCBI Taxon- omy ontology to provide organismal context and similarly loads any as- sociated PubMed publications into the CARD Publication module. Tag- ging of imported genes with Antibiotic Resistance Ontology (ARO) terms is performed by annotation text mining of regular expressions (RegEx).",
+      "metadata": {
+        "asset_id": "pubmedpdf",
+        "source_id": "pubmedpdf",
+        "source_type": "pdf",
+        "source_file": "knowledge/raw/pdf/pubmedpdf.pdf",
+        "section": "Document",
+        "page_start": 2,
+        "page_end": 2,
+        "version": null
+      }
+    },
+    {
+      "chunk_id": "chunk_1ade8ea3cca32cdc0116",
+      "chunk_type": "document",
+      "content": "Additional antibiotic resistance annotation of new sequences is often de- veloped with the aid of the Resistance Gene Identiﬁer (RGI). Details on the ARO, text mining RegEx, and RGI are provided below. The Antibiotic Resistance Ontology (ARO) was developed via ontol- ogy jamborees, review of the antibiotic resistance literature, and extensive curation using custom command line and Web interface tools developed speciﬁcally for the CARD. External ontologies such as the Gene Ontology (17) and Sequence Ontology (18) were loaded into the CARD using avail- able GMOD tools. The CARD’s NCBI Taxonomy ontology was addition- ally developed using custom command line and Web interface tools de- veloped speciﬁcally for the CARD but in a manner such that ontology accession numbers directly mirror NCBI’s Taxonomy ID numbers ( 16) (e.g., NCBITaxon:470 mirrors Taxonomy ID 470 for Acinetobacter bau- mannii). The CARD uses only the subset of the available NCBI Taxonomy that is relevant to antibiotic-resistant bacteria, with a simpliﬁed taxo- nomic organization. Individual Antibiotic Resistance Ontology (ARO) terms in the CARD have been associated with speciﬁc computational tools and models via Chado’scvtermprop table. The majority of ARO terms have text mining of regular expressions (RegEx) to correctly assign ARO terms to molecular sequences imported into the CARD based on the text annotations pro- vided in the GenBank records. These RegEx entries are actively curated. The resulting tagged sequences, particularly those of polypeptides, form the underlying BLAST database used by the Resistance Gene Identiﬁer (RGI) to identify antibiotic resistance genes in raw sequence data as out- lined below.",
+      "metadata": {
+        "asset_id": "pubmedpdf",
+        "source_id": "pubmedpdf",
+        "source_type": "pdf",
+        "source_file": "knowledge/raw/pdf/pubmedpdf.pdf",
+        "section": "Document",
+        "page_start": 2,
+        "page_end": 2,
+        "version": null
+      }
+    },
+    {
+      "chunk_id": "chunk_aa8775232c38e85493fd",
+      "chunk_type": "document",
+      "content": "For antibiotic resistance involving speciﬁc mutations (i.e., single nucleotide polymorphisms [SNPs]), ARO terms are additionally associated with hidden Markov models (HMMs), alignment reference sequences, and position-speciﬁc SNPs for positional alignment of se- quences and detection of position-speciﬁc SNPs. HMMs are constructed by the CARD curators and utilized by the CARD software using the HMMer software (19). The CARD includes a number of modiﬁcations or additions to the GMOD Chado schema or its use. Foremost of these is the downplaying of the Chado organism table in favor of an ontological approach to storing source pathogen and taxonomic relationships. In the CARD, all bacterial sequences are encoded as “Bacteria” in theorganism table but association of sequences with source organism(s) and their overall taxonomy is han- dled via the feature_cvterm table and the NCBITaxon ontology. The CARD also includes a custom cvterm_crossref table and related material- ization tables to provide precomputed feature counts and lists within the context of cross-referencing of ontology subtrees, e.g., “how many amino- glycoside acetyltransferase genes are found in any strain ofA. baumannii?” Association of features with their sources (i.e., genes found on a plasmid or genome) is additionally used to reﬂect physical linkage within cvterm- _crossref, e.g., “how many antibiotic resistance genes are plasmid borne?” Ontological cross-referencing is used extensively to provide browsing power to the CARD, and the cvterm_crossref tables serve both to avoid frequent use of complex SQL queries by the CARD (by having results precalculated) and to allow nested complex queries, e.g., “list all plasmid- borne ß-lactamases in any strain of A.",
+      "metadata": {
+        "asset_id": "pubmedpdf",
+        "source_id": "pubmedpdf",
+        "source_type": "pdf",
+        "source_file": "knowledge/raw/pdf/pubmedpdf.pdf",
+        "section": "Document",
+        "page_start": 2,
+        "page_end": 2,
+        "version": null
+      }
+    },
+    {
+      "chunk_id": "chunk_1010191e6bf5b179e7d1",
+      "chunk_type": "document",
+      "content": "baumannii , excluding all TEM ß-lactamases.” The CARD also deviates from traditional use of Chado due to the prokaryotic nature of antibiotic resistance. In particular, both Chado and its use of the Sequence Ontology (SO) and the GFF3 formats have tradi- tionally been eukaryote centered. The CARD includes development of a prokaryotic gene model, associated GFF3 encoding, and Chado loading protocol based on both custom ideas and those previously posted by GMOD/SO/GFF research community discussion groups. This custom ap- proach remains compliant with the Sequence Ontology Feature Annota- tion (SOFA) standard (18). As the CARD is not a static database but instead undergoes constant curation, addition of new molecular data, pathogens, and publications, and continual evolution of the Antibiotic Resistance Ontology (ARO), it necessarily has a number of important maintenance routines. Foremost of these are scripts for updating Chado tables relating to the structure of ontologies (e.g., cvtermpath) and for cross-referencing ontology term tag- ging (e.g., cvterm_crossref). The CARD also updates text, BLAST, and RGI search reference ﬁles on a 24-h basis. Lastly, the Publication module in- corporates curator-submitted citations upon their submission and re- freshes all citations once a month to capture updated citation information provided by PubMed. Much of the data, ontological structure, and models in the CARD are utilized by the Resistance Gene Identiﬁer (RGI), a new tool for de novo annotation of gene, complete-genome, or genome assembly se- quences for their antibiotic resistome. Gene prediction in the RGI includes only protein-coding genes, as predicted by GeneMark ( 20). Predicted open reading frames of less than 30 bp are ignored.",
+      "metadata": {
+        "asset_id": "pubmedpdf",
+        "source_id": "pubmedpdf",
+        "source_type": "pdf",
+        "source_file": "knowledge/raw/pdf/pubmedpdf.pdf",
+        "section": "Document",
+        "page_start": 2,
+        "page_end": 2,
+        "version": null
+      }
+    },
+    {
+      "chunk_id": "chunk_aeeea6a24bc340bc844b",
+      "chunk_type": "document",
+      "content": "Antibi- otic resistance annotation is based on BLASTP hits to curated protein July 2013 Volume 57 Number 7 aac.asm.org 3349",
+      "metadata": {
+        "asset_id": "pubmedpdf",
+        "source_id": "pubmedpdf",
+        "source_type": "pdf",
+        "source_file": "knowledge/raw/pdf/pubmedpdf.pdf",
+        "section": "Document",
+        "page_start": 2,
+        "page_end": 2,
+        "version": null
+      }
+    },
+    {
+      "chunk_id": "chunk_53f712ba111054f7c285",
+      "chunk_type": "document",
+      "content": "sequences present in CARD. Any predicted gene with a BLASTP hit to a protein tagged for antibiotic resistance in the ARO is highlighted. The default BLASTP cutoff is an expectation value of e /H1100230, but many types of antibiotic resistance genes use custom cutoffs based on their classiﬁcation. Where antibiotic resistance is conferred by SNPs, the RGI additionally screens for known resistance SNPs via use of hidden Markov models (HMMs), reference sequences, and position-speciﬁc SNP sequences for positional alignment and assessment of query se- quences using HMMer ( 19). TABLE 1 List of antibiotic resistance genes curated in the CARD within which citation, molecular sequence, protein structure, mechanism, and ARO classiﬁcation details are provideda Aminocoumarins Aminocoumarin-resistant DNA topoisomerases Aminocoumarin-resistant GyrB, ParE, ParY Aminoglycosides Aminoglycoside acetyltransferases AAC(1), AAC(2=), AAC(3), AAC(6=) Aminoglycoside nucleotidyltransferases ANT(2/H11033), ANT(3/H11033), ANT(4=), ANT(6), ANT(9) Aminoglycoside phosphotransferases APH(2/H11033), APH(3/H11033), APH(3=), APH(4), APH(6), APH(7/H11033), APH(9) 16S rRNA methyltransferases ArmA, RmtA, RmtB, RmtC, Sgm /H9252-Lactams Class A /H9252-lactamases AER, BLA1, CTX-M, KPC, SHV, TEM, etc.b Class B (metallo-)/H9252-lactamases BlaB, CcrA, IMP, NDM, VIM, etc.b Class C /H9252-lactamases ACT, AmpC, CMY, LAT, PDC, etc.b Class D /H9252-lactamases OXA /H9252-lactamaseb mecA (methicillin-resistant PBP2) Mutant porin proteins conferring antibiotic resistance Antibiotic-resistant Omp36, OmpF, PIB (por) Genes modulating /H9252-lactam resistance bla (blaI, blaR1) and mec (mecI, mecR1) operons Chloramphenicol Chloramphenicol acetyltransferase (CAT) Chloramphenicol phosphotransferase Ethambutol Ethambutol-resistant arabinosyltransferase (EmbB) Mupirocin Mupirocin-resistant isoleucyl-tRNA synthetases MupA, MupB Peptide antibiotics Integral membrane protein MprF Phenicol Cfr 23S rRNA methyltransferase Rifampin Rifampin ADP-ribosyltransferase (Arr) Rifampin glycosyltransferase Rifampin monooxygenase Rifampin phosphotransferase Rifampin resistance RNA polymerase-binding proteins DnaA, RbpA Rifampin-resistant beta-subunit of RNA polymerase (RpoB) Streptogramins Cfr 23S rRNA methyltransferase Erm 23S rRNA methyltransferases ErmA, ErmB, Erm(31), etc.d Streptogramin resistance ATP-binding cassette (ABC) efﬂux pumps Lsa, MsrA, Vga, VgaB Streptogramin Vgb lyase Vat acetyltransferase Fluoroquinolones Fluoroquinolone acetyltransferase Fluoroquinolone-resistant DNA topoisomerases Fluoroquinolone-resistant GyrA, GyrB, ParC Quinolone resistance protein (Qnr) Fosfomycin Fosfomycin phosphotransferases FomA, FomB, FosC Fosfomycin thiol transferases FosA, FosB, FosX Glycopeptides VanA, VanB, VanD, VanR, VanS, etc.c TABLE 1 (Continued) Lincosamides Cfr 23S rRNA methyltransferase Erm 23S rRNA methyltransferases ErmA, ErmB, Erm(31), etc.d Lincosamide nucleotidyltransferase (Lin) Linezolid Cfr 23S rRNA methyltransferase Macrolides Cfr 23S rRNA methyltransferase Erm 23S rRNA methyltransferases ErmA, ErmB, Erm(31), etc.d Macrolide esterases EreA, EreB Macrolide glycosyltransferases GimA, Mgt, Ole Macrolide phosphotransferases (MPH) MPH(2=)-I, MPH(2=)-II Macrolide resistance efﬂux pumps MefA, MefE, Mel Streptothricin Streptothricin acetyltransferase (sat) Sulfonamides Sulfonamide-resistant dihydropteroate synthases Sul1, Sul2, Sul3, sulfonamide-resistant FolP Tetracyclines Mutant porin PIB (por) with reduced permeability Tetracycline inactivation enzyme TetX Tetracycline resistance major facilitator superfamily (MFS) efﬂux pumps TetA, TetB, TetC, Tet30, Tet31, etc.e Tetracycline resistance ribosomal protection proteins TetM, TetO, TetQ, Tet32, Tet36, etc.e Efﬂux pumps conferring antibiotic resistance ABC antibiotic efﬂux pump MacAB-TolC, MsbA, MsrA,VgaB, etc.f MFS antibiotic efﬂux pump EmrD, EmrAB-TolC, NorB, GepA, etc.f Multidrug and toxic compound extrusion (MATE) transporter MepA Resistance-nodulation-cell division (RND) efﬂux pump AdeABC, AcrD, MexAB-OprM, mtrCDE, etc.f Small multidrug resistance (SMR) antibiotic efﬂux pump EmrE Genes modulating antibiotic efﬂux adeR, acrR, baeSR, mexR, phoPQ, mtrR, etc.g a ARO, Antibiotic Resistance Ontology. b Complete lists of /H9252-lactamase families and individual /H9252-lactamases can be found in the CARD. c Glycopeptide resistance gene clusters include a number of genes encoding proteins with different functions, including sensors, regulators, and enzymes, all of which result in restructuring of the cell wall, providing resistance to glycopeptides. The full list of genes involved can be found in the CARD. d Complete lists of Erm 23S rRNA methyltransferases can be found in the CARD. e Complete lists of tetracycline resistance major facilitator superfamily (MFS) efﬂux pumps and ribosomal protection proteins can be found in the CARD. f Complete lists of ATP-binding cassette (ABC), MFS, and resistance-nodulation-cell division (RND) antibiotic efﬂux pumps can be found in the CARD. g Complete lists of efﬂux regulatory proteins can be found in the CARD, including information on mutations conferring increased rates of antibiotic efﬂux. 3350 aac.asm.org Antimicrobial Agents and Chemotherapy",
+      "metadata": {
+        "asset_id": "pubmedpdf",
+        "source_id": "pubmedpdf",
+        "source_type": "pdf",
+        "source_file": "knowledge/raw/pdf/pubmedpdf.pdf",
+        "section": "Document",
+        "page_start": 3,
+        "page_end": 3,
+        "version": null
+      }
+    },
+    {
+      "chunk_id": "chunk_b8c382d8264e59d98cfc",
+      "chunk_type": "document",
+      "content": "the CARD. g Complete lists of efﬂux regulatory proteins can be found in the CARD, including information on mutations conferring increased rates of antibiotic efﬂux. 3350 aac.asm.org Antimicrobial Agents and Chemotherapy RESULTS Molecular sequence data in the CARD. The CARD is based on molecular determinants of antibiotic resistance: the genes and their regulators conferring resistance to antibiotic molecules. The CARD is populated with molecular sequences of over 1,600 anti- biotic resistance genes (Table 1). All are the product of active and ongoing curation of sequences available in GenBank associated with peer-reviewed publications and reﬂect an effort to include all genes and mechanisms involved in antibiotic resistance, provid- ing an exhaustive molecular foundation within the CARD for cat- aloging and interpreting antibiotic resistance data and for provid- ing new analytical and predictive tools. Addition of new genes occurs regularly and by external users alerting the curation team through the Web portal as new genes are identiﬁed. In order to generate a database with optimal modularity, ﬂex- ibility, and integration with genome and metagenome projects, we chose to use the Generic Model Organism Database (GMOD; www.gmod.org) open source software for construction of the CARD. With minor modiﬁcations (see Materials and Methods), all of molecular sequence data in CARD have been loaded into GMOD’s Chado schema and can be browsed throughout the CARD and within GMOD’s powerful, interactive genome visual- ization and analysis tool GBrowse ( 14)( Fig. 1 ).",
+      "metadata": {
+        "asset_id": "pubmedpdf",
+        "source_id": "pubmedpdf",
+        "source_type": "pdf",
+        "source_file": "knowledge/raw/pdf/pubmedpdf.pdf",
+        "section": "Document",
+        "page_start": 4,
+        "page_end": 4,
+        "version": null
+      }
+    },
+    {
+      "chunk_id": "chunk_d7c191706905e6094ce9",
+      "chunk_type": "document",
+      "content": "All molecular sequences within the CARD are classiﬁed and organized using the Sequence Ontology (18), which is comprised of a set of ontology terms describing the many levels of organization and relationships between different molecular sequences (e.g., a polypeptide derives_from a gene, which is part_of a genome). This Sequence Ontology-based organization was critical for adapting Chado to a prokaryotic gene model (see Materials and Methods) and for de- velopment of advanced search and analysis tools as outlined below. The Antibiotic Resistance Ontology. While all molecular se- quences within the CARD are classiﬁed and organized using the Sequence Ontology to deﬁne their role within the cell (e.g., ge- nome, gene, transcript, polypeptide), this is uninformative re- garding antibiotic resistance. As such, at the heart of the CARD is a new Antibiotic Resistance Ontology (ARO). This ontology is a common language that can be used to link gene product function across disparate organisms. Such a controlled vocabulary is essen- FIG 1 Presentation of the Staphylococcus aureus blaZ ß-lactamase gene in the CARD. (A) The gene’s Web page in the CARD, providing annotation, accession, source information, ontological classiﬁcation (SO, ARO, GO), and associated molecular features (mRNA, polypeptide, coding sequence [CDS]). (B) Dynamic browsing and analysis of the blaZ gene using the Web-based genome visualization and analysis tool GBrowse. July 2013 Volume 57 Number 7 aac.asm.org 3351",
+      "metadata": {
+        "asset_id": "pubmedpdf",
+        "source_id": "pubmedpdf",
+        "source_type": "pdf",
+        "source_file": "knowledge/raw/pdf/pubmedpdf.pdf",
+        "section": "Document",
+        "page_start": 4,
+        "page_end": 4,
+        "version": null
+      }
+    },
+    {
+      "chunk_id": "chunk_04dc9b32008b455f66ef",
+      "chunk_type": "document",
+      "content": "tial in the area of antibiotic resistance given the multiple sources of antibiotic resistance elements, antibiotics, and associated pheno- types. The ARO reﬂects an ontological description of the genes, drugs, and mechanisms involved in antibiotic resistance and also includes antibiotic targets. Like the use of the Sequence Ontology tool, all molecular sequences within the CARD are classiﬁed and organized using the ARO, allowing individual antibiotic resis- tance genes to be placed into a broader functional context (Fig. 2). Core to this organization of molecular data is the relation of drugs to targets and antibiotic resistance genes within the ARO (Fig. 3). As such, the CARD has been designed to use the ARO as its pri- mary organizing principle and all sequence, citation, and protein/ chemical structure data are accessible via terms within the ARO (Fig. 4). We beneﬁted signiﬁcantly from an initial effort to establish an ARO by Liu and Pop (11), and we have greatly expanded this ARO to include branches that describe antibiotics, biosynthesis, mech- anisms, targets, inhibitors, and, of course, the antibiotic resistance genes themselves (Table 2). In addition, we have developed novel relationship types to reﬂect the biological processes involved in antibiotic resistance ( Table 3 ). In the context of the major branches of the ARO, is_a is used exclusively within branches (e.g., TEM is_a ß-lactamase) whereas part_of is used to bridge the de- terminant and mechanism branches (e.g., ß-lactamases are part_of antibiotic degradation) or to reﬂect protein assemblages (e.g., MexA is part_of the efﬂux pump MexAB-OprM). The “reg- ulates” term connects regulators with the genes they control (e.g., MexR regulates MexAB-OprM). The confers_resistance_to rela- tions bridge the determinant branch and the antibiotic molecule branch (e.g., ß-lactamases confer_resistance_to ß-lactams), while the targeted_by relations bridge the drug target branch and anti- biotic molecule branch (e.g., elongation factor Tu is targeted_ by_drug pulvomycin). The derives_from relation bridges the drug target branch and the determinant branch (e.g., antibiotic-resis- tant embB derives_from antibiotic-sensitive embB). Horizontal gene transfer and pathogen diversity. GMOD’s Chado relational database schema was designed with a discrete number of organisms in mind, but this is not reﬂective of the reality of antibiotic resistance, where the same or similar genes may be found in numerous bacterial genomes. Antibiotic resis- tance can encompass any number of bacterial strains, and hori- zontal gene transfer (HGT) is common. Unlike eukaryotic organ- ism databases, where the underlying genome sequence often represents a static sample, the CARD is a dynamic database that must handle an ever-changing landscape of antibiotic resistance. For example, a plasmid recorded in CARD for a speciﬁc bacterial FIG 2 Classiﬁcation of aminocoumarin-resistant gyrase B in the Antibiotic Resistance Ontology (ARO), illustrating the use of ontological relationship st o describe knowledge about the gene (seeTable 3). The is_a relationships are depicted by solid arrows labeled with “i” and generally denote classiﬁcation hierarchies within the major branches of the ARO (mechanism, determinant, antibiotic, target), while dashed arrows labeled with “p” reﬂect part_of relationships between genes and mechanisms. Dashed arrows labeled with “d” depict derived_from relationships between antibiotic-sensitive precursors and antibiotic-resistant forms of the gene, while those labeled with “t” reﬂect targeted_by relationships between antibiotic-sensitive forms and antibiotic molecules. Dashed arrows labeled with “r” depict confers_resistance relationships between antibiotic resistance genes and antibiotic molecules. Asterisks denote a derived_from relationship between antibiotic-resistant and -sensitive DNA topoisomerase subunits. 3352 aac.asm.org Antimicrobial Agents and Chemotherapy",
+      "metadata": {
+        "asset_id": "pubmedpdf",
+        "source_id": "pubmedpdf",
+        "source_type": "pdf",
+        "source_file": "knowledge/raw/pdf/pubmedpdf.pdf",
+        "section": "Document",
+        "page_start": 5,
+        "page_end": 5,
+        "version": null
+      }
+    },
+    {
+      "chunk_id": "chunk_e2380cb5305a28ad485d",
+      "chunk_type": "document",
+      "content": "iotic resistance genes and antibiotic molecules. Asterisks denote a derived_from relationship between antibiotic-resistant and -sensitive DNA topoisomerase subunits. 3352 aac.asm.org Antimicrobial Agents and Chemotherapy pathogen may quickly be discovered in additional pathogens and strains. Due to promiscuous plasmids, the metallo-ß-lactamase NDM-1 alone has been recorded in Acinetobacter baumannii , Klebsiella oxytoca , Proteus mirabilis , Enterobacter cloacae , Citro- bacter freundii, Providencia spp., Shigella spp., Pseudomonas spp., Stenotrophomonas spp., Aeromonas spp., and Vibrio cholerae since its initial discovery inKlebsiella pneumoniae and Escherichia coli in 2008 (21). To handle this biological diversity, the CARD employs an ontological approach to recoding the organismal origin of mo- lecular sequences, via a custom NCBI Taxonomy ontology, such that each bacterial strain has its own ontology term and all such terms are placed in a taxonomic hierarchy. This allows a single plasmid sequence stored in the CARD to be associated with mul- tiple bacterial strains, via assignment of ontology terms, without the sequence itself being stored multiple times in the CARD. The use of a taxonomic ontology was also explicitly developed to allow searching of data for speciﬁc clinical strains (e.g., list all /H9252-lacta- mases found in Salmonella enterica subsp. enterica serovar Typhi strain CT18) or at broader taxonomic levels (e.g., list all /H9252-lacta- mases found in all Salmonella pathogens). Integration with NCBI, PDB, and other resources.",
+      "metadata": {
+        "asset_id": "pubmedpdf",
+        "source_id": "pubmedpdf",
+        "source_type": "pdf",
+        "source_file": "knowledge/raw/pdf/pubmedpdf.pdf",
+        "section": "Document",
+        "page_start": 6,
+        "page_end": 6,
+        "version": null
+      }
+    },
+    {
+      "chunk_id": "chunk_f90cffc8c8cc476c2180",
+      "chunk_type": "document",
+      "content": "Terms in the ARO and the NCBI Taxonomy ontology have been associated with useful supplementary information via active curation, such as key publications in PubMed, chemical structures in PubChem, and three-dimensional (3D) protein structures in the Protein Data Bank (PDB). Both PubChem and PDB structures can be viewed graphically within the CARD. PDB structures have simi- larly been associated with the underlying gene sequences. PubMed entries are integrated among genes and other molecular se- quences, ARO terms, and pathogen strains. The CARD automat- ically updates citations as new information becomes available in PubMed. The CARD also provides cross-references to other ontologies and databases, such as the Sequence Ontology, the Gene Ontol- ogy, and NCBI’s Taxonomy section. Efforts are under way to link the ARO to higher-order ontologies, such as the Gene Ontology and the developing Infectious Disease Ontology (22), to provide a broader context for the antibiotic resistance biology than that cov- ered by the ARO. Searching the CARD. The entire contents of the CARD can be queried via a text search box, which searches all gene annotations, ontology terms, publications, and linkages to PubChem or PDB structure annotations. ARO terms in the CARD include curated lists of synonyms (e.g., Amicacin as a synonym for the drug ami- kacin, or meticilin for methicillin), allowing searching of the CARD using multiple terminologies. The search box itself sug- FIG 3 Organization of aminoglycoside antibiotics (blue), their target (green), and aminoglycoside resistance genes (red) in the CARD’s Antibiotic Resistance Ontology, illustrating the diversity of genes providing resistance to single or multiple aminoglycosides.",
+      "metadata": {
+        "asset_id": "pubmedpdf",
+        "source_id": "pubmedpdf",
+        "source_type": "pdf",
+        "source_file": "knowledge/raw/pdf/pubmedpdf.pdf",
+        "section": "Document",
+        "page_start": 6,
+        "page_end": 6,
+        "version": null
+      }
+    },
+    {
+      "chunk_id": "chunk_3aebdf0bbaf86c76c5fb",
+      "chunk_type": "document",
+      "content": "Nodes represent ontology terms, while edges represent relationships between ontology terms. July 2013 Volume 57 Number 7 aac.asm.org 3353",
+      "metadata": {
+        "asset_id": "pubmedpdf",
+        "source_id": "pubmedpdf",
+        "source_type": "pdf",
+        "source_file": "knowledge/raw/pdf/pubmedpdf.pdf",
+        "section": "Document",
+        "page_start": 6,
+        "page_end": 6,
+        "version": null
+      }
+    },
+    {
+      "chunk_id": "chunk_ee5d887a68a1cada916c",
+      "chunk_type": "document",
+      "content": "gests solutions in the form of a drop-down box of suggested ARO or NCBI Taxonomy ontology terms based on the supplied text. As the CARD is organized as an ontology-centered interface, selec- tion of a suggested ontology term provides the user with a curated catalog on antibiotic resistance genes, mechanisms, drugs, and pathogens recorded in the CARD for the term selected. In fact, examination of ARO terms is often the most powerful form of search, as ontology term Web pages include precomputed molec- ular sequence lists within the context of the ARO and the NCBI Taxonomic ontology, e.g., “how many aminoglycoside acetyl- transferase genes are recorded in the CARD for any strain of A. baumannii?” These cross-references allow the user to browse lists of antibiotic resistance genes, browse to speciﬁc gene sequences, and generate multiple sequence alignments and are the product of active curation of sequences available in GenBank associated with peer-reviewed publications. FIG 4 An ontology term Web page for tetracycline resistance genetetX (ARO:3000205) in the CARD, providing descriptive, ontological classiﬁcation, sequence, protein structure, publication, taxonomic distribution, and bioinformatics data/model information. By providing an ontology-centered interfa ce, the CARD offers a clearinghouse of information on antibiotic resistance genes, mechanisms, drugs, etc. The left column reﬂects ontological cross-referencing (see Materials and Methods). TABLE 2 Major branches of the AROa Major ARO branch Scope Determinant of Antibiotic Resistance (ARO:3000000) Antibiotic resistance genes, SNPs, or other molecular entities organized by target (e.g., aminocoumarin, glycopeptides, etc.) and mode of action (e.g., antibiotic inactivation, molecular bypass, etc.) Mechanism of Antibiotic Resistance (ARO:1000002) Target alteration, target replacement, antibiotic inactivation, antibiotic efﬂux, antibiotic target protection, reduced permeability to antibiotic Antibiotic Target (ARO:3000708) Targeted cell membrane components, protein or nucleotide synthesis machinery, enzymes, etc. Antibiotic Molecule (ARO:1000003) Hierarchical classiﬁcation of antibiotics (e.g., sulfonamide, /H9252-lactam, glycopeptide antibiotics, etc.) Inhibitor of Antibiotic Resistance (ARO:0000076) /H9252-Lactamase and other inhibitors Antibiotic Biosynthesis (ARO:3000082) Phosphonoacetaldehyde methyltransfererase, glycopeptide biosynthesis, macrolide biosynthesis, streptogramin biosynthesis, fosfomycin biosynthesis, aminocoumarin biosynthesis, phosphoenolpyruvate (PEP) mutase, phosphonopyruvate decarboxylase Antibiotic Resistance Terminology (ARO:3000045) Ontological relationship types, bioinformatic model types, reference molecular sequence types, etc. a ARO, Antibiotic Resistance Ontology. All major branches are part_of ARO:1000001, “process or component of antibiotic biology or chemistry.” 3354 aac.asm.org Antimicrobial Agents and Chemotherapy",
+      "metadata": {
+        "asset_id": "pubmedpdf",
+        "source_id": "pubmedpdf",
+        "source_type": "pdf",
+        "source_file": "knowledge/raw/pdf/pubmedpdf.pdf",
+        "section": "Document",
+        "page_start": 7,
+        "page_end": 7,
+        "version": null
+      }
+    },
+    {
+      "chunk_id": "chunk_998f51604e5c14883382",
+      "chunk_type": "document",
+      "content": "ar sequence types, etc. a ARO, Antibiotic Resistance Ontology. All major branches are part_of ARO:1000001, “process or component of antibiotic biology or chemistry.” 3354 aac.asm.org Antimicrobial Agents and Chemotherapy In addition to extensive browsing tools, integrated within the CARD and available as tools on the website are BLAST databases for all genes stored in the CARD. BLAST searches can include all genes or subsets of CARD reﬂecting antibiotic resistance genes, antibiotic targets, and antibiotic biosynthesis genes. The Resistance Gene Identiﬁer (RGI).In addition to extensive search tools, the CARD provides a novel analytical tool in the form of the Resistance Gene Identiﬁer (RGI). The RGI provides a pre- liminary annotation of the submitted DNA sequence(s) based upon the data available in the CARD. RGI can accept GenBank accession or GI numbers, pasted sequences, or uploaded nucleo- tide sequence ﬁles in FASTA format. Data with two or more FASTA sequences, such as whole-genome-sequencing (WGS) as- sembly contigs, can be accepted (maximum size, 20 Mb). The RGI analyzes the submitted sequences and provides a detailed output of predicted antibiotic resistance genes and targeted drug classes. This includes resistance to antibiotics via mutations in their tar- gets or via dedicated antibiotic resistance gene products (enzymes, protective proteins, and efﬂux systems). RGI results are summa- rized using a “resistance wheel,” with overall antibiotic resistance in the center, antibiotic resistance classes in the middle, and indi- vidual antibiotic resistance genes on the outer ring (Fig. 5). Click- ing on an individual gene designation brings up the annotation details for that gene.",
+      "metadata": {
+        "asset_id": "pubmedpdf",
+        "source_id": "pubmedpdf",
+        "source_type": "pdf",
+        "source_file": "knowledge/raw/pdf/pubmedpdf.pdf",
+        "section": "Document",
+        "page_start": 8,
+        "page_end": 8,
+        "version": null
+      }
+    },
+    {
+      "chunk_id": "chunk_273034c404dff288b4fc",
+      "chunk_type": "document",
+      "content": "A toolbox panel allows export of results for all TABLE 3 Relationship types used within the AROa Relationship type Description Source is_a An axiomatic relationship ontology term in which the subject is placed into a higher order classiﬁcation RO part_of A relationship ontology term in which the subject is but part of the object RO derives_from A relationship ontology term in which the subject has its origins in the object RO regulates A relationship ontology term in which the subject regulates expression of the object ARO confers_resistance_to A relationship ontology term in which the subject confers antibiotic resistance to the object ARO confers_resistance_to_drug A relationship ontology term in which the subject (usually a gene) confers clinically relevant resistance to a speciﬁc antibiotic ARO targeted_by A relationship ontology term in which the subject is targeted by the object (usually a class of antibiotics) ARO targeted_by_drug A relationship ontology term in which the subject is targeted by a speciﬁc antibiotic ARO a ARO, Antibiotic Resistance Ontology; RO, Relation Ontology, a part of the Open Biological and Biomedical Ontologies resource (27). Descriptions are paraphrased. FIG 5 Analysis of the whole genome of Acinetobacter baumannii strain TCDC-AB0715 by the Resistance Gene Identiﬁer (RGI). The A. baumannii strain TCDC-AB0715 is a clinical isolate with resistance to carbapenems, ﬂuoroquinolones, and cephalosporins (26). (A) “Resistance wheel” for A. baumannii strain TCDC-AB0715, predicting resistance to a broad range of antibiotic classes. (B) Details screen of orf0_267, illustrating detection of the aminoglyc oside nucle- otidyltransferase ANT(3 /H11033). (C) Open reading frame (ORF) map of a region of the A.",
+      "metadata": {
+        "asset_id": "pubmedpdf",
+        "source_id": "pubmedpdf",
+        "source_type": "pdf",
+        "source_file": "knowledge/raw/pdf/pubmedpdf.pdf",
+        "section": "Document",
+        "page_start": 8,
+        "page_end": 8,
+        "version": null
+      }
+    },
+    {
+      "chunk_id": "chunk_19e635edef0b45dff8e6",
+      "chunk_type": "document",
+      "content": "baumannii strain TCDC-AB0715 chromosome, with prediction of /H9252-lactamases TEM-1 and TEM-33 (light blue), aminoglycoside phosphotransferases, nucleotidyltransferases, and acetyltransferases (pink), chlo ramphenicol acetyltransferase (bright green), sulfonamide-resistant dihydropteroate synthase sul1 (dark green), tetracycline efﬂux pump tetB (dark pink), and genes impli- cated in general efﬂux (dark blue). ORFs unrelated to antibiotic resistance are presented in gray, while non-protein-coding regions are presented in black. The resistance genes identiﬁed are consistent with the reported resistance phenotype (26). July 2013 Volume 57 Number 7 aac.asm.org 3355",
+      "metadata": {
+        "asset_id": "pubmedpdf",
+        "source_id": "pubmedpdf",
+        "source_type": "pdf",
+        "source_file": "knowledge/raw/pdf/pubmedpdf.pdf",
+        "section": "Document",
+        "page_start": 8,
+        "page_end": 8,
+        "version": null
+      }
+    },
+    {
+      "chunk_id": "chunk_443caa0305e9b8c070ec",
+      "chunk_type": "document",
+      "content": "genes or individual genes in tab-delimited format plus a down- loadable image of the resistance wheel. Analysis results can be saved and loaded on the CARD server or shared by email with collaborators. The panel providing gene details (Fig. 5B) includes the coordinates and sequence of the antibiotic resistance gene, browsable BLASTP results, and a weighted word cloud of the an- tibiotic resistance evidence. A clickable gene map (Fig. 5C) is pro- vided for identiﬁcation of gene clusters, with color coding based on the resistance wheel. Public release of CARD data. Both the Antibiotic Resistance Ontology (ARO) and curated antibiotic resistance, target, and biosynthesis gene and polypeptide sequences are available for download ( http://arpcard.mcmaster.ca/download). The ARO download is available in Open Biological and Biomedical Ontol- ogies (OBO) format version 1.2. Sequence downloads are avail- able in FASTA format and include original GenBank annotation and curated ARO term assignments. Social media. The CARD developers post updates to Twitter (@arpcard) and host an Antibiotic Resistance discussion group for the research community on LinkedIn (http://arpcard.mcmaster.ca /linkedin). Users can post questions, initiate discussions, and submit bug reports at SourceForge (http://arpcard.mcmaster.ca/discussion). The CARD collaboratively develops the Timeline of Antibiotic Resis- tance with members of the research community using Dipity (http: //arpcard.mcmaster.ca/timeline). DISCUSSION Antibiotic resistance research spans the clinic, the laboratory, the environment, human and animal populations, and the pharma- ceutical sector. While disparate in their objectives, nevertheless, all these areas are based on antibiotic resistance genes and their asso- ciated phenotypes. What is missing from the arsenal of tools for researchers, clinicians, drug discoverers, and regulators is a com- prehensive accessible data platform that integrates genomic and molecular data across the entire sequence space of bacterial ge- nomes and metagenomes with respect to antibiotics, antibiotic resistance, and drug targets. The ﬁeld of antibiotic resistance lacks unifying informational tools that serve to inform all aspects of antibiotic resistance research. Such applications have proven to be foundational, enabling the design of platforms for the study of numerous organisms (yeast, Pseudomonas, C. elegans, Drosophila, etc.) and systems (e.g., host defense 9). There are a few antibiotic resistance databases available, but none provide a comprehensive accessible data platform: Can-R (www.can-r.com)( 23) has a sur- veillance focus, the Bush-Jacoby ß-lactamase list (www.lahey.org /Studies/)( 24) is exclusively focused on compiling an inventory of a functional subset of antibiotic resistance genes, ResFinder (cge.cbs.dtu.dk/services/ResFinder/) ( 25) is limited to BLAST analysis of a subset of antibiotic resistance genes and lacks a uni- fying ontology, and ARDB (ardb.cbcb.umd.edu) ( 11) has not been updated since 2009. In contrast, the CARD provides a ﬁrst step in bringing together genomic data and tools speciﬁc to anti- biotics, antibiotic resistance, and antibiotic targets. Key to the development of CARD has been the establishment of an Antibiotic Resistance Ontology (ARO). Ontologies, also known as controlled vocabularies, form the foundation of genomic bioinfor- matics; they provide rigorous vocabularies for genes and their prod- ucts that link them to their activities and enable robust investigation of molecular data (12). The ARO thus provides a unifying language, speciﬁc to antibiotics, enabling codiﬁcation of antibiotic resistance and target genes, compounds, and molecular activities germane to the ﬁeld. The ARO has been built by taking into consideration a ﬁrst attempt published by Liu and Pop several years ago (11). We have greatly expanded this effort and have a functional ontology that links well to others such as GO (Gene Ontology) (17), GenBank’s organ- ism taxonomy, SO (Sequence Ontology) (18), and the emerging IDO (Infectious Disease Ontology) (22). The Resistance Gene Identiﬁer (RGI) illustrates the power pro- vided by an integrated use of ontologies, bioinformatic models, and molecular sequence data. Resistance to antibiotics can occur via mutations in their targets or by orthogonally evolved antibiotic resistance enzymes, protective proteins, and efﬂux systems. Fur- thermore, antibiotic resistance elements can be acquired through horizontal gene transfer (HGT) of genetic elements. HGT can result in the broad spread of evolutionary successful antibiotic resistance elements throughout microbial populations, both among pathogens and among benign environmental and host mi- crobiome-associated bacteria, with devastating effect. Monitor- ing, classifying, and biochemically investigating such elements moving through bacterial populations, including components of the microbiome, by HGT is vital. By incorporating information at all levels of antibiotic resistance, the RGI provides a powerful new tool for broad analysis of antibiotic resistance at the genome level. The use of the GMOD software components by the CARD ensures robust and proven technology and the opportunity to expand the CARD with new open source modules as they become available from the GMOD community. The GMOD community is very collaborative, and the CARD is an active participant, partic- ularly in the handling of complex prokaryotic data. The CARD is unique in that development of the ARO is paired with develop- ment of models and algorithms for high-throughput assignment of ontology terms to molecular and other data. CARD stores and provides seed alignments, model data, and text-mining terms to its users, uniquely allowing users to view genes and their annota- tions alongside the models and criteria used for their annotation. Hidden Markov models (HMMs) and other search terms are de- signed to be downloaded from CARD to be used for independent research projects and wide dissemination by the research commu- nity. The CARD addresses critical unmet needs in the antibiotic resistance and discovery communities. As genome sequencing of pathogens and microbial communities becomes ever more prev- alent and feasible even in diagnostic settings, tools such as the CARD will become even more signiﬁcant. The challenge of imple- menting such an approach with respect to antibiotics and antibi- otic resistance is that it requires the integration of data linked to not just one genome or organism but to hundreds if not thousands of organisms, species, and individual isolates. This is in addition to associated genetic elements such as plasmids, transposons, and integrons that provide individual organisms with additional ge- netic information often associated with pathogenesis and antibi- otic resistance. At the same time, the compounds that are them- selves antibiotics or that somehow modulate antibiotic activity (adjuvants, inhibitors, etc.) add to the complexity of an informatic resource that would be useful to researchers, clinicians, and other interested parties, including patients, farmers, etc. Despite these challenges, an electronic resource such as the CARD is absolutely essential to help unify data and make it easily accessible to all stakeholders to ensure that growing genomic information rele- vant to antibiotics and antibiotic resistance can be easily mined. 3356 aac.asm.org Antimicrobial Agents and Chemotherapy",
+      "metadata": {
+        "asset_id": "pubmedpdf",
+        "source_id": "pubmedpdf",
+        "source_type": "pdf",
+        "source_file": "knowledge/raw/pdf/pubmedpdf.pdf",
+        "section": "Document",
+        "page_start": 9,
+        "page_end": 9,
+        "version": null
+      }
+    },
+    {
+      "chunk_id": "chunk_1857822d85000b4b4fe9",
+      "chunk_type": "document",
+      "content": "and make it easily accessible to all stakeholders to ensure that growing genomic information rele- vant to antibiotics and antibiotic resistance can be easily mined. 3356 aac.asm.org Antimicrobial Agents and Chemotherapy The CARD is envisioned to be a living resource to serve investiga- tors over the long term; therefore, the developers encourage new entries as new resistance elements are identiﬁed as well as the contribution of any additional information deemed relevant through a clickable “contribute/corrections” button. With this electronic resource and continued contributions and updates by stakeholders, the result will be more informed clinical, research, public health, and drug discovery communities. ACKNOWLEDGMENTS We thank members of the Antibiotic Resistance Pipeline, a Canada- United Kingdom Joint Health Research Pilot Program on Antibiotic Re- sistance, for discussion of the targets and scope of the Comprehensive Antibiotic Resistance Database during its development. Mihai Pop (Cen- ter for Bioinformatics and Computational Biology, University of Mary- land) provided insight into the bioinformatic organization of antibiotic resistance data and kindly allowed us to expand upon his set of ontology terms for antibiotic resistance ( http://ardb.cbcb.umd.edu). Members of the Generic Model Organism Database (GMOD) community, particu- larly Scott Cain (Ontario Institute for Cancer Research, Toronto, Can- ada), provided help in the application of GMOD’s Chado database schema to antibiotic resistance data. This work was supported by the Canada Research Chairs program, a joint initiative between the Canadian Institutes of Health Research and the Medical Research Council (United Kingdom), and a Killam Research Fellowship awarded to G.D.W. REFERENCES 1.",
+      "metadata": {
+        "asset_id": "pubmedpdf",
+        "source_id": "pubmedpdf",
+        "source_type": "pdf",
+        "source_file": "knowledge/raw/pdf/pubmedpdf.pdf",
+        "section": "Document",
+        "page_start": 10,
+        "page_end": 10,
+        "version": null
+      }
+    },
+    {
+      "chunk_id": "chunk_e85322edfcef22504def",
+      "chunk_type": "document",
+      "content": "Cooper MA, Shlaes D. 2011. Fix the antibiotics pipeline. Nature 472:32. doi:10.1038/472032a. 2. D’Costa VM, King CE, Kalan L, Morar M, Sung WWL, Schwarz C, Froese D, Zazula G, Calmels F, Debruyne R, Golding GB, Poinar HN, Wright GD. 2011. Antibiotic resistance is ancient. Nature 477:457– 461. 3. Wright GD. 2010. The antibiotic resistome. Expert Opin. Drug Discov. 5:779 –788. 4. Yong D, Toleman MA, Giske CG, Cho HS, Sundman K, Lee K, Walsh TR. 2009. Characterization of a new metallo-beta-lactamase gene, bla(NDM-1), and a novel erythromycin esterase gene carried on a unique genetic structure in Klebsiella pneumoniae sequence type 14 from India. Antimicrob. Agents Chemother. 53:5046 –5054. 5. Köser CU, Ellington MJ, Cartwright EJP, Gillespie SH, Brown NM, Farrington M, Holden MTG, Dougan G, Bentley SD, Parkhill J, Pea- cock SJ. 2012. Routine use of microbial whole genome sequencing in diagnostic and public health microbiology. PLoS Pathog.8:e1002824. doi: 10.1371/journal.ppat.1002824. 6. Wright GD, Poinar H. 2012. Antibiotic resistance is ancient: implications for drug discovery. Trends Microbiol. 20:157–159. 7. Forsberg KJ, Reyes A, Wang B, Selleck EM, Sommer MOA, Dantas G. 2012. The shared antibiotic resistome of soil bacteria and human patho- gens. Science 337:1107–1111. 8. Aziz RK, Bartels D, Best AA, DeJongh M, Disz T, Edwards RA, Formsma K, Gerdes S, Glass EM, Kubal M, Meyer F, Olsen GJ, Olson R, Osterman AL, Overbeek RA, McNeil LK, Paarmann D, Paczian T, Parrello B, Pusch GD, Reich C, Stevens R, Vassieva O, Vonstein V, Wilke A, Zagnitko O. 2008. The RAST Server: rapid annotations using subsystems technology. BMC Genomics 9:75. doi:10.1186/1471-2164- 9-75. 9.",
+      "metadata": {
+        "asset_id": "pubmedpdf",
+        "source_id": "pubmedpdf",
+        "source_type": "pdf",
+        "source_file": "knowledge/raw/pdf/pubmedpdf.pdf",
+        "section": "Document",
+        "page_start": 10,
+        "page_end": 10,
+        "version": null
+      }
+    },
+    {
+      "chunk_id": "chunk_b4d81a0986af86fc825c",
+      "chunk_type": "document",
+      "content": "Lynn DJ, Winsor GL, Chan C, Richard N, Laird MR, Barsky A, Gardy JL, Roche FM, Chan THW, Shah N, Lo R, Naseer M, Que J, Yau M, Acab M, Tulpan D, Whiteside MD, Chikatamarla A, Mah B, Munzner T, Hokamp K, Hancock REW, Brinkman FSL. 2008. InnateDB: facili- tating systems-level analyses of the mammalian innate immune response. Mol. Syst. Biol. 4:218. 10. Tsafnat G, Copty J, Partridge SR. 2011. RAC: Repository of Antibiotic resistance Cassettes. Database (Oxford)2011:bar054. doi:10.1093/database /bar054. 11. Liu B, Pop M. 2009. ARDB–Antibiotic Resistance Genes Database. Nu- cleic Acids Res. 37:D443–D447. 12. Antezana E, Kuiper M, Mironov V. 2009. Biological knowledge man- agement: the emerging role of the Semantic Web technologies. Brief. Bioinform. 10:392– 407. 13. Mungall CJ, Emmert DB, FlyBase Consortium. 2007. A Chado case study: an ontology-based modular schema for representing genome- associated biological information. Bioinformatics 23:i337–i346. 14. Stein LD, Mungall C, Shu S, Caudy M, Mangone M, Day A, Nickerson E, Stajich JE, Harris TW, Arva A, Lewis S. 2002. The generic genome browser: a building block for a model organism system database. Genome Res. 12:1599 –1610. 15. Camacho C, Coulouris G, Avagyan V, Ma N, Papadopoulos J, Bealer K, Madden TL. 2009. BLAST/H11001: architecture and applications. BMC Bioin- formatics 10:421. doi:10.1186/1471-2105-10-421. 16. Federhen S. 2012. The NCBI taxonomy database. Nucleic Acids Res. 40:D136 –D143. 17. Ashburner M, Ball CA, Blake JA, Botstein D, Butler H, Cherry JM, Davis AP, Dolinski K, Dwight SS, Eppig JT, Harris MA, Hill DP, Issel-Tarver L, Kasarskis A, Lewis S, Matese JC, Richardson JE, Ring- wald M, Rubin GM, Sherlock G. 2000. Gene ontology: tool for the uniﬁcation of biology. The Gene Ontology Consortium. Nat. Genet.",
+      "metadata": {
+        "asset_id": "pubmedpdf",
+        "source_id": "pubmedpdf",
+        "source_type": "pdf",
+        "source_file": "knowledge/raw/pdf/pubmedpdf.pdf",
+        "section": "Document",
+        "page_start": 10,
+        "page_end": 10,
+        "version": null
+      }
+    },
+    {
+      "chunk_id": "chunk_8198aebd524f80ab8ba0",
+      "chunk_type": "document",
+      "content": "25: 25–29. 18. Eilbeck K, Lewis SE, Mungall CJ, Yandell M, Stein L, Durbin R, Ashburner M. 2005. The Sequence Ontology: a tool for the uniﬁcation of genome annotations. Genome Biol. 6:R44. doi:10.1186/gb-2005-6-5-r44. 19. Eddy SR. 2011. Accelerated Proﬁle HMM searches. PLoS Comput. Biol. 7:e1002195. doi:10.1371/journal.pcbi.1002195. 20. Lukashin AV, Borodovsky M. 1998. GeneMark.hmm: new solutions for gene ﬁnding. Nucleic Acids Res. 26:1107–1115. 21. Nordmann P, Poirel L, Walsh TR, Livermore DM. 2011. The emerging NDM carbapenemases. Trends Microbiol. 19:588 –595. 22. Cowell LG, Smith B. 2010. Infectious disease ontology, p 373–395. In Sintchenko V (ed), Infectious disease informatics. Springer, New York, NY. 23. Zhanel GG, Low DE. 2007. Launching of the CAN-R Web site—the ofﬁcial Web site of the Canadian Antimicrobial Resistance Alliance. Can. J. Infect. Dis. Med. Microbiol. 18:151–152. 24. Bush K, Jacoby GA. 2010. Updated functional classiﬁcation of beta- lactamases. Antimicrob. Agents Chemother. 54:969 –976. 25. Zankari E, Hasman H, Cosentino S, Vestergaard M, Rasmussen S, Lund O, Aarestrup FM, Larsen MV. 2012. Identiﬁcation of acquired antimicrobial resistance genes. J. Antimicrob. Chemother. 67:2640 – 2644. 26. Chen C-C, Lin Y-C, Sheng W-H, Chen Y-C, Chang S-C, Hsia K-C, Liao M-H, Li S-Y. 2011. Genome sequence of a dominant, multidrug-resistant Acinetobacter baumannii strain, TCDC-AB0715. J. Bacteriol. 193:2361– 2362. 27. Smith B, Ashburner M, Rosse C, Bard J, Bug W, Ceusters W, Goldberg LJ, Eilbeck K, Ireland A, Mungall CJ, The OBI Consortium, Leontis N, Rocca-Serra P, Ruttenberg A, Sansone S-A, Scheuermann RH, Shah N, Whetzel PL, Lewis S. 2007. The OBO Foundry: coordinated evolution of ontologies to support biomedical data integration. Nat. Biotechnol.",
+      "metadata": {
+        "asset_id": "pubmedpdf",
+        "source_id": "pubmedpdf",
+        "source_type": "pdf",
+        "source_file": "knowledge/raw/pdf/pubmedpdf.pdf",
+        "section": "Document",
+        "page_start": 10,
+        "page_end": 10,
+        "version": null
+      }
+    },
+    {
+      "chunk_id": "chunk_4fd5a9fc23c8f806ce43",
+      "chunk_type": "document",
+      "content": "25: 1251–1255. July 2013 Volume 57 Number 7 aac.asm.org 3357",
+      "metadata": {
+        "asset_id": "pubmedpdf",
+        "source_id": "pubmedpdf",
+        "source_type": "pdf",
+        "source_file": "knowledge/raw/pdf/pubmedpdf.pdf",
+        "section": "Document",
+        "page_start": 10,
+        "page_end": 10,
+        "version": null
+      }
+    }
+  ],
+  "generated_at": "2026-08-27T06:43:24.626250+00:00"
+}

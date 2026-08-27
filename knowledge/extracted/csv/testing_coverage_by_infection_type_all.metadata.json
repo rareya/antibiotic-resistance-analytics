@@ -1,0 +1,556 @@
+{
+  "format": "csv",
+  "source_file": "knowledge/raw/csv/Testing coverage by infection type_All.csv",
+  "output_file": "knowledge/extracted/csv/testing_coverage_by_infection_type_all.csv",
+  "metadata_file": "knowledge/extracted/csv/testing_coverage_by_infection_type_all.metadata.json",
+  "encoding": "utf-8-sig",
+  "delimiter": ",",
+  "header_detection": {
+    "header_line": 5,
+    "header_score": 48.0,
+    "candidate_headers": [
+      {
+        "line_number": 5,
+        "score": 48.0,
+        "columns": [
+          "Year",
+          "Specimen",
+          "CTAs with Reported BCIs",
+          "CTAs with Reported BCIs with AST >= 80 BCIs",
+          "Total BCIs",
+          "Total BCIs with AST",
+          "Min",
+          "Q1",
+          "Median",
+          "Q3",
+          "Max"
+        ]
+      },
+      {
+        "line_number": 6,
+        "score": 40.0,
+        "columns": [
+          "2016",
+          "BLOOD",
+          "25",
+          "22",
+          "237163",
+          "232629",
+          "0.461754252",
+          "7.564641304",
+          "50.363597192",
+          "355.980711575",
+          "1499.235097132"
+        ]
+      },
+      {
+        "line_number": 7,
+        "score": 40.0,
+        "columns": [
+          "2017",
+          "BLOOD",
+          "52",
+          "48",
+          "451488",
+          "442323",
+          "0.11714934",
+          "9.567573807",
+          "120.047081688",
+          "656.579563515",
+          "4065.248758441"
+        ]
+      },
+      {
+        "line_number": 8,
+        "score": 40.0,
+        "columns": [
+          "2018",
+          "BLOOD",
+          "65",
+          "60",
+          "486295",
+          "467070",
+          "0.054432079",
+          "7.51895526",
+          "77.951278376",
+          "512.038879678",
+          "2301.066126243"
+        ]
+      },
+      {
+        "line_number": 9,
+        "score": 40.0,
+        "columns": [
+          "2019",
+          "BLOOD",
+          "72",
+          "68",
+          "522076",
+          "504665",
+          "0.026415807",
+          "15.099695509",
+          "83.333540209",
+          "520.510432793",
+          "1800.055938613"
+        ]
+      },
+      {
+        "line_number": 10,
+        "score": 40.0,
+        "columns": [
+          "2020",
+          "BLOOD",
+          "87",
+          "75",
+          "565438",
+          "542776",
+          "0.025595755",
+          "8.412270582",
+          "79.119215976",
+          "478.980027723",
+          "3721.379999355"
+        ]
+      },
+      {
+        "line_number": 11,
+        "score": 40.0,
+        "columns": [
+          "2021",
+          "BLOOD",
+          "86",
+          "75",
+          "669843",
+          "644326",
+          "0.049999485",
+          "15.878747536",
+          "88.203128441",
+          "608.486006767",
+          "2636.091938637"
+        ]
+      },
+      {
+        "line_number": 12,
+        "score": 40.0,
+        "columns": [
+          "2022",
+          "BLOOD",
+          "92",
+          "73",
+          "729101",
+          "700932",
+          "0.549535105",
+          "20.537649922",
+          "95.703695998",
+          "605.015849125",
+          "2077.552950043"
+        ]
+      },
+      {
+        "line_number": 13,
+        "score": 40.0,
+        "columns": [
+          "2023",
+          "BLOOD",
+          "99",
+          "79",
+          "790133",
+          "753752",
+          "0.048245363",
+          "15.142976866",
+          "129.707458815",
+          "636.975471762",
+          "2082.927782549"
+        ]
+      },
+      {
+        "line_number": 14,
+        "score": 40.0,
+        "columns": [
+          "2016",
+          "STOOL",
+          "15",
+          "13",
+          "10088",
+          "8400",
+          "0.268199727",
+          "1.342588782",
+          "7.515658018",
+          "54.149026865",
+          "295.213498263"
+        ]
+      }
+    ]
+  },
+  "metadata_before_table": {
+    "lines_before_header": 2,
+    "raw_lines": [
+      "Filters",
+      "\"Region filter: All\""
+    ]
+  },
+  "row_count": 32,
+  "column_count": 11,
+  "removed_empty_rows": 0,
+  "columns": [
+    {
+      "name": "Year",
+      "normalized_name": "year",
+      "dtype": "int64",
+      "non_null_count": 32,
+      "null_count": 0,
+      "unique_count": 8,
+      "sample_values": [
+        "2016",
+        "2017",
+        "2018",
+        "2019",
+        "2020"
+      ]
+    },
+    {
+      "name": "Specimen",
+      "normalized_name": "specimen",
+      "dtype": "object",
+      "non_null_count": 32,
+      "null_count": 0,
+      "unique_count": 4,
+      "sample_values": [
+        "BLOOD",
+        "BLOOD",
+        "BLOOD",
+        "BLOOD",
+        "BLOOD"
+      ]
+    },
+    {
+      "name": "CTAs with Reported BCIs",
+      "normalized_name": "ctas_with_reported_bcis",
+      "dtype": "int64",
+      "non_null_count": 32,
+      "null_count": 0,
+      "unique_count": 26,
+      "sample_values": [
+        "25",
+        "52",
+        "65",
+        "72",
+        "87"
+      ]
+    },
+    {
+      "name": "CTAs with Reported BCIs with AST >= 80 BCIs",
+      "normalized_name": "ctas_with_reported_bcis_with_ast_80_bcis",
+      "dtype": "int64",
+      "non_null_count": 32,
+      "null_count": 0,
+      "unique_count": 26,
+      "sample_values": [
+        "22",
+        "48",
+        "60",
+        "68",
+        "75"
+      ]
+    },
+    {
+      "name": "Total BCIs",
+      "normalized_name": "total_bcis",
+      "dtype": "int64",
+      "non_null_count": 32,
+      "null_count": 0,
+      "unique_count": 32,
+      "sample_values": [
+        "237163",
+        "451488",
+        "486295",
+        "522076",
+        "565438"
+      ]
+    },
+    {
+      "name": "Total BCIs with AST",
+      "normalized_name": "total_bcis_with_ast",
+      "dtype": "int64",
+      "non_null_count": 32,
+      "null_count": 0,
+      "unique_count": 32,
+      "sample_values": [
+        "232629",
+        "442323",
+        "467070",
+        "504665",
+        "542776"
+      ]
+    },
+    {
+      "name": "Min",
+      "normalized_name": "min",
+      "dtype": "float64",
+      "non_null_count": 32,
+      "null_count": 0,
+      "unique_count": 31,
+      "sample_values": [
+        "0.461754252",
+        "0.11714934",
+        "0.054432079",
+        "0.026415807",
+        "0.025595755"
+      ]
+    },
+    {
+      "name": "Q1",
+      "normalized_name": "q1",
+      "dtype": "float64",
+      "non_null_count": 32,
+      "null_count": 0,
+      "unique_count": 32,
+      "sample_values": [
+        "7.564641304",
+        "9.567573807",
+        "7.51895526",
+        "15.099695509",
+        "8.412270582"
+      ]
+    },
+    {
+      "name": "Median",
+      "normalized_name": "median",
+      "dtype": "float64",
+      "non_null_count": 32,
+      "null_count": 0,
+      "unique_count": 32,
+      "sample_values": [
+        "50.363597192",
+        "120.047081688",
+        "77.951278376",
+        "83.333540209",
+        "79.119215976"
+      ]
+    },
+    {
+      "name": "Q3",
+      "normalized_name": "q3",
+      "dtype": "float64",
+      "non_null_count": 32,
+      "null_count": 0,
+      "unique_count": 32,
+      "sample_values": [
+        "355.980711575",
+        "656.579563515",
+        "512.038879678",
+        "520.510432793",
+        "478.980027723"
+      ]
+    },
+    {
+      "name": "Max",
+      "normalized_name": "max",
+      "dtype": "float64",
+      "non_null_count": 32,
+      "null_count": 0,
+      "unique_count": 32,
+      "sample_values": [
+        "1499.235097132",
+        "4065.248758441",
+        "2301.066126243",
+        "1800.055938613",
+        "3721.379999355"
+      ]
+    }
+  ],
+  "numeric_summary": {
+    "year": {
+      "min": 2016.0,
+      "max": 2023.0,
+      "mean": 2019.5,
+      "median": 2019.5
+    },
+    "ctas_with_reported_bcis": {
+      "min": 15.0,
+      "max": 99.0,
+      "mean": 50.21875,
+      "median": 51.0
+    },
+    "ctas_with_reported_bcis_with_ast_80_bcis": {
+      "min": 13.0,
+      "max": 79.0,
+      "mean": 42.90625,
+      "median": 44.5
+    },
+    "total_bcis": {
+      "min": 6229.0,
+      "max": 4228940.0,
+      "mean": 795291.09375,
+      "median": 139191.5
+    },
+    "total_bcis_with_ast": {
+      "min": 6050.0,
+      "max": 3995265.0,
+      "mean": 755226.1875,
+      "median": 135476.0
+    },
+    "min": {
+      "min": 0.0,
+      "max": 0.616103502,
+      "mean": 0.156278149,
+      "median": 0.038664417
+    },
+    "q1": {
+      "min": 0.243082155,
+      "max": 38.500039838,
+      "mean": 9.46692232603125,
+      "median": 4.975372128
+    },
+    "median": {
+      "min": 1.374140785,
+      "max": 447.480257549,
+      "mean": 74.44554225356251,
+      "median": 29.536602206
+    },
+    "q3": {
+      "min": 10.943916777,
+      "max": 2009.010932376,
+      "mean": 454.32708996353125,
+      "median": 208.311768502
+    },
+    "max": {
+      "min": 79.764191404,
+      "max": 42431.84504533,
+      "mean": 7175.698681073594,
+      "median": 928.8792007525
+    }
+  },
+  "preview": [
+    {
+      "year": 2016,
+      "specimen": "BLOOD",
+      "ctas_with_reported_bcis": 25,
+      "ctas_with_reported_bcis_with_ast_80_bcis": 22,
+      "total_bcis": 237163,
+      "total_bcis_with_ast": 232629,
+      "min": 0.461754252,
+      "q1": 7.564641304,
+      "median": 50.363597192,
+      "q3": 355.980711575,
+      "max": 1499.235097132
+    },
+    {
+      "year": 2017,
+      "specimen": "BLOOD",
+      "ctas_with_reported_bcis": 52,
+      "ctas_with_reported_bcis_with_ast_80_bcis": 48,
+      "total_bcis": 451488,
+      "total_bcis_with_ast": 442323,
+      "min": 0.11714934,
+      "q1": 9.567573807,
+      "median": 120.047081688,
+      "q3": 656.579563515,
+      "max": 4065.248758441
+    },
+    {
+      "year": 2018,
+      "specimen": "BLOOD",
+      "ctas_with_reported_bcis": 65,
+      "ctas_with_reported_bcis_with_ast_80_bcis": 60,
+      "total_bcis": 486295,
+      "total_bcis_with_ast": 467070,
+      "min": 0.054432079,
+      "q1": 7.51895526,
+      "median": 77.951278376,
+      "q3": 512.038879678,
+      "max": 2301.066126243
+    },
+    {
+      "year": 2019,
+      "specimen": "BLOOD",
+      "ctas_with_reported_bcis": 72,
+      "ctas_with_reported_bcis_with_ast_80_bcis": 68,
+      "total_bcis": 522076,
+      "total_bcis_with_ast": 504665,
+      "min": 0.026415807,
+      "q1": 15.099695509,
+      "median": 83.333540209,
+      "q3": 520.510432793,
+      "max": 1800.055938613
+    },
+    {
+      "year": 2020,
+      "specimen": "BLOOD",
+      "ctas_with_reported_bcis": 87,
+      "ctas_with_reported_bcis_with_ast_80_bcis": 75,
+      "total_bcis": 565438,
+      "total_bcis_with_ast": 542776,
+      "min": 0.025595755,
+      "q1": 8.412270582,
+      "median": 79.119215976,
+      "q3": 478.980027723,
+      "max": 3721.379999355
+    },
+    {
+      "year": 2021,
+      "specimen": "BLOOD",
+      "ctas_with_reported_bcis": 86,
+      "ctas_with_reported_bcis_with_ast_80_bcis": 75,
+      "total_bcis": 669843,
+      "total_bcis_with_ast": 644326,
+      "min": 0.049999485,
+      "q1": 15.878747536,
+      "median": 88.203128441,
+      "q3": 608.486006767,
+      "max": 2636.091938637
+    },
+    {
+      "year": 2022,
+      "specimen": "BLOOD",
+      "ctas_with_reported_bcis": 92,
+      "ctas_with_reported_bcis_with_ast_80_bcis": 73,
+      "total_bcis": 729101,
+      "total_bcis_with_ast": 700932,
+      "min": 0.549535105,
+      "q1": 20.537649922,
+      "median": 95.703695998,
+      "q3": 605.015849125,
+      "max": 2077.552950043
+    },
+    {
+      "year": 2023,
+      "specimen": "BLOOD",
+      "ctas_with_reported_bcis": 99,
+      "ctas_with_reported_bcis_with_ast_80_bcis": 79,
+      "total_bcis": 790133,
+      "total_bcis_with_ast": 753752,
+      "min": 0.048245363,
+      "q1": 15.142976866,
+      "median": 129.707458815,
+      "q3": 636.975471762,
+      "max": 2082.927782549
+    },
+    {
+      "year": 2016,
+      "specimen": "STOOL",
+      "ctas_with_reported_bcis": 15,
+      "ctas_with_reported_bcis_with_ast_80_bcis": 13,
+      "total_bcis": 10088,
+      "total_bcis_with_ast": 8400,
+      "min": 0.268199727,
+      "q1": 1.342588782,
+      "median": 7.515658018,
+      "q3": 54.149026865,
+      "max": 295.213498263
+    },
+    {
+      "year": 2017,
+      "specimen": "STOOL",
+      "ctas_with_reported_bcis": 26,
+      "ctas_with_reported_bcis_with_ast_80_bcis": 22,
+      "total_bcis": 16661,
+      "total_bcis_with_ast": 15525,
+      "min": 0.149318501,
+      "q1": 2.431788996,
+      "median": 9.029158451,
+      "q3": 60.642825429,
+      "max": 212.584570899
+    }
+  ],
+  "extraction_status": "success"
+}

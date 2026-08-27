@@ -1,0 +1,1338 @@
+{
+  "metadata": {
+    "name": "amr_asset_inspection",
+    "version": "1.0",
+    "generated_at": "2026-08-26T11:24:15.257398+00:00",
+    "raw_directory": "C:\\Users\\aarya\\DA_ML_Projects\\antibiotic_resistance_analytics\\knowledge\\raw"
+  },
+  "summary": {
+    "asset_count": 13,
+    "total_size_bytes": 20629726,
+    "formats": {
+      "csv": 7,
+      "owl": 1,
+      "pdf": 5
+    },
+    "readability": {
+      "readable": 13
+    }
+  },
+  "assets": [
+    {
+      "asset_file": "csv/Frequency of drug-resistant BCIs (2023)_Afghanistan.csv",
+      "filename": "Frequency of drug-resistant BCIs (2023)_Afghanistan.csv",
+      "extension": ".csv",
+      "format": "csv",
+      "mime_type": "application/vnd.ms-excel",
+      "size_bytes": 558,
+      "sha256": "27c28a78487adbb0e3b8771c176ec1a30bb3dd196244bcfa5aad578d2b121a29",
+      "modified_time": "2026-08-26T10:44:13.411769+00:00",
+      "inspection": {
+        "format": "csv",
+        "readable": true,
+        "error": "Error tokenizing data. C error: Expected 1 fields in line 8, saw 7\n",
+        "reader": "python_csv",
+        "rows": 11,
+        "columns_count": 1,
+        "columns": [
+          "Filters"
+        ],
+        "sample": [
+          {
+            "Filters": "CTAs filter: Afghanistan"
+          },
+          {
+            "Filters": "Infection Type filter: Bloodstream"
+          },
+          {
+            "Filters": "Year filter: 2023"
+          },
+          {},
+          {}
+        ]
+      }
+    },
+    {
+      "asset_file": "csv/GLASS-AMR implementation indicators_All.csv",
+      "filename": "GLASS-AMR implementation indicators_All.csv",
+      "extension": ".csv",
+      "format": "csv",
+      "mime_type": "application/vnd.ms-excel",
+      "size_bytes": 719,
+      "sha256": "9fd333d3425762c5511703d26d1a91926fbba99c6783efef7389032c4f1fb1f1",
+      "modified_time": "2026-08-26T10:43:32.504158+00:00",
+      "inspection": {
+        "format": "csv",
+        "readable": true,
+        "error": "Error tokenizing data. C error: Expected 1 fields in line 5, saw 3\n",
+        "reader": "python_csv",
+        "rows": 32,
+        "columns_count": 1,
+        "columns": [
+          "Filters"
+        ],
+        "sample": [
+          {
+            "Filters": "Region filter: All"
+          },
+          {},
+          {
+            "Filters": "National Coordination Centre (NCC)"
+          },
+          {
+            "Filters": "Names"
+          },
+          {
+            "Filters": "Available"
+          }
+        ]
+      }
+    },
+    {
+      "asset_file": "csv/Global maps of testing coverage by bacterial pathogen and antibiotic group_2023-BLOOD.csv",
+      "filename": "Global maps of testing coverage by bacterial pathogen and antibiotic group_2023-BLOOD.csv",
+      "extension": ".csv",
+      "format": "csv",
+      "mime_type": "application/vnd.ms-excel",
+      "size_bytes": 3725,
+      "sha256": "10941c77414e8c12456bd11c06bd0508af4f1cd9132b9f2a563fc045440cd72f",
+      "modified_time": "2026-08-26T10:44:47.790495+00:00",
+      "inspection": {
+        "format": "csv",
+        "readable": true,
+        "error": "Error tokenizing data. C error: Expected 1 fields in line 9, saw 6\n",
+        "reader": "python_csv",
+        "rows": 104,
+        "columns_count": 1,
+        "columns": [
+          "Filters"
+        ],
+        "sample": [
+          {
+            "Filters": "Year filter: 2023"
+          },
+          {
+            "Filters": "Region filter: All"
+          },
+          {
+            "Filters": "Infection type filter: Bloodstream"
+          },
+          {
+            "Filters": "Bacterial pathogen filter: Acinetobacter spp."
+          },
+          {
+            "Filters": "Antibiotic group filter: Carbapenems"
+          }
+        ]
+      }
+    },
+    {
+      "asset_file": "csv/Methicillin-resistant Staphylococcus aureus.csv",
+      "filename": "Methicillin-resistant Staphylococcus aureus.csv",
+      "extension": ".csv",
+      "format": "csv",
+      "mime_type": "application/vnd.ms-excel",
+      "size_bytes": 191,
+      "sha256": "723d407418de12f7f8637ab4560fe6a03eb6aa94d1729b47fb725f205ad64d55",
+      "modified_time": "2026-08-26T11:18:55.932581+00:00",
+      "inspection": {
+        "format": "csv",
+        "readable": true,
+        "reader": "pandas",
+        "rows": 7,
+        "columns_count": 1,
+        "columns": [
+          "Filters"
+        ],
+        "dtypes": {
+          "Filters": "object"
+        },
+        "missing_values": {
+          "Filters": 1
+        },
+        "duplicate_rows": 0,
+        "sample": [
+          {
+            "Filters": "CTAs filter: Afghanistan"
+          },
+          {
+            "Filters": "Infection Type filter: Bloodstream"
+          },
+          {
+            "Filters": "Pathogen filter: Staphylococcus aureus"
+          },
+          {
+            "Filters": "Resistance filter: Methicillin"
+          },
+          {
+            "Filters": "Year filter: 2023"
+          }
+        ],
+        "unique_values": {
+          "Filters": 6
+        }
+      }
+    },
+    {
+      "asset_file": "csv/Testing coverage by bacterial pathogen and antibiotic group_BLOOD-All.csv",
+      "filename": "Testing coverage by bacterial pathogen and antibiotic group_BLOOD-All.csv",
+      "extension": ".csv",
+      "format": "csv",
+      "mime_type": "application/vnd.ms-excel",
+      "size_bytes": 13425,
+      "sha256": "b02cb25b4c03708fd65065ed600ccf0dab2d60d02291d2c2afd18d83ca9ca69a",
+      "modified_time": "2026-08-26T10:44:41.500606+00:00",
+      "inspection": {
+        "format": "csv",
+        "readable": true,
+        "error": "Error tokenizing data. C error: Expected 1 fields in line 6, saw 13\n",
+        "reader": "python_csv",
+        "rows": 109,
+        "columns_count": 1,
+        "columns": [
+          "Filters"
+        ],
+        "sample": [
+          {
+            "Filters": "Infection type filter: Bloodstream"
+          },
+          {
+            "Filters": "Region filter: All"
+          },
+          {},
+          {},
+          {
+            "Filters": "Year"
+          }
+        ]
+      }
+    },
+    {
+      "asset_file": "csv/Testing coverage by infection type_All.csv",
+      "filename": "Testing coverage by infection type_All.csv",
+      "extension": ".csv",
+      "format": "csv",
+      "mime_type": "application/vnd.ms-excel",
+      "size_bytes": 3325,
+      "sha256": "c8b7d0f00af4d6bc42248ab0dcc7be0a1b17a0b134ab31ec4b92c4f3217eb609",
+      "modified_time": "2026-08-26T10:44:28.615034+00:00",
+      "inspection": {
+        "format": "csv",
+        "readable": true,
+        "error": "Error tokenizing data. C error: Expected 1 fields in line 5, saw 11\n",
+        "reader": "python_csv",
+        "rows": 36,
+        "columns_count": 1,
+        "columns": [
+          "Filters"
+        ],
+        "sample": [
+          {
+            "Filters": "Region filter: All"
+          },
+          {},
+          {},
+          {
+            "Filters": "Year"
+          },
+          {
+            "Filters": "2016"
+          }
+        ]
+      }
+    },
+    {
+      "asset_file": "csv/Time series of resistance to antibiotics (2018-2023)_All-BLOOD.csv",
+      "filename": "Time series of resistance to antibiotics (2018-2023)_All-BLOOD.csv",
+      "extension": ".csv",
+      "format": "csv",
+      "mime_type": "application/vnd.ms-excel",
+      "size_bytes": 16029,
+      "sha256": "e0e1c4924baa22e25db0d77fac694fb204e6669a8bf8e9b349452662bfff2e5d",
+      "modified_time": "2026-08-26T10:44:53.400569+00:00",
+      "inspection": {
+        "format": "csv",
+        "readable": true,
+        "error": "Error tokenizing data. C error: Expected 1 fields in line 8, saw 9\n",
+        "reader": "python_csv",
+        "rows": 149,
+        "columns_count": 1,
+        "columns": [
+          "Filters"
+        ],
+        "sample": [
+          {
+            "Filters": "Region filter: All"
+          },
+          {
+            "Filters": "Infection type filter: Bloodstream"
+          },
+          {
+            "Filters": "Bacterial pathogen filter: Acinetobacter spp."
+          },
+          {
+            "Filters": "Antibiotic filter: Amikacin"
+          },
+          {}
+        ]
+      }
+    },
+    {
+      "asset_file": "owl/aro.owl",
+      "filename": "aro.owl",
+      "extension": ".owl",
+      "format": "owl",
+      "mime_type": null,
+      "size_bytes": 12743305,
+      "sha256": "0207b9156898d011cff6397a1cf5b0e178ce7806222c73de875b57a0d0e6b6fc",
+      "modified_time": "2026-08-26T10:57:20.028003+00:00",
+      "inspection": {
+        "format": "owl",
+        "readable": true,
+        "encoding": "utf-8",
+        "text_characters": 11407744,
+        "text_words": 1380425,
+        "text_available": true,
+        "preview": "<?xml version=\"1.0\"?>\n<rdf:RDF xmlns=\"http://purl.obolibrary.org/obo/antibiotic_resistance.owl#\"\n xml:base=\"http://purl.obolibrary.org/obo/antibiotic_resistance.owl\"\n xmlns:obo=\"http://purl.obolibrary.org/obo/\"\n xmlns:owl=\"http://www.w3.org/2002/07/owl#\"\n xmlns:rdf=\"http://www.w3.org/1999/02/22-rdf-syntax-ns#\"\n xmlns:xml=\"http://www.w3.org/XML/1998/namespace\"\n xmlns:xsd=\"http://www.w3.org/2001/XMLSchema#\"\n xmlns:rdfs=\"http://www.w3.org/2000/01/rdf-schema#\"\n xmlns:oboInOwl=\"http://www.geneontology.org/formats/oboInOwl#\">\n <owl:Ontology rdf:about=\"http://purl.obolibrary.org/obo/antibiotic_resistance.owl\">\n <oboInOwl:auto-generated-by>cv2obo</oboInOwl:auto-generated-by>\n <oboInOwl:date>12:08:2026 11:14</oboInOwl:date>\n <oboInOwl:default-namespace>antibiotic_resistance</oboInOwl:default-namespace>\n <oboInOwl:hasOBOFormatVersion>1.2</oboInOwl:hasOBOFormatVersion>\n <oboInOwl:saved-by>CARD</oboInOwl:saved-by>\n </owl:Ontology>\n \n\n <!-- \n ///////////////////////////////////////////////////////////////////////////////////////\n //\n // Annotation properties\n //\n ///////////////////////////////////////////////////////////////////////////////////////\n -->\n\n \n\n <!-- http://purl.obolibrary.org/obo/IAO_0000115 -->\n\n <owl:AnnotationProperty rdf:about=\"http://purl.obolibrary.org/obo/IAO_0000115\">\n <rdfs:label>definition</rdfs:label>\n </owl:AnnotationProperty>\n \n\n <!-- http://www.geneontology.org/formats/oboInOwl#auto-generated-by -->\n\n <owl:AnnotationProperty rdf:about=\"http://www.geneontology.org/formats/oboInOwl#auto-generated-by\"/>\n \n\n <!-- http://www.geneontology.org/formats/oboInOwl#date -->\n\n <owl:AnnotationProperty rdf:about=\"http://www.geneontology.org/formats/oboInOwl#date\"/>\n \n\n <!-- http://www.geneontology.org/formats/oboInOwl#default-namespace -->\n\n <owl:AnnotationProperty rdf:about=\"http://www.geneontology.org/formats/oboInOwl#default-namespace\"/>\n \n\n <!-- http://www.geneontology.org/formats/oboInOwl#hasDbXref -->\n\n <owl:AnnotationProperty rdf:about=\"http://www.geneontology.org/formats/oboInOwl#hasDbXref\">\n <rdfs:label>database_cross_reference</rdfs:label>\n </owl:AnnotationProperty>\n \n\n <!-- http://www.geneontology.org/formats/oboInOwl#hasExactSynonym -->\n\n <owl:AnnotationProperty rdf:about=\"http://www.geneontology.org/formats/oboInOwl#hasExactSynonym\">\n <rdfs:label>has_exact_synonym</rdfs:label>\n </owl:AnnotationProperty>\n \n\n <!-- http://www.geneontology.org/formats/oboInOwl#hasOBOFormatVersion -->\n\n <owl:AnnotationProperty rdf:about=\"http://www.geneontology.org/formats/oboInOwl#hasOBOFormatVersion\">\n <rdfs:label>has_obo_format_version</rdfs:label>\n </owl:AnnotationProperty>\n \n\n <!-- http://www.geneontology.org/formats/oboInOwl#hasOBONamespace -->\n\n <owl:AnnotationProperty rdf:about=\"http://www.geneontology.org/formats/oboInOwl#hasOBONamespace\">\n <rdfs:label>has_obo_namespace</rdfs:label>\n </owl:AnnotationProperty>\n \n\n <!-- http://www.geneontology.org/formats/oboInOwl#hasSynonymType -->\n\n <owl:AnnotationProperty rdf:about=\"http://www.geneontology.org/",
+        "ontology_signals": {
+          "classes": 9051,
+          "object_properties": 30,
+          "datatype_properties": 0,
+          "individuals": 0
+        }
+      }
+    },
+    {
+      "asset_file": "pdf/EUCAST_detection_of_resistance_mechanisms_170711.pdf",
+      "filename": "EUCAST_detection_of_resistance_mechanisms_170711.pdf",
+      "extension": ".pdf",
+      "format": "pdf",
+      "mime_type": "application/pdf",
+      "size_bytes": 928254,
+      "sha256": "ca70a9343a371e6d73f2c6fcbc4a05ce4d65191947ac5e03e8f68293c76061c8",
+      "modified_time": "2026-08-26T10:40:13.057598+00:00",
+      "inspection": {
+        "format": "pdf",
+        "readable": true,
+        "reader": "pymupdf",
+        "pages": 43,
+        "text_characters": 120113,
+        "text_words": 18304,
+        "text_available": true,
+        "page_text_lengths": [
+          {
+            "page": 1,
+            "characters": 915,
+            "words": 121
+          },
+          {
+            "page": 2,
+            "characters": 612,
+            "words": 78
+          },
+          {
+            "page": 3,
+            "characters": 2763,
+            "words": 401
+          },
+          {
+            "page": 4,
+            "characters": 3065,
+            "words": 436
+          },
+          {
+            "page": 5,
+            "characters": 2995,
+            "words": 425
+          },
+          {
+            "page": 6,
+            "characters": 2991,
+            "words": 451
+          },
+          {
+            "page": 7,
+            "characters": 2957,
+            "words": 440
+          },
+          {
+            "page": 8,
+            "characters": 3986,
+            "words": 653
+          },
+          {
+            "page": 9,
+            "characters": 3492,
+            "words": 524
+          },
+          {
+            "page": 10,
+            "characters": 5144,
+            "words": 793
+          },
+          {
+            "page": 11,
+            "characters": 3110,
+            "words": 514
+          },
+          {
+            "page": 12,
+            "characters": 2818,
+            "words": 410
+          },
+          {
+            "page": 13,
+            "characters": 1656,
+            "words": 244
+          },
+          {
+            "page": 14,
+            "characters": 3003,
+            "words": 441
+          },
+          {
+            "page": 15,
+            "characters": 3602,
+            "words": 570
+          },
+          {
+            "page": 16,
+            "characters": 2354,
+            "words": 344
+          },
+          {
+            "page": 17,
+            "characters": 3102,
+            "words": 469
+          },
+          {
+            "page": 18,
+            "characters": 3837,
+            "words": 592
+          },
+          {
+            "page": 19,
+            "characters": 5116,
+            "words": 825
+          },
+          {
+            "page": 20,
+            "characters": 485,
+            "words": 79
+          },
+          {
+            "page": 21,
+            "characters": 3092,
+            "words": 449
+          },
+          {
+            "page": 22,
+            "characters": 2745,
+            "words": 409
+          },
+          {
+            "page": 23,
+            "characters": 4090,
+            "words": 656
+          },
+          {
+            "page": 24,
+            "characters": 375,
+            "words": 67
+          },
+          {
+            "page": 25,
+            "characters": 3427,
+            "words": 518
+          },
+          {
+            "page": 26,
+            "characters": 2479,
+            "words": 388
+          },
+          {
+            "page": 27,
+            "characters": 3025,
+            "words": 450
+          },
+          {
+            "page": 28,
+            "characters": 1930,
+            "words": 310
+          },
+          {
+            "page": 29,
+            "characters": 3217,
+            "words": 486
+          },
+          {
+            "page": 30,
+            "characters": 2869,
+            "words": 425
+          },
+          {
+            "page": 31,
+            "characters": 1854,
+            "words": 288
+          },
+          {
+            "page": 32,
+            "characters": 2959,
+            "words": 442
+          },
+          {
+            "page": 33,
+            "characters": 2959,
+            "words": 470
+          },
+          {
+            "page": 34,
+            "characters": 2524,
+            "words": 404
+          },
+          {
+            "page": 35,
+            "characters": 3975,
+            "words": 586
+          },
+          {
+            "page": 36,
+            "characters": 2455,
+            "words": 352
+          },
+          {
+            "page": 37,
+            "characters": 3300,
+            "words": 517
+          },
+          {
+            "page": 38,
+            "characters": 1836,
+            "words": 300
+          },
+          {
+            "page": 39,
+            "characters": 4606,
+            "words": 721
+          },
+          {
+            "page": 40,
+            "characters": 1084,
+            "words": 173
+          },
+          {
+            "page": 41,
+            "characters": 2917,
+            "words": 440
+          },
+          {
+            "page": 42,
+            "characters": 2384,
+            "words": 347
+          },
+          {
+            "page": 43,
+            "characters": 1924,
+            "words": 296
+          }
+        ],
+        "metadata": {
+          "format": "PDF 1.4",
+          "title": "Microsoft Word - EUCAST detection of resistance mechanisms_170711.docx",
+          "creator": "Word",
+          "producer": "Mac OS X 10.12.5 Quartz PDFContext",
+          "creationDate": "D:20170711133649Z00'00'",
+          "modDate": "D:20170711133649Z00'00'"
+        },
+        "first_page_preview": "Page 1 of 43 \n \n \n \n \n \n \n \nEUCAST guidelines for detection of resistance \nmechanisms and specific resistances of clinical and/or \nepidemiological importance \n \nVersion 2.01 \nJuly 2017 \n \n \n \n \n1 Based on version 1.0 from December 2013 by the EUCAST subcommittee for detection of resistance mechanisms \nand specific resistances of clinical and/or epidemiological importance. Authors of the original version are \nacknowledged: Christian G. Giske (Sweden, EUCAST and EARS-Net Coordination Group; chairman), Luis Martinez-\nMartinez (Spain), Rafael Cantón (Spain, EUCAST), Stefania Stefani (Italy), Robert Skov (Germany), Youri Glupczynski \n(Belgium), Patrice Nordmann (France), Mandy Wootton (UK), Vivi Miriagou (Greece), Gunnar Skov Simonsen \n(Norway, EARS-Net Coordination Group), Helena Zemlickova (Czech Republic, EARS-Net Coordination Group), James \nCohen-Stuart (The Netherlands), and Marek Gniadkowski (Poland).",
+        "possible_headings": [
+          "1 Based on version 1.0 from December 2013 by the EUCAST subcommittee for detection of resistance mechanisms",
+          "1. Introduction",
+          "2. Carbapenemase-producing Enterobacteriaceae",
+          "3. Extended-spectrum β-lactamase-producing Enterobacteriaceae",
+          "4. Acquired AmpC β-lactamase-producing Enterobacteriaceae",
+          "5. Polymyxin resistance in Gram-negative bacilli",
+          "6. Carbapenem resistance in P. aeruginosa and Acinetobacter",
+          "7. Methicillin resistant Staphylococcus aureus",
+          "8. Glycopeptide non-susceptible Staphylococcus aureus",
+          "9. Vancomycin resistant Enterococcus faecium and Enterococcus faecalis",
+          "10. Penicillin non-wild-type Streptococcus pneumoniae",
+          "2.1 Definition",
+          "2.2 Clinical and/or epidemiological importance",
+          "2.3 Mechanisms of resistance",
+          "2.4 Recommended methods for detection of carbapenemases in",
+          "2.4.1 Screening for carbapenemase-production",
+          "2.4.2 Combination disk testing",
+          "(MBL)",
+          "OXA-48",
+          "MIC >128",
+          "DPA/EDTA",
+          "APBA/PBA DPA+APBA",
+          "MBL + KPC2",
+          "1 Temocillin susceptibility test is recommended only in cases where no synergy is detected, in order to",
+          "2 There is one report supporting the use of commercial tablets containing double inhibitors (DPA or EDTA",
+          "2.4.3 Biochemical (colorimetric) tests",
+          "2.4.4 Carbapenem Inactivation Method",
+          "2.4.5 Detection of carbapenem hydrolysis with MALDI-TOF",
+          "2.4.6 Control strains",
+          "2.5 References",
+          "1. Cantón R, Akóva M, Carmeli Y, Giske CG, Glupczynski Y, et al. Rapid evolution and spread of carbapenemases",
+          "2. Vatopoulos A. High rates of metallo-β-lactamase-producing Klebsiella pneumoniae in Greece – a review of the",
+          "3. Albiger B, Glasner C, Struelens MJ, Grundmann H, Monnet DL. Carbapenemase-producing Enterobacteriaceae in",
+          "4. European Centres for Disease Prevention and Control (ECDC). Antimicrobial resistance surveillance in Europe",
+          "2014. Annual report of the European Antimicrobial Resistance Surveillance Network (EARS-Net)",
+          "5. Baraniak A, Izdebski R, Fiett J, Gawryszewska I, Bojarska K, et al. NDM-producing Enterobacteriaceae in Poland,",
+          "6. Nordmann P, Naas T, Poirel L. Global spread of Carbapenemase-producing Enterobacteriaceae. Emerg Infect Dis.",
+          "7. Souli M, Galani I, Antoniadou A, Papadomichelakis E, Poulakou G et al. An outbreak of infection due to β-",
+          "8. Bratu S, Landman D, Haag R, Recco R, Eramo A, Alam M, Quale J. Rapid spread of carbapenem-resistant Klebsiella",
+          "9. Marchaim D, Navon-Venezia S, Schwaber MJ, Carmeli Y. Isolation of imipenem-resistant Enterobacter species:",
+          "10. Queenan AM, Bush K. Carbapenemases: the versatile β-lactamases. Clin Microbiol Rev 2007;20:440–58",
+          "11. Falcone M, Mezzatesta ML, Perilli M, Forcella C, Giordano A et al. Infections with VIM-1 metallo β-lactamase-",
+          "12. Doumith M, Ellington MJ, Livermore DM, Woodford N. Molecular mechanisms disrupting porin expression in",
+          "13. Yamachika S, Sugihara C, Kamai Y, Yamashita M. Correlation between penicillin-binding protein 2 mutations and",
+          "14. Nordmann P, Gniadkowski M, Giske CG, Poirel L, Woodford N, Miriagou V. Identification and screening of",
+          "15. European Committee on Antimicrobial Susceptibilty Testing (EUCAST). Website with MIC-distributions.",
+          "16. Glupczynski Y, Huang TD, Bouchahrouf W, Rezende de Castro R, Bauraing C et al. Rapid emergence and spread of",
+          "17. Tato M, Coque TM, Ruíz-Garbajosa P, Pintado V, Cobo J et al. Complex clonal and plasmid epidemiology in the first",
+          "18. Vading M, Samuelsen Ø, Haldorsen B, Sundsfjord AS, Giske CG. Comparison of disk diffusion, Etest® and VITEK2",
+          "19. Giske CG, Gezelius L, Samuelsen Ø, Warner M, Sundsfjord A, Woodford N. A sensitive and specific phenotypic",
+          "20. Doyle D, Peirano G, Lascols C, Lloyd T, Church DL, Pitout JD. Laboratory detection of Enterobacteriaceae that",
+          "21. Porres-Osante N, de Champs C, Dupont H, Torres C, Mammeri H. Use of avibactam to detect Ambler class A",
+          "22. Huang TD, Berhin C, Bogaerts P, Glupczynski Y. Evaluation of avibactam-supplemented combination disk tests for",
+          "24. Hartl R, Widhalm S, Kerschner H, Apfalter P. Temocillin and meropenem to discriminate resistance mechanisms",
+          "25. Miriagou V, Tzelepi E, Kotsakis SD, Daikos GL, Bou Casals J, Tzouvelekis LS. Combined disc methods for the",
+          "26. Nordmann P, Poirel L, Dortet L. Rapid detection of carbapenemase-producing Enterobacteriaceae. Emerg Infect",
+          "27. Dortet L, Poirel L, Nordmann P. Rapid Identification of carbapenemase types in Enterobacteriaceae and",
+          "28. Vasoo S, Cunningham SA, Kohner PC, Simner PJ, Mandrekar JN, Lolans K, Hayden MK, Patel R. Comparison of a",
+          "29. Tijet N, Boyd D, Patel SN, Mulvey MR, Melano RG. Evaluation of the Carba NP test for rapid detection of",
+          "30. Dortet L, Agathine A, Naas T, Cuzon G, Poirel L, Nordmann P. Evaluation of the RAPIDEC® CARBA NP, the Rapid",
+          "31. Kabir MH, Meunier D, Hopkins KL, Giske CG, Woodford N. A two-centre evaluation of RAPIDEC® CARBA NP for",
+          "32. Huang TD, Berhin C, Bogaerts P, Glupczynski Y. Comparative evaluation of two chromogenic tests for rapid",
+          "33. Noël A, Huang TD, Berhin C, Hoebeke M, et al. Comparative Evaluation of Four Phenotypic Tests for Detection of",
+          "34. Pasteran F, Veliz O, Ceriana P, Lucero C, Rapoport M, et al. Evaluation of the Blue-Carba test for rapid detection of",
+          "35. Compain F, Gallah S, Eckert C, Arlet G, Ramahefasolo A, et al. Assessment of Carbapenem Resistance in",
+          "37. Yamada K, Kashiwa M, Arai K, Nagano N, Saito R. Comparison of the Modified-Hodge test, Carba NP test, and",
+          "38. Tijet N, Patel SN, Melano RG. Detection of carbapenemase activity in Enterobacteriaceae: comparison of the",
+          "39. Hrabák J, Studentová V, Walková R, Zemlicková H, Jakubu V et al. Detection of NDM-1, VIM-1, KPC, OXA-48, and",
+          "40. Lasserre C, De Saint Martin L, Cuzon G, Bogaerts P, Lamar E, et al. Efficient Detection of Carbapenemase Activity in",
+          "30 Minutes. J Clin Microbiol. 2015; 53:2163-71.",
+          "41. Papagiannitsis CC, Študentová V, Izdebski R, Oikonomou O, Pfeifer Y, et al. Matrix-assisted laser desorption",
+          "42. Pasteran F, Denorme L, Ote I, Gomez S, De Belder D, Glupczynski Y, Bogaerts P, Ghiglione B, Power P, Mertens P,",
+          "43. Dortet L, Jousset A, Sainte-Rose V, Cuzon G, Naas T. Prospective evaluation of the OXA-48 K-SeT assay, an",
+          "44. Wareham DW, Shah R, Betts JW, Phee LM, Momin MH. Evaluation of an Immunochromatographic Lateral Flow",
+          "45. Meunier D, Vickers A, Pike R, Hill RL, Woodford N, Hopkins KL. Evaluation of the K-SeT R.E.S.I.S.T.",
+          "46. Glupczynski Y, Evrard S, Ote I, Mertens P, Huang TD, et al. Evaluation of two new commercial",
+          "3. Extended-spectrum β-lactamase (ESBL)-producing Enterobacteriaceae",
+          "3.1 Definition",
+          "3.2 Clinical and/or epidemiological importance",
+          "3.3 Mechanisms of resistance",
+          "3.4 Recommended methods for detection of ESBLs in Enterobacteriaceae",
+          "1 With all methods test either (i) cefotaxime or ceftriaxone AND ceftazidime OR (ii) cefpodoxime",
+          "1 If cefoxitin has been tested and has an MIC >8 mg/L, perform cefepime+/- clavulanic acid confirmation test",
+          "2 Cannot be determined as either positive or negative (e.g. if a gradient diffusion strip cannot be read due to growth",
+          "3.4.1 ESBL-screening in Enterobacteriaceae",
+          "3.4.2 Phenotypic confirmation methods",
+          "ESBL SCREENING:",
+          "ESBL CONFIRMATION1",
+          "ESBL CONFIRMATION",
+          "(DDST)",
+          "3.4.3 Phenotypic detection of ESBL in the presence of other β-lactamases that mask",
+          "3.4.4 Genotypic confirmation",
+          "3.4.5 Quality control",
+          "SHV-18 ESBL",
+          "3.5 References",
+          "1. Bush K, Jacoby GA, Medeiros AA. A functional classification scheme for β -lactamases and its correlation with",
+          "2. Livermore DM. β-Lactamases in laboratory and clinical resistance. Clin Microbiol Rev. 1995;8:557-584",
+          "3. Bradford PA. Extended-spectrum β-lactamases in the 21st century: characterization, epidemiology, and detection",
+          "4. Naas T, Poirel L, Nordmann P. 2008. Minor extended-spectrum β-lactamases. Clin Microbiol Infect.",
+          "5. Cantón R, Novais A, Valverde A, Machado E, Peixe L, Baquero F, Coque TM. Prevalence and spread of extended-"
+        ],
+        "detected_tables": 53
+      }
+    },
+    {
+      "asset_file": "pdf/genome_wodepdf.pdf",
+      "filename": "genome_wodepdf.pdf",
+      "extension": ".pdf",
+      "format": "pdf",
+      "mime_type": "application/pdf",
+      "size_bytes": 1948003,
+      "sha256": "fae7595271cd7ea41e9a2790c223d8d038f017252e19bd2a290058270ea715ff",
+      "modified_time": "2026-08-26T10:59:29.802583+00:00",
+      "inspection": {
+        "format": "pdf",
+        "readable": true,
+        "reader": "pymupdf",
+        "pages": 15,
+        "text_characters": 72199,
+        "text_words": 12957,
+        "text_available": true,
+        "page_text_lengths": [
+          {
+            "page": 1,
+            "characters": 4510,
+            "words": 650
+          },
+          {
+            "page": 2,
+            "characters": 6061,
+            "words": 946
+          },
+          {
+            "page": 3,
+            "characters": 5457,
+            "words": 873
+          },
+          {
+            "page": 4,
+            "characters": 3698,
+            "words": 639
+          },
+          {
+            "page": 5,
+            "characters": 5437,
+            "words": 1525
+          },
+          {
+            "page": 6,
+            "characters": 5080,
+            "words": 1378
+          },
+          {
+            "page": 7,
+            "characters": 5153,
+            "words": 926
+          },
+          {
+            "page": 8,
+            "characters": 2612,
+            "words": 598
+          },
+          {
+            "page": 9,
+            "characters": 1972,
+            "words": 294
+          },
+          {
+            "page": 10,
+            "characters": 4317,
+            "words": 803
+          },
+          {
+            "page": 11,
+            "characters": 1059,
+            "words": 183
+          },
+          {
+            "page": 12,
+            "characters": 5657,
+            "words": 845
+          },
+          {
+            "page": 13,
+            "characters": 6898,
+            "words": 1041
+          },
+          {
+            "page": 14,
+            "characters": 8450,
+            "words": 1311
+          },
+          {
+            "page": 15,
+            "characters": 5810,
+            "words": 945
+          }
+        ],
+        "metadata": {
+          "format": "PDF 1.4",
+          "title": "Genome-wide analysis of Mycobacterium tuberculosis polymorphisms reveals lineage-specific associations with drug resistance",
+          "author": "Yaa E. A. Oppong",
+          "subject": "BMC Genomics, 2019, doi:10.1186/s12864-019-5615-3",
+          "keywords": "Drug resistance,Evolution,Mutations,Mycobacterium tuberculosis,Tuberculosis",
+          "creator": "Arbortext Advanced Print Publisher 9.1.440/W Unicode",
+          "producer": "Acrobat Distiller 10.1.5 (Windows); modified using iText® 5.3.5 ©2000-2012 1T3XT BVBA (AGPL-version)",
+          "creationDate": "D:20190327212218+08'00'",
+          "modDate": "D:20190329045309+01'00'"
+        },
+        "first_page_preview": "RESEARCH ARTICLE\nOpen Access\nGenome-wide analysis of Mycobacterium\ntuberculosis polymorphisms reveals lineage-\nspecific associations with drug resistance\nYaa E. A. Oppong1*\n, Jody Phelan1, João Perdigão2, Diana Machado3, Anabela Miranda4, Isabel Portugal2,\nMiguel Viveiros3, Taane G. Clark1,5† and Martin L. Hibberd1†\nAbstract\nBackground: Continuing evolution of the Mycobacterium tuberculosis (Mtb) complex genomes associated with\nresistance to anti-tuberculosis drugs is threatening tuberculosis disease control efforts. Both multi- and extensively\ndrug resistant Mtb (MDR and XDR, respectively) are increasing in prevalence, but the full set of Mtb genes involved\nare not known. There is a need for increased sensitivity of genome-wide approaches in order to elucidate the genetic\nbasis of anti-microbial drug resistance and gain a more detailed understanding of Mtb genome evolution in a context\nof widespread antimicrobial therapy. Population structure within the Mtb complex, due to clonal expansion, lack of\nlateral gene transfer and low levels of recombination between lineages, may be reducing statistical power to detect\ndrug resistance associated variants.\nResults: To investigate the effect of lineage-specific effects on the identification of drug resistance associations, we\napplied genome-wide association study (GWAS) and convergence-based (PhyC) methods to multiple drug resistance\nphenotypes of a global dataset of Mtb lineages 2 and 4, using both lineage-wise and combined approaches.\nWe identify both well-established drug resistance variants and novel associations; uniquely identifying associations for\nboth lineage-specific and -combined GWAS analyses. We report 17 potential novel associations between antimicrobial\nresistance phenotypes and Mtb genomic variants.\nConclusions: For GWAS, both lineage-specific and -combined analyses are useful, whereas PhyC may perform better in\ncontexts of greater diversity. Unique associations with XDR in lineage-specific analyses provide evidence of diverging\nevolutionary trajectories between lineages 2 and 4 in response to antimicrobial drug therapy.\nKeywords: Drug resistance, Evolution, Mutations, Mycobacterium tuberculosis, Tuberculosis\nBackground\nDespite clonal expansion and a lack of lateral gene transfer\nin Mycobacterium tuberculosis (Mtb), the evolution of drug\nresistance is threatening tuberculosis disease (TB) control\nefforts. Resistance to all anti-Mtb drugs has been observed,\nusually evolving relatively shortly after their introduction.\nDrug-resistant\nTB\nis\nphenotypically\ncategorised\nas\nmulti-drug resistant (MDR) when resistant to two first–line\ndrugs, rifampicin and isoniazid; extensively drug-resistant\n(XDR) occurs when MDR Mtb have additional resistance\nto fluoroquinolones and at least one second-line injectable.\nOnly 50% of patients receiving treatment for MDR TB, glo-\nbally, were successfully treated in 2014 [1].\nDe novo emergence of drug resistance has been observed,\nwith the presence of multiple unfix",
+        "possible_headings": [
+          "RESEARCH ARTICLE",
+          "INH(761,155;1.2 × 10−06, 761,139;5.6 × 10−06), MDR(761,155;1.5 × 10−12, 761,139;1.4 × 10−07,",
+          "761,140;5.5 × 10−04), RMP(761,155;2.4 × 10−11, 761,139;6.7 × 10−09, 761,110;4.6 × 10−04,",
+          "761,140;9.3 × 10−04), XDR(761,155;2.6 × 10−04, 761,139;7.5 × 10−04)",
+          "AG(761,155;2.0 × 10−5), EMB(761,155;2.2 × 10−14), INH(761,155;3.4 × 10−32, 761,139;6.2 × 10−11,",
+          "761,110;7.6 × 10−08, 761,140;3.3 × 10−07), MDR(761,155;2.1 × 10−45, 761,139;2.8 × 10−20,",
+          "761,140;1.3 × 10−09, 761,110;1 × 10−08, 759,939;2.8 × 10−04), PZA(761,155;1.5 × 10−12,",
+          "761,110;2.2 × 10−06), RMP(761,155;5.7 × 10−54, 761,139;9.7 × 10−27, 761,110;2.6 × 10−12,",
+          "AG(761,155;2.3 × 10−5), EMB(761,155;3.8 × 10−18, 761,140;6.3 × 10−06, 761,110;1.1 × 10−05,",
+          "761,139;2 × 10−05), INH(761,155;2.3 × 10−42, 761,139;3.5 × 10−19, 761,140;2.3 × 10−11,",
+          "761,110;1.1 × 10−09, 761,161;1.5 × 10−06), MDR(761,155;7.8 × 10−63, 761,139;1.7 × 10−31,",
+          "759,939;2.6 × 10−04, 761,109;2.6 × 10−04), PZA(761,155;5.6 × 10−16, 761,110;2 × 10−07,",
+          "761,139;5.8 × 10−04), RMP(761,155;3.5 × 10−70, 761,139;3.2 × 10−38, 761,110;2.4 × 10−17,",
+          "761,095;3.1 × 10−04, 759,939;4.7 × 10−04, 760,314;4.7 × 10−04), STM(761,155;8.4 × 10−21,",
+          "XDR(761,155;2.2 × 10−18, 761,110;2.6 × 10−08, 761,139;9.7 × 10−08, 761,161;1.9 × 10−06,",
+          "EMB(4,247,429;3 × 10−07, 4,247,431;1.8 × 10−04), INH(4,247,429;9.3 × 10−10, 4,247,431;3.1 × 10–05),",
+          "MDR(4,247,429;2.5 × 10−08, 4,247,431;1.1 × 10−04), RMP(4,247,429;7.6 × 10−09, 4,247,431;1.3 × 10−04,",
+          "4,247,730;8.7 × 10−04), STM(4,247,429;1 × 10−05, 4,247,431;1.1 × 10−04), XDR(4,247,429;4.3 × 10−06,",
+          "AG(4,247,431;7.1 × 10−4), EMB(4,247,431;3 × 10−11, 4,247,729;3 × 10−08, 4,247,730;1 × 10−07,",
+          "4,248,003;1 × 10−07, 4,247,429;1.5 × 10−06, 4,247,574;8.1 × 10−04), INH(4,247,431;6.6 × 10−19,",
+          "4,248,003;2.8 × 10−05), MDR(4,247,431;2.3 × 10−21, 4,247,429;1.5 × 10−09, 4,247,730;8.8 × 10−08,",
+          "4,247,574;6 × 10−07, 4,247,729;4.2 × 10−06, 4,248,003;6 × 10−04), PZA(4,247,431;1.2 × 10−04,",
+          "4,247,730;2.2 × 10−04, 4,248,003;5.3 × 10−04), RMP(4,247,431;2.2 × 10−18, 4,247,429;1.5 × 10−10,",
+          "STM(4,247,431;1.5 × 10−08, 4,247,729;3.6 × 10−06, 4,247,574;7.2 × 10–04), XDR(4,247,429;1.3 × 10−04)",
+          "AG(4,247,431;3.5 × 10−4), EMB(4,247,429;9.2 × 10−21, 4,247,431;1.5 × 10−16, 4,247,729;2.1 × 10−09,",
+          "FQ(4,247,730;9.5 × 10−07), INH(4,247,429;2.7 × 10−27, 4,247,431;1 × 10−25, 4,247,730;8.4 × 10−14,",
+          "4,248,003;1.2 × 10−08, 4,247,729;1.4 × 10−07, 4,247,574;1.7 × 10−07), MDR(4,247,431;3.2 × 10−26,",
+          "4,248,003;1.5 × 10−07), PZA(4,247,730;6.3 × 10−08, 4,247,431;2 × 10−05, 4,247,429;2.9 × 10−04,",
+          "4,248,003;4.6 × 10−04), RMP(4,247,429;4.1 × 10−29, 4,247,431;4.8 × 10−24, 4,247,730;3.1 × 10−13,",
+          "4,247,730;5.5 × 10−05, 4,247,574;6.9 × 10−05), XDR(4,247,429;4.4 × 10−13, 4,247,431;8.9 × 10−10,",
+          "INH(2,155,168;2.7 × 10−07), MDR(2,155,168;4.5 × 10−08), RMP(2,155,168;5.7 × 10−04),",
+          "STM(2,155,168;8.3 × 10−04), XDR(2,155,168;4.1 × 10−09)",
+          "EMB(2,155,168;1.5 × 10−07), INH(2,155,168;2 × 10−63, 2,155,167;8.5 × 10−05), MDR(2,155,",
+          "168;3 × 10−58, 2,155,167;2.8 × 10−04), PZA(2,155,168;1.5 × 10−09), RMP(2,155,168;2.9 × 10−29),",
+          "EMB(2,155,168;4.8 × 10−11), INH(2,155,168;7.1 × 10−72, 2,155,167;1.1 × 10−04),",
+          "MDR(2,155,168;3.3 × 10−68, 2,155,167;2.6 × 10−04), PZA(2,155,168;1.7 × 10−11),",
+          "INH(781,687;5.9 × 10−05), MDR(781,687;5.3 × 10−05), RMP(781,687;4.8 × 10−04),",
+          "STM(781,687;4.1 × 10−08)",
+          "AG(781,687;3.8 × 10−4), INH(781,687;4.3 × 10−15), MDR(781,687;3.9 × 10−12),",
+          "PZA(781,687;6.1 × 10−06), RMP(781,687;8.3 × 10−10), STM(781,687;9.6 × 10−14,",
+          "AG(781,687;3.8 × 10−5), EMB(781,687;3.5 × 10−05), FQ(781,687;8.3 × 10−05), INH(781,687;2.3 × 10−26,",
+          "781,822;6.4 × 10−05), MDR(781,687;2.3 × 10−25, 781,822;4.1 × 10−06), PZA(781,687;1.5 × 10−08),",
+          "RMP(781,687;4.8 × 10−22, 781,822;8.6 × 10−06), STM(781,687;3.4 × 10−30, 781,822;2.6 × 10−07),",
+          "XDR(781,687;4.3 × 10−09)",
+          "INH, ETH",
+          "INH(1,673,425;9 × 10−06), MDR(1,673,425;5.7 × 10−05)",
+          "INH(1,673,425;2.2 × 10−20), MDR(1,673,425;2 × 10−07), XDR(1,673,425;3.9 × 10−05)",
+          "EMB(1,673,432;5.4 × 10−05), ETH(1,673,425;7.6 × 10−04), FQ(1,673,432;9 × 10−04),",
+          "INH(1,673,425;6.4 × 10−27, 1,673,432;8.3 × 10−07), MDR(1,673,425;4.4 × 10−14, 1,673,432;6.4 × 10−05),",
+          "RMP(1,673,432;7.9 × 10−06, 1,673,425;3 × 10−05), STEP(1,673,432;8.5 × 10−05, 1,673,425;3.6 × 10−04),",
+          "XDR(1,673,425;8.7 × 10−06, 1,673,432;1.2 × 10−05)",
+          "EMB(7582;1.3 × 10−05), ETH(7582;9.5 × 10−04), FQ(7582;2.3 × 10−09,",
+          "7570;7.6 × 10–06, 7581;4.1 × 10−04), INH(7582;9.9 × 10−06), MDR(7582;7.9 × 10−05),",
+          "OFL(7582;1.4 × 10−06, 7570;8.5 × 10−04, 7581;8.5 × 10−04), RMP(7582;2.6 × 10−06, 7570;1.2 × 10−04,",
+          "EMB(7570;1.2 × 10−05), FQ(7570;1.9 × 10−08, 7582;3 × 10−06, 7581;2.1 × 10−05),",
+          "INH(7570;3.2 × 10−10, 7581;9.2 × 10−05, 7582;1.1 × 10−04), KAN(7570;1.5 × 10−04),",
+          "MDR(7570;1 × 10−08, 7582;4.2 × 10−06, 7581;5 × 10−05), OFL(7570;2.5 × 10−04,",
+          "7582;5.6 × 10−04), PZA(7570;1 × 10−05, 7581;1.3 × 10−04), RMP(7570;3.4 × 10−11,",
+          "7582;5 × 10−08, 7581;5.1 × 10−06), XDR(7570;3.3 × 10−10, 7582;2.7 × 10−05, 7572;3.6 × 10−04)",
+          "AMK(7570;6.5 × 10−04), CAP(7570;9.9 × 10−04), EMB(7582;4.2 × 10−13, 7570;1.1 × 10−08,",
+          "7572;3.7 × 10−04, 7581;4.8 × 10−04), ETH(7582;1.3 × 10−04), FQ(7582;3.6 × 10−18, 7570;4.1 × 10−14,",
+          "7581;2.4 × 10−09, 7572;6.1 × 10−04), INH(7582;4.5 × 10−15, 7570;4.2 × 10−14, 7581;1.2 × 10−08,",
+          "7572;8.3 × 10−06), KAN(7570;5.7 × 10−06, 7572;6.7 × 10−05), MDR(7582;2.2 × 10−15, 7570;1.8 × 10−11,",
+          "7581;6.4 × 10−07), OFL(7582;1.3 × 10–10, 7570;2 × 10–07, 7581;5.8 × 10−06), PZA(7581;1.2 × 10−07,",
+          "7570;2.4 × 10−07, 7572;9.7 × 10−05, 7582;4.6 × 10−04), RMP(7582;2.3 × 10−20, 7570;2.5 × 10−17,",
+          "7581;1.8 × 10–10, 7572;1 × 10−06), STM(7582;1.9 × 10−10, 7570;1.5 × 10−06, 7581;1.8 × 10−04),",
+          "STM, AG",
+          "AMK(1,473,246;1.8 × 10−04), CAP(1,473,246;5 × 10−08), INH(1,473,246;5 × 10−06),",
+          "KAN(1,473,246;1.3 × 10−11), RMP(1,473,246;8.9 × 10−06), STM(1,473,246;4.1 × 10−04),",
+          "AG(1,473,246;2.6 × 10−7), AMK(1,473,246;4.6 × 10−06), CAP(1,473,246;2 × 10−06),",
+          "CIP(1,473,246;9.4 × 10−04), EMB(1,473,246;7.1 × 10−07), FQ(1,473,246;2.5 × 10−04),",
+          "INH(1,473,246;3.2 × 10−10), KAN(1,473,246;3.3 × 10−10), MDR(1,473,246;4.6 × 10−06),",
+          "PZA(1,473,246;9.4 × 10−10), RMP(1,473,246;1.9 × 10−16), STM(1,473,246;3.1 × 10−05,",
+          "AG(1,473,246;7.5 × 10−5), AMK(1,473,246;3.9 × 10−11), CAP(1,473,246;7.2 × 10−14),",
+          "CIP(1,473,246;6.5 × 10−04), EMB(1,473,246;2.5 × 10−11), FQ(1,473,246;3.5 × 10−07),",
+          "INH(1,473,246;3.6 × 10−20, 1,472,359;1.2 × 10−05), KAN(1,473,246;7.9 × 10−22),",
+          "MDR(1,473,246;1.8 × 10−11, 1,472,359;4.4 × 10−04), PZA(1,473,246;2.6 × 10−10),",
+          "RMP(1,473,246;7.3 × 10−26), STM(1,473,246;1.3 × 10−11, 1,472,359;1.5 × 10−08),",
+          "XDR(3,067,961;7.5 × 10−04)",
+          "INH(3,067,961;4.9 × 10−04), STM(3,067,961;3.2 × 10−04)",
+          "EMB(3,067,961;1 × 10−05), INH(3,067,961;1.4 × 10−07), MDR(3,067,961;6.4 × 10−05),",
+          "RMP(3,067,961;9.4 × 10−05), STM(3,067,961;2.3 × 10−07), XDR(3,067,961;1.2 × 10−05)",
+          "EMB(764,817;2 × 10−04), MDR(764,817;6 × 10−07, 764,840;2.8 × 10−04), PZA(764,817;8.3 × 10−08),",
+          "RMP(764,817;3.6 × 10−08, 764,840;4.9 × 10−04, 767,123;4.9 × 10−04), STM(764,817;3.4 × 10−04)",
+          "EMB(764,817;1.9 × 10−04), INH(764,817;1.1 × 10−05, 764,840;1.1 × 10−04), MDR(764,817;4.9 × 10−10,",
+          "764,840;9.7 × 10−06), PZA(764,817;2 × 10−07), RMP(764,817;1.4 × 10−09, 764,840;2.2 × 10−05,",
+          "764,363;4.7 × 10−04, 767,123;4.7 × 10−04), STM(764,817;3.8 × 10−06)",
+          "EMB(4,243,217;1.7 × 10−04)",
+          "EMB(4,243,221;3.7 × 10−04, 4,243,190;3.8 × 10–04), INH(4,243,221;8.5 × 10−05),",
+          "MDR(4,243,217;4.6 × 10−06, 4,243,221;4.6 × 10−06, 4,243,190;3.6 × 10−05),",
+          "RMP(4,243,221;1.1 × 10−05, 4,243,190;4.9 × 10−04)",
+          "EMB(4,243,217;1.4 × 10−07, 4,243,190;3 × 10−07, 4,243,221;1.3 × 10−06), INH(4,243,217;4 × 10−08,",
+          "4,243,221;2.3 × 10−06, 4,243,190;3 × 10−05), MDR(4,243,217;1.2 × 10−09, 4,243,221;6.9 × 10−08,",
+          "4,243,190;1.9 × 10−06), RMP(4,243,221;2.2 × 10−07, 4,243,217;6.1 × 10−07, 4,243,190;4.8 × 10−06),",
+          "STM(4,243,217;8.6 × 10−04)",
+          "INH(732,110;4 × 10−04), MDR(732,110;2.8 × 10−04)",
+          "INH(732,110;1.1 × 10−04), MDR(732,110;2.6 × 10−04), STM(732,110;4 × 10−04)",
+          "EMB(2,288,868;3.8 × 10−04), MDR(2,288,764;2.8 × 10−04), RMP(2,288,764;4.9 × 10−04)",
+          "EMB(2,288,820;1.9 × 10−04, 2,289,103;1.9 × 10−04), MDR(2,289,207;2.6 × 10−04),",
+          "PZA(2,289,207;9.7 × 10−05), RMP(2,288,778;4.7 × 10−04, 2,288,820;4.7 × 10−04)"
+        ],
+        "detected_tables": 0
+      }
+    },
+    {
+      "asset_file": "pdf/megarespdf.pdf",
+      "filename": "megarespdf.pdf",
+      "extension": ".pdf",
+      "format": "pdf",
+      "mime_type": "application/pdf",
+      "size_bytes": 1140345,
+      "sha256": "266ffc0805956dbcb71de725bcf6af4587d9dad926662e728ce167dfbf242f95",
+      "modified_time": "2026-08-26T10:47:07.169724+00:00",
+      "inspection": {
+        "format": "pdf",
+        "readable": true,
+        "reader": "pymupdf",
+        "pages": 9,
+        "text_characters": 53154,
+        "text_words": 8421,
+        "text_available": true,
+        "page_text_lengths": [
+          {
+            "page": 1,
+            "characters": 4612,
+            "words": 670
+          },
+          {
+            "page": 2,
+            "characters": 6744,
+            "words": 1038
+          },
+          {
+            "page": 3,
+            "characters": 6591,
+            "words": 1041
+          },
+          {
+            "page": 4,
+            "characters": 6826,
+            "words": 1077
+          },
+          {
+            "page": 5,
+            "characters": 6515,
+            "words": 1079
+          },
+          {
+            "page": 6,
+            "characters": 3064,
+            "words": 493
+          },
+          {
+            "page": 7,
+            "characters": 6587,
+            "words": 1032
+          },
+          {
+            "page": 8,
+            "characters": 7145,
+            "words": 1156
+          },
+          {
+            "page": 9,
+            "characters": 5054,
+            "words": 835
+          }
+        ],
+        "metadata": {
+          "format": "PDF 1.4",
+          "creator": "XMLPublish v.3.0 Copyright 1991-2017 Aptara Inc.",
+          "producer": "Acrobat Distiller 22.0 (Windows); modified using iTextSharp 5.5.10 ©2000-2016 iText Group NV (AGPL-version); modified using iTextSharp.LGPLv2.Core 3.7.4.0",
+          "creationDate": "D:20221223100656+05'30'",
+          "modDate": "D:20260826104659+00'00'"
+        },
+        "first_page_preview": "D744–D752\nNucleic Acids Research, 2023, Vol. 51, Database issue\nPublished online 16 November 2022\nhttps://doi.org/10.1093/nar/gkac1047\nMEGARes and AMR++, v3.0: an updated\ncomprehensive database of antimicrobial resistance\ndeterminants and an improved software pipeline for\nclassiﬁcation using high-throughput sequencing\nNathalie Bonin1, Enrique Doster2, Hannah Worley3, Lee J. Pinnell2, Jonathan E. Bravo1,\nPeter Ferm3, Simone Marini\n4, Mattia Prosperi\n4, Noelle Noyes3,†, Paul S. Morley2,† and\nChristina Boucher\n1,*,†\n1Department of Computer and Information Science and Engineering, University of Florida, Gainesville, FL, USA,\n2VERO Program, Veterinary Medicine and Biomedical Sciences, Texas A&M University, Canyon, TX, USA,\n3Food-Centric Corridor, Infectious Disease Laboratory, Department of Veterinary Population Medicine, College of\nVeterinary Medicine, University of Minnesota, St. Paul, MN, USA and 4Data Intelligence Systems Lab, Department of\nEpidemiology, College of Public Health and Health Professions and College of Medicine, University of Florida,\nGainesville, FL, USA\nReceived September 15, 2022; Revised October 14, 2022; Editorial Decision October 17, 2022; Accepted October 24, 2022\nABSTRACT\nAntimicrobial\nresistance\n(AMR)\nis\nconsid-\nered\na\ncritical\nthreat\nto\npublic\nhealth,\nand\ngenomic/metagenomic\ninvestigations\nfeaturing\nhigh-throughput\nanalysis\nof sequence\ndata are\nincreasingly common and important. We previ-\nously introduced MEGARes, a comprehensive AMR\ndatabase with an acyclic hierarchical annotation\nstructure that facilitates high-throughput compu-\ntational analysis, as well as AMR++, a customized\nbioinformatic pipeline speciﬁcally designed to use\nMEGARes in high-throughput analysis for character-\nizing AMR genes (ARGs) in metagenomic sequence\ndata. Here, we present MEGARes v3.0, a compre-\nhensive database of published ARG sequences\nfor\nantimicrobial\ndrugs,\nbiocides,\nand\nmetals,\nand AMR++ v3.0, an update to our customized\nbioinformatic pipeline for high-throughput analysis\nof metagenomic data (available at MEGLab.org).\nDatabase\nannotations\nhave\nbeen\nexpanded\nto\ninclude information regarding speciﬁc genomic lo-\ncations for single-nucleotide polymorphisms (SNPs)\nand insertions and/or deletions (indels) when re-\nquired by speciﬁc ARGs for resistance expression,\nand the updated AMR++ pipeline uses this informa-\ntion to check for presence of resistance-conferring\ngenetic variants in metagenomic sequenced reads.\nThis new\ninformation encompasses\n337\nARGs,\nwhose\nresistance-conferring\nvariants\ncould\nnot\npreviously be conﬁrmed in such a manner. In\nMEGARes 3.0, the nodes of the acyclic hierarchical\nontology include 4 antimicrobial compound types,\n59 resistance classes, 233 mechanisms and 1448\ngene groups that classify the 8733 accessions.\nINTRODUCTION\nAntimicrobial drugs, biocides and metals often impair or\nkill microbes. However, some microbes can resist the dele-\nterious effects of these compounds via antimicrobial re-\nsistance (AMR) mechanisms. Thes",
+        "possible_headings": [
+          "D744–D752",
+          "ABSTRACT",
+          "(AMR)",
+          "INTRODUCTION",
+          "VARIANT CONFIRMATION",
+          "AMR++",
+          "DISCUSSION",
+          "DATA AVAILABILITY",
+          "ENDNOTES",
+          "SUPPLEMENTARY DATA",
+          "FUNDING",
+          "REFERENCES",
+          "1. Lakin,S.M., Dean,C., Noyes,N.R., Dettenwanger,A., Spencer",
+          "2. Doster,E., Lakin,S.M., Dean,C.J., Wolfe,C., Young,J.G., Boucher,C.,",
+          "3. Liguori,K., Keenum,I., Davis,B.C., Calarco,J., Milligan,E.,",
+          "4. Hem,S., Wyrsch,E.R., Drigo,B., Baker,D.J., Charles,I.G., Donner,E.,",
+          "5. Hull,D.M., Harrell,E., Harden,L. and Thakur,S. (2022) Multidrug",
+          "6. Richter,L., du Plessis,E.M., Duvenage,S., Allam,M., Ismail,A. and",
+          "7. Da Silva,W.M., Larzabal,M., Aburjaile,F.F., Riviere,N.,",
+          "8. Saha,P., Bose,D., Stebliankin,V., Cickovski,T., Seth,R.K.,",
+          "9. Apiwatsiri,P., Pupa,P., Sirichokchatchawan,W., Sawaswong,V.,",
+          "10. Chibani,C.M., Mahnert,A., Borrel,G., Almeida,A., Werner,A.,",
+          "11. Oliver,A., Xue,Z., Villanueva,Y.T., Durbin-Johnson,B., Alkan,Z.,",
+          "12. L´opez-P´erez,M., Haro-Moreno,J.M., Molina-Pardines,C.,",
+          "13. Shastry,B.S. (2009) SNPs: impact on gene function and phenotype.",
+          "14. Werth,B.J., Steed,M.E., Ireland,C.E., Tran,T.T., Nonejuie,P.,",
+          "15. Frosini,S.M., Bond,R., McCarthy,A.J., Feudi,C., Schwarz,S.,",
+          "16. Sheng,Z.-K., Hu,F., Wang,W., Guo,Q., Chen,Z., Xu,X., Zhu,D. and",
+          "17. Zankari,E., Allesøe,R., Joensen,K.G., Cavaco,L.M., Lund,O. and",
+          "18. Alcock,B.P., Raphenya,A.R., Lau,T.T.Y., Tsang,K.K., Bouchard,M.,",
+          "D517–D525.",
+          "19. Ottesen,A., Kocurek,B., Ramachandran,P., Reed,E., Commichaux,S.,",
+          "20. Florensa,A.F., Kaas,R.S., Clausen,P.T.L.C., Aytan-Aktug,D. and",
+          "21. Gupta,S.K., Padmanabhan,B.R., Diene,S.M., Lopez-Rojas,R.,",
+          "22. Feldgarden,M., Brover,V., Haft,D.H., Prasad,A.B., Slotta,D.J.,",
+          "23. Pal,C., Bengtsson-Palme,J., Rensing,C., Kristiansson,E. and",
+          "24. Fu,L., Niu,B., Zhu,Z., Wu,S. and Li,W. (2012) CD-HIT: accelerated",
+          "25. Lakin,S.M., Kuhnle,A., Alipanahi,B., Noyes,N.R., Dean,C.,",
+          "26. Prosperi,M. and Marini,S. (2021) KARGA: Multi-platform toolkit",
+          "27. Marini,S., Boucher,C., Noyes,N. and Prosperi,M. (2022) The K-mer",
+          "28. Huseby,D.L., Brandis,G., Praski Alzrigat,L. and Hughes,D. (2020)",
+          "U.S.A., 117, 3185–3191.",
+          "29. Altschul,S.F., Gish,W., Miller,W., Myers,E.W. and Lipman,D.J.",
+          "30. Cock,P.J.A., Antao,T., Chang,J.T., Chapman,B.A., Cox,C.J.,",
+          "31. Rice,P., Longden,I. and Bleasby,A. (2000) EMBOSS: the european",
+          "32. Khan,M.T., Rehaman,A.U., Junaid,M., Malik,S.I. and Wei,D.-Q.",
+          "33. Li,H. (2013) Aligning sequence reads, clone sequences and assembly",
+          "26 May 2013, preprint: not peer reviewed.",
+          "34. Di Tommaso,P., Chatzou,M., Floden,E.W., Barja,P.P., Palumbo,E.",
+          "35. Merkel,D. (2014) Docker: lightweight Linux containers for consistent",
+          "36. Kurtzer,G.M., Sochat,V. and Bauer,M.W. (2017) Singularity:",
+          "37. K¨oster,J. and Rahmann,S. (2012) Snakemake–a scalable",
+          "38. Andrews,S. (2010) FastQC: a quality control tool for high throughput",
+          "39. Ewels,P., Magnusson,M., Lundin,S. and K¨aller,M. (2016) MultiQC:",
+          "40. Bolger,A.M., Lohse,M. and Usadel,B. (2014) Trimmomatic: a flexible",
+          "41. Quinlan,A.R. and Hall,I.M. (2010) BEDTools: a flexible suite of",
+          "42. Li,H., Handsaker,B., Wysoker,A., Fennell,T., Ruan,J., Homer,N.,",
+          "43. Wood,D.E., Lu,J. and Langmead,B. (2019) Improved metagenomic",
+          "44. Olson,N.D., Treangen,T.J., Hill,C.M., Cepeda-Espinoza,V.,"
+        ],
+        "detected_tables": 0
+      }
+    },
+    {
+      "asset_file": "pdf/pubmedpdf.pdf",
+      "filename": "pubmedpdf.pdf",
+      "extension": ".pdf",
+      "format": "pdf",
+      "mime_type": "application/pdf",
+      "size_bytes": 3002356,
+      "sha256": "0b80fe5531a056e3f80e68f171a108a303fdfab68e41c0d57a62f8a72613f88e",
+      "modified_time": "2026-08-26T10:53:56.508859+00:00",
+      "inspection": {
+        "format": "pdf",
+        "readable": true,
+        "reader": "pymupdf",
+        "pages": 10,
+        "text_characters": 51934,
+        "text_words": 7749,
+        "text_available": true,
+        "page_text_lengths": [
+          {
+            "page": 1,
+            "characters": 6609,
+            "words": 972
+          },
+          {
+            "page": 2,
+            "characters": 8665,
+            "words": 1326
+          },
+          {
+            "page": 3,
+            "characters": 5190,
+            "words": 712
+          },
+          {
+            "page": 4,
+            "characters": 2899,
+            "words": 445
+          },
+          {
+            "page": 5,
+            "characters": 3989,
+            "words": 586
+          },
+          {
+            "page": 6,
+            "characters": 3252,
+            "words": 490
+          },
+          {
+            "page": 7,
+            "characters": 2959,
+            "words": 394
+          },
+          {
+            "page": 8,
+            "characters": 3947,
+            "words": 584
+          },
+          {
+            "page": 9,
+            "characters": 7476,
+            "words": 1101
+          },
+          {
+            "page": 10,
+            "characters": 6930,
+            "words": 1139
+          }
+        ],
+        "metadata": {
+          "format": "PDF 1.4",
+          "creator": "XPP",
+          "creationDate": "D:20130610160128Z",
+          "modDate": "D:20130610160128Z"
+        },
+        "first_page_preview": "The Comprehensive Antibiotic Resistance Database\nAndrew G. McArthur,b Nicholas Waglechner,a Fazmin Nizam,a Austin Yan,a Marisa A. Azad,a Alison J. Baylay,c Kirandeep Bhullar,a\nMarc J. Canova,a Gianfranco De Pascale,a Linda Ejim,a Lindsay Kalan,a Andrew M. King,a Kalinka Koteva,a Mariya Morar,a\nMichael R. Mulvey,d Jonathan S. O’Brien,a Andrew C. Pawlowski,a Laura J. V. Piddock,c Peter Spanogiannopoulos,a\nArlene D. Sutherland,a Irene Tang,a Patricia L. Taylor,a Maulik Thaker,a Wenliang Wang,a Marie Yan,a Tennison Yu,a Gerard D. Wrighta\nM.G. DeGroote Institute for Infectious Disease Research, Department of Biochemistry and Biomedical Sciences, McMaster University, Hamilton, Ontario, Canadaa; Andrew\nMcArthur Consulting, Hamilton, Ontario, Canadab; School of Immunity and Infection and Institute of Microbiology and Infection, College of Medical and Dental Sciences,\nUniversity of Birmingham, Birmingham, United Kingdomc; National Microbiology Laboratory, Public Health Agency of Canada, Winnipeg, Manitoba, Canadad\nThe ﬁeld of antibiotic drug discovery and the monitoring of new antibiotic resistance elements have yet to fully exploit the power\nof the genome revolution. Despite the fact that the ﬁrst genomes sequenced of free living organisms were those of bacteria, there\nhave been few specialized bioinformatic tools developed to mine the growing amount of genomic data associated with patho-\ngens. In particular, there are few tools to study the genetics and genomics of antibiotic resistance and how it impacts bacterial\npopulations, ecology, and the clinic. We have initiated development of such tools in the form of the Comprehensive Antibiotic\nResearch Database (CARD; http://arpcard.mcmaster.ca). The CARD integrates disparate molecular and sequence data, provides\na unique organizing principle in the form of the Antibiotic Resistance Ontology (ARO), and can quickly identify putative antibi-\notic resistance genes in new unannotated genome sequences. This unique platform provides an informatic tool that bridges anti-\nbiotic resistance concerns in health care, agriculture, and the environment.\nA\nntibiotic resistance is an increasing crisis as both the range of\nmicrobial antibiotic resistance in clinical settings expands\nand the pipeline for development of new antibiotics contracts (1).\nThis problem is compounded by the global genomic scope of the\nantibiotic resistome, such that antibiotic resistance spans a con-\ntinuum from genes in pathogens found in the clinic to those of\nbenign environmental microbes along with their proto-resistance\ngene progenitors (2, 3). The recent emergence of New Delhi\nmetallo-ß-lactamase (NDM-1) in Gram-negative organisms (4),\nwhich can hydrolyze all \u0001-lactams with the exception of mono-\nbactams, illustrates the capacity of new antibiotic resistance genes\nto emerge rapidly from as-yet-undetermined reservoirs. Surveys\nof genes originating from both clinical and environmental sources\n(microbes and metagenomes) will provide increasing ins",
+        "possible_headings": [
+          "MATERIALS AND METHODS",
+          "AAC(1), AAC(2=), AAC(3), AAC(6=)",
+          "ANT(2\u0003), ANT(3\u0003), ANT(4=), ANT(6), ANT(9)",
+          "APH(2\u0003), APH(3\u0003), APH(3=), APH(4), APH(6), APH(7\u0003), APH(9)",
+          "MPH(2=)-I, MPH(2=)-II",
+          "RESULTS",
+          "DISCUSSION",
+          "ACKNOWLEDGMENTS",
+          "REFERENCES",
+          "1. Cooper MA, Shlaes D. 2011. Fix the antibiotics pipeline. Nature 472:32.",
+          "2. D’Costa VM, King CE, Kalan L, Morar M, Sung WWL, Schwarz C,",
+          "3. Wright GD. 2010. The antibiotic resistome. Expert Opin. Drug Discov.",
+          "4. Yong D, Toleman MA, Giske CG, Cho HS, Sundman K, Lee K, Walsh",
+          "5. Köser CU, Ellington MJ, Cartwright EJP, Gillespie SH, Brown NM,",
+          "6. Wright GD, Poinar H. 2012. Antibiotic resistance is ancient: implications",
+          "7. Forsberg KJ, Reyes A, Wang B, Selleck EM, Sommer MOA, Dantas G.",
+          "2012. The shared antibiotic resistome of soil bacteria and human patho-",
+          "8. Aziz RK, Bartels D, Best AA, DeJongh M, Disz T, Edwards RA,",
+          "9. Lynn DJ, Winsor GL, Chan C, Richard N, Laird MR, Barsky A, Gardy",
+          "10. Tsafnat G, Copty J, Partridge SR. 2011. RAC: Repository of Antibiotic",
+          "11. Liu B, Pop M. 2009. ARDB–Antibiotic Resistance Genes Database. Nu-",
+          "12. Antezana E, Kuiper M, Mironov V. 2009. Biological knowledge man-",
+          "13. Mungall CJ, Emmert DB, FlyBase Consortium. 2007. A Chado case",
+          "14. Stein LD, Mungall C, Shu S, Caudy M, Mangone M, Day A, Nickerson",
+          "15. Camacho C, Coulouris G, Avagyan V, Ma N, Papadopoulos J, Bealer K,",
+          "16. Federhen S. 2012. The NCBI taxonomy database. Nucleic Acids Res.",
+          "40:D136–D143.",
+          "17. Ashburner M, Ball CA, Blake JA, Botstein D, Butler H, Cherry JM,",
+          "18. Eilbeck K, Lewis SE, Mungall CJ, Yandell M, Stein L, Durbin R,",
+          "19. Eddy SR. 2011. Accelerated Proﬁle HMM searches. PLoS Comput. Biol.",
+          "20. Lukashin AV, Borodovsky M. 1998. GeneMark.hmm: new solutions for",
+          "21. Nordmann P, Poirel L, Walsh TR, Livermore DM. 2011. The emerging",
+          "22. Cowell LG, Smith B. 2010. Infectious disease ontology, p 373–395. In",
+          "23. Zhanel GG, Low DE. 2007. Launching of the CAN-R Web site—the",
+          "24. Bush K, Jacoby GA. 2010. Updated functional classiﬁcation of beta-",
+          "25. Zankari E, Hasman H, Cosentino S, Vestergaard M, Rasmussen S,",
+          "26. Chen C-C, Lin Y-C, Sheng W-H, Chen Y-C, Chang S-C, Hsia K-C, Liao",
+          "27. Smith B, Ashburner M, Rosse C, Bard J, Bug W, Ceusters W, Goldberg"
+        ],
+        "detected_tables": 0
+      }
+    },
+    {
+      "asset_file": "pdf/source_attripdf.pdf",
+      "filename": "source_attripdf.pdf",
+      "extension": ".pdf",
+      "format": "pdf",
+      "mime_type": "application/pdf",
+      "size_bytes": 829491,
+      "sha256": "9dc251413571679e47b60221879b5f92f73ee514a36977417c69629e2f5771fe",
+      "modified_time": "2026-08-26T10:59:12.373586+00:00",
+      "inspection": {
+        "format": "pdf",
+        "readable": true,
+        "reader": "pymupdf",
+        "pages": 17,
+        "text_characters": 89010,
+        "text_words": 13973,
+        "text_available": true,
+        "page_text_lengths": [
+          {
+            "page": 1,
+            "characters": 4022,
+            "words": 592
+          },
+          {
+            "page": 2,
+            "characters": 2019,
+            "words": 315
+          },
+          {
+            "page": 3,
+            "characters": 5227,
+            "words": 811
+          },
+          {
+            "page": 4,
+            "characters": 5364,
+            "words": 821
+          },
+          {
+            "page": 5,
+            "characters": 5515,
+            "words": 847
+          },
+          {
+            "page": 6,
+            "characters": 5420,
+            "words": 821
+          },
+          {
+            "page": 7,
+            "characters": 5141,
+            "words": 780
+          },
+          {
+            "page": 8,
+            "characters": 5111,
+            "words": 786
+          },
+          {
+            "page": 9,
+            "characters": 5374,
+            "words": 851
+          },
+          {
+            "page": 10,
+            "characters": 5479,
+            "words": 845
+          },
+          {
+            "page": 11,
+            "characters": 5172,
+            "words": 779
+          },
+          {
+            "page": 12,
+            "characters": 4669,
+            "words": 705
+          },
+          {
+            "page": 13,
+            "characters": 5315,
+            "words": 801
+          },
+          {
+            "page": 14,
+            "characters": 7608,
+            "words": 1287
+          },
+          {
+            "page": 15,
+            "characters": 8028,
+            "words": 1344
+          },
+          {
+            "page": 16,
+            "characters": 8039,
+            "words": 1331
+          },
+          {
+            "page": 17,
+            "characters": 1475,
+            "words": 257
+          }
+        ],
+        "metadata": {
+          "format": "PDF 1.4",
+          "title": "ARBA-0027-2017 1..17",
+          "creator": "3B2 Total Publishing System 8.07e/W Unicode ",
+          "producer": "Acrobat Distiller 7.0 (Windows)",
+          "creationDate": "D:20180601222855+08'00'",
+          "modDate": "D:20180601222855+08'00'"
+        },
+        "first_page_preview": "Source Attribution and\nRisk Assessment of\nAntimicrobial Resistance\nSARA M. PIRES,1 ANA SOFIA DUARTE,2 and TINE HALD2\n1Risk Beneﬁt Research Group, Division of Diet, Disease Prevention and Toxicology,\nNational Food Institute, Technical University of Denmark, 2800 Kgs. Lyngby;\n2Unit for Genomic Epidemiology, National Food Institute,\nTechnical University of Denmark, 2800 Kgs. Lyngby, Denmark\nABSTRACT Source attribution and microbial risk assessment\nmethods have been widely applied for the control of several\nfoodborne pathogens worldwide by identifying (i) the most\nimportant pathogen sources and (ii) the risk represented by\nspeciﬁc foods and the critical points in these foods’ production\nchains for microbial control. Such evidence has proved crucial\nfor risk managers to identify and prioritize eﬀective food safety\nand public health strategies. In the context of antimicrobial\nresistance (AMR) from livestock and pets, the utility of these\nmethods is recognized, but a number of challenges have largely\nprevented their application and routine use. One key challenge\nhas been to deﬁne the hazard in question: Is it the antimicrobial\ndrug use in animals, the antimicrobial-resistant bacteria in\nanimals and foods, or the antimicrobial resistance genes that can\nbe transferred between commensal and pathogenic bacteria in\nthe animal or human gut or in the environment? Other important\nlimitations include the lack of occurrence and transmission data\nand the lack of evidence to inform dose-response relationships.\nWe present the main principles, available methods, strengths,\nand weaknesses of source attribution and risk assessment\nmethods, discuss their utility to identify sources and estimate\nrisks of AMR from livestock and pets, and provide an overview of\nconducted studies. In addition, we discuss remaining challenges\nand current and future opportunities to improve methods and\nknowledge of the sources and transmission routes of AMR from\nanimals through food, direct contact, or the environment,\nincluding improvements in surveillance and developments\nin genotypic typing methods.\nINTRODUCTION\nAntimicrobial use in humans and animals has been iden-\ntiﬁed as a main driver of antimicrobial resistance (AMR),\nand bacteria harboring resistance to antimicrobials can\nbe found in humans, animals, foods, and the environ-\nment. As a consequence, humans can be exposed to\nantimicrobial-resistant bacteria through a wide range of\nsources and transmission pathways. To inform policies\naimed at reducing the burden of AMR in animals and\nfoods, risk managers need evidence about the most im-\nportant sources and transmission routes and the critical\npoints throughout the production chain for the preven-\ntion and control of AMR. While this process is com-\nplex and deeply reliant on the integration of surveillance\ndata from humans, animals, and foods, it is supported by\nscientiﬁc disciplines that have evolved rapidly in the past\ndecades, including source attribution and quantitative\nrisk assessm",
+        "possible_headings": [
+          "INTRODUCTION",
+          "SOURCE ATTRIBUTION",
+          "RISK ASSESSMENT",
+          "DISCUSSION AND FUTURE PERSPECTIVES",
+          "CONCLUDING REMARKS",
+          "REFERENCES",
+          "1. Pires SM, Evers EG, van Pelt W, Ayers T, Scallan E, Angulo FJ,",
+          "2. Mullner P, Jones G, Noble A, Spencer SEF, Hathaway S, French NP.",
+          "2009. Source attribution of food-borne zoonoses in New Zealand:",
+          "3. Hald T, Vose D, Wegener HC, Koupeev T. 2004. A Bayesian approach",
+          "4. DE Knegt LV, Pires SM, Hald T. 2015. Using surveillance and moni-",
+          "5. Pires SM, Vigre H, Makela P, Hald T. 2010. Using outbreak data",
+          "6. Guo C, Hoekstra RM, Schroeder CM, Pires SM, Ong KL, Hartnett E,",
+          "7. Pires SM, Evers EG, van Pelt W, Ayers T, Scallan E, Angulo FJ,",
+          "2009. Attributing the human disease burden of foodborne infections",
+          "8. FAO. 1999. Principles and Guidelines for the Conduct of Microbio-",
+          "9. Ofﬁce International des Epizooties. 2002. International Animal Health",
+          "10. USDA. 2012. Microbial Risk Assessment Guideline: Pathogenic",
+          "11. Wegener HC. 2010. Danish initiatives to improve the safety of meat",
+          "12. Snary EL, Swart AN, Hald T. 2016. Quantitative microbiological",
+          "13. Lester CH, Frimodt-Møller N, Sørensen TL, Monnet DL, Hammerum",
+          "14. Aarestrup FM. 2015. The livestock reservoir for antimicrobial resis-",
+          "15. Hald T, Lo Fo Wong DM, Aarestrup FM. 2007. The attribution of",
+          "16. Vieira AR, Grass J, Fedorka-Cray PJ, Plumblee JR, Tate H, Cole DJ.",
+          "2016. Attribution of Salmonella enterica serotype Hadar infections using",
+          "17. Evers EG, Pielaat A, Smid JH, van Duijkeren E, Vennemann FBC,",
+          "18. Barco L, Barrucci F, Olsen JE, Ricci A. 2013. Salmonella source at-",
+          "19. Mughini-Gras L, Barrucci F, Smid JH, Graziani C, Luzzi I, Ricci A,",
+          "/10.1017/S0950268813001829.",
+          "20. Wilson DJ, Gabriel E, Leatherbarrow AJH, Cheesbrough J, Gee S,",
+          "21. Pires SM, Vieira AR, Hald T, Cole D. 2014. Source attribution of",
+          "23. Boysen L, Rosenquist H, Larsson JT, Nielsen EM, Sørensen G,",
+          "24. Mullner P, Spencer SEF, Wilson DJ, Jones G, Noble AD, Midwinter",
+          "25. Little CL, Pires SM, Gillespie IA, Grant K, Nichols GL. 2010. Attri-",
+          "26. Mughini-Gras L, van Pelt W, van der Voort M, Heck M, Friesema",
+          "27. Evers EG, Van Der Fels-Klerx HJ, Nauta MJ, Schijven JF, Havelaar",
+          "28. Kosmider RD, Nally P, Simons RRL, Brouwer A, Cheung S, Snary",
+          "29. Opsteegh M, Prickaerts S, Frankena K, Evers EG. 2011. A quantitative",
+          "30. FDA. 2003. Quantitative assessment of relative risk to public health",
+          "31. EFSA. 2009. Scientiﬁc opinion: cadmium in food. Scientiﬁc opinion of",
+          "32. EFSA. 2010. Scientiﬁc opinion on lead in food. EFSA J 8:1570 http://",
+          "33. Cassini A, Hathaway S, Havelaar A, Koopmans M, Koutsoumanis K,",
+          "34. EFSA. 2007. Opinion of the scientiﬁc panel on contaminants in the",
+          "35. Carmo LP, Nielsen LR, da Costa PM, Alban L. 2014. Exposure as-",
+          "36. Olsen SJ, MacKinnon LC, Goulding JS, Bean NH, Slutsker L. 2000.",
+          "37. Neimann J, Engberg J, Mølbak K, Wegener HC. 2003. A case-control",
+          "38. Painter JA, Ayers T, Woodruff R, Blanton E, Perez N, Hoekstra RM,",
+          "39. Pires SM, Vigre H, Makela P, Hald T. 2010. Using outbreak data",
+          "40. Painter JA, Hoekstra RM, Ayers T, Tauxe RV, Braden CR, Angulo FJ,",
+          "41. Pires SM, Vieira AR, Perez E, Lo Fo Wong D, Hald T. 2012. Attrib-",
+          "42. Ravel A, Greig J, Tinga C, Todd E, Campbell G, Cassidy M, Marshall",
+          "43. King N, Lake R, Campbell D. 2011. Source attribution of nontyphoid",
+          "44. Jones TF, Kellum ME, Porter SS, Bell M, Schaffner W. 2002. An",
+          "45. Mølbak K, Baggesen DL, Aarestrup FM, Ebbesen JM, Engberg J,",
+          "46. Brown AC, Grass JE, Richardson LC, Nisler AL, Bicknese AS, Gould",
+          "47. Engberg J. 2006. Contributions to the epidemiology of Campylobacter",
+          "48. Domingues AR, Pires SM, Halasa T, Hald T. 2012. Source attribution",
+          "/10.1017/S0950268811002676.",
+          "49. Pires SM. 2013. Assessing the applicability of currently available",
+          "50. Varma JK, Marcus R, Stenzel SA, Hanna SS, Gettner S, Anderson BJ,",
+          "51. Kassenborg HD, Smith KE, Vugia DJ, Rabatsky-Ehr T, Bates",
+          "52. Havelaar AH, Galindo AV, Kurowicka D, Cooke RM. 2008. Attri-",
+          "53. Ravel A, Davidson VJ, Ruzante JM, Fazil A. 2010. Foodborne pro-",
+          "54. Hald T, Aspinall W, Devleesschauwer B, Cooke R, Corrigan T,",
+          "55. Cooke R. 1991. Experts in Uncertainty: Opinion and Subjective",
+          "56. Anonymous. 2017. Annual Report on Zoonoses in Denmark 2016.",
+          "57. Kim H, Kim YA, Park YS, Choi MH, Lee GI, Lee K. 2017. Risk factors",
+          "58. Vos T, Barber RM, Bell B, Bertozzi-Villa A, Biryukov S, Bolliger I,",
+          "59. Harb A, O’Dea M, Hanan ZK, Abraham S, Habib I. 2017. Prevalence,",
+          "60. Loman NJ, Constantinidou C, Christner M, Rohde H, Chan JZ-M,",
+          "61. Aarestrup FM, Seyfarth AM, Emborg HD, Pedersen K, Hendriksen RS,",
+          "62. Jensen VF, de Knegt LV, Andersen VDWA, Wingstrand A. 2014.",
+          "63. Agersø Y, Aarestrup FM. 2013. Voluntary ban on cephalosporin use",
+          "64. Alban L, Olsen AM, Nielsen B, Sørensen R, Jessen B, OIE. 2002.",
+          "65. Claycamp HG, Hooberman BH. 2004. Antimicrobial resistance risk",
+          "/10.4315/0362-028X-67.9.2063.",
+          "66. Snary EL, Kelly LA, Davison HC, Teale CJ, Wooldridge M. 2004.",
+          "67. Salisbury JG, Nicholls TJ, Lammerding AM, Turnidge J, Nunn MJ.",
+          "2002. A risk analysis framework for the long-term management of anti-",
+          "68. Manaia CM. 2017. Assessing the risk of antibiotic resistance trans-",
+          "69. Bezoen A, Van Haren W, Hanekamp JC. 1999. Emergence of a",
+          "70. WHO. 2016. Critically Important Antimicrobials for Human Medi-",
+          "71. Collineau L, Carmo LP, Endimiani A, Magouras I, Müntener C,",
+          "72. Bartholomew MJ, Vose DJ, Tollefson LR, Travis CC. 2005. A linear",
+          "73. CVMP. 2013. Guideline on the assessment of the risk to public health",
+          "74. Martínez JL, Coque TM, Baquero F. 2015. What is a resistance gene?",
+          "75. Buchanan RL, Smith JL, Long W. 2000. Microbial risk assessment:",
+          "76. Lammerding AM, Fazil A. 2000. Hazard identiﬁcation and exposure",
+          "77. Nauta MJ. 2008. The modular process risk model (MPRM): a",
+          "78. Waltner-Toews D, McEwen SA. 1994. Residues of antibacte-",
+          "79. Anonymous. 2014. MRSA risk assessment. Prepared by the MRSA",
+          "80. Alban L, Ellis-Iversen J, Andreasen M, Dahl J, Sönksen UW. 2017.",
+          "81. Alban L, Nielsen EO, Dahl J. 2008. A human health risk assessment",
+          "82. FDA. 2000. Human health impact of ﬂuoroquinolone resistant cam-",
+          "83. Nelson JM, Chiller TM, Powers JH, Angulo FJ. 2007. Fluoroquinolone-",
+          "84. Anderson SA, Woo RWY, Crawford LM. 2001. Risk assessment of",
+          "85. FDA. 2003. Guidance for industry #152: evaluating the safety of",
+          "86. Hurd HS, Doores S, Hayes D, Mathew A, Maurer J, Silley P, Singer",
+          "87. Hurd HS, Vaughn MB, Holtkamp D, Dickson J, Warnick L. 2010.",
+          "88. Rico A, Jacobs R, Van den Brink PJ, Tello A. 2017. A probabilistic"
+        ],
+        "detected_tables": 1
+      }
+    }
+  ]
+}

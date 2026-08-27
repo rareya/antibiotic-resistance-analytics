@@ -1,0 +1,167 @@
+{
+  "validation_version": "1.0",
+  "pipeline": "amr_knowledge_asset_extraction",
+  "validated_at": "2026-08-27T06:37:28.662254+00:00",
+  "status": "valid",
+  "issues": [
+    {
+      "severity": "WARNING",
+      "type": "orphan_extraction_output",
+      "file": "knowledge\\extracted\\extraction_manifest.json",
+      "message": "JSON file exists in extracted/ but is not registered in extraction_manifest.json."
+    }
+  ],
+  "assets": [
+    {
+      "asset_id": "Frequency_of_drug-resistant_BCIs_(2023)_Afghanistan",
+      "status": "valid",
+      "format": "csv",
+      "source_file": "knowledge/raw/csv/Frequency of drug-resistant BCIs (2023)_Afghanistan.csv",
+      "checks": {
+        "raw_exists": true,
+        "output_exists": true,
+        "sha256_match": true,
+        "json_valid": true
+      }
+    },
+    {
+      "asset_id": "GLASS-AMR_implementation_indicators_All",
+      "status": "valid",
+      "format": "csv",
+      "source_file": "knowledge/raw/csv/GLASS-AMR implementation indicators_All.csv",
+      "checks": {
+        "raw_exists": true,
+        "output_exists": true,
+        "sha256_match": true,
+        "json_valid": true
+      }
+    },
+    {
+      "asset_id": "Global_maps_of_testing_coverage_by_bacterial_pathogen_and_antibiotic_group_2023-BLOOD",
+      "status": "valid",
+      "format": "csv",
+      "source_file": "knowledge/raw/csv/Global maps of testing coverage by bacterial pathogen and antibiotic group_2023-BLOOD.csv",
+      "checks": {
+        "raw_exists": true,
+        "output_exists": true,
+        "sha256_match": true,
+        "json_valid": true
+      }
+    },
+    {
+      "asset_id": "Testing_coverage_by_bacterial_pathogen_and_antibiotic_group_BLOOD-All",
+      "status": "valid",
+      "format": "csv",
+      "source_file": "knowledge/raw/csv/Testing coverage by bacterial pathogen and antibiotic group_BLOOD-All.csv",
+      "checks": {
+        "raw_exists": true,
+        "output_exists": true,
+        "sha256_match": true,
+        "json_valid": true
+      }
+    },
+    {
+      "asset_id": "Testing_coverage_by_infection_type_All",
+      "status": "valid",
+      "format": "csv",
+      "source_file": "knowledge/raw/csv/Testing coverage by infection type_All.csv",
+      "checks": {
+        "raw_exists": true,
+        "output_exists": true,
+        "sha256_match": true,
+        "json_valid": true
+      }
+    },
+    {
+      "asset_id": "Time_series_of_resistance_to_antibiotics_(2018-2023)_All-BLOOD",
+      "status": "valid",
+      "format": "csv",
+      "source_file": "knowledge/raw/csv/Time series of resistance to antibiotics (2018-2023)_All-BLOOD.csv",
+      "checks": {
+        "raw_exists": true,
+        "output_exists": true,
+        "sha256_match": true,
+        "json_valid": true
+      }
+    },
+    {
+      "asset_id": "aro",
+      "status": "valid",
+      "format": "owl",
+      "source_file": "knowledge/raw/owl/aro.owl",
+      "checks": {
+        "raw_exists": true,
+        "output_exists": true,
+        "sha256_match": true,
+        "json_valid": true
+      }
+    },
+    {
+      "asset_id": "EUCAST_detection_of_resistance_mechanisms_170711",
+      "status": "valid",
+      "format": "pdf",
+      "source_file": "knowledge/raw/pdf/EUCAST_detection_of_resistance_mechanisms_170711.pdf",
+      "checks": {
+        "raw_exists": true,
+        "output_exists": true,
+        "sha256_match": true,
+        "json_valid": true
+      }
+    },
+    {
+      "asset_id": "genome_wodepdf",
+      "status": "valid",
+      "format": "pdf",
+      "source_file": "knowledge/raw/pdf/genome_wodepdf.pdf",
+      "checks": {
+        "raw_exists": true,
+        "output_exists": true,
+        "sha256_match": true,
+        "json_valid": true
+      }
+    },
+    {
+      "asset_id": "megarespdf",
+      "status": "valid",
+      "format": "pdf",
+      "source_file": "knowledge/raw/pdf/megarespdf.pdf",
+      "checks": {
+        "raw_exists": true,
+        "output_exists": true,
+        "sha256_match": true,
+        "json_valid": true
+      }
+    },
+    {
+      "asset_id": "pubmedpdf",
+      "status": "valid",
+      "format": "pdf",
+      "source_file": "knowledge/raw/pdf/pubmedpdf.pdf",
+      "checks": {
+        "raw_exists": true,
+        "output_exists": true,
+        "sha256_match": true,
+        "json_valid": true
+      }
+    },
+    {
+      "asset_id": "source_attripdf",
+      "status": "valid",
+      "format": "pdf",
+      "source_file": "knowledge/raw/pdf/source_attripdf.pdf",
+      "checks": {
+        "raw_exists": true,
+        "output_exists": true,
+        "sha256_match": true,
+        "json_valid": true
+      }
+    }
+  ],
+  "summary": {
+    "assets_registered": 12,
+    "assets_valid": 12,
+    "assets_invalid": 0,
+    "errors": 0,
+    "warnings": 1
+  }
+}

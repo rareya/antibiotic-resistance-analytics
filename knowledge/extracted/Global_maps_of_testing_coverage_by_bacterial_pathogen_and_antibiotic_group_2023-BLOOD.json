@@ -1,0 +1,788 @@
+{
+  "asset_type": "csv",
+  "source_file": "knowledge/raw/csv/Global maps of testing coverage by bacterial pathogen and antibiotic group_2023-BLOOD.csv",
+  "source_size_bytes": 3725,
+  "encoding": "utf-8-sig",
+  "delimiter": ",",
+  "header_row": 8,
+  "columns": [
+    "CountryTerritoryArea",
+    "Total Acinetobacter spp. BCIs per million population",
+    "Absolute number of Acinetobacter spp. BCIs",
+    "Total Acinetobacter spp. BCIs with AST (Carbapenems) per million population",
+    "Absolute number of Acinetobacter spp. BCIs with AST (Carbapenems)",
+    "% of Acinetobacter spp. BCIs with AST"
+  ],
+  "row_count": 96,
+  "records": [
+    {
+      "CountryTerritoryArea": "Algeria",
+      "Total Acinetobacter spp. BCIs per million population": "6.1",
+      "Absolute number of Acinetobacter spp. BCIs": "280",
+      "Total Acinetobacter spp. BCIs with AST (Carbapenems) per million population": "4.6",
+      "Absolute number of Acinetobacter spp. BCIs with AST (Carbapenems)": "211",
+      "% of Acinetobacter spp. BCIs with AST": "75.4"
+    },
+    {
+      "CountryTerritoryArea": "Argentina",
+      "Total Acinetobacter spp. BCIs per million population": "12.9",
+      "Absolute number of Acinetobacter spp. BCIs": "587",
+      "Total Acinetobacter spp. BCIs with AST (Carbapenems) per million population": "12.3",
+      "Absolute number of Acinetobacter spp. BCIs with AST (Carbapenems)": "560",
+      "% of Acinetobacter spp. BCIs with AST": "95.4"
+    },
+    {
+      "CountryTerritoryArea": "Australia",
+      "Total Acinetobacter spp. BCIs per million population": "5.4",
+      "Absolute number of Acinetobacter spp. BCIs": "143",
+      "Total Acinetobacter spp. BCIs with AST (Carbapenems) per million population": "4.7",
+      "Absolute number of Acinetobacter spp. BCIs with AST (Carbapenems)": "125",
+      "% of Acinetobacter spp. BCIs with AST": "87.4"
+    },
+    {
+      "CountryTerritoryArea": "Austria",
+      "Total Acinetobacter spp. BCIs per million population": "8.1",
+      "Absolute number of Acinetobacter spp. BCIs": "74",
+      "Total Acinetobacter spp. BCIs with AST (Carbapenems) per million population": "6.7",
+      "Absolute number of Acinetobacter spp. BCIs with AST (Carbapenems)": "61",
+      "% of Acinetobacter spp. BCIs with AST": "82.4"
+    },
+    {
+      "CountryTerritoryArea": "Bahrain",
+      "Total Acinetobacter spp. BCIs per million population": "67.5",
+      "Absolute number of Acinetobacter spp. BCIs": "106",
+      "Total Acinetobacter spp. BCIs with AST (Carbapenems) per million population": "64.3",
+      "Absolute number of Acinetobacter spp. BCIs with AST (Carbapenems)": "101",
+      "% of Acinetobacter spp. BCIs with AST": "95.3"
+    },
+    {
+      "CountryTerritoryArea": "Bangladesh",
+      "Total Acinetobacter spp. BCIs per million population": "0.4",
+      "Absolute number of Acinetobacter spp. BCIs": "77",
+      "Total Acinetobacter spp. BCIs with AST (Carbapenems) per million population": "0.4",
+      "Absolute number of Acinetobacter spp. BCIs with AST (Carbapenems)": "76",
+      "% of Acinetobacter spp. BCIs with AST": "98.7"
+    },
+    {
+      "CountryTerritoryArea": "Belgium",
+      "Total Acinetobacter spp. BCIs per million population": "13.8",
+      "Absolute number of Acinetobacter spp. BCIs": "162",
+      "Total Acinetobacter spp. BCIs with AST (Carbapenems) per million population": "13.8",
+      "Absolute number of Acinetobacter spp. BCIs with AST (Carbapenems)": "162",
+      "% of Acinetobacter spp. BCIs with AST": "100"
+    },
+    {
+      "CountryTerritoryArea": "Benin",
+      "Total Acinetobacter spp. BCIs per million population": "12.2",
+      "Absolute number of Acinetobacter spp. BCIs": "172",
+      "Total Acinetobacter spp. BCIs with AST (Carbapenems) per million population": "11.8",
+      "Absolute number of Acinetobacter spp. BCIs with AST (Carbapenems)": "166",
+      "% of Acinetobacter spp. BCIs with AST": "96.5"
+    },
+    {
+      "CountryTerritoryArea": "Bhutan",
+      "Total Acinetobacter spp. BCIs per million population": "22.9",
+      "Absolute number of Acinetobacter spp. BCIs": "18",
+      "Total Acinetobacter spp. BCIs with AST (Carbapenems) per million population": "20.3",
+      "Absolute number of Acinetobacter spp. BCIs with AST (Carbapenems)": "16",
+      "% of Acinetobacter spp. BCIs with AST": "88.9"
+    },
+    {
+      "CountryTerritoryArea": "Bosnia and Herzegovina",
+      "Total Acinetobacter spp. BCIs per million population": "68.1",
+      "Absolute number of Acinetobacter spp. BCIs": "217",
+      "Total Acinetobacter spp. BCIs with AST (Carbapenems) per million population": "68.1",
+      "Absolute number of Acinetobacter spp. BCIs with AST (Carbapenems)": "217",
+      "% of Acinetobacter spp. BCIs with AST": "100"
+    },
+    {
+      "CountryTerritoryArea": "Brazil",
+      "Total Acinetobacter spp. BCIs per million population": "1.1",
+      "Absolute number of Acinetobacter spp. BCIs": "242",
+      "Total Acinetobacter spp. BCIs with AST (Carbapenems) per million population": "1",
+      "Absolute number of Acinetobacter spp. BCIs with AST (Carbapenems)": "213",
+      "% of Acinetobacter spp. BCIs with AST": "88"
+    },
+    {
+      "CountryTerritoryArea": "Brunei Darussalam",
+      "Total Acinetobacter spp. BCIs per million population": "346.4",
+      "Absolute number of Acinetobacter spp. BCIs": "159",
+      "Total Acinetobacter spp. BCIs with AST (Carbapenems) per million population": "346.4",
+      "Absolute number of Acinetobacter spp. BCIs with AST (Carbapenems)": "159",
+      "% of Acinetobacter spp. BCIs with AST": "100"
+    },
+    {
+      "CountryTerritoryArea": "Burkina Faso",
+      "Total Acinetobacter spp. BCIs per million population": "1.1",
+      "Absolute number of Acinetobacter spp. BCIs": "25",
+      "Total Acinetobacter spp. BCIs with AST (Carbapenems) per million population": "0.7",
+      "Absolute number of Acinetobacter spp. BCIs with AST (Carbapenems)": "16",
+      "% of Acinetobacter spp. BCIs with AST": "64"
+    },
+    {
+      "CountryTerritoryArea": "Cambodia",
+      "Total Acinetobacter spp. BCIs per million population": "18.9",
+      "Absolute number of Acinetobacter spp. BCIs": "329",
+      "Total Acinetobacter spp. BCIs with AST (Carbapenems) per million population": "18.9",
+      "Absolute number of Acinetobacter spp. BCIs with AST (Carbapenems)": "329",
+      "% of Acinetobacter spp. BCIs with AST": "100"
+    },
+    {
+      "CountryTerritoryArea": "Cameroon",
+      "Total Acinetobacter spp. BCIs per million population": "1",
+      "Absolute number of Acinetobacter spp. BCIs": "28",
+      "Total Acinetobacter spp. BCIs with AST (Carbapenems) per million population": "0.8",
+      "Absolute number of Acinetobacter spp. BCIs with AST (Carbapenems)": "22",
+      "% of Acinetobacter spp. BCIs with AST": "78.6"
+    },
+    {
+      "CountryTerritoryArea": "Canada",
+      "Total Acinetobacter spp. BCIs per million population": "3.3",
+      "Absolute number of Acinetobacter spp. BCIs": "128",
+      "Total Acinetobacter spp. BCIs with AST (Carbapenems) per million population": "1.7",
+      "Absolute number of Acinetobacter spp. BCIs with AST (Carbapenems)": "66",
+      "% of Acinetobacter spp. BCIs with AST": "51.6"
+    },
+    {
+      "CountryTerritoryArea": "China, Hong Kong SAR",
+      "Total Acinetobacter spp. BCIs per million population": "30.5",
+      "Absolute number of Acinetobacter spp. BCIs": "227",
+      "Total Acinetobacter spp. BCIs with AST (Carbapenems) per million population": "30",
+      "Absolute number of Acinetobacter spp. BCIs with AST (Carbapenems)": "223",
+      "% of Acinetobacter spp. BCIs with AST": "98.2"
+    },
+    {
+      "CountryTerritoryArea": "Colombia",
+      "Total Acinetobacter spp. BCIs per million population": "31",
+      "Absolute number of Acinetobacter spp. BCIs": "1621",
+      "Total Acinetobacter spp. BCIs with AST (Carbapenems) per million population": "29.9",
+      "Absolute number of Acinetobacter spp. BCIs with AST (Carbapenems)": "1563",
+      "% of Acinetobacter spp. BCIs with AST": "96.4"
+    },
+    {
+      "CountryTerritoryArea": "Croatia",
+      "Total Acinetobacter spp. BCIs per million population": "66.2",
+      "Absolute number of Acinetobacter spp. BCIs": "258",
+      "Total Acinetobacter spp. BCIs with AST (Carbapenems) per million population": "41.8",
+      "Absolute number of Acinetobacter spp. BCIs with AST (Carbapenems)": "163",
+      "% of Acinetobacter spp. BCIs with AST": "63.2"
+    },
+    {
+      "CountryTerritoryArea": "Cyprus",
+      "Total Acinetobacter spp. BCIs per million population": "90.7",
+      "Absolute number of Acinetobacter spp. BCIs": "122",
+      "Total Acinetobacter spp. BCIs with AST (Carbapenems) per million population": "69.9",
+      "Absolute number of Acinetobacter spp. BCIs with AST (Carbapenems)": "94",
+      "% of Acinetobacter spp. BCIs with AST": "77"
+    },
+    {
+      "CountryTerritoryArea": "Czechia",
+      "Total Acinetobacter spp. BCIs per million population": "5.1",
+      "Absolute number of Acinetobacter spp. BCIs": "55",
+      "Total Acinetobacter spp. BCIs with AST (Carbapenems) per million population": "4.3",
+      "Absolute number of Acinetobacter spp. BCIs with AST (Carbapenems)": "46",
+      "% of Acinetobacter spp. BCIs with AST": "83.6"
+    },
+    {
+      "CountryTerritoryArea": "C<U+00F4>te d<U+2019>Ivoire",
+      "Total Acinetobacter spp. BCIs per million population": "0.4",
+      "Absolute number of Acinetobacter spp. BCIs": "13",
+      "Total Acinetobacter spp. BCIs with AST (Carbapenems) per million population": "0.2",
+      "Absolute number of Acinetobacter spp. BCIs with AST (Carbapenems)": "6",
+      "% of Acinetobacter spp. BCIs with AST": "46.2"
+    },
+    {
+      "CountryTerritoryArea": "Democratic Republic of the Congo",
+      "Total Acinetobacter spp. BCIs per million population": "0.3",
+      "Absolute number of Acinetobacter spp. BCIs": "35",
+      "Total Acinetobacter spp. BCIs with AST (Carbapenems) per million population": "0.2",
+      "Absolute number of Acinetobacter spp. BCIs with AST (Carbapenems)": "21",
+      "% of Acinetobacter spp. BCIs with AST": "60"
+    },
+    {
+      "CountryTerritoryArea": "Denmark",
+      "Total Acinetobacter spp. BCIs per million population": "15",
+      "Absolute number of Acinetobacter spp. BCIs": "89",
+      "Total Acinetobacter spp. BCIs with AST (Carbapenems) per million population": "15",
+      "Absolute number of Acinetobacter spp. BCIs with AST (Carbapenems)": "89",
+      "% of Acinetobacter spp. BCIs with AST": "100"
+    },
+    {
+      "CountryTerritoryArea": "Egypt",
+      "Total Acinetobacter spp. BCIs per million population": "1",
+      "Absolute number of Acinetobacter spp. BCIs": "115",
+      "Total Acinetobacter spp. BCIs with AST (Carbapenems) per million population": "0.7",
+      "Absolute number of Acinetobacter spp. BCIs with AST (Carbapenems)": "84",
+      "% of Acinetobacter spp. BCIs with AST": "73"
+    },
+    {
+      "CountryTerritoryArea": "Estonia",
+      "Total Acinetobacter spp. BCIs per million population": "9.5",
+      "Absolute number of Acinetobacter spp. BCIs": "13",
+      "Total Acinetobacter spp. BCIs with AST (Carbapenems) per million population": "9.5",
+      "Absolute number of Acinetobacter spp. BCIs with AST (Carbapenems)": "13",
+      "% of Acinetobacter spp. BCIs with AST": "100"
+    },
+    {
+      "CountryTerritoryArea": "Eswatini",
+      "Total Acinetobacter spp. BCIs per million population": "8.9",
+      "Absolute number of Acinetobacter spp. BCIs": "11",
+      "Total Acinetobacter spp. BCIs with AST (Carbapenems) per million population": "7.3",
+      "Absolute number of Acinetobacter spp. BCIs with AST (Carbapenems)": "9",
+      "% of Acinetobacter spp. BCIs with AST": "81.8"
+    },
+    {
+      "CountryTerritoryArea": "Ethiopia",
+      "Total Acinetobacter spp. BCIs per million population": "3.6",
+      "Absolute number of Acinetobacter spp. BCIs": "462",
+      "Total Acinetobacter spp. BCIs with AST (Carbapenems) per million population": "2.8",
+      "Absolute number of Acinetobacter spp. BCIs with AST (Carbapenems)": "361",
+      "% of Acinetobacter spp. BCIs with AST": "78.1"
+    },
+    {
+      "CountryTerritoryArea": "Finland",
+      "Total Acinetobacter spp. BCIs per million population": "5.5",
+      "Absolute number of Acinetobacter spp. BCIs": "31",
+      "Total Acinetobacter spp. BCIs with AST (Carbapenems) per million population": "5.5",
+      "Absolute number of Acinetobacter spp. BCIs with AST (Carbapenems)": "31",
+      "% of Acinetobacter spp. BCIs with AST": "100"
+    },
+    {
+      "CountryTerritoryArea": "Georgia",
+      "Total Acinetobacter spp. BCIs per million population": "26.5",
+      "Absolute number of Acinetobacter spp. BCIs": "101",
+      "Total Acinetobacter spp. BCIs with AST (Carbapenems) per million population": "26.3",
+      "Absolute number of Acinetobacter spp. BCIs with AST (Carbapenems)": "100",
+      "% of Acinetobacter spp. BCIs with AST": "99"
+    },
+    {
+      "CountryTerritoryArea": "Germany",
+      "Total Acinetobacter spp. BCIs per million population": "6.3",
+      "Absolute number of Acinetobacter spp. BCIs": "529",
+      "Total Acinetobacter spp. BCIs with AST (Carbapenems) per million population": "5.6",
+      "Absolute number of Acinetobacter spp. BCIs with AST (Carbapenems)": "475",
+      "% of Acinetobacter spp. BCIs with AST": "89.8"
+    },
+    {
+      "CountryTerritoryArea": "Ghana",
+      "Total Acinetobacter spp. BCIs per million population": "1.3",
+      "Absolute number of Acinetobacter spp. BCIs": "45",
+      "Total Acinetobacter spp. BCIs with AST (Carbapenems) per million population": "0.5",
+      "Absolute number of Acinetobacter spp. BCIs with AST (Carbapenems)": "18",
+      "% of Acinetobacter spp. BCIs with AST": "40"
+    },
+    {
+      "CountryTerritoryArea": "Greece",
+      "Total Acinetobacter spp. BCIs per million population": "148.7",
+      "Absolute number of Acinetobacter spp. BCIs": "1523",
+      "Total Acinetobacter spp. BCIs with AST (Carbapenems) per million population": "135.5",
+      "Absolute number of Acinetobacter spp. BCIs with AST (Carbapenems)": "1388",
+      "% of Acinetobacter spp. BCIs with AST": "91.1"
+    },
+    {
+      "CountryTerritoryArea": "Guinea",
+      "Total Acinetobacter spp. BCIs per million population": "0.1",
+      "Absolute number of Acinetobacter spp. BCIs": "1",
+      "Total Acinetobacter spp. BCIs with AST (Carbapenems) per million population": "0.1",
+      "Absolute number of Acinetobacter spp. BCIs with AST (Carbapenems)": "1",
+      "% of Acinetobacter spp. BCIs with AST": "100"
+    },
+    {
+      "CountryTerritoryArea": "Iceland",
+      "Total Acinetobacter spp. BCIs per million population": "2.6",
+      "Absolute number of Acinetobacter spp. BCIs": "1",
+      "Total Acinetobacter spp. BCIs with AST (Carbapenems) per million population": "2.6",
+      "Absolute number of Acinetobacter spp. BCIs with AST (Carbapenems)": "1",
+      "% of Acinetobacter spp. BCIs with AST": "100"
+    },
+    {
+      "CountryTerritoryArea": "India",
+      "Total Acinetobacter spp. BCIs per million population": "7.9",
+      "Absolute number of Acinetobacter spp. BCIs": "11310",
+      "Total Acinetobacter spp. BCIs with AST (Carbapenems) per million population": "6.9",
+      "Absolute number of Acinetobacter spp. BCIs with AST (Carbapenems)": "9946",
+      "% of Acinetobacter spp. BCIs with AST": "87.9"
+    },
+    {
+      "CountryTerritoryArea": "Indonesia",
+      "Total Acinetobacter spp. BCIs per million population": "6.9",
+      "Absolute number of Acinetobacter spp. BCIs": "1929",
+      "Total Acinetobacter spp. BCIs with AST (Carbapenems) per million population": "6.1",
+      "Absolute number of Acinetobacter spp. BCIs with AST (Carbapenems)": "1706",
+      "% of Acinetobacter spp. BCIs with AST": "88.4"
+    },
+    {
+      "CountryTerritoryArea": "Iran (Islamic Republic of)",
+      "Total Acinetobacter spp. BCIs per million population": "7.6",
+      "Absolute number of Acinetobacter spp. BCIs": "688",
+      "Total Acinetobacter spp. BCIs with AST (Carbapenems) per million population": "5.6",
+      "Absolute number of Acinetobacter spp. BCIs with AST (Carbapenems)": "511",
+      "% of Acinetobacter spp. BCIs with AST": "74.3"
+    },
+    {
+      "CountryTerritoryArea": "Iraq",
+      "Total Acinetobacter spp. BCIs per million population": "12.5",
+      "Absolute number of Acinetobacter spp. BCIs": "565",
+      "Total Acinetobacter spp. BCIs with AST (Carbapenems) per million population": "11.1",
+      "Absolute number of Acinetobacter spp. BCIs with AST (Carbapenems)": "499",
+      "% of Acinetobacter spp. BCIs with AST": "88.3"
+    },
+    {
+      "CountryTerritoryArea": "Ireland",
+      "Total Acinetobacter spp. BCIs per million population": "10.8",
+      "Absolute number of Acinetobacter spp. BCIs": "56",
+      "Total Acinetobacter spp. BCIs with AST (Carbapenems) per million population": "9.8",
+      "Absolute number of Acinetobacter spp. BCIs with AST (Carbapenems)": "51",
+      "% of Acinetobacter spp. BCIs with AST": "91.1"
+    },
+    {
+      "CountryTerritoryArea": "Italy",
+      "Total Acinetobacter spp. BCIs per million population": "44.6",
+      "Absolute number of Acinetobacter spp. BCIs": "2651",
+      "Total Acinetobacter spp. BCIs with AST (Carbapenems) per million population": "28.4",
+      "Absolute number of Acinetobacter spp. BCIs with AST (Carbapenems)": "1690",
+      "% of Acinetobacter spp. BCIs with AST": "63.7"
+    },
+    {
+      "CountryTerritoryArea": "Japan",
+      "Total Acinetobacter spp. BCIs per million population": "14.1",
+      "Absolute number of Acinetobacter spp. BCIs": "1756",
+      "Total Acinetobacter spp. BCIs with AST (Carbapenems) per million population": "14.1",
+      "Absolute number of Acinetobacter spp. BCIs with AST (Carbapenems)": "1754",
+      "% of Acinetobacter spp. BCIs with AST": "99.9"
+    },
+    {
+      "CountryTerritoryArea": "Jordan",
+      "Total Acinetobacter spp. BCIs per million population": "34.2",
+      "Absolute number of Acinetobacter spp. BCIs": "391",
+      "Total Acinetobacter spp. BCIs with AST (Carbapenems) per million population": "26.9",
+      "Absolute number of Acinetobacter spp. BCIs with AST (Carbapenems)": "308",
+      "% of Acinetobacter spp. BCIs with AST": "78.8"
+    },
+    {
+      "CountryTerritoryArea": "Kenya",
+      "Total Acinetobacter spp. BCIs per million population": "1.8",
+      "Absolute number of Acinetobacter spp. BCIs": "98",
+      "Total Acinetobacter spp. BCIs with AST (Carbapenems) per million population": "1.3",
+      "Absolute number of Acinetobacter spp. BCIs with AST (Carbapenems)": "72",
+      "% of Acinetobacter spp. BCIs with AST": "73.5"
+    },
+    {
+      "CountryTerritoryArea": "Kosovo",
+      "Total Acinetobacter spp. BCIs per million population": "17.1",
+      "Absolute number of Acinetobacter spp. BCIs": "29",
+      "Total Acinetobacter spp. BCIs with AST (Carbapenems) per million population": "17.1",
+      "Absolute number of Acinetobacter spp. BCIs with AST (Carbapenems)": "29",
+      "% of Acinetobacter spp. BCIs with AST": "100"
+    },
+    {
+      "CountryTerritoryArea": "Kuwait",
+      "Total Acinetobacter spp. BCIs per million population": "22.9",
+      "Absolute number of Acinetobacter spp. BCIs": "111",
+      "Total Acinetobacter spp. BCIs with AST (Carbapenems) per million population": "22.3",
+      "Absolute number of Acinetobacter spp. BCIs with AST (Carbapenems)": "108",
+      "% of Acinetobacter spp. BCIs with AST": "97.3"
+    },
+    {
+      "CountryTerritoryArea": "Lao People's Democratic Republic",
+      "Total Acinetobacter spp. BCIs per million population": "7.6",
+      "Absolute number of Acinetobacter spp. BCIs": "58",
+      "Total Acinetobacter spp. BCIs with AST (Carbapenems) per million population": "7.4",
+      "Absolute number of Acinetobacter spp. BCIs with AST (Carbapenems)": "57",
+      "% of Acinetobacter spp. BCIs with AST": "98.3"
+    },
+    {
+      "CountryTerritoryArea": "Latvia",
+      "Total Acinetobacter spp. BCIs per million population": "29.2",
+      "Absolute number of Acinetobacter spp. BCIs": "55",
+      "Total Acinetobacter spp. BCIs with AST (Carbapenems) per million population": "29.2",
+      "Absolute number of Acinetobacter spp. BCIs with AST (Carbapenems)": "55",
+      "% of Acinetobacter spp. BCIs with AST": "100"
+    },
+    {
+      "CountryTerritoryArea": "Lebanon",
+      "Total Acinetobacter spp. BCIs per million population": "1.6",
+      "Absolute number of Acinetobacter spp. BCIs": "9",
+      "Total Acinetobacter spp. BCIs with AST (Carbapenems) per million population": "1.4",
+      "Absolute number of Acinetobacter spp. BCIs with AST (Carbapenems)": "8",
+      "% of Acinetobacter spp. BCIs with AST": "88.9"
+    },
+    {
+      "CountryTerritoryArea": "Liberia",
+      "Total Acinetobacter spp. BCIs per million population": "0.2",
+      "Absolute number of Acinetobacter spp. BCIs": "1",
+      "Total Acinetobacter spp. BCIs with AST (Carbapenems) per million population": "0.2",
+      "Absolute number of Acinetobacter spp. BCIs with AST (Carbapenems)": "1",
+      "% of Acinetobacter spp. BCIs with AST": "100"
+    },
+    {
+      "CountryTerritoryArea": "Lithuania",
+      "Total Acinetobacter spp. BCIs per million population": "42",
+      "Absolute number of Acinetobacter spp. BCIs": "120",
+      "Total Acinetobacter spp. BCIs with AST (Carbapenems) per million population": "23.5",
+      "Absolute number of Acinetobacter spp. BCIs with AST (Carbapenems)": "67",
+      "% of Acinetobacter spp. BCIs with AST": "55.8"
+    },
+    {
+      "CountryTerritoryArea": "Luxembourg",
+      "Total Acinetobacter spp. BCIs per million population": "10.5",
+      "Absolute number of Acinetobacter spp. BCIs": "7",
+      "Total Acinetobacter spp. BCIs with AST (Carbapenems) per million population": "7.5",
+      "Absolute number of Acinetobacter spp. BCIs with AST (Carbapenems)": "5",
+      "% of Acinetobacter spp. BCIs with AST": "71.4"
+    },
+    {
+      "CountryTerritoryArea": "Madagascar",
+      "Total Acinetobacter spp. BCIs per million population": "0",
+      "Absolute number of Acinetobacter spp. BCIs": "1",
+      "Total Acinetobacter spp. BCIs with AST (Carbapenems) per million population": "0",
+      "Absolute number of Acinetobacter spp. BCIs with AST (Carbapenems)": "1",
+      "% of Acinetobacter spp. BCIs with AST": "100"
+    },
+    {
+      "CountryTerritoryArea": "Malawi",
+      "Total Acinetobacter spp. BCIs per million population": "2.9",
+      "Absolute number of Acinetobacter spp. BCIs": "61",
+      "Total Acinetobacter spp. BCIs with AST (Carbapenems) per million population": "2.5",
+      "Absolute number of Acinetobacter spp. BCIs with AST (Carbapenems)": "53",
+      "% of Acinetobacter spp. BCIs with AST": "86.9"
+    },
+    {
+      "CountryTerritoryArea": "Malaysia",
+      "Total Acinetobacter spp. BCIs per million population": "80.2",
+      "Absolute number of Acinetobacter spp. BCIs": "2818",
+      "Total Acinetobacter spp. BCIs with AST (Carbapenems) per million population": "75.6",
+      "Absolute number of Acinetobacter spp. BCIs with AST (Carbapenems)": "2657",
+      "% of Acinetobacter spp. BCIs with AST": "94.3"
+    },
+    {
+      "CountryTerritoryArea": "Maldives",
+      "Total Acinetobacter spp. BCIs per million population": "24.7",
+      "Absolute number of Acinetobacter spp. BCIs": "13",
+      "Total Acinetobacter spp. BCIs with AST (Carbapenems) per million population": "22.8",
+      "Absolute number of Acinetobacter spp. BCIs with AST (Carbapenems)": "12",
+      "% of Acinetobacter spp. BCIs with AST": "92.3"
+    },
+    {
+      "CountryTerritoryArea": "Mali",
+      "Total Acinetobacter spp. BCIs per million population": "1",
+      "Absolute number of Acinetobacter spp. BCIs": "23",
+      "Total Acinetobacter spp. BCIs with AST (Carbapenems) per million population": "0.8",
+      "Absolute number of Acinetobacter spp. BCIs with AST (Carbapenems)": "20",
+      "% of Acinetobacter spp. BCIs with AST": "87"
+    },
+    {
+      "CountryTerritoryArea": "Malta",
+      "Total Acinetobacter spp. BCIs per million population": "45",
+      "Absolute number of Acinetobacter spp. BCIs": "24",
+      "Total Acinetobacter spp. BCIs with AST (Carbapenems) per million population": "43.2",
+      "Absolute number of Acinetobacter spp. BCIs with AST (Carbapenems)": "23",
+      "% of Acinetobacter spp. BCIs with AST": "95.8"
+    },
+    {
+      "CountryTerritoryArea": "Mauritius",
+      "Total Acinetobacter spp. BCIs per million population": "167.2",
+      "Absolute number of Acinetobacter spp. BCIs": "213",
+      "Total Acinetobacter spp. BCIs with AST (Carbapenems) per million population": "167.2",
+      "Absolute number of Acinetobacter spp. BCIs with AST (Carbapenems)": "213",
+      "% of Acinetobacter spp. BCIs with AST": "100"
+    },
+    {
+      "CountryTerritoryArea": "Morocco",
+      "Total Acinetobacter spp. BCIs per million population": "7.2",
+      "Absolute number of Acinetobacter spp. BCIs": "271",
+      "Total Acinetobacter spp. BCIs with AST (Carbapenems) per million population": "7.1",
+      "Absolute number of Acinetobacter spp. BCIs with AST (Carbapenems)": "268",
+      "% of Acinetobacter spp. BCIs with AST": "98.9"
+    },
+    {
+      "CountryTerritoryArea": "Mozambique",
+      "Total Acinetobacter spp. BCIs per million population": "0.3",
+      "Absolute number of Acinetobacter spp. BCIs": "11",
+      "Total Acinetobacter spp. BCIs with AST (Carbapenems) per million population": "0.2",
+      "Absolute number of Acinetobacter spp. BCIs with AST (Carbapenems)": "8",
+      "% of Acinetobacter spp. BCIs with AST": "72.7"
+    },
+    {
+      "CountryTerritoryArea": "Myanmar",
+      "Total Acinetobacter spp. BCIs per million population": "0.2",
+      "Absolute number of Acinetobacter spp. BCIs": "12",
+      "Total Acinetobacter spp. BCIs with AST (Carbapenems) per million population": "0.2",
+      "Absolute number of Acinetobacter spp. BCIs with AST (Carbapenems)": "12",
+      "% of Acinetobacter spp. BCIs with AST": "100"
+    },
+    {
+      "CountryTerritoryArea": "Namibia",
+      "Total Acinetobacter spp. BCIs per million population": "3",
+      "Absolute number of Acinetobacter spp. BCIs": "9",
+      "Total Acinetobacter spp. BCIs with AST (Carbapenems) per million population": "3",
+      "Absolute number of Acinetobacter spp. BCIs with AST (Carbapenems)": "9",
+      "% of Acinetobacter spp. BCIs with AST": "100"
+    },
+    {
+      "CountryTerritoryArea": "Nepal",
+      "Total Acinetobacter spp. BCIs per million population": "22.4",
+      "Absolute number of Acinetobacter spp. BCIs": "666",
+      "Total Acinetobacter spp. BCIs with AST (Carbapenems) per million population": "15.2",
+      "Absolute number of Acinetobacter spp. BCIs with AST (Carbapenems)": "451",
+      "% of Acinetobacter spp. BCIs with AST": "67.7"
+    },
+    {
+      "CountryTerritoryArea": "Netherlands (Kingdom of the)",
+      "Total Acinetobacter spp. BCIs per million population": "7.7",
+      "Absolute number of Acinetobacter spp. BCIs": "139",
+      "Total Acinetobacter spp. BCIs with AST (Carbapenems) per million population": "7.7",
+      "Absolute number of Acinetobacter spp. BCIs with AST (Carbapenems)": "139",
+      "% of Acinetobacter spp. BCIs with AST": "100"
+    },
+    {
+      "CountryTerritoryArea": "Nigeria",
+      "Total Acinetobacter spp. BCIs per million population": "0.2",
+      "Absolute number of Acinetobacter spp. BCIs": "51",
+      "Total Acinetobacter spp. BCIs with AST (Carbapenems) per million population": "0.1",
+      "Absolute number of Acinetobacter spp. BCIs with AST (Carbapenems)": "24",
+      "% of Acinetobacter spp. BCIs with AST": "47.1"
+    },
+    {
+      "CountryTerritoryArea": "North Macedonia",
+      "Total Acinetobacter spp. BCIs per million population": "17.5",
+      "Absolute number of Acinetobacter spp. BCIs": "32",
+      "Total Acinetobacter spp. BCIs with AST (Carbapenems) per million population": "17.5",
+      "Absolute number of Acinetobacter spp. BCIs with AST (Carbapenems)": "32",
+      "% of Acinetobacter spp. BCIs with AST": "100"
+    },
+    {
+      "CountryTerritoryArea": "Norway",
+      "Total Acinetobacter spp. BCIs per million population": "6",
+      "Absolute number of Acinetobacter spp. BCIs": "33",
+      "Total Acinetobacter spp. BCIs with AST (Carbapenems) per million population": "6",
+      "Absolute number of Acinetobacter spp. BCIs with AST (Carbapenems)": "33",
+      "% of Acinetobacter spp. BCIs with AST": "100"
+    },
+    {
+      "CountryTerritoryArea": "Oman",
+      "Total Acinetobacter spp. BCIs per million population": "49.9",
+      "Absolute number of Acinetobacter spp. BCIs": "252",
+      "Total Acinetobacter spp. BCIs with AST (Carbapenems) per million population": "45.7",
+      "Absolute number of Acinetobacter spp. BCIs with AST (Carbapenems)": "231",
+      "% of Acinetobacter spp. BCIs with AST": "91.7"
+    },
+    {
+      "CountryTerritoryArea": "Pakistan",
+      "Total Acinetobacter spp. BCIs per million population": "12.3",
+      "Absolute number of Acinetobacter spp. BCIs": "3032",
+      "Total Acinetobacter spp. BCIs with AST (Carbapenems) per million population": "10",
+      "Absolute number of Acinetobacter spp. BCIs with AST (Carbapenems)": "2482",
+      "% of Acinetobacter spp. BCIs with AST": "81.9"
+    },
+    {
+      "CountryTerritoryArea": "Papua New Guinea",
+      "Total Acinetobacter spp. BCIs per million population": "0.7",
+      "Absolute number of Acinetobacter spp. BCIs": "7",
+      "Total Acinetobacter spp. BCIs with AST (Carbapenems) per million population": "0.5",
+      "Absolute number of Acinetobacter spp. BCIs with AST (Carbapenems)": "5",
+      "% of Acinetobacter spp. BCIs with AST": "71.4"
+    },
+    {
+      "CountryTerritoryArea": "Peru",
+      "Total Acinetobacter spp. BCIs per million population": "9",
+      "Absolute number of Acinetobacter spp. BCIs": "303",
+      "Total Acinetobacter spp. BCIs with AST (Carbapenems) per million population": "0.4",
+      "Absolute number of Acinetobacter spp. BCIs with AST (Carbapenems)": "12",
+      "% of Acinetobacter spp. BCIs with AST": "4"
+    },
+    {
+      "CountryTerritoryArea": "Philippines",
+      "Total Acinetobacter spp. BCIs per million population": "14.9",
+      "Absolute number of Acinetobacter spp. BCIs": "1716",
+      "Total Acinetobacter spp. BCIs with AST (Carbapenems) per million population": "13.7",
+      "Absolute number of Acinetobacter spp. BCIs with AST (Carbapenems)": "1571",
+      "% of Acinetobacter spp. BCIs with AST": "91.6"
+    },
+    {
+      "CountryTerritoryArea": "Poland",
+      "Total Acinetobacter spp. BCIs per million population": "11",
+      "Absolute number of Acinetobacter spp. BCIs": "425",
+      "Total Acinetobacter spp. BCIs with AST (Carbapenems) per million population": "11",
+      "Absolute number of Acinetobacter spp. BCIs with AST (Carbapenems)": "425",
+      "% of Acinetobacter spp. BCIs with AST": "100"
+    },
+    {
+      "CountryTerritoryArea": "Qatar",
+      "Total Acinetobacter spp. BCIs per million population": "14.4",
+      "Absolute number of Acinetobacter spp. BCIs": "43",
+      "Total Acinetobacter spp. BCIs with AST (Carbapenems) per million population": "14.1",
+      "Absolute number of Acinetobacter spp. BCIs with AST (Carbapenems)": "42",
+      "% of Acinetobacter spp. BCIs with AST": "97.7"
+    },
+    {
+      "CountryTerritoryArea": "Republic of Korea",
+      "Total Acinetobacter spp. BCIs per million population": "7.6",
+      "Absolute number of Acinetobacter spp. BCIs": "394",
+      "Total Acinetobacter spp. BCIs with AST (Carbapenems) per million population": "7.6",
+      "Absolute number of Acinetobacter spp. BCIs with AST (Carbapenems)": "394",
+      "% of Acinetobacter spp. BCIs with AST": "100"
+    },
+    {
+      "CountryTerritoryArea": "Republic of Moldova",
+      "Total Acinetobacter spp. BCIs per million population": "20.2",
+      "Absolute number of Acinetobacter spp. BCIs": "62",
+      "Total Acinetobacter spp. BCIs with AST (Carbapenems) per million population": "20.2",
+      "Absolute number of Acinetobacter spp. BCIs with AST (Carbapenems)": "62",
+      "% of Acinetobacter spp. BCIs with AST": "100"
+    },
+    {
+      "CountryTerritoryArea": "Russian Federation",
+      "Total Acinetobacter spp. BCIs per million population": "9.9",
+      "Absolute number of Acinetobacter spp. BCIs": "1443",
+      "Total Acinetobacter spp. BCIs with AST (Carbapenems) per million population": "9.2",
+      "Absolute number of Acinetobacter spp. BCIs with AST (Carbapenems)": "1344",
+      "% of Acinetobacter spp. BCIs with AST": "93.1"
+    },
+    {
+      "CountryTerritoryArea": "Saudi Arabia",
+      "Total Acinetobacter spp. BCIs per million population": "5.3",
+      "Absolute number of Acinetobacter spp. BCIs": "176",
+      "Total Acinetobacter spp. BCIs with AST (Carbapenems) per million population": "5",
+      "Absolute number of Acinetobacter spp. BCIs with AST (Carbapenems)": "167",
+      "% of Acinetobacter spp. BCIs with AST": "94.9"
+    },
+    {
+      "CountryTerritoryArea": "Singapore",
+      "Total Acinetobacter spp. BCIs per million population": "8.5",
+      "Absolute number of Acinetobacter spp. BCIs": "49",
+      "Total Acinetobacter spp. BCIs with AST (Carbapenems) per million population": "8.1",
+      "Absolute number of Acinetobacter spp. BCIs with AST (Carbapenems)": "47",
+      "% of Acinetobacter spp. BCIs with AST": "95.9"
+    },
+    {
+      "CountryTerritoryArea": "South Africa",
+      "Total Acinetobacter spp. BCIs per million population": "95",
+      "Absolute number of Acinetobacter spp. BCIs": "6007",
+      "Total Acinetobacter spp. BCIs with AST (Carbapenems) per million population": "92.9",
+      "Absolute number of Acinetobacter spp. BCIs with AST (Carbapenems)": "5873",
+      "% of Acinetobacter spp. BCIs with AST": "97.8"
+    },
+    {
+      "CountryTerritoryArea": "Sri Lanka",
+      "Total Acinetobacter spp. BCIs per million population": "4",
+      "Absolute number of Acinetobacter spp. BCIs": "92",
+      "Total Acinetobacter spp. BCIs with AST (Carbapenems) per million population": "2.9",
+      "Absolute number of Acinetobacter spp. BCIs with AST (Carbapenems)": "66",
+      "% of Acinetobacter spp. BCIs with AST": "71.7"
+    },
+    {
+      "CountryTerritoryArea": "Sweden",
+      "Total Acinetobacter spp. BCIs per million population": "11.8",
+      "Absolute number of Acinetobacter spp. BCIs": "125",
+      "Total Acinetobacter spp. BCIs with AST (Carbapenems) per million population": "11.8",
+      "Absolute number of Acinetobacter spp. BCIs with AST (Carbapenems)": "125",
+      "% of Acinetobacter spp. BCIs with AST": "100"
+    },
+    {
+      "CountryTerritoryArea": "Switzerland",
+      "Total Acinetobacter spp. BCIs per million population": "13.3",
+      "Absolute number of Acinetobacter spp. BCIs": "118",
+      "Total Acinetobacter spp. BCIs with AST (Carbapenems) per million population": "12.1",
+      "Absolute number of Acinetobacter spp. BCIs with AST (Carbapenems)": "107",
+      "% of Acinetobacter spp. BCIs with AST": "90.7"
+    },
+    {
+      "CountryTerritoryArea": "Thailand",
+      "Total Acinetobacter spp. BCIs per million population": "37.8",
+      "Absolute number of Acinetobacter spp. BCIs": "2709",
+      "Total Acinetobacter spp. BCIs with AST (Carbapenems) per million population": "29.2",
+      "Absolute number of Acinetobacter spp. BCIs with AST (Carbapenems)": "2095",
+      "% of Acinetobacter spp. BCIs with AST": "77.3"
+    },
+    {
+      "CountryTerritoryArea": "Timor-Leste",
+      "Total Acinetobacter spp. BCIs per million population": "12.3",
+      "Absolute number of Acinetobacter spp. BCIs": "17",
+      "Total Acinetobacter spp. BCIs with AST (Carbapenems) per million population": "12.3",
+      "Absolute number of Acinetobacter spp. BCIs with AST (Carbapenems)": "17",
+      "% of Acinetobacter spp. BCIs with AST": "100"
+    },
+    {
+      "CountryTerritoryArea": "Tunisia",
+      "Total Acinetobacter spp. BCIs per million population": "15.8",
+      "Absolute number of Acinetobacter spp. BCIs": "193",
+      "Total Acinetobacter spp. BCIs with AST (Carbapenems) per million population": "13",
+      "Absolute number of Acinetobacter spp. BCIs with AST (Carbapenems)": "158",
+      "% of Acinetobacter spp. BCIs with AST": "81.9"
+    },
+    {
+      "CountryTerritoryArea": "T<U+00FC>rkiye",
+      "Total Acinetobacter spp. BCIs per million population": "34.9",
+      "Absolute number of Acinetobacter spp. BCIs": "3048",
+      "Total Acinetobacter spp. BCIs with AST (Carbapenems) per million population": "34.9",
+      "Absolute number of Acinetobacter spp. BCIs with AST (Carbapenems)": "3045",
+      "% of Acinetobacter spp. BCIs with AST": "99.9"
+    },
+    {
+      "CountryTerritoryArea": "Uganda",
+      "Total Acinetobacter spp. BCIs per million population": "0.1",
+      "Absolute number of Acinetobacter spp. BCIs": "3",
+      "Total Acinetobacter spp. BCIs with AST (Carbapenems) per million population": "0",
+      "Absolute number of Acinetobacter spp. BCIs with AST (Carbapenems)": "1",
+      "% of Acinetobacter spp. BCIs with AST": "33.3"
+    },
+    {
+      "CountryTerritoryArea": "Ukraine",
+      "Total Acinetobacter spp. BCIs per million population": "7.2",
+      "Absolute number of Acinetobacter spp. BCIs": "271",
+      "Total Acinetobacter spp. BCIs with AST (Carbapenems) per million population": "7.1",
+      "Absolute number of Acinetobacter spp. BCIs with AST (Carbapenems)": "267",
+      "% of Acinetobacter spp. BCIs with AST": "98.5"
+    },
+    {
+      "CountryTerritoryArea": "United Arab Emirates",
+      "Total Acinetobacter spp. BCIs per million population": "15.7",
+      "Absolute number of Acinetobacter spp. BCIs": "167",
+      "Total Acinetobacter spp. BCIs with AST (Carbapenems) per million population": "13.5",
+      "Absolute number of Acinetobacter spp. BCIs with AST (Carbapenems)": "144",
+      "% of Acinetobacter spp. BCIs with AST": "86.2"
+    },
+    {
+      "CountryTerritoryArea": "United Kingdom of Great Britain and Northern Ireland",
+      "Total Acinetobacter spp. BCIs per million population": "16.3",
+      "Absolute number of Acinetobacter spp. BCIs": "1122",
+      "Total Acinetobacter spp. BCIs with AST (Carbapenems) per million population": "15.2",
+      "Absolute number of Acinetobacter spp. BCIs with AST (Carbapenems)": "1041",
+      "% of Acinetobacter spp. BCIs with AST": "92.8"
+    },
+    {
+      "CountryTerritoryArea": "United Republic of Tanzania",
+      "Total Acinetobacter spp. BCIs per million population": "3.7",
+      "Absolute number of Acinetobacter spp. BCIs": "248",
+      "Total Acinetobacter spp. BCIs with AST (Carbapenems) per million population": "3.3",
+      "Absolute number of Acinetobacter spp. BCIs with AST (Carbapenems)": "220",
+      "% of Acinetobacter spp. BCIs with AST": "88.7"
+    },
+    {
+      "CountryTerritoryArea": "Yemen",
+      "Total Acinetobacter spp. BCIs per million population": "2.6",
+      "Absolute number of Acinetobacter spp. BCIs": "103",
+      "Total Acinetobacter spp. BCIs with AST (Carbapenems) per million population": "1.4",
+      "Absolute number of Acinetobacter spp. BCIs with AST (Carbapenems)": "54",
+      "% of Acinetobacter spp. BCIs with AST": "52.4"
+    },
+    {
+      "CountryTerritoryArea": "Zambia",
+      "Total Acinetobacter spp. BCIs per million population": "2.7",
+      "Absolute number of Acinetobacter spp. BCIs": "56",
+      "Total Acinetobacter spp. BCIs with AST (Carbapenems) per million population": "1",
+      "Absolute number of Acinetobacter spp. BCIs with AST (Carbapenems)": "20",
+      "% of Acinetobacter spp. BCIs with AST": "35.7"
+    },
+    {
+      "CountryTerritoryArea": "occupied Palestinian territory, including east Jerusalem",
+      "Total Acinetobacter spp. BCIs per million population": "25.9",
+      "Absolute number of Acinetobacter spp. BCIs": "140",
+      "Total Acinetobacter spp. BCIs with AST (Carbapenems) per million population": "22.2",
+      "Absolute number of Acinetobacter spp. BCIs with AST (Carbapenems)": "120",
+      "% of Acinetobacter spp. BCIs with AST": "85.7"
+    }
+  ],
+  "extracted_at": "2026-08-26T11:51:14.593156+00:00"
+}

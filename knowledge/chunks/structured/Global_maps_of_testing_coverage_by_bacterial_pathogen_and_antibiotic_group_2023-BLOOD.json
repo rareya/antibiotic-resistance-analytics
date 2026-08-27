@@ -1,0 +1,29 @@
+{
+  "chunker_version": "1.0",
+  "asset_id": "Global_maps_of_testing_coverage_by_bacterial_pathogen_and_antibiotic_group_2023-BLOOD",
+  "source_id": "Global_maps_of_testing_coverage_by_bacterial_pathogen_and_antibiotic_group_2023-BLOOD",
+  "source_type": "csv",
+  "source_file": "knowledge/raw/csv/Global maps of testing coverage by bacterial pathogen and antibiotic group_2023-BLOOD.csv",
+  "retrieval_mode": "structured",
+  "embedding_allowed": false,
+  "query_path": "pandas_or_sql_structured_lookup",
+  "schema": {
+    "columns": [
+      "CountryTerritoryArea",
+      "Total Acinetobacter spp. BCIs per million population",
+      "Absolute number of Acinetobacter spp. BCIs",
+      "Total Acinetobacter spp. BCIs with AST (Carbapenems) per million population",
+      "Absolute number of Acinetobacter spp. BCIs with AST (Carbapenems)",
+      "% of Acinetobacter spp. BCIs with AST"
+    ],
+    "row_count": 96
+  },
+  "metadata": {
+    "asset_id": "Global_maps_of_testing_coverage_by_bacterial_pathogen_and_antibiotic_group_2023-BLOOD",
+    "source_id": "Global_maps_of_testing_coverage_by_bacterial_pathogen_and_antibiotic_group_2023-BLOOD",
+    "source_type": "csv",
+    "source_file": "knowledge/raw/csv/Global maps of testing coverage by bacterial pathogen and antibiotic group_2023-BLOOD.csv",
+    "version": null
+  },
+  "generated_at": "2026-08-27T06:43:17.079710+00:00"
+}

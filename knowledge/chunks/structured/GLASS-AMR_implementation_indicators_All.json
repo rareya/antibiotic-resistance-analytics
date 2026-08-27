@@ -1,0 +1,26 @@
+{
+  "chunker_version": "1.0",
+  "asset_id": "GLASS-AMR_implementation_indicators_All",
+  "source_id": "GLASS-AMR_implementation_indicators_All",
+  "source_type": "csv",
+  "source_file": "knowledge/raw/csv/GLASS-AMR implementation indicators_All.csv",
+  "retrieval_mode": "structured",
+  "embedding_allowed": false,
+  "query_path": "pandas_or_sql_structured_lookup",
+  "schema": {
+    "columns": [
+      "Names",
+      "Value",
+      "Percentage"
+    ],
+    "row_count": 24
+  },
+  "metadata": {
+    "asset_id": "GLASS-AMR_implementation_indicators_All",
+    "source_id": "GLASS-AMR_implementation_indicators_All",
+    "source_type": "csv",
+    "source_file": "knowledge/raw/csv/GLASS-AMR implementation indicators_All.csv",
+    "version": null
+  },
+  "generated_at": "2026-08-27T06:43:17.040368+00:00"
+}

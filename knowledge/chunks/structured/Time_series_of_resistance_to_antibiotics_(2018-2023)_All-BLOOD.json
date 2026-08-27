@@ -1,0 +1,34 @@
+{
+  "chunker_version": "1.0",
+  "asset_id": "Time_series_of_resistance_to_antibiotics_(2018-2023)_All-BLOOD",
+  "source_id": "Time_series_of_resistance_to_antibiotics_(2018-2023)_All-BLOOD",
+  "source_type": "csv",
+  "source_file": "knowledge/raw/csv/Time series of resistance to antibiotics (2018-2023)_All-BLOOD.csv",
+  "retrieval_mode": "structured",
+  "embedding_allowed": false,
+  "query_path": "pandas_or_sql_structured_lookup",
+  "schema": {
+    "columns": [
+      "Iso3",
+      "CountryTerritoryArea",
+      "WHORegionName",
+      "Year",
+      "Specimen",
+      "PathogenName",
+      "AbTargets",
+      "TotalSpecimenIsolates",
+      "InterpretableAST",
+      "Resistant",
+      "PercentResistant"
+    ],
+    "row_count": 132
+  },
+  "metadata": {
+    "asset_id": "Time_series_of_resistance_to_antibiotics_(2018-2023)_All-BLOOD",
+    "source_id": "Time_series_of_resistance_to_antibiotics_(2018-2023)_All-BLOOD",
+    "source_type": "csv",
+    "source_file": "knowledge/raw/csv/Time series of resistance to antibiotics (2018-2023)_All-BLOOD.csv",
+    "version": null
+  },
+  "generated_at": "2026-08-27T06:43:17.173250+00:00"
+}

@@ -1,0 +1,536 @@
+{
+  "format": "csv",
+  "source_file": "knowledge/raw/csv/Time series of resistance to antibiotics (2018-2023)_All-BLOOD.csv",
+  "output_file": "knowledge/extracted/csv/time_series_of_resistance_to_antibiotics_2018-2023_all-blood.csv",
+  "metadata_file": "knowledge/extracted/csv/time_series_of_resistance_to_antibiotics_2018-2023_all-blood.metadata.json",
+  "encoding": "utf-8-sig",
+  "delimiter": ",",
+  "header_detection": {
+    "header_line": 18,
+    "header_score": 72.0,
+    "candidate_headers": [
+      {
+        "line_number": 18,
+        "score": 72.0,
+        "columns": [
+          "Iso3",
+          "CountryTerritoryArea",
+          "WHORegionName",
+          "Year",
+          "Specimen",
+          "PathogenName",
+          "AbTargets",
+          "TotalSpecimenIsolates",
+          "InterpretableAST",
+          "Resistant",
+          "PercentResistant"
+        ]
+      },
+      {
+        "line_number": 8,
+        "score": 52.0,
+        "columns": [
+          "Year",
+          "Specimen",
+          "PathogenName",
+          "AbTargets",
+          "Min",
+          "Q1",
+          "Median",
+          "Q3",
+          "Max"
+        ]
+      },
+      {
+        "line_number": 40,
+        "score": 48.0,
+        "columns": [
+          "ARE",
+          "United Arab Emirates",
+          "Eastern Mediterranean Region",
+          "2018",
+          "BLOOD",
+          "Acinetobacter spp.",
+          "Amikacin",
+          "2452",
+          "17",
+          "3",
+          "17.647058824"
+        ]
+      },
+      {
+        "line_number": 19,
+        "score": 44.0,
+        "columns": [
+          "ARG",
+          "Argentina",
+          "Region of the Americas",
+          "2018",
+          "BLOOD",
+          "Acinetobacter spp.",
+          "Amikacin",
+          "7385",
+          "347",
+          "78",
+          "22.478386167"
+        ]
+      },
+      {
+        "line_number": 20,
+        "score": 44.0,
+        "columns": [
+          "BIH",
+          "Bosnia and Herzegovina",
+          "European Region",
+          "2018",
+          "BLOOD",
+          "Acinetobacter spp.",
+          "Amikacin",
+          "841",
+          "131",
+          "121",
+          "92.366412214"
+        ]
+      },
+      {
+        "line_number": 21,
+        "score": 44.0,
+        "columns": [
+          "BRA",
+          "Brazil",
+          "Region of the Americas",
+          "2018",
+          "BLOOD",
+          "Acinetobacter spp.",
+          "Amikacin",
+          "314",
+          "32",
+          "13",
+          "40.625"
+        ]
+      },
+      {
+        "line_number": 22,
+        "score": 44.0,
+        "columns": [
+          "ETH",
+          "Ethiopia",
+          "African Region",
+          "2018",
+          "BLOOD",
+          "Acinetobacter spp.",
+          "Amikacin",
+          "122",
+          "15",
+          "4",
+          "26.666666667"
+        ]
+      },
+      {
+        "line_number": 23,
+        "score": 44.0,
+        "columns": [
+          "GEO",
+          "Georgia",
+          "European Region",
+          "2018",
+          "BLOOD",
+          "Acinetobacter spp.",
+          "Amikacin",
+          "216",
+          "28",
+          "20",
+          "71.428571429"
+        ]
+      },
+      {
+        "line_number": 24,
+        "score": 44.0,
+        "columns": [
+          "IND",
+          "India",
+          "South-East Asia Region",
+          "2018",
+          "BLOOD",
+          "Acinetobacter spp.",
+          "Amikacin",
+          "14459",
+          "1862",
+          "1188",
+          "63.80236305"
+        ]
+      },
+      {
+        "line_number": 25,
+        "score": 44.0,
+        "columns": [
+          "IDN",
+          "Indonesia",
+          "South-East Asia Region",
+          "2018",
+          "BLOOD",
+          "Acinetobacter spp.",
+          "Amikacin",
+          "1381",
+          "205",
+          "51",
+          "24.87804878"
+        ]
+      }
+    ]
+  },
+  "metadata_before_table": {
+    "lines_before_header": 14,
+    "raw_lines": [
+      "Filters",
+      "Region filter: All",
+      "Infection type filter: Bloodstream",
+      "Bacterial pathogen filter: Acinetobacter spp.",
+      "Antibiotic filter: Amikacin",
+      "Data for time series",
+      "\"Year\",\"Specimen\",\"PathogenName\",\"AbTargets\",\"Min\",\"Q1\",\"Median\",\"Q3\",\"Max\"",
+      "2018,\"BLOOD\",\"Acinetobacter spp.\",\"Amikacin\",0,23.07830182,46.499079378,66.346688926,92.366412214",
+      "2019,\"BLOOD\",\"Acinetobacter spp.\",\"Amikacin\",0,9.097096189,40.547945205,70.042078057,91.111111111",
+      "2020,\"BLOOD\",\"Acinetobacter spp.\",\"Amikacin\",0,13.333333333,56.221198157,76.61097852,94.827586207",
+      "2021,\"BLOOD\",\"Acinetobacter spp.\",\"Amikacin\",0,16.75,46.366353743,73.485989126,98.113207547",
+      "2022,\"BLOOD\",\"Acinetobacter spp.\",\"Amikacin\",0,13.443830571,49.570166799,74.852941176,100",
+      "2023,\"BLOOD\",\"Acinetobacter spp.\",\"Amikacin\",0,12.220580435,47.823678379,66.596818454,94.418604651",
+      "Data for line plots for individual CTAs"
+    ]
+  },
+  "row_count": 132,
+  "column_count": 11,
+  "removed_empty_rows": 0,
+  "columns": [
+    {
+      "name": "Iso3",
+      "normalized_name": "iso3",
+      "dtype": "object",
+      "non_null_count": 132,
+      "null_count": 0,
+      "unique_count": 22,
+      "sample_values": [
+        "ARG",
+        "BIH",
+        "BRA",
+        "ETH",
+        "GEO"
+      ]
+    },
+    {
+      "name": "CountryTerritoryArea",
+      "normalized_name": "countryterritoryarea",
+      "dtype": "object",
+      "non_null_count": 132,
+      "null_count": 0,
+      "unique_count": 22,
+      "sample_values": [
+        "Argentina",
+        "Bosnia and Herzegovina",
+        "Brazil",
+        "Ethiopia",
+        "Georgia"
+      ]
+    },
+    {
+      "name": "WHORegionName",
+      "normalized_name": "whoregionname",
+      "dtype": "object",
+      "non_null_count": 132,
+      "null_count": 0,
+      "unique_count": 6,
+      "sample_values": [
+        "Region of the Americas",
+        "European Region",
+        "Region of the Americas",
+        "African Region",
+        "European Region"
+      ]
+    },
+    {
+      "name": "Year",
+      "normalized_name": "year",
+      "dtype": "int64",
+      "non_null_count": 132,
+      "null_count": 0,
+      "unique_count": 6,
+      "sample_values": [
+        "2018",
+        "2018",
+        "2018",
+        "2018",
+        "2018"
+      ]
+    },
+    {
+      "name": "Specimen",
+      "normalized_name": "specimen",
+      "dtype": "object",
+      "non_null_count": 132,
+      "null_count": 0,
+      "unique_count": 1,
+      "sample_values": [
+        "BLOOD",
+        "BLOOD",
+        "BLOOD",
+        "BLOOD",
+        "BLOOD"
+      ]
+    },
+    {
+      "name": "PathogenName",
+      "normalized_name": "pathogenname",
+      "dtype": "object",
+      "non_null_count": 132,
+      "null_count": 0,
+      "unique_count": 1,
+      "sample_values": [
+        "Acinetobacter spp.",
+        "Acinetobacter spp.",
+        "Acinetobacter spp.",
+        "Acinetobacter spp.",
+        "Acinetobacter spp."
+      ]
+    },
+    {
+      "name": "AbTargets",
+      "normalized_name": "abtargets",
+      "dtype": "object",
+      "non_null_count": 132,
+      "null_count": 0,
+      "unique_count": 1,
+      "sample_values": [
+        "Amikacin",
+        "Amikacin",
+        "Amikacin",
+        "Amikacin",
+        "Amikacin"
+      ]
+    },
+    {
+      "name": "TotalSpecimenIsolates",
+      "normalized_name": "totalspecimenisolates",
+      "dtype": "int64",
+      "non_null_count": 132,
+      "null_count": 0,
+      "unique_count": 129,
+      "sample_values": [
+        "7385",
+        "841",
+        "314",
+        "122",
+        "216"
+      ]
+    },
+    {
+      "name": "InterpretableAST",
+      "normalized_name": "interpretableast",
+      "dtype": "int64",
+      "non_null_count": 132,
+      "null_count": 0,
+      "unique_count": 122,
+      "sample_values": [
+        "347",
+        "131",
+        "32",
+        "15",
+        "28"
+      ]
+    },
+    {
+      "name": "Resistant",
+      "normalized_name": "resistant",
+      "dtype": "int64",
+      "non_null_count": 132,
+      "null_count": 0,
+      "unique_count": 111,
+      "sample_values": [
+        "78",
+        "121",
+        "13",
+        "4",
+        "20"
+      ]
+    },
+    {
+      "name": "PercentResistant",
+      "normalized_name": "percentresistant",
+      "dtype": "float64",
+      "non_null_count": 132,
+      "null_count": 0,
+      "unique_count": 132,
+      "sample_values": [
+        "22.478386167",
+        "92.366412214",
+        "40.625",
+        "26.666666667",
+        "71.428571429"
+      ]
+    }
+  ],
+  "numeric_summary": {
+    "year": {
+      "min": 2018.0,
+      "max": 2023.0,
+      "mean": 2020.5,
+      "median": 2020.5
+    },
+    "totalspecimenisolates": {
+      "min": 122.0,
+      "max": 169604.0,
+      "mean": 12228.378787878788,
+      "median": 2751.0
+    },
+    "interpretableast": {
+      "min": 10.0,
+      "max": 10244.0,
+      "mean": 718.219696969697,
+      "median": 269.5
+    },
+    "resistant": {
+      "min": 3.0,
+      "max": 6477.0,
+      "mean": 368.52272727272725,
+      "median": 120.0
+    },
+    "percentresistant": {
+      "min": 0.687679083,
+      "max": 100.0,
+      "mean": 52.32470738487879,
+      "median": 56.056218414
+    }
+  },
+  "preview": [
+    {
+      "iso3": "ARG",
+      "countryterritoryarea": "Argentina",
+      "whoregionname": "Region of the Americas",
+      "year": 2018,
+      "specimen": "BLOOD",
+      "pathogenname": "Acinetobacter spp.",
+      "abtargets": "Amikacin",
+      "totalspecimenisolates": 7385,
+      "interpretableast": 347,
+      "resistant": 78,
+      "percentresistant": 22.478386167
+    },
+    {
+      "iso3": "BIH",
+      "countryterritoryarea": "Bosnia and Herzegovina",
+      "whoregionname": "European Region",
+      "year": 2018,
+      "specimen": "BLOOD",
+      "pathogenname": "Acinetobacter spp.",
+      "abtargets": "Amikacin",
+      "totalspecimenisolates": 841,
+      "interpretableast": 131,
+      "resistant": 121,
+      "percentresistant": 92.366412214
+    },
+    {
+      "iso3": "BRA",
+      "countryterritoryarea": "Brazil",
+      "whoregionname": "Region of the Americas",
+      "year": 2018,
+      "specimen": "BLOOD",
+      "pathogenname": "Acinetobacter spp.",
+      "abtargets": "Amikacin",
+      "totalspecimenisolates": 314,
+      "interpretableast": 32,
+      "resistant": 13,
+      "percentresistant": 40.625
+    },
+    {
+      "iso3": "ETH",
+      "countryterritoryarea": "Ethiopia",
+      "whoregionname": "African Region",
+      "year": 2018,
+      "specimen": "BLOOD",
+      "pathogenname": "Acinetobacter spp.",
+      "abtargets": "Amikacin",
+      "totalspecimenisolates": 122,
+      "interpretableast": 15,
+      "resistant": 4,
+      "percentresistant": 26.666666667
+    },
+    {
+      "iso3": "GEO",
+      "countryterritoryarea": "Georgia",
+      "whoregionname": "European Region",
+      "year": 2018,
+      "specimen": "BLOOD",
+      "pathogenname": "Acinetobacter spp.",
+      "abtargets": "Amikacin",
+      "totalspecimenisolates": 216,
+      "interpretableast": 28,
+      "resistant": 20,
+      "percentresistant": 71.428571429
+    },
+    {
+      "iso3": "IND",
+      "countryterritoryarea": "India",
+      "whoregionname": "South-East Asia Region",
+      "year": 2018,
+      "specimen": "BLOOD",
+      "pathogenname": "Acinetobacter spp.",
+      "abtargets": "Amikacin",
+      "totalspecimenisolates": 14459,
+      "interpretableast": 1862,
+      "resistant": 1188,
+      "percentresistant": 63.80236305
+    },
+    {
+      "iso3": "IDN",
+      "countryterritoryarea": "Indonesia",
+      "whoregionname": "South-East Asia Region",
+      "year": 2018,
+      "specimen": "BLOOD",
+      "pathogenname": "Acinetobacter spp.",
+      "abtargets": "Amikacin",
+      "totalspecimenisolates": 1381,
+      "interpretableast": 205,
+      "resistant": 51,
+      "percentresistant": 24.87804878
+    },
+    {
+      "iso3": "IRN",
+      "countryterritoryarea": "Iran (Islamic Republic of)",
+      "whoregionname": "Eastern Mediterranean Region",
+      "year": 2018,
+      "specimen": "BLOOD",
+      "pathogenname": "Acinetobacter spp.",
+      "abtargets": "Amikacin",
+      "totalspecimenisolates": 1826,
+      "interpretableast": 611,
+      "resistant": 320,
+      "percentresistant": 52.373158756
+    },
+    {
+      "iso3": "JPN",
+      "countryterritoryarea": "Japan",
+      "whoregionname": "Western Pacific Region",
+      "year": 2018,
+      "specimen": "BLOOD",
+      "pathogenname": "Acinetobacter spp.",
+      "abtargets": "Amikacin",
+      "totalspecimenisolates": 126859,
+      "interpretableast": 1745,
+      "resistant": 12,
+      "percentresistant": 0.687679083
+    },
+    {
+      "iso3": "XKX",
+      "countryterritoryarea": "Kosovo",
+      "whoregionname": "European Region",
+      "year": 2018,
+      "specimen": "BLOOD",
+      "pathogenname": "Acinetobacter spp.",
+      "abtargets": "Amikacin",
+      "totalspecimenisolates": 164,
+      "interpretableast": 60,
+      "resistant": 52,
+      "percentresistant": 86.666666667
+    }
+  ],
+  "extraction_status": "success"
+}

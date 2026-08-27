@@ -1,0 +1,36 @@
+{
+  "chunker_version": "1.0",
+  "asset_id": "Testing_coverage_by_bacterial_pathogen_and_antibiotic_group_BLOOD-All",
+  "source_id": "Testing_coverage_by_bacterial_pathogen_and_antibiotic_group_BLOOD-All",
+  "source_type": "csv",
+  "source_file": "knowledge/raw/csv/Testing coverage by bacterial pathogen and antibiotic group_BLOOD-All.csv",
+  "retrieval_mode": "structured",
+  "embedding_allowed": false,
+  "query_path": "pandas_or_sql_structured_lookup",
+  "schema": {
+    "columns": [
+      "Year",
+      "Specimen",
+      "PathogenName",
+      "AntibioticName",
+      "CTAs with Reported BCIs",
+      "CTAs with Reported BCIs with AST >= 80 BCIs",
+      "Total BCIs",
+      "Total BCIs with AST",
+      "Min",
+      "Q1",
+      "Median",
+      "Q3",
+      "Max"
+    ],
+    "row_count": 104
+  },
+  "metadata": {
+    "asset_id": "Testing_coverage_by_bacterial_pathogen_and_antibiotic_group_BLOOD-All",
+    "source_id": "Testing_coverage_by_bacterial_pathogen_and_antibiotic_group_BLOOD-All",
+    "source_type": "csv",
+    "source_file": "knowledge/raw/csv/Testing coverage by bacterial pathogen and antibiotic group_BLOOD-All.csv",
+    "version": null
+  },
+  "generated_at": "2026-08-27T06:43:17.108756+00:00"
+}

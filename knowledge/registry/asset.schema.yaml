@@ -1,375 +1,252 @@
 # ============================================================
-# AMR KNOWLEDGE REGISTRY
-# ASSET SCHEMA
+# AMR KNOWLEDGE ASSET REGISTRY SCHEMA
+# Version 1.1
 # ============================================================
 
 schema:
-  name: amr_asset_registry
-  version: "1.0"
+  name: amr_asset_registry_schema
+  version: "1.1"
   description: >
-    Schema defining concrete knowledge assets associated with
-    authoritative AMR sources.
+    Schema defining local and externally sourced knowledge assets
+    used by the AMR AI knowledge system.
 
 # ============================================================
-# REQUIRED ASSET FIELDS
+# REQUIRED FIELDS
 # ============================================================
 
 required_fields:
-
   - id
-  - source_id
   - name
+  - description
+  - source_id
   - asset_type
-  - status
-  - access
   - knowledge_role
 
 # ============================================================
-# ASSET TYPES
+# FIELD RULES
 # ============================================================
 
-asset_types:
+field_rules:
 
-  - dataset
-  - downloadable_dataset
-  - database
-  - dashboard
-  - api
-  - report
-  - guideline
-  - standard
-  - methodology
-  - scientific_paper
-  - review
-  - educational_reference
-  - website
-  - software
-  - platform
-  - model
-  - other
-
-# ============================================================
-# STATUS
-# ============================================================
-
-statuses:
-
-  - active
-  - archived
-  - superseded
-  - discontinued
-  - unknown
-
-# ============================================================
-# ACCESS TYPES
-# ============================================================
-
-access_types:
-
-  - public
-  - registration_required
-  - restricted
-  - subscription
-  - unknown
-
-# ============================================================
-# KNOWLEDGE ROLES
-# ============================================================
-
-knowledge_roles:
-
-  - primary_data
-  - surveillance_data
-  - clinical_guidance
-  - laboratory_standard
-  - molecular_resistance
-  - epidemiology
-  - burden_estimation
-  - methodology
-  - scientific_evidence
-  - contextual_reference
-  - computational_resource
-  - ai_methodology
-
-# ============================================================
-# TOP-LEVEL ASSET STRUCTURE
-# ============================================================
-
-asset:
+  # ----------------------------------------------------------
+  # IDENTITY
+  # ----------------------------------------------------------
 
   id:
     type: string
-    pattern: "^[a-z0-9_]+$"
-
-  source_id:
-    type: string
-    description: >
-      Canonical ID of the source in sources.yaml.
+    required: true
+    min_length: 1
 
   name:
     type: string
-    non_empty: true
+    required: true
+    min_length: 1
 
   description:
     type: string
+    required: true
+    min_length: 1
+
+  # ----------------------------------------------------------
+  # SOURCE PROVENANCE
+  # ----------------------------------------------------------
+
+  source_id:
+    type: string
+    required: true
+    min_length: 1
+
+  # ----------------------------------------------------------
+  # ASSET TYPE
+  # ----------------------------------------------------------
 
   asset_type:
     type: string
-    enum:
-      - dataset
-      - downloadable_dataset
-      - database
-      - dashboard
-      - api
+    required: true
+    allowed:
+
+      # General knowledge assets
+      - document
       - report
       - guideline
+      - scientific_guidance
       - standard
       - methodology
+
+      # Data assets
+      - dataset
+      - structured_dataset
+      - compressed_dataset
+      - surveillance_data
+      - database
+      - genomic_dataset
+      - genomic_resource
+      - sequencing_resource
+
+      # Scientific knowledge
       - scientific_paper
-      - review
-      - educational_reference
-      - website
+      - research_paper
+      - scientific_literature
+      - scientific_reference
+      - reference
+
+      # Specialized resources
+      - ontology
+      - molecular_database
+      - research_database
+      - biomedical_database
+      - genomic_database
+      - sequence_database
+      - reference_database
+
+      # Web / application resources
+      - web_resource
+      - dashboard
       - software
-      - platform
-      - model
+
+      # Fallback
       - other
 
-  status:
+  # ----------------------------------------------------------
+  # KNOWLEDGE ROLE
+  # ----------------------------------------------------------
+
+  knowledge_role:
+    type: list
+    required: true
+    min_items: 1
+    item_type: string
+
+  # ----------------------------------------------------------
+  # LOCAL STORAGE
+  #
+  # Different ingestion stages may use different names.
+  # These are intentionally optional at schema level because
+  # the validator can resolve the available local-path field.
+  # ----------------------------------------------------------
+
+  path:
     type: string
-    enum:
-      - active
-      - archived
-      - superseded
-      - discontinued
-      - unknown
+    required: false
+    min_length: 1
+
+  local_path:
+    type: string
+    required: false
+    min_length: 1
+
+  file:
+    type: string
+    required: false
+    min_length: 1
+
+  filename:
+    type: string
+    required: false
+    min_length: 1
+
+  format:
+    type: string
+    required: false
+    min_length: 1
+
+  # ----------------------------------------------------------
+  # REMOTE RESOURCE
+  # ----------------------------------------------------------
+
+  url:
+    type: string
+    required: false
+
+  canonical_url:
+    type: string
+    required: false
+
+  # ----------------------------------------------------------
+  # KNOWLEDGE CLASSIFICATION
+  # ----------------------------------------------------------
+
+  domains:
+    type: list
+    required: false
+    item_type: string
+
+  capabilities:
+    type: list
+    required: false
+    item_type: string
+
+  tags:
+    type: list
+    required: false
+    item_type: string
+
+  category:
+    type: string
+    required: false
+
+  # ----------------------------------------------------------
+  # GEOGRAPHY
+  # ----------------------------------------------------------
+
+  jurisdiction:
+    type: string
+    required: false
+
+  geographic_scope:
+    type: list
+    required: false
+    item_type: string
+
+  country:
+    type: string
+    required: false
+
+  # ----------------------------------------------------------
+  # PUBLICATION / VERSION
+  # ----------------------------------------------------------
+
+  publication_date:
+    type: string
+    required: false
+
+  version:
+    type: string
+    required: false
+
+  language:
+    type: string
+    required: false
+
+  # ----------------------------------------------------------
+  # ACCESS / LICENSING
+  # ----------------------------------------------------------
+
+  license:
+    type: string
+    required: false
 
   access:
     type: string
-    enum:
-      - public
-      - registration_required
-      - restricted
-      - subscription
-      - unknown
+    required: false
 
-  knowledge_role:
+  # ----------------------------------------------------------
+  # DATA INTEGRITY
+  # ----------------------------------------------------------
+
+  checksum:
     type: string
-    enum:
-      - primary_data
-      - surveillance_data
-      - clinical_guidance
-      - laboratory_standard
-      - molecular_resistance
-      - epidemiology
-      - burden_estimation
-      - methodology
-      - scientific_evidence
-      - contextual_reference
-      - computational_resource
-      - ai_methodology
-
-# ============================================================
-# IDENTIFICATION
-# ============================================================
-
-  identifiers:
-
-    type: object
-
-    properties:
-
-      doi:
-        type: string
-
-      isbn:
-        type: string
-
-      pmid:
-        type: string
-
-      accession:
-        type: string
-
-      version:
-        type: string
-
-      publication_date:
-        type: string
-
-      last_updated:
-        type: string
-
-# ============================================================
-# ACCESS / RETRIEVAL
-# ============================================================
-
-  access_details:
-
-    type: object
-
-    properties:
-
-      canonical_url:
-        type: string
-
-      download_url:
-        type: string
-
-      api_url:
-        type: string
-
-      documentation_url:
-        type: string
-
-      retrieval_modes:
-        type: list
-
-      format:
-        type: list
-
-      authentication_required:
-        type: boolean
-
-# ============================================================
-# DATA DESCRIPTION
-# ============================================================
-
-  data:
-
-    type: object
-
-    properties:
-
-      geographic_scope:
-        type: list
-
-      temporal_scope:
-        type: string
-
-      population:
-        type: list
-
-      organisms:
-        type: list
-
-      antibiotics:
-        type: list
-
-      resistance_measures:
-        type: list
-
-      unit_of_observation:
-        type: string
-
-      granularity:
-        type: string
-
-# ============================================================
-# PROVENANCE
-# ============================================================
-
-  provenance:
-
-    type: object
-
-    properties:
-
-      publisher:
-        type: string
-
-      producing_organization:
-        type: string
-
-      original_source:
-        type: string
-
-      parent_asset_id:
-        type: string
-
-      supersedes_asset_id:
-        type: string
-
-# ============================================================
-# LICENSING
-# ============================================================
-
-  licensing:
-
-    type: object
-
-    properties:
-
-      license:
-        type: string
-
-      commercial_use:
-        type: boolean
-
-      redistribution_allowed:
-        type: boolean
-
-      attribution_required:
-        type: boolean
-
-      notes:
-        type: string
-
-# ============================================================
-# AI USAGE
-# ============================================================
-
-  ai_usage:
-
-    type: object
-
-    properties:
-
-      usable_for_retrieval:
-        type: boolean
-
-      usable_for_embeddings:
-        type: boolean
-
-      usable_for_training:
-        type: boolean
-
-      usable_for_numeric_answers:
-        type: boolean
-
-      citation_required:
-        type: boolean
-
-      restrictions:
-        type: list
-
-# ============================================================
-# QUALITY
-# ============================================================
-
-  quality:
-
-    type: object
-
-    properties:
-
-      authority_level:
-        type: string
-
-      data_quality:
-        type: string
-
-      completeness:
-        type: string
-
-      machine_readability:
-        type: string
-
-      update_frequency:
-        type: string
-
-# ============================================================
-# NOTES
-# ============================================================
+    required: false
+
+  sha256:
+    type: string
+    required: false
+
+  # ----------------------------------------------------------
+  # NOTES
+  # ----------------------------------------------------------
 
   notes:
     type: list
+    required: false
+    item_type: string

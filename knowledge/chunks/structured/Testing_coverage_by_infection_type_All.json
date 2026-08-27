@@ -1,0 +1,34 @@
+{
+  "chunker_version": "1.0",
+  "asset_id": "Testing_coverage_by_infection_type_All",
+  "source_id": "Testing_coverage_by_infection_type_All",
+  "source_type": "csv",
+  "source_file": "knowledge/raw/csv/Testing coverage by infection type_All.csv",
+  "retrieval_mode": "structured",
+  "embedding_allowed": false,
+  "query_path": "pandas_or_sql_structured_lookup",
+  "schema": {
+    "columns": [
+      "Year",
+      "Specimen",
+      "CTAs with Reported BCIs",
+      "CTAs with Reported BCIs with AST >= 80 BCIs",
+      "Total BCIs",
+      "Total BCIs with AST",
+      "Min",
+      "Q1",
+      "Median",
+      "Q3",
+      "Max"
+    ],
+    "row_count": 32
+  },
+  "metadata": {
+    "asset_id": "Testing_coverage_by_infection_type_All",
+    "source_id": "Testing_coverage_by_infection_type_All",
+    "source_type": "csv",
+    "source_file": "knowledge/raw/csv/Testing coverage by infection type_All.csv",
+    "version": null
+  },
+  "generated_at": "2026-08-27T06:43:17.148592+00:00"
+}

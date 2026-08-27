@@ -1,0 +1,137 @@
+{
+  "asset_type": "csv",
+  "source_file": "knowledge/raw/csv/GLASS-AMR implementation indicators_All.csv",
+  "source_size_bytes": 719,
+  "encoding": "utf-8-sig",
+  "delimiter": ",",
+  "header_row": 4,
+  "columns": [
+    "Names",
+    "Value",
+    "Percentage"
+  ],
+  "row_count": 24,
+  "records": [
+    {
+      "Names": "Available",
+      "Value": "85",
+      "Percentage": "65.385"
+    },
+    {
+      "Names": "In progress",
+      "Value": "12",
+      "Percentage": "9.231"
+    },
+    {
+      "Names": "Not available",
+      "Value": "13",
+      "Percentage": "10"
+    },
+    {
+      "Names": "No data",
+      "Value": "20",
+      "Percentage": "15.385"
+    },
+    {
+      "Names": "National Reference Laboratory (NRL)",
+      "Value": "",
+      "Percentage": ""
+    },
+    {
+      "Names": "Names",
+      "Value": "Value",
+      "Percentage": "Percentage"
+    },
+    {
+      "Names": "Available",
+      "Value": "101",
+      "Percentage": "77.692"
+    },
+    {
+      "Names": "Not available",
+      "Value": "9",
+      "Percentage": "6.923"
+    },
+    {
+      "Names": "No data",
+      "Value": "20",
+      "Percentage": "15.385"
+    },
+    {
+      "Names": "External Quality Assurance (EQA) of NRL",
+      "Value": "",
+      "Percentage": ""
+    },
+    {
+      "Names": "Names",
+      "Value": "Value",
+      "Percentage": "Percentage"
+    },
+    {
+      "Names": "Available",
+      "Value": "97",
+      "Percentage": "74.615"
+    },
+    {
+      "Names": "Not available",
+      "Value": "11",
+      "Percentage": "8.462"
+    },
+    {
+      "Names": "No data",
+      "Value": "22",
+      "Percentage": "16.923"
+    },
+    {
+      "Names": "EQA of all laboratories reporting AST to GLASS",
+      "Value": "",
+      "Percentage": ""
+    },
+    {
+      "Names": "Names",
+      "Value": "Value",
+      "Percentage": "Percentage"
+    },
+    {
+      "Names": "Available",
+      "Value": "68",
+      "Percentage": "52.308"
+    },
+    {
+      "Names": "Not available",
+      "Value": "23",
+      "Percentage": "17.692"
+    },
+    {
+      "Names": "No data",
+      "Value": "39",
+      "Percentage": "30"
+    },
+    {
+      "Names": "International standards for AST",
+      "Value": "",
+      "Percentage": ""
+    },
+    {
+      "Names": "Names",
+      "Value": "Value",
+      "Percentage": "Percentage"
+    },
+    {
+      "Names": "Available",
+      "Value": "108",
+      "Percentage": "83.077"
+    },
+    {
+      "Names": "Not available",
+      "Value": "1",
+      "Percentage": "0.769"
+    },
+    {
+      "Names": "No data",
+      "Value": "21",
+      "Percentage": "16.154"
+    }
+  ],
+  "extracted_at": "2026-08-26T11:51:14.588158+00:00"
+}

@@ -1,0 +1,163 @@
+{
+  "format": "csv",
+  "source_file": "knowledge/raw/csv/Frequency of drug-resistant BCIs (2023)_Afghanistan.csv",
+  "output_file": "knowledge/extracted/csv/frequency_of_drug-resistant_bcis_2023_afghanistan.csv",
+  "metadata_file": "knowledge/extracted/csv/frequency_of_drug-resistant_bcis_2023_afghanistan.metadata.json",
+  "encoding": "utf-8-sig",
+  "delimiter": ",",
+  "header_detection": {
+    "header_line": 12,
+    "header_score": 68.0,
+    "candidate_headers": [
+      {
+        "line_number": 12,
+        "score": 68.0,
+        "columns": [
+          "Iso3",
+          "Year",
+          "Specimen",
+          "PathogenName",
+          "AntibioticGroup",
+          "NumSampledPatients",
+          "TotalPathogenIsolates",
+          "Resistant",
+          "PercentFrequency",
+          "LowerLimit",
+          "UpperLimit"
+        ]
+      },
+      {
+        "line_number": 8,
+        "score": 51.0,
+        "columns": [
+          "Iso3",
+          "Year",
+          "Specimen",
+          "PathogenName",
+          "PercentFrequency",
+          "LowerLimit",
+          "UpperLimit"
+        ]
+      }
+    ]
+  },
+  "metadata_before_table": {
+    "lines_before_header": 7,
+    "raw_lines": [
+      "Filters",
+      "CTAs filter: Afghanistan",
+      "Infection Type filter: Bloodstream",
+      "Year filter: 2023",
+      "Frequency of bloodstream BCIs due to bacterial pathogens under surveillance per 100 000 tested patients",
+      "\"Iso3\",\"Year\",\"Specimen\",\"PathogenName\",\"PercentFrequency\",\"LowerLimit\",\"UpperLimit\"",
+      "Frequency of drug-resistant bloodstream BCIs due to bacterial pathogens under surveillance per 100 000 tested patients"
+    ]
+  },
+  "row_count": 0,
+  "column_count": 11,
+  "removed_empty_rows": 0,
+  "columns": [
+    {
+      "name": "Iso3",
+      "normalized_name": "iso3",
+      "dtype": "object",
+      "non_null_count": 0,
+      "null_count": 0,
+      "unique_count": 0,
+      "sample_values": []
+    },
+    {
+      "name": "Year",
+      "normalized_name": "year",
+      "dtype": "object",
+      "non_null_count": 0,
+      "null_count": 0,
+      "unique_count": 0,
+      "sample_values": []
+    },
+    {
+      "name": "Specimen",
+      "normalized_name": "specimen",
+      "dtype": "object",
+      "non_null_count": 0,
+      "null_count": 0,
+      "unique_count": 0,
+      "sample_values": []
+    },
+    {
+      "name": "PathogenName",
+      "normalized_name": "pathogenname",
+      "dtype": "object",
+      "non_null_count": 0,
+      "null_count": 0,
+      "unique_count": 0,
+      "sample_values": []
+    },
+    {
+      "name": "AntibioticGroup",
+      "normalized_name": "antibioticgroup",
+      "dtype": "object",
+      "non_null_count": 0,
+      "null_count": 0,
+      "unique_count": 0,
+      "sample_values": []
+    },
+    {
+      "name": "NumSampledPatients",
+      "normalized_name": "numsampledpatients",
+      "dtype": "object",
+      "non_null_count": 0,
+      "null_count": 0,
+      "unique_count": 0,
+      "sample_values": []
+    },
+    {
+      "name": "TotalPathogenIsolates",
+      "normalized_name": "totalpathogenisolates",
+      "dtype": "object",
+      "non_null_count": 0,
+      "null_count": 0,
+      "unique_count": 0,
+      "sample_values": []
+    },
+    {
+      "name": "Resistant",
+      "normalized_name": "resistant",
+      "dtype": "object",
+      "non_null_count": 0,
+      "null_count": 0,
+      "unique_count": 0,
+      "sample_values": []
+    },
+    {
+      "name": "PercentFrequency",
+      "normalized_name": "percentfrequency",
+      "dtype": "object",
+      "non_null_count": 0,
+      "null_count": 0,
+      "unique_count": 0,
+      "sample_values": []
+    },
+    {
+      "name": "LowerLimit",
+      "normalized_name": "lowerlimit",
+      "dtype": "object",
+      "non_null_count": 0,
+      "null_count": 0,
+      "unique_count": 0,
+      "sample_values": []
+    },
+    {
+      "name": "UpperLimit",
+      "normalized_name": "upperlimit",
+      "dtype": "object",
+      "non_null_count": 0,
+      "null_count": 0,
+      "unique_count": 0,
+      "sample_values": []
+    }
+  ],
+  "numeric_summary": {},
+  "preview": [],
+  "extraction_status": "success"
+}
