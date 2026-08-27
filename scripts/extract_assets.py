@@ -1,21 +1,24 @@
 # ============================================================
-# AMR KNOWLEDGE ASSET EXTRACTOR
-# Version 1.1
-# ============================================================
+# AMR KNOWLEDGE ASSET EXTRACTOR — V2.1
 #
 # Purpose:
-#   Deterministically extract machine-readable content from:
-#
-#       knowledge/raw/
+#   Extract heterogeneous knowledge assets from knowledge/raw/
+#   into knowledge/extracted/
 #
 # Supported:
-#   CSV -> metadata-aware tabular extraction
-#   PDF -> page-aware text extraction
-#   OWL -> RDF / ontology extraction
+#   - CSV
+#   - PDF
+#   - OWL / RDF / XML
 #
-# IMPORTANT:
-#   knowledge/raw/ is NEVER modified.
-#
+# Design principles:
+#   - Never modify knowledge/raw/
+#   - Uses asset_inspection.json when available
+#   - Resolves paths against the real filesystem
+#   - Handles messy WHO CSV exports
+#   - Preserves extraction provenance
+#   - Produces one extraction manifest
+#   - Fails per asset, never the entire pipeline
+#   - JSON output is always serializable
 # ============================================================
 
 from __future__ import annotations
@@ -25,85 +28,69 @@ import hashlib
 import json
 import re
 import sys
+
 from datetime import datetime, timezone
 from pathlib import Path
-from typing import Any, Dict, List, Optional
-
-try:
-    import pandas as pd
-except ImportError:
-    pd = None
-
-try:
-    from pypdf import PdfReader
-except ImportError:
-    PdfReader = None
-
-try:
-    from rdflib import Graph, URIRef
-    from rdflib.namespace import RDF, OWL
-except ImportError:
-    Graph = None
-    URIRef = None
-    RDF = None
-    OWL = None
+from typing import Any, Dict, List, Optional, Tuple
 
 
 # ============================================================
 # PATHS
 # ============================================================
 
-ROOT = Path(__file__).resolve().parents[1]
+PROJECT_ROOT = Path(__file__).resolve().parents[1]
 
-RAW_DIR = ROOT / "knowledge" / "raw"
-METADATA_DIR = ROOT / "knowledge" / "metadata"
-OUTPUT_DIR = ROOT / "knowledge" / "extracted"
+RAW_DIR = PROJECT_ROOT / "knowledge" / "raw"
+METADATA_DIR = PROJECT_ROOT / "knowledge" / "metadata"
+EXTRACTED_DIR = PROJECT_ROOT / "knowledge" / "extracted"
 
 INSPECTION_FILE = METADATA_DIR / "asset_inspection.json"
-MANIFEST_FILE = OUTPUT_DIR / "extraction_manifest.json"
+MANIFEST_FILE = EXTRACTED_DIR / "extraction_manifest.json"
 
 
 # ============================================================
-# CONFIGURATION
+# CONSTANTS
 # ============================================================
 
-CSV_PREVIEW_ROWS = 10
-CSV_HEADER_SCAN_ROWS = 40
-PDF_MAX_CHARS_PER_PAGE = 100_000
-OWL_SAMPLE_LIMIT = 100
+SUPPORTED_FORMATS = {
+    ".csv": "csv",
+    ".pdf": "pdf",
+    ".owl": "owl",
+    ".rdf": "owl",
+    ".xml": "owl",
+}
 
-
-# ============================================================
-# TERMINAL HELPERS
-# ============================================================
+TEXT_ENCODINGS = [
+    "utf-8-sig",
+    "utf-8",
+    "cp1252",
+    "latin-1",
+]
 
 WIDTH = 70
 
 
-def line(char="─"):
+# ============================================================
+# CONSOLE HELPERS
+# ============================================================
+
+def line(char: str = "=") -> None:
     print(char * WIDTH)
 
 
-def header(text):
-    print()
-    line("=")
-    print(text)
-    line("=")
-
-
-def info(message):
+def info(message: str) -> None:
     print(f"  {message}")
 
 
-def success(message):
+def success(message: str) -> None:
     print(f"  ✓ {message}")
 
 
-def warning(message):
+def warning(message: str) -> None:
     print(f"  ⚠ {message}")
 
 
-def error(message):
+def error(message: str) -> None:
     print(f"  ✗ {message}")
 
 
@@ -115,876 +102,1210 @@ def utc_now() -> str:
     return datetime.now(timezone.utc).isoformat()
 
 
-def relative_to_root(path: Path) -> str:
-    try:
-        return str(path.relative_to(ROOT)).replace("\\", "/")
-    except ValueError:
-        return str(path).replace("\\", "/")
-
-
-def safe_filename(path: Path) -> str:
-
-    name = path.stem
-
-    name = re.sub(r"[^\w\-]+", "_", name)
-    name = re.sub(r"_+", "_", name)
-
-    return name.strip("_").lower()
-
-
 def sha256_file(path: Path) -> str:
-
     digest = hashlib.sha256()
 
-    with path.open("rb") as f:
-        for chunk in iter(lambda: f.read(1024 * 1024), b""):
+    with path.open("rb") as file:
+        for chunk in iter(
+            lambda: file.read(1024 * 1024),
+            b"",
+        ):
             digest.update(chunk)
 
     return digest.hexdigest()
 
 
-def ensure_output_dirs():
-
-    (OUTPUT_DIR / "csv").mkdir(
-        parents=True,
-        exist_ok=True
-    )
-
-    (OUTPUT_DIR / "pdf").mkdir(
-        parents=True,
-        exist_ok=True
-    )
-
-    (OUTPUT_DIR / "owl").mkdir(
-        parents=True,
-        exist_ok=True
-    )
-
-
-# ============================================================
-# INSPECTION REPORT
-# ============================================================
-
-def load_inspection_report():
-
-    if not INSPECTION_FILE.exists():
-
-        raise FileNotFoundError(
-            f"Inspection report not found:\n"
-            f"{INSPECTION_FILE}\n\n"
-            f"Run inspect_assets.py first."
-        )
-
-    with INSPECTION_FILE.open(
-        "r",
-        encoding="utf-8"
-    ) as f:
-
-        return json.load(f)
-
-
-# ============================================================
-# CSV UTILITIES
-# ============================================================
-
-def detect_encoding(path: Path) -> str:
-
-    encodings = [
-        "utf-8-sig",
-        "utf-8",
-        "cp1252",
-        "latin-1",
-    ]
-
-    for encoding in encodings:
-
-        try:
-
-            with path.open(
-                "r",
-                encoding=encoding
-            ) as f:
-
-                f.read(20_000)
-
-            return encoding
-
-        except UnicodeDecodeError:
-            continue
-
-    return "latin-1"
-
-
-def read_sample_lines(
-    path: Path,
-    encoding: str,
-    max_lines: int = CSV_HEADER_SCAN_ROWS
-) -> List[str]:
-
-    with path.open(
-        "r",
-        encoding=encoding,
-        errors="replace"
-    ) as f:
-
-        lines = []
-
-        for _ in range(max_lines):
-
-            line_value = f.readline()
-
-            if not line_value:
-                break
-
-            lines.append(
-                line_value.rstrip("\n\r")
-            )
-
-    return lines
-
-
-def detect_delimiter_from_lines(
-    lines: List[str]
-) -> str:
-
-    candidates = [
-        ",",
-        ";",
-        "\t",
-        "|",
-    ]
-
-    best_delimiter = ","
-    best_score = -1
-
-    for delimiter in candidates:
-
-        counts = []
-
-        for line_value in lines:
-
-            if not line_value.strip():
-                continue
-
-            try:
-
-                parsed = next(
-                    csv.reader(
-                        [line_value],
-                        delimiter=delimiter
-                    )
-                )
-
-                counts.append(len(parsed))
-
-            except Exception:
-                continue
-
-        if not counts:
-            continue
-
-        # A real table delimiter should consistently
-        # produce multiple columns.
-        multi_column = sum(
-            1 for count in counts
-            if count > 1
-        )
-
-        consistency = (
-            len(set(counts))
-            if counts
-            else 999
-        )
-
-        score = (
-            multi_column * 10
-            - consistency
-        )
-
-        if score > best_score:
-
-            best_score = score
-            best_delimiter = delimiter
-
-    return best_delimiter
-
-
-def normalize_text(value: Any) -> str:
-
-    if value is None:
-        return ""
-
+def safe_filename(value: str) -> str:
     value = str(value)
 
-    value = value.replace("\ufeff", "")
-    value = value.replace("\xa0", " ")
+    value = re.sub(
+        r'[<>:"/\\|?*]',
+        "_",
+        value,
+    )
 
     value = re.sub(
         r"\s+",
-        " ",
-        value
-    )
-
-    return value.strip()
-
-
-def clean_column_name(column: Any) -> str:
-
-    value = normalize_text(column)
-
-    value = re.sub(
-        r"[^\w]+",
         "_",
-        value
+        value,
     )
 
     value = re.sub(
         r"_+",
         "_",
-        value
+        value,
     )
 
-    return value.strip("_").lower()
+    return value.strip("._") or "asset"
 
 
-def looks_like_metadata_line(
-    parsed: List[str]
-) -> bool:
+def repo_relative(path: Path) -> str:
+    """
+    Convert a path into a repository-relative POSIX-style path.
+    """
 
-    if not parsed:
-        return True
+    try:
+        relative = path.resolve().relative_to(
+            PROJECT_ROOT.resolve()
+        )
+        return relative.as_posix()
 
-    non_empty = [
-        x for x in parsed
-        if normalize_text(x)
-    ]
-
-    return len(non_empty) <= 1
+    except ValueError:
+        return str(path)
 
 
-def score_header_candidate(
-    parsed: List[str],
-    line_number: int
+def json_safe(value: Any) -> Any:
+    """
+    Recursively convert non-JSON-native values into
+    JSON-safe representations.
+    """
+
+    if isinstance(value, Path):
+        return str(value)
+
+    if isinstance(value, dict):
+        return {
+            str(key): json_safe(val)
+            for key, val in value.items()
+        }
+
+    if isinstance(value, (list, tuple, set)):
+        return [
+            json_safe(item)
+            for item in value
+        ]
+
+    return value
+
+
+def write_json(
+    path: Path,
+    data: Any,
+) -> None:
+
+    path = Path(path)
+
+    path.parent.mkdir(
+        parents=True,
+        exist_ok=True,
+    )
+
+    with path.open(
+        "w",
+        encoding="utf-8",
+    ) as file:
+
+        json.dump(
+            json_safe(data),
+            file,
+            indent=2,
+            ensure_ascii=False,
+        )
+
+        file.write("\n")
+
+
+# ============================================================
+# INSPECTION MANIFEST
+# ============================================================
+
+def load_inspection_manifest() -> Any:
+    """
+    Load asset_inspection.json.
+
+    The extractor can technically operate without inspection
+    metadata because knowledge/raw/ is authoritative, but when
+    the inspection file exists we use it for provenance.
+    """
+
+    if not INSPECTION_FILE.exists():
+        warning(
+            "asset_inspection.json not found."
+        )
+
+        warning(
+            "Continuing using knowledge/raw/ discovery."
+        )
+
+        return {}
+
+    with INSPECTION_FILE.open(
+        "r",
+        encoding="utf-8",
+    ) as file:
+
+        inspection = json.load(file)
+
+    success(
+        "asset_inspection.json loaded"
+    )
+
+    return inspection
+
+
+# ============================================================
+# RAW FILE DISCOVERY
+# ============================================================
+
+def collect_raw_files() -> List[Path]:
+    """
+    Discover supported files physically present under
+    knowledge/raw/.
+
+    The filesystem is authoritative.
+    """
+
+    if not RAW_DIR.exists():
+        raise FileNotFoundError(
+            f"Raw directory does not exist: {RAW_DIR}"
+        )
+
+    files: List[Path] = []
+
+    for path in RAW_DIR.rglob("*"):
+
+        if not path.is_file():
+            continue
+
+        if path.name.startswith("~$"):
+            continue
+
+        if path.suffix.lower() not in SUPPORTED_FORMATS:
+            continue
+
+        files.append(path)
+
+    return sorted(
+        files,
+        key=lambda p: str(p).lower(),
+    )
+
+
+# ============================================================
+# INSPECTION RECORD NORMALIZATION
+# ============================================================
+
+def flatten_inspection_records(
+    inspection: Any,
+) -> List[Dict[str, Any]]:
+    """
+    Convert multiple possible inspection manifest structures
+    into a simple list of asset dictionaries.
+
+    Supported examples:
+
+        {
+            "assets": [...]
+        }
+
+        {
+            "files": [...]
+        }
+
+        {
+            "assets": {
+                "asset_id": {...}
+            }
+        }
+
+        [...]
+    """
+
+    records: List[Dict[str, Any]] = []
+
+    if isinstance(
+        inspection,
+        list,
+    ):
+
+        for item in inspection:
+
+            if isinstance(
+                item,
+                dict,
+            ):
+                records.append(item)
+
+        return records
+
+    if not isinstance(
+        inspection,
+        dict,
+    ):
+        return records
+
+    # --------------------------------------------------------
+    # Preferred containers
+    # --------------------------------------------------------
+
+    for container_key in (
+        "assets",
+        "files",
+        "records",
+        "inspection",
+        "items",
+        "results",
+    ):
+
+        container = inspection.get(
+            container_key
+        )
+
+        if isinstance(
+            container,
+            list,
+        ):
+
+            for item in container:
+
+                if isinstance(
+                    item,
+                    dict,
+                ):
+                    records.append(item)
+
+            if records:
+                return records
+
+        elif isinstance(
+            container,
+            dict,
+        ):
+
+            for key, value in container.items():
+
+                if isinstance(
+                    value,
+                    dict,
+                ):
+
+                    record = dict(value)
+
+                    if "id" not in record:
+                        record["id"] = key
+
+                    records.append(record)
+
+            if records:
+                return records
+
+    # --------------------------------------------------------
+    # Generic dictionary-of-assets
+    # --------------------------------------------------------
+
+    for key, value in inspection.items():
+
+        if not isinstance(
+            value,
+            dict,
+        ):
+            continue
+
+        possible_file = any(
+            field in value
+            for field in (
+                "path",
+                "file",
+                "filename",
+                "filepath",
+                "relative_path",
+                "source_path",
+                "raw_path",
+                "local_path",
+            )
+        )
+
+        if possible_file:
+
+            record = dict(value)
+
+            if "id" not in record:
+                record["id"] = key
+
+            records.append(record)
+
+    return records
+
+
+# ============================================================
+# PATH NORMALIZATION
+# ============================================================
+
+def normalize_relative_path(
+    value: str,
+) -> str:
+    """
+    Normalize Windows / POSIX paths.
+    """
+
+    value = str(value).strip()
+
+    value = value.replace(
+        "\\",
+        "/",
+    )
+
+    return value
+
+
+def candidate_path_values(
+    asset: Dict[str, Any],
+) -> List[str]:
+    """
+    Extract all likely path fields from an inspection record.
+    """
+
+    candidates: List[str] = []
+
+    for key in (
+        "path",
+        "file",
+        "filename",
+        "filepath",
+        "relative_path",
+        "source_path",
+        "raw_path",
+        "local_path",
+    ):
+
+        value = asset.get(key)
+
+        if isinstance(
+            value,
+            str,
+        ) and value.strip():
+
+            candidates.append(
+                value.strip()
+            )
+
+    return candidates
+
+
+# ============================================================
+# ASSET PATH RESOLUTION
+# ============================================================
+
+def resolve_asset_path(
+    asset: Dict[str, Any],
+    raw_files: List[Path],
+) -> Optional[Path]:
+    """
+    Resolve an inspection record to an actual raw file.
+
+    Resolution order:
+
+      1. Absolute path
+      2. Project-relative path
+      3. Raw-relative path
+      4. knowledge/raw/... stripped path
+      5. Filename match
+      6. Asset ID / name match
+    """
+
+    candidates = candidate_path_values(
+        asset
+    )
+
+    # --------------------------------------------------------
+    # Direct path matching
+    # --------------------------------------------------------
+
+    for candidate in candidates:
+
+        normalized = normalize_relative_path(
+            candidate
+        )
+
+        candidate_path = Path(
+            candidate
+        )
+
+        # Absolute path
+        if (
+            candidate_path.is_absolute()
+            and candidate_path.exists()
+            and candidate_path.is_file()
+        ):
+            return candidate_path.resolve()
+
+        # Project-relative
+        project_candidate = (
+            PROJECT_ROOT / normalized
+        )
+
+        if (
+            project_candidate.exists()
+            and project_candidate.is_file()
+        ):
+            return project_candidate.resolve()
+
+        # Raw-relative
+        raw_candidate = (
+            RAW_DIR / normalized
+        )
+
+        if (
+            raw_candidate.exists()
+            and raw_candidate.is_file()
+        ):
+            return raw_candidate.resolve()
+
+        # Strip common prefixes
+        stripped = normalized
+
+        prefixes = (
+            "knowledge/raw/",
+            "knowledge/raw",
+            "raw/",
+            "raw",
+        )
+
+        lowered = stripped.lower()
+
+        for prefix in prefixes:
+
+            if lowered.startswith(
+                prefix.lower()
+            ):
+
+                stripped = stripped[
+                    len(prefix):
+                ].lstrip("/")
+
+                break
+
+        raw_candidate = (
+            RAW_DIR / stripped
+        )
+
+        if (
+            raw_candidate.exists()
+            and raw_candidate.is_file()
+        ):
+            return raw_candidate.resolve()
+
+    # --------------------------------------------------------
+    # Filename matching
+    # --------------------------------------------------------
+
+    filenames = []
+
+    for candidate in candidates:
+
+        normalized = normalize_relative_path(
+            candidate
+        )
+
+        filenames.append(
+            Path(normalized).name.lower()
+        )
+
+    for filename in filenames:
+
+        matches = [
+            path
+            for path in raw_files
+            if path.name.lower() == filename
+        ]
+
+        if len(matches) == 1:
+            return matches[0].resolve()
+
+    # --------------------------------------------------------
+    # Asset ID / name matching
+    # --------------------------------------------------------
+
+    identifiers: List[str] = []
+
+    for key in (
+        "id",
+        "asset_id",
+        "name",
+        "asset_name",
+    ):
+
+        value = asset.get(key)
+
+        if isinstance(
+            value,
+            str,
+        ) and value.strip():
+
+            identifiers.append(
+                safe_filename(
+                    value
+                ).lower()
+            )
+
+    for identifier in identifiers:
+
+        # Exact stem match
+        exact = [
+            path
+            for path in raw_files
+            if safe_filename(
+                path.stem
+            ).lower() == identifier
+        ]
+
+        if len(exact) == 1:
+            return exact[0].resolve()
+
+        # Partial match
+        partial = [
+            path
+            for path in raw_files
+            if (
+                identifier
+                in safe_filename(
+                    path.stem
+                ).lower()
+            )
+            or (
+                safe_filename(
+                    path.stem
+                ).lower()
+                in identifier
+            )
+        ]
+
+        if len(partial) == 1:
+            return partial[0].resolve()
+
+    return None
+
+
+# ============================================================
+# BUILD ASSET RECORDS
+# ============================================================
+
+def build_asset_records(
+    inspection: Any,
+    raw_files: List[Path],
+) -> List[Dict[str, Any]]:
+    """
+    Build the definitive extraction asset list.
+
+    Inspection metadata provides IDs/provenance.
+
+    knowledge/raw/ provides the authoritative physical files.
+
+    If inspection metadata is incomplete, raw files are added
+    automatically.
+    """
+
+    inspection_records = flatten_inspection_records(
+        inspection
+    )
+
+    resolved_records: List[
+        Dict[str, Any]
+    ] = []
+
+    # --------------------------------------------------------
+    # Inspection-driven resolution
+    # --------------------------------------------------------
+
+    for record in inspection_records:
+
+        path = resolve_asset_path(
+            record,
+            raw_files,
+        )
+
+        if path is None:
+            continue
+
+        normalized = dict(record)
+
+        normalized["_resolved_path"] = str(
+            path
+        )
+
+        resolved_records.append(
+            normalized
+        )
+
+    # --------------------------------------------------------
+    # Add files not represented in inspection metadata
+    # --------------------------------------------------------
+
+    represented = {
+        Path(
+            record["_resolved_path"]
+        ).resolve()
+        for record in resolved_records
+    }
+
+    for path in raw_files:
+
+        resolved_path = path.resolve()
+
+        if resolved_path in represented:
+            continue
+
+        resolved_records.append(
+            {
+                "id": safe_filename(
+                    path.stem
+                ),
+                "name": path.name,
+                "_resolved_path": str(
+                    resolved_path
+                ),
+                "inspection_fallback": True,
+            }
+        )
+
+    # --------------------------------------------------------
+    # Stable ordering
+    # --------------------------------------------------------
+
+    resolved_records.sort(
+        key=lambda record: str(
+            record["_resolved_path"]
+        ).lower()
+    )
+
+    return resolved_records
+
+
+# ============================================================
+# CSV HELPERS
+# ============================================================
+
+def read_text_with_encoding(
+    path: Path,
+) -> Tuple[str, str]:
+    """
+    Try common encodings used by downloaded datasets.
+    """
+
+    last_error: Optional[
+        UnicodeDecodeError
+    ] = None
+
+    for encoding in TEXT_ENCODINGS:
+
+        try:
+
+            with path.open(
+                "r",
+                encoding=encoding,
+                errors="strict",
+            ) as file:
+
+                return (
+                    file.read(),
+                    encoding,
+                )
+
+        except UnicodeDecodeError as exc:
+            last_error = exc
+
+    raise UnicodeDecodeError(
+        "unknown",
+        b"",
+        0,
+        1,
+        (
+            f"Could not decode {path}: "
+            f"{last_error}"
+        ),
+    )
+
+
+def detect_delimiter(
+    lines: List[str],
+) -> str:
+    """
+    Detect CSV delimiter from the file contents.
+
+    WHO exports may contain metadata before the actual table.
+    """
+
+    sample = "\n".join(
+        lines[:100]
+    )
+
+    try:
+
+        dialect = csv.Sniffer().sniff(
+            sample,
+            delimiters=",;\t|",
+        )
+
+        return dialect.delimiter
+
+    except csv.Error:
+
+        candidates = {
+            ",": 0,
+            ";": 0,
+            "\t": 0,
+            "|": 0,
+        }
+
+        for line_text in lines[:50]:
+
+            for delimiter in candidates:
+
+                candidates[delimiter] += (
+                    line_text.count(
+                        delimiter
+                    )
+                )
+
+        return max(
+            candidates,
+            key=candidates.get,
+        )
+
+
+def score_header(
+    row: List[str],
 ) -> float:
+    """
+    Score how likely a row is a real table header.
+    """
 
-    if len(parsed) < 2:
-        return -100.0
-
-    values = [
-        normalize_text(x)
-        for x in parsed
-    ]
+    if not row:
+        return 0.0
 
     values = [
-        x for x in values
-        if x
+        str(value).strip()
+        for value in row
     ]
 
-    if len(values) < 2:
-        return -100.0
+    nonempty = [
+        value
+        for value in values
+        if value
+    ]
+
+    if len(nonempty) < 2:
+        return 0.0
 
     score = 0.0
 
     # --------------------------------------------------------
-    # More columns = more likely to be the table
+    # Column count
     # --------------------------------------------------------
 
-    if len(values) >= 3:
-        score += 15
+    if len(nonempty) >= 3:
+        score += 2
 
-    if len(values) >= 5:
-        score += 10
-
-    if len(values) >= 8:
-        score += 5
+    if len(nonempty) >= 5:
+        score += 2
 
     # --------------------------------------------------------
-    # Header-like vocabulary
+    # Header vocabulary
     # --------------------------------------------------------
 
-    header_keywords = {
+    header_words = (
         "country",
-        "region",
         "year",
-        "date",
         "pathogen",
-        "bacteria",
-        "bacterial",
         "antibiotic",
-        "antibiotics",
-        "drug",
         "resistance",
-        "resistant",
         "infection",
         "specimen",
-        "isolate",
-        "percentage",
-        "percent",
-        "frequency",
-        "testing",
-        "coverage",
         "indicator",
         "value",
         "rate",
-        "group",
-        "sex",
-        "age",
-        "origin",
+        "percentage",
+        "percent",
+        "blood",
+        "bacteria",
+        "drug",
         "organism",
-    }
+        "age",
+        "sex",
+        "origin",
+        "region",
+        "testing",
+        "coverage",
+        "isolates",
+    )
 
-    for value in values:
+    joined = " ".join(
+        value.lower()
+        for value in nonempty
+    )
 
-        lowered = value.lower()
+    for word in header_words:
 
-        for keyword in header_keywords:
-
-            if keyword in lowered:
-
-                score += 4
-                break
-
-    # --------------------------------------------------------
-    # Headers tend to be relatively short
-    # --------------------------------------------------------
-
-    average_length = sum(
-        len(x)
-        for x in values
-    ) / len(values)
-
-    if average_length < 60:
-        score += 5
-
-    if average_length < 35:
-        score += 5
+        if word in joined:
+            score += 1
 
     # --------------------------------------------------------
-    # Metadata often appears before the table.
-    #
-    # A candidate very early in the file is slightly
-    # penalized so that a descriptive row isn't mistaken
-    # for the actual table.
+    # Headers should not be huge prose blocks
     # --------------------------------------------------------
 
-    if line_number <= 2:
+    average_length = (
+        sum(
+            len(value)
+            for value in nonempty
+        )
+        / len(nonempty)
+    )
+
+    if average_length < 80:
+        score += 1
+
+    # --------------------------------------------------------
+    # Penalize rows that look like ordinary prose
+    # --------------------------------------------------------
+
+    if len(nonempty) == 1:
         score -= 5
 
     return score
 
 
 def detect_header_row(
-    lines: List[str],
-    delimiter: str
-) -> Dict[str, Any]:
+    rows: List[List[str]],
+) -> Optional[int]:
+    """
+    Search the first 100 rows for the most likely header.
+    """
 
-    candidates = []
+    best_index: Optional[int] = None
+    best_score = 0.0
 
-    for index, line_value in enumerate(
-        lines
+    for index, row in enumerate(
+        rows[:100]
     ):
 
-        if not line_value.strip():
-            continue
-
-        try:
-
-            parsed = next(
-                csv.reader(
-                    [line_value],
-                    delimiter=delimiter
-                )
-            )
-
-        except Exception:
-            continue
-
-        score = score_header_candidate(
-            parsed,
-            index + 1
+        score = score_header(
+            row
         )
 
-        if score > -50:
+        if score > best_score:
 
-            candidates.append(
-                {
-                    "line_number": index + 1,
-                    "score": score,
-                    "columns": [
-                        normalize_text(x)
-                        for x in parsed
-                    ],
-                }
-            )
+            best_score = score
+            best_index = index
 
-    if not candidates:
-
-        return {
-            "found": False,
-            "line_number": None,
-            "score": None,
-            "columns": [],
-        }
-
-    candidates.sort(
-        key=lambda x: x["score"],
-        reverse=True
-    )
-
-    best = candidates[0]
-
-    return {
-        "found": True,
-        "line_number": best["line_number"],
-        "score": best["score"],
-        "columns": best["columns"],
-        "candidates": candidates[:10],
-    }
+    return best_index
 
 
-def extract_csv(path: Path) -> Dict[str, Any]:
+# ============================================================
+# CSV EXTRACTION
+# ============================================================
 
-    if pd is None:
+def extract_csv(
+    source: Path,
+    output_dir: Path,
+) -> Dict[str, Any]:
 
-        raise RuntimeError(
-            "pandas is required for CSV extraction.\n"
-            "Install with:\n"
-            "python -m pip install pandas"
+    text, encoding = (
+        read_text_with_encoding(
+            source
         )
-
-    encoding = detect_encoding(path)
-
-    lines = read_sample_lines(
-        path,
-        encoding
     )
+
+    lines = text.splitlines()
+
+    # --------------------------------------------------------
+    # Empty file handling
+    # --------------------------------------------------------
 
     if not lines:
 
-        raise RuntimeError(
-            "CSV file is empty."
+        output_name = (
+            safe_filename(
+                source.stem
+            )
+            + ".json"
         )
 
-    delimiter = detect_delimiter_from_lines(
+        output_path = (
+            output_dir / output_name
+        )
+
+        result = {
+            "asset_type": "csv",
+            "source_file": repo_relative(
+                source
+            ),
+            "encoding": encoding,
+            "delimiter": None,
+            "header_row": None,
+            "columns": [],
+            "row_count": 0,
+            "records": [],
+            "empty_source": True,
+            "extracted_at": utc_now(),
+        }
+
+        write_json(
+            output_path,
+            result,
+        )
+
+        return {
+            "output": output_path,
+            "format": "csv",
+            "header_row": None,
+            "rows": 0,
+            "columns": 0,
+            "encoding": encoding,
+            "delimiter": None,
+            "empty_source": True,
+        }
+
+    # --------------------------------------------------------
+    # Delimiter
+    # --------------------------------------------------------
+
+    delimiter = detect_delimiter(
         lines
     )
 
-    header_info = detect_header_row(
+    # --------------------------------------------------------
+    # Parse rows
+    # --------------------------------------------------------
+
+    reader = csv.reader(
         lines,
-        delimiter
+        delimiter=delimiter,
     )
 
-    if not header_info["found"]:
+    rows = list(reader)
 
-        raise RuntimeError(
+    if not rows:
+
+        raise ValueError(
+            "CSV contained no readable rows."
+        )
+
+    # --------------------------------------------------------
+    # Detect header
+    # --------------------------------------------------------
+
+    header_index = detect_header_row(
+        rows
+    )
+
+    if header_index is None:
+
+        # A completely empty / metadata-only CSV
+        # should still produce an extraction artifact.
+
+        nonempty_rows = [
+            row
+            for row in rows
+            if any(
+                str(cell).strip()
+                for cell in row
+            )
+        ]
+
+        if not nonempty_rows:
+
+            output_name = (
+                safe_filename(
+                    source.stem
+                )
+                + ".json"
+            )
+
+            output_path = (
+                output_dir / output_name
+            )
+
+            result = {
+                "asset_type": "csv",
+                "source_file": repo_relative(
+                    source
+                ),
+                "encoding": encoding,
+                "delimiter": delimiter,
+                "header_row": None,
+                "columns": [],
+                "row_count": 0,
+                "records": [],
+                "empty_source": True,
+                "extracted_at": utc_now(),
+            }
+
+            write_json(
+                output_path,
+                result,
+            )
+
+            return {
+                "output": output_path,
+                "format": "csv",
+                "header_row": None,
+                "rows": 0,
+                "columns": 0,
+                "encoding": encoding,
+                "delimiter": delimiter,
+                "empty_source": True,
+            }
+
+        raise ValueError(
             "Could not identify a table header."
         )
 
-    header_line = header_info["line_number"]
-
-    # pandas skiprows is zero-based.
-    skiprows = header_line - 1
-
     # --------------------------------------------------------
-    # Read actual table
+    # Header
     # --------------------------------------------------------
 
-    try:
-
-        df = pd.read_csv(
-            path,
-            encoding=encoding,
-            sep=delimiter,
-            skiprows=skiprows,
-            low_memory=False,
-        )
-
-    except Exception as exc:
-
-        # ----------------------------------------------------
-        # Fallback to Python engine.
-        #
-        # The Python parser is slower but considerably more
-        # forgiving of irregular public datasets.
-        # ----------------------------------------------------
-
-        try:
-
-            df = pd.read_csv(
-                path,
-                encoding=encoding,
-                sep=delimiter,
-                skiprows=skiprows,
-                engine="python",
-                on_bad_lines="warn",
-            )
-
-        except Exception as fallback_exc:
-
-            raise RuntimeError(
-                f"Could not read CSV after header detection.\n"
-                f"Primary parser: {exc}\n"
-                f"Fallback parser: {fallback_exc}"
-            ) from fallback_exc
-
-    # --------------------------------------------------------
-    # Clean columns
-    # --------------------------------------------------------
-
-    original_columns = [
-        str(column)
-        for column in df.columns
+    header = [
+        str(value).strip()
+        for value in rows[
+            header_index
+        ]
     ]
 
-    normalized_columns = [
-        clean_column_name(column)
-        for column in df.columns
+    # --------------------------------------------------------
+    # Data rows
+    # --------------------------------------------------------
+
+    data_rows = rows[
+        header_index + 1:
     ]
 
-    # Prevent duplicate normalized column names.
-    seen = {}
-
-    final_columns = []
-
-    for column in normalized_columns:
-
-        if column not in seen:
-
-            seen[column] = 0
-            final_columns.append(column)
-
-        else:
-
-            seen[column] += 1
-
-            final_columns.append(
-                f"{column}_{seen[column]}"
-            )
-
-    df.columns = final_columns
-
-    # --------------------------------------------------------
-    # Remove completely empty rows
-    # --------------------------------------------------------
-
-    before_rows = len(df)
-
-    df = df.dropna(
-        how="all"
-    ).reset_index(
-        drop=True
-    )
-
-    removed_empty_rows = (
-        before_rows - len(df)
-    )
-
-    # --------------------------------------------------------
-    # Column metadata
-    # --------------------------------------------------------
-
-    columns = []
-
-    for original, normalized in zip(
-        original_columns,
-        final_columns
-    ):
-
-        series = df[normalized]
-
-        sample_values = (
-            series
-            .dropna()
-            .astype(str)
-            .head(5)
-            .tolist()
+    data_rows = [
+        row
+        for row in data_rows
+        if any(
+            str(cell).strip()
+            for cell in row
         )
-
-        columns.append(
-            {
-                "name": original,
-                "normalized_name": normalized,
-                "dtype": str(series.dtype),
-                "non_null_count": int(
-                    series.notna().sum()
-                ),
-                "null_count": int(
-                    series.isna().sum()
-                ),
-                "unique_count": int(
-                    series.nunique(
-                        dropna=True
-                    )
-                ),
-                "sample_values": sample_values,
-            }
-        )
-
-    # --------------------------------------------------------
-    # Numeric summary
-    # --------------------------------------------------------
-
-    numeric_summary = {}
-
-    for column in df.columns:
-
-        if pd.api.types.is_numeric_dtype(
-            df[column]
-        ):
-
-            series = pd.to_numeric(
-                df[column],
-                errors="coerce"
-            )
-
-            numeric_summary[column] = {
-                "min": safe_number(
-                    series.min()
-                ),
-                "max": safe_number(
-                    series.max()
-                ),
-                "mean": safe_number(
-                    series.mean()
-                ),
-                "median": safe_number(
-                    series.median()
-                ),
-            }
-
-    # --------------------------------------------------------
-    # Preview
-    # --------------------------------------------------------
-
-    preview_df = df.head(
-        CSV_PREVIEW_ROWS
-    )
-
-    preview = json.loads(
-        preview_df.to_json(
-            orient="records",
-            date_format="iso"
-        )
-    )
-
-    # --------------------------------------------------------
-    # Preserve metadata preceding header
-    # --------------------------------------------------------
-
-    metadata_lines = lines[
-        :header_line - 1
     ]
 
-    metadata_lines = [
-        normalize_text(x)
-        for x in metadata_lines
-        if normalize_text(x)
-    ]
-
-    metadata = {
-        "lines_before_header": len(
-            metadata_lines
-        ),
-        "raw_lines": metadata_lines,
-    }
-
     # --------------------------------------------------------
-    # Write normalized CSV
+    # Normalize row widths
     # --------------------------------------------------------
 
-    output_stem = safe_filename(path)
+    width = len(header)
 
-    output_csv = (
-        OUTPUT_DIR
-        / "csv"
-        / f"{output_stem}.csv"
-    )
+    normalized_rows = []
 
-    output_metadata = (
-        OUTPUT_DIR
-        / "csv"
-        / f"{output_stem}.metadata.json"
-    )
+    for row in data_rows:
 
-    df.to_csv(
-        output_csv,
-        index=False,
-        encoding="utf-8"
-    )
+        if len(row) < width:
 
-    extraction_metadata = {
-
-        "format": "csv",
-
-        "source_file": relative_to_root(
-            path
-        ),
-
-        "output_file": relative_to_root(
-            output_csv
-        ),
-
-        "metadata_file": relative_to_root(
-            output_metadata
-        ),
-
-        "encoding": encoding,
-
-        "delimiter": delimiter,
-
-        "header_detection": {
-            "header_line": header_line,
-            "header_score": header_info["score"],
-            "candidate_headers": (
-                header_info.get(
-                    "candidates",
-                    []
+            row = row + (
+                [""] * (
+                    width - len(row)
                 )
-            ),
-        },
+            )
 
-        "metadata_before_table": metadata,
+        elif len(row) > width:
 
-        "row_count": int(len(df)),
+            row = row[:width]
 
-        "column_count": int(
-            len(df.columns)
+        normalized_rows.append(
+            row
+        )
+
+    # --------------------------------------------------------
+    # Build records
+    # --------------------------------------------------------
+
+    records = []
+
+    for row in normalized_rows:
+
+        record: Dict[str, Any] = {}
+
+        for index in range(width):
+
+            column_name = (
+                header[index]
+                or f"column_{index + 1}"
+            )
+
+            record[
+                column_name
+            ] = row[index]
+
+        records.append(
+            record
+        )
+
+    # --------------------------------------------------------
+    # Output
+    # --------------------------------------------------------
+
+    output_name = (
+        safe_filename(
+            source.stem
+        )
+        + ".json"
+    )
+
+    output_path = (
+        output_dir / output_name
+    )
+
+    result = {
+        "asset_type": "csv",
+        "source_file": repo_relative(
+            source
         ),
-
-        "removed_empty_rows": (
-            removed_empty_rows
-        ),
-
-        "columns": columns,
-
-        "numeric_summary": numeric_summary,
-
-        "preview": preview,
-
-        "extraction_status": "success",
+        "source_size_bytes": source.stat().st_size,
+        "encoding": encoding,
+        "delimiter": delimiter,
+        "header_row": header_index,
+        "columns": header,
+        "row_count": len(records),
+        "records": records,
+        "extracted_at": utc_now(),
     }
 
-    with output_metadata.open(
-        "w",
-        encoding="utf-8"
-    ) as f:
-
-        json.dump(
-            extraction_metadata,
-            f,
-            indent=2,
-            ensure_ascii=False
-        )
+    write_json(
+        output_path,
+        result,
+    )
 
     return {
+        "output": output_path,
         "format": "csv",
-
-        "source_file": relative_to_root(
-            path
-        ),
-
-        "output_file": relative_to_root(
-            output_csv
-        ),
-
-        "metadata_file": relative_to_root(
-            output_metadata
-        ),
-
+        "header_row": header_index,
+        "rows": len(records),
+        "columns": len(header),
         "encoding": encoding,
-
         "delimiter": delimiter,
-
-        "header_line": header_line,
-
-        "header_score": header_info["score"],
-
-        "row_count": int(len(df)),
-
-        "column_count": int(
-            len(df.columns)
-        ),
-
-        "extraction_status": "success",
     }
-
-
-def safe_number(value):
-
-    if pd is None:
-        return value
-
-    try:
-
-        if pd.isna(value):
-            return None
-
-    except Exception:
-        pass
-
-    try:
-        return float(value)
-
-    except Exception:
-        return value
 
 
 # ============================================================
 # PDF EXTRACTION
 # ============================================================
 
-def clean_pdf_text(text: str) -> str:
+def extract_pdf(
+    source: Path,
+    output_dir: Path,
+) -> Dict[str, Any]:
 
-    if not text:
-        return ""
+    try:
 
-    text = text.replace(
-        "\r\n",
-        "\n"
-    )
+        from pypdf import PdfReader
 
-    text = text.replace(
-        "\r",
-        "\n"
-    )
-
-    text = re.sub(
-        r"[ \t]+",
-        " ",
-        text
-    )
-
-    text = re.sub(
-        r"\n{3,}",
-        "\n\n",
-        text
-    )
-
-    return text.strip()
-
-
-def extract_pdf(path: Path):
-
-    if PdfReader is None:
+    except ImportError as exc:
 
         raise RuntimeError(
-            "pypdf is required for PDF extraction.\n"
-            "Install with:\n"
+            "pypdf is required for PDF extraction. "
+            "Install with: "
             "python -m pip install pypdf"
-        )
+        ) from exc
 
     reader = PdfReader(
-        str(path)
+        str(source)
     )
 
-    page_records = []
-
+    pages = []
     total_characters = 0
-    pages_with_text = 0
 
     for page_number, page in enumerate(
         reader.pages,
-        start=1
+        start=1,
     ):
 
         try:
@@ -998,356 +1319,151 @@ def extract_pdf(path: Path):
 
             warning(
                 f"page {page_number}: "
-                f"extraction failed: {exc}"
+                f"text extraction warning: "
+                f"{exc}"
             )
 
             text = ""
 
-        text = clean_pdf_text(
+        total_characters += len(
             text
         )
 
-        if text:
-            pages_with_text += 1
-
-        total_characters += len(text)
-
-        if len(text) > PDF_MAX_CHARS_PER_PAGE:
-
-            text = text[
-                :PDF_MAX_CHARS_PER_PAGE
-            ]
-
-        page_records.append(
+        pages.append(
             {
                 "page": page_number,
-                "character_count": len(text),
-                "has_text": bool(text),
                 "text": text,
+                "characters": len(text),
             }
         )
 
     output_name = (
-        safe_filename(path)
+        safe_filename(
+            source.stem
+        )
         + ".json"
     )
 
     output_path = (
-        OUTPUT_DIR
-        / "pdf"
-        / output_name
+        output_dir / output_name
     )
 
     result = {
-
-        "format": "pdf",
-
-        "source_file": relative_to_root(
-            path
+        "asset_type": "pdf",
+        "source_file": repo_relative(
+            source
         ),
-
-        "output_file": relative_to_root(
-            output_path
-        ),
-
+        "source_size_bytes": source.stat().st_size,
         "page_count": len(
             reader.pages
         ),
-
-        "pages_with_text": (
-            pages_with_text
-        ),
-
-        "total_characters": (
-            total_characters
-        ),
-
-        "pages": page_records,
-
-        "extraction_status": "success",
+        "character_count": total_characters,
+        "pages": pages,
+        "extracted_at": utc_now(),
     }
 
-    with output_path.open(
-        "w",
-        encoding="utf-8"
-    ) as f:
-
-        json.dump(
-            result,
-            f,
-            indent=2,
-            ensure_ascii=False
-        )
+    write_json(
+        output_path,
+        result,
+    )
 
     return {
+        "output": output_path,
         "format": "pdf",
-
-        "source_file": relative_to_root(
-            path
-        ),
-
-        "output_file": relative_to_root(
-            output_path
-        ),
-
-        "page_count": len(
+        "pages": len(
             reader.pages
         ),
-
-        "pages_with_text": (
-            pages_with_text
-        ),
-
-        "total_characters": (
-            total_characters
-        ),
-
-        "extraction_status": "success",
+        "characters": total_characters,
     }
 
 
 # ============================================================
-# OWL EXTRACTION
+# OWL / RDF EXTRACTION
 # ============================================================
 
-def uri_label(uri):
-
-    value = str(uri)
-
-    if "#" in value:
-        return value.rsplit(
-            "#",
-            1
-        )[-1]
-
-    return value.rstrip(
-        "/"
-    ).rsplit(
-        "/",
-        1
-    )[-1]
-
-
-def extract_owl(path: Path):
-
-    if Graph is None:
-
-        raise RuntimeError(
-            "rdflib is required for OWL extraction.\n"
-            "Install with:\n"
-            "python -m pip install rdflib"
-        )
-
-    graph = Graph()
+def extract_owl(
+    source: Path,
+    output_dir: Path,
+) -> Dict[str, Any]:
 
     try:
 
-        graph.parse(
-            str(path),
-            format="xml"
-        )
+        from rdflib import Graph
 
-    except Exception:
+    except ImportError as exc:
 
-        graph.parse(
-            str(path)
-        )
+        raise RuntimeError(
+            "rdflib is required for OWL extraction. "
+            "Install with: "
+            "python -m pip install rdflib"
+        ) from exc
 
-    triple_count = len(graph)
+    graph = Graph()
 
-    namespaces = {}
+    graph.parse(
+        str(source)
+    )
 
-    for prefix, namespace in graph.namespaces():
-
-        namespaces[str(prefix)] = str(
-            namespace
-        )
-
-    classes = set()
-    object_properties = set()
-    datatype_properties = set()
+    triples = []
 
     for subject, predicate, obj in graph:
 
-        if predicate == RDF.type:
-
-            if obj == OWL.Class:
-
-                classes.add(
-                    str(subject)
-                )
-
-            elif obj == OWL.ObjectProperty:
-
-                object_properties.add(
-                    str(subject)
-                )
-
-            elif obj == OWL.DatatypeProperty:
-
-                datatype_properties.add(
-                    str(subject)
-                )
-
-    class_records = []
-
-    for class_uri in sorted(classes):
-
-        class_records.append(
+        triples.append(
             {
-                "uri": class_uri,
-                "label": uri_label(
-                    class_uri
-                ),
-            }
-        )
-
-    property_records = []
-
-    for prop in sorted(
-        object_properties
-    ):
-
-        property_records.append(
-            {
-                "uri": prop,
-                "label": uri_label(prop),
-                "property_type":
-                    "object_property",
-            }
-        )
-
-    for prop in sorted(
-        datatype_properties
-    ):
-
-        property_records.append(
-            {
-                "uri": prop,
-                "label": uri_label(prop),
-                "property_type":
-                    "datatype_property",
-            }
-        )
-
-    sample_triples = []
-
-    for index, (
-        subject,
-        predicate,
-        obj
-    ) in enumerate(graph):
-
-        if index >= OWL_SAMPLE_LIMIT:
-            break
-
-        sample_triples.append(
-            {
-                "subject": str(subject),
-                "subject_label": uri_label(
+                "subject": str(
                     subject
                 ),
-
-                "predicate": str(predicate),
-                "predicate_label": uri_label(
+                "predicate": str(
                     predicate
                 ),
-
-                "object": str(obj),
-
-                "object_label": (
-                    uri_label(obj)
-                    if isinstance(
-                        obj,
-                        URIRef
-                    )
-                    else str(obj)
+                "object": str(
+                    obj
                 ),
             }
         )
 
     output_name = (
-        safe_filename(path)
+        safe_filename(
+            source.stem
+        )
         + ".json"
     )
 
     output_path = (
-        OUTPUT_DIR
-        / "owl"
-        / output_name
+        output_dir / output_name
     )
 
-    result = {
-
-        "format": "owl",
-
-        "source_file": relative_to_root(
-            path
-        ),
-
-        "output_file": relative_to_root(
-            output_path
-        ),
-
-        "triple_count": triple_count,
-
-        "class_count": len(classes),
-
-        "object_property_count": len(
-            object_properties
-        ),
-
-        "datatype_property_count": len(
-            datatype_properties
-        ),
-
-        "namespaces": namespaces,
-
-        "classes": class_records,
-
-        "properties": property_records,
-
-        "sample_triples": sample_triples,
-
-        "extraction_status": "success",
+    namespaces = {
+        str(prefix): str(namespace)
+        for prefix, namespace
+        in graph.namespaces()
     }
 
-    with output_path.open(
-        "w",
-        encoding="utf-8"
-    ) as f:
+    result = {
+        "asset_type": "owl",
+        "source_file": repo_relative(
+            source
+        ),
+        "source_size_bytes": source.stat().st_size,
+        "triple_count": len(
+            triples
+        ),
+        "namespaces": namespaces,
+        "triples": triples,
+        "extracted_at": utc_now(),
+    }
 
-        json.dump(
-            result,
-            f,
-            indent=2,
-            ensure_ascii=False
-        )
+    write_json(
+        output_path,
+        result,
+    )
 
     return {
+        "output": output_path,
         "format": "owl",
-
-        "source_file": relative_to_root(
-            path
+        "triples": len(
+            triples
         ),
-
-        "output_file": relative_to_root(
-            output_path
-        ),
-
-        "triple_count": triple_count,
-
-        "class_count": len(classes),
-
-        "object_property_count": len(
-            object_properties
-        ),
-
-        "datatype_property_count": len(
-            datatype_properties
-        ),
-
-        "extraction_status": "success",
     }
 
 
@@ -1355,313 +1471,449 @@ def extract_owl(path: Path):
 # DISPATCH
 # ============================================================
 
-def extract_file(path: Path):
+def extract_asset(
+    source: Path,
+    output_dir: Path,
+) -> Dict[str, Any]:
 
-    suffix = path.suffix.lower()
+    suffix = source.suffix.lower()
 
     if suffix == ".csv":
-        return extract_csv(path)
+
+        return extract_csv(
+            source,
+            output_dir,
+        )
 
     if suffix == ".pdf":
-        return extract_pdf(path)
 
-    if suffix == ".owl":
-        return extract_owl(path)
+        return extract_pdf(
+            source,
+            output_dir,
+        )
+
+    if suffix in {
+        ".owl",
+        ".rdf",
+        ".xml",
+    }:
+
+        return extract_owl(
+            source,
+            output_dir,
+        )
 
     raise ValueError(
-        f"Unsupported file format: {suffix}"
+        f"Unsupported file type: {suffix}"
     )
+
+
+# ============================================================
+# MANIFEST
+# ============================================================
+
+def build_manifest(
+    records: List[Dict[str, Any]],
+) -> Dict[str, Any]:
+
+    return {
+        "manifest_version": "2.1",
+        "pipeline": (
+            "amr_knowledge_asset_extraction"
+        ),
+        "generated_at": utc_now(),
+        "raw_directory": repo_relative(
+            RAW_DIR
+        ),
+        "output_directory": repo_relative(
+            EXTRACTED_DIR
+        ),
+        "assets_discovered": len(
+            records
+        ),
+        "assets": records,
+    }
 
 
 # ============================================================
 # MAIN
 # ============================================================
 
-def main():
+def main() -> int:
 
-    header(
-        "AMR KNOWLEDGE ASSET EXTRACTOR"
+    line()
+
+    print(
+        "AMR KNOWLEDGE ASSET EXTRACTOR — V2.1"
     )
 
-    print()
-    print(
+    line()
+
+    info(
         f"Raw      : {RAW_DIR}"
     )
 
-    print(
+    info(
         f"Metadata : {INSPECTION_FILE}"
     )
 
-    print(
-        f"Output   : {OUTPUT_DIR}"
+    info(
+        f"Output   : {EXTRACTED_DIR}"
     )
 
     print()
 
-    if not RAW_DIR.exists():
-
-        error(
-            f"Raw directory does not exist: "
-            f"{RAW_DIR}"
-        )
-
-        return 1
+    # ========================================================
+    # LOAD INSPECTION METADATA
+    # ========================================================
 
     try:
 
-        load_inspection_report()
-
-        success(
-            "asset_inspection.json loaded"
+        inspection = (
+            load_inspection_manifest()
         )
 
     except Exception as exc:
 
-        error(str(exc))
+        error(
+            f"Could not load inspection metadata: "
+            f"{exc}"
+        )
 
         return 1
 
-    ensure_output_dirs()
+    # ========================================================
+    # DISCOVER RAW FILES
+    # ========================================================
 
-    files = sorted(
-        [
-            path
-            for path in RAW_DIR.rglob("*")
-            if path.is_file()
-            and path.suffix.lower()
-            in {
-                ".csv",
-                ".pdf",
-                ".owl",
-            }
-        ]
+    try:
+
+        raw_files = collect_raw_files()
+
+    except Exception as exc:
+
+        error(
+            f"Could not discover raw assets: "
+            f"{exc}"
+        )
+
+        return 1
+
+    print(
+        f"Found {len(raw_files)} extractable file(s)."
+    )
+
+    if not raw_files:
+
+        warning(
+            "No supported assets found in knowledge/raw/"
+        )
+
+        return 0
+
+    # ========================================================
+    # RESOLVE ASSETS
+    # ========================================================
+
+    records = build_asset_records(
+        inspection,
+        raw_files,
+    )
+
+    print(
+        f"Resolved {len(records)} asset(s)."
     )
 
     print()
-    print(
-        f"Found {len(files)} "
-        f"extractable file(s)."
+
+    # ========================================================
+    # PREPARE OUTPUT
+    # ========================================================
+
+    EXTRACTED_DIR.mkdir(
+        parents=True,
+        exist_ok=True,
     )
 
-    manifest = {
+    successful: List[
+        Dict[str, Any]
+    ] = []
 
-        "pipeline":
-            "AMR Knowledge Extraction",
+    failed: List[
+        Dict[str, Any]
+    ] = []
 
-        "version": "1.1",
+    # ========================================================
+    # EXTRACT EACH ASSET
+    # ========================================================
 
-        "generated_at":
-            utc_now(),
-
-        "raw_directory":
-            relative_to_root(
-                RAW_DIR
-            ),
-
-        "inspection_report":
-            relative_to_root(
-                INSPECTION_FILE
-            ),
-
-        "output_directory":
-            relative_to_root(
-                OUTPUT_DIR
-            ),
-
-        "assets": [],
-
-        "summary": {
-            "total": 0,
-            "success": 0,
-            "failed": 0,
-            "csv": 0,
-            "pdf": 0,
-            "owl": 0,
-        },
-    }
-
-    # --------------------------------------------------------
-    # Process assets
-    # --------------------------------------------------------
-
-    for index, path in enumerate(
-        files,
-        start=1
+    for index, asset in enumerate(
+        records,
+        start=1,
     ):
 
-        print()
-
-        print(
-            f"[{index:02d}/{len(files):02d}] "
-            f"{relative_to_root(path)}"
+        source = Path(
+            asset["_resolved_path"]
         )
 
-        record = {
+        display_path = repo_relative(
+            source
+        )
 
-            "source_file":
-                relative_to_root(path),
+        print(
+            f"[{index:02d}/{len(records):02d}] "
+            f"{display_path}"
+        )
 
-            "filename":
-                path.name,
+        # ----------------------------------------------------
+        # Defensive source check
+        # ----------------------------------------------------
 
-            "extension":
-                path.suffix.lower(),
+        if not source.exists():
 
-            "size_bytes":
-                path.stat().st_size,
+            asset_id = asset.get(
+                "id",
+                safe_filename(
+                    source.stem
+                ),
+            )
 
-            "sha256": None,
+            failure = {
+                "asset_id": asset_id,
+                "source_file": display_path,
+                "status": "failed",
+                "error": (
+                    "Resolved source file "
+                    "does not exist."
+                ),
+            }
 
-            "status": "failed",
+            failed.append(
+                failure
+            )
 
-            "extraction": None,
+            error(
+                failure["error"]
+            )
 
-            "error": None,
-        }
+            print()
+
+            continue
+
+        # ----------------------------------------------------
+        # Extract
+        # ----------------------------------------------------
 
         try:
 
-            record["sha256"] = (
-                sha256_file(path)
+            output = extract_asset(
+                source,
+                EXTRACTED_DIR,
             )
 
-            extraction = extract_file(
-                path
+            asset_id = asset.get(
+                "id",
+                safe_filename(
+                    source.stem
+                ),
             )
 
-            record["extraction"] = (
-                extraction
+            result = {
+                "asset_id": asset_id,
+                "source_file": display_path,
+                "source_sha256": sha256_file(
+                    source
+                ),
+                "source_size_bytes": (
+                    source.stat().st_size
+                ),
+                "status": "success",
+                **output,
+            }
+
+            successful.append(
+                result
             )
 
-            record["status"] = (
-                "success"
-            )
+            # ------------------------------------------------
+            # Console reporting
+            # ------------------------------------------------
 
-            manifest[
-                "summary"
-            ][
-                "success"
-            ] += 1
+            if output["format"] == "csv":
 
-            extension = (
-                path.suffix
-                .lower()
-                .lstrip(".")
-            )
-
-            if extension in (
-                manifest[
-                    "summary"
-                ]
-            ):
-
-                manifest[
-                    "summary"
-                ][extension] += 1
-
-            # Helpful CSV output
-            if extension == "csv":
-
-                info(
-                    f"header row: "
-                    f"{extraction.get('header_line')}"
+                header = output.get(
+                    "header_row"
                 )
 
-                info(
-                    f"rows: "
-                    f"{extraction.get('row_count')}"
+                rows = output.get(
+                    "rows",
+                    0,
                 )
 
-                info(
-                    f"columns: "
-                    f"{extraction.get('column_count')}"
+                columns = output.get(
+                    "columns",
+                    0,
                 )
 
-            success(
-                "extracted"
-            )
+                if output.get(
+                    "empty_source",
+                    False,
+                ):
+
+                    success(
+                        "extracted — "
+                        "empty/metadata-only CSV"
+                    )
+
+                else:
+
+                    success(
+                        "extracted — "
+                        f"header row {header}, "
+                        f"{rows} rows, "
+                        f"{columns} columns"
+                    )
+
+            elif output["format"] == "pdf":
+
+                success(
+                    "extracted — "
+                    f"{output['pages']} pages, "
+                    f"{output['characters']:,} characters"
+                )
+
+            elif output["format"] == "owl":
+
+                success(
+                    "extracted — "
+                    f"{output['triples']:,} RDF triples"
+                )
 
         except Exception as exc:
 
-            record["error"] = str(exc)
+            asset_id = asset.get(
+                "id",
+                safe_filename(
+                    source.stem
+                ),
+            )
 
-            manifest[
-                "summary"
-            ][
-                "failed"
-            ] += 1
+            failure = {
+                "asset_id": asset_id,
+                "source_file": display_path,
+                "status": "failed",
+                "error": str(exc),
+            }
 
-            error(str(exc))
+            failed.append(
+                failure
+            )
 
-        manifest[
-            "assets"
-        ].append(record)
+            error(
+                f"extraction failed: {exc}"
+            )
 
-        manifest[
-            "summary"
-        ][
-            "total"
-        ] += 1
+        print()
 
-    # --------------------------------------------------------
-    # Write manifest
-    # --------------------------------------------------------
+    # ========================================================
+    # BUILD MANIFEST
+    # ========================================================
 
-    with MANIFEST_FILE.open(
-        "w",
-        encoding="utf-8"
-    ) as f:
+    all_results = (
+        successful + failed
+    )
 
-        json.dump(
-            manifest,
-            f,
-            indent=2,
-            ensure_ascii=False
+    manifest = build_manifest(
+        all_results
+    )
+
+    manifest["successful"] = len(
+        successful
+    )
+
+    manifest["failed"] = len(
+        failed
+    )
+
+    manifest["formats"] = {}
+
+    for result in successful:
+
+        fmt = result.get(
+            "format",
+            "unknown",
         )
 
-    # --------------------------------------------------------
-    # Summary
-    # --------------------------------------------------------
+        manifest["formats"][fmt] = (
+            manifest["formats"].get(
+                fmt,
+                0,
+            )
+            + 1
+        )
 
-    header(
+    manifest["failed_assets"] = failed
+
+    # ========================================================
+    # WRITE MANIFEST
+    # ========================================================
+
+    try:
+
+        write_json(
+            MANIFEST_FILE,
+            manifest,
+        )
+
+    except Exception as exc:
+
+        error(
+            f"Could not write extraction manifest: "
+            f"{exc}"
+        )
+
+        return 1
+
+    # ========================================================
+    # SUMMARY
+    # ========================================================
+
+    line()
+
+    print(
         "EXTRACTION SUMMARY"
     )
 
+    line()
+
     print(
-        f"Assets discovered : "
-        f"{manifest['summary']['total']}"
+        f"Assets discovered : {len(records)}"
     )
 
     print(
         f"Successfully extracted : "
-        f"{manifest['summary']['success']}"
+        f"{len(successful)}"
     )
 
     print(
-        f"Failed : "
-        f"{manifest['summary']['failed']}"
+        f"Failed : {len(failed)}"
     )
 
     print()
 
-    print("Formats:")
+    if manifest["formats"]:
 
-    print(
-        f"  CSV : "
-        f"{manifest['summary']['csv']}"
-    )
+        print("Formats:")
 
-    print(
-        f"  PDF : "
-        f"{manifest['summary']['pdf']}"
-    )
+        for fmt, count in sorted(
+            manifest["formats"].items()
+        ):
 
-    print(
-        f"  OWL : "
-        f"{manifest['summary']['owl']}"
-    )
+            print(
+                f"  {fmt.upper():<5} : {count}"
+            )
 
-    print()
+        print()
 
     success(
         "Extraction manifest written to:"
@@ -1671,11 +1923,11 @@ def main():
         f"  {MANIFEST_FILE}"
     )
 
-    if manifest[
-        "summary"
-    ][
-        "failed"
-    ] > 0:
+    # ========================================================
+    # FAILURE REPORT
+    # ========================================================
+
+    if failed:
 
         print()
 
@@ -1683,12 +1935,29 @@ def main():
             "Some assets failed extraction."
         )
 
+        print()
+
+        print(
+            "Failed assets:"
+        )
+
+        for item in failed:
+
+            print(
+                f"  - {item['asset_id']}: "
+                f"{item['error']}"
+            )
+
         return 1
+
+    # ========================================================
+    # SUCCESS
+    # ========================================================
 
     print()
 
     success(
-        "ALL ASSETS EXTRACTED SUCCESSFULLY"
+        "All assets extracted successfully."
     )
 
     return 0

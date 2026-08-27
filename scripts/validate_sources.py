@@ -1,674 +1,579 @@
-# ============================================================
-# AMR KNOWLEDGE SOURCE REGISTRY VALIDATOR
-# ============================================================
-# Validates:
-#   knowledge/registry/sources.yaml
-#   against:
-#   knowledge/registry/source.schema.yaml
-#
-# Design principle:
-#   - Schema controls structure/types
-#   - Validator performs only sensible semantic checks
-#   - source_type, domains, capabilities and retrieval_modes
-#     remain extensible lists of strings
-# ============================================================
+"""
+validate_sources.py
+===================
+
+Validate the AMR knowledge-base source governance registry.
+
+Expected registry structure (matches the current sources.yaml contract,
+which nests metadata under `registry:`):
+
+    registry:
+      schema_version
+      registry_version
+      registry_name
+      created_at
+    global_policy
+    sources[]
+    routing_rules
+    compatibility_rules
+    generation_contract
+
+Run:
+    python scripts/validate_sources.py
+"""
+
+from __future__ import annotations
 
 from pathlib import Path
-import sys
+from typing import Any
+
 import yaml
 
 
-# ============================================================
+# ============================================================================
 # PATHS
-# ============================================================
+# ============================================================================
 
-ROOT = Path(__file__).resolve().parents[1]
+PROJECT_ROOT = Path(__file__).resolve().parents[1]
 
-SOURCES_FILE = ROOT / "knowledge" / "registry" / "sources.yaml"
-SCHEMA_FILE = ROOT / "knowledge" / "registry" / "source.schema.yaml"
-
-
-# ============================================================
-# OUTPUT
-# ============================================================
-
-WIDTH = 70
+SOURCES_PATH = (
+    PROJECT_ROOT
+    / "knowledge"
+    / "registry"
+    / "sources.yaml"
+)
 
 
-def header(title):
-    print("=" * WIDTH)
-    print(title)
-    print("=" * WIDTH)
+# ============================================================================
+# CONTRACT
+# ============================================================================
+
+REQUIRED_TOP_LEVEL_FIELDS = {
+    "registry",
+    "global_policy",
+    "sources",
+    "routing_rules",
+    "compatibility_rules",
+    "generation_contract",
+}
+
+REQUIRED_REGISTRY_META_FIELDS = {
+    "schema_version",
+    "registry_version",
+    "registry_name",
+    "created_at",
+}
+
+REQUIRED_SOURCE_FIELDS = {
+    "source_id",
+    "asset_id",
+    "name",
+    "source_class",
+    "evidence_class",
+    "tier",
+    "format",
+    "retrieval_mode",
+    "domain",
+    "intended_uses",
+    "ai_restrictions",
+    "citation_required",
+}
+
+ALLOWED_SOURCE_CLASSES = {
+    "guideline",
+    "molecular_database",
+    "ontology",
+    "scientific_literature",
+    "surveillance",
+}
+
+ALLOWED_EVIDENCE_CLASSES = {
+    "clinical",
+    "literature",
+    "molecular",
+    "surveillance",
+}
+
+ALLOWED_TIERS = {
+    "tier_1",
+    "tier_2",
+    "tier_3",
+}
+
+ALLOWED_FORMATS = {
+    "csv",
+    "owl",
+    "pdf",
+}
+
+ALLOWED_RETRIEVAL_MODES = {
+    "structured",
+    "vector",
+    "ontology",
+}
+
+# Molecular evidence in this registry spans tier_2 (aro, megares) and
+# tier_3 (genome_wode) by design - only clinical evidence is pinned to tier_1.
+ALLOWED_MOLECULAR_TIERS = {
+    "tier_2",
+    "tier_3",
+}
+
+REQUIRED_GLOBAL_POLICY_FIELDS = {
+    "answer_must_be_grounded",
+    "citations_required",
+    "allow_uncited_claims",
+    "allow_external_knowledge_without_retrieval",
+    "numeric_questions_prefer_structured",
+    "source_restrictions_are_hard_constraints",
+    "tier_order",
+    "evidence_classes",
+    "forbidden_inferences",
+}
+
+REQUIRED_ROUTES = {
+    "structured_numeric",
+    "clinical_interpretation",
+    "molecular_lookup",
+    "research_context",
+    "surveillance_analysis",
+}
+
+REQUIRED_COMPATIBILITY_RULES = {
+    "clinical_interpretation",
+    "clinical_breakpoints",
+    "numeric_surveillance",
+    "molecular_evidence",
+    "research_evidence",
+}
+
+REQUIRED_GENERATION_FIELDS = {
+    "grounded_generation_required",
+    "source_registration_required",
+    "citations_required",
+    "numeric_answers_require_source",
+    "clinical_answers_require_authoritative_source",
+    "molecular_claims_require_molecular_source",
+    "unsupported_claims_must_be_refused",
+    "modeled_data_must_be_explicitly_labeled",
+    "observed_data_must_be_distinguished_from_estimates",
+}
 
 
-def section(title):
-    print()
-    print(title)
-    print("-" * WIDTH)
+# ============================================================================
+# VALIDATION STATE
+# ============================================================================
+
+errors: list[str] = []
+warnings: list[str] = []
 
 
-# ============================================================
-# HELPERS
-# ============================================================
-
-errors = []
-warnings = []
-
-
-def error(message):
+def error(message: str) -> None:
     errors.append(message)
 
 
-def warning(message):
+def warning(message: str) -> None:
     warnings.append(message)
 
 
-def is_non_empty_string(value):
+# ============================================================================
+# HELPERS
+# ============================================================================
+
+def is_non_empty_string(value: Any) -> bool:
     return isinstance(value, str) and bool(value.strip())
 
 
-def is_list_of_strings(value):
-    return (
-        isinstance(value, list)
-        and all(isinstance(item, str) and item.strip() for item in value)
-    )
+def is_non_empty_list(value: Any) -> bool:
+    return isinstance(value, list) and len(value) > 0
 
 
-def check_type(source_id, field, value, expected_type):
-    if expected_type == "string":
-        if not is_non_empty_string(value):
-            error(
-                f"sources.{source_id}.{field}: "
-                f"must be a non-empty string"
-            )
-            return False
-
-    elif expected_type == "integer":
-        # bool is technically an int in Python, but should not count
-        if isinstance(value, bool) or not isinstance(value, int):
-            error(
-                f"sources.{source_id}.{field}: "
-                f"must be an integer"
-            )
-            return False
-
-    elif expected_type == "list":
-        if not isinstance(value, list):
-            error(
-                f"sources.{source_id}.{field}: "
-                f"must be a list"
-            )
-            return False
-
+def require_mapping(value: Any, path: str) -> bool:
+    if not isinstance(value, dict):
+        error(f"{path}: must be a mapping")
+        return False
     return True
 
 
-# ============================================================
+def require_string(value: Any, path: str) -> bool:
+    if not is_non_empty_string(value):
+        error(f"{path}: must be a non-empty string")
+        return False
+    return True
+
+
+def require_boolean(value: Any, path: str) -> bool:
+    if not isinstance(value, bool):
+        error(f"{path}: must be boolean")
+        return False
+    return True
+
+
+def require_list(value: Any, path: str) -> bool:
+    if not isinstance(value, list):
+        error(f"{path}: must be a list")
+        return False
+    return True
+
+
+def require_non_empty_list(value: Any, path: str) -> bool:
+    if not is_non_empty_list(value):
+        error(f"{path}: must be a non-empty list")
+        return False
+    return True
+
+
+def check_enum(value: Any, path: str, allowed: set[str]) -> None:
+    if value not in allowed:
+        error(f"{path}: invalid value {value!r}. Allowed: {sorted(allowed)}")
+
+
+# ============================================================================
 # LOAD YAML
-# ============================================================
+# ============================================================================
 
-def load_yaml(path, label):
-    try:
-        with open(path, "r", encoding="utf-8") as f:
-            data = yaml.safe_load(f)
+print("=" * 70)
+print("AMR KNOWLEDGE SOURCE REGISTRY VALIDATOR")
+print("=" * 70)
+print()
+print(f"Sources : {SOURCES_PATH}")
+print()
 
-        print(f"✓ {label} loaded")
-        return data
+if not SOURCES_PATH.exists():
+    error(f"sources.yaml not found: {SOURCES_PATH}")
 
-    except FileNotFoundError:
-        error(f"{label}: file not found: {path}")
-        return None
+if errors:
+    print("=" * 70)
+    print("ERRORS")
+    print("=" * 70)
+    for message in errors:
+        print(f"✗ {message}")
+    print()
+    print("❌ VALIDATION FAILED")
+    raise SystemExit(1)
 
-    except yaml.YAMLError as exc:
-        error(f"{label}: invalid YAML: {exc}")
-        return None
+print("Loading sources registry...")
+print("-" * 70)
 
-    except Exception as exc:
-        error(f"{label}: unexpected error: {exc}")
-        return None
+try:
+    with SOURCES_PATH.open("r", encoding="utf-8") as handle:
+        data = yaml.safe_load(handle)
+except yaml.YAMLError as exc:
+    error(f"sources.yaml contains invalid YAML: {exc}")
+    data = None
+except OSError as exc:
+    error(f"Unable to read sources.yaml: {exc}")
+    data = None
+
+if data is None:
+    error("sources.yaml is empty")
+elif not isinstance(data, dict):
+    error("sources.yaml top level must be a mapping")
+else:
+    print("✓ sources.yaml loaded")
 
 
-# ============================================================
-# SCHEMA VALIDATION
-# ============================================================
+# ============================================================================
+# TOP-LEVEL VALIDATION
+# ============================================================================
 
-def validate_schema_structure(schema):
-    if not isinstance(schema, dict):
-        error("source.schema.yaml: root must be a mapping")
-        return
+if isinstance(data, dict):
+    missing_top_level = REQUIRED_TOP_LEVEL_FIELDS - set(data.keys())
+    for field in sorted(missing_top_level):
+        error(f"missing required top-level field '{field}'")
 
-    if "schema" not in schema:
-        warning(
-            "source.schema.yaml does not contain a top-level "
-            "'schema' section"
+
+# ============================================================================
+# REGISTRY METADATA (nested under `registry:`)
+# ============================================================================
+
+if isinstance(data, dict):
+    registry_meta = data.get("registry")
+
+    if require_mapping(registry_meta, "registry"):
+        missing_meta = REQUIRED_REGISTRY_META_FIELDS - set(registry_meta.keys())
+        for field in sorted(missing_meta):
+            error(f"registry: missing required field '{field}'")
+
+        for field in REQUIRED_REGISTRY_META_FIELDS:
+            if field in registry_meta:
+                require_string(registry_meta[field], f"registry.{field}")
+
+
+# ============================================================================
+# GLOBAL POLICY
+# ============================================================================
+
+if isinstance(data, dict):
+    global_policy = data.get("global_policy")
+
+    if require_mapping(global_policy, "global_policy"):
+        missing = REQUIRED_GLOBAL_POLICY_FIELDS - set(global_policy.keys())
+        for field in sorted(missing):
+            error(f"global_policy: missing required field '{field}'")
+
+        boolean_fields = {
+            "answer_must_be_grounded",
+            "citations_required",
+            "allow_uncited_claims",
+            "allow_external_knowledge_without_retrieval",
+            "numeric_questions_prefer_structured",
+            "source_restrictions_are_hard_constraints",
+        }
+        for field in boolean_fields:
+            if field in global_policy:
+                require_boolean(global_policy[field], f"global_policy.{field}")
+
+        tier_order = global_policy.get("tier_order")
+        if tier_order != ["tier_1", "tier_2", "tier_3"]:
+            error("global_policy.tier_order: must be ['tier_1', 'tier_2', 'tier_3']")
+
+        require_list(
+            global_policy.get("forbidden_inferences"),
+            "global_policy.forbidden_inferences",
         )
 
-    if "required_fields" not in schema:
-        error(
-            "source.schema.yaml: missing 'required_fields'"
-        )
-
-    if "field_rules" not in schema:
-        error(
-            "source.schema.yaml: missing 'field_rules'"
-        )
+        evidence_classes = global_policy.get("evidence_classes")
+        if require_mapping(evidence_classes, "global_policy.evidence_classes"):
+            missing_classes = ALLOWED_EVIDENCE_CLASSES - set(evidence_classes.keys())
+            for cls in sorted(missing_classes):
+                error(f"global_policy.evidence_classes: missing '{cls}'")
 
 
-# ============================================================
-# SOURCE REGISTRY VALIDATION
-# ============================================================
+# ============================================================================
+# SOURCES
+# ============================================================================
 
-def validate_sources(sources, schema):
+sources = None
 
-    if not isinstance(sources, dict):
-        error("sources.yaml: root must be a mapping")
-        return
+if isinstance(data, dict):
+    sources = data.get("sources")
 
-    # --------------------------------------------------------
-    # Registry metadata
-    # --------------------------------------------------------
+    if not isinstance(sources, list):
+        error("sources: must be a list of source registry entries")
+    else:
+        if len(sources) == 0:
+            error("sources: must contain at least one source")
 
-    registry = sources.get("registry")
+        print()
+        print(f"Validating registered sources ({len(sources)})...")
+        print("-" * 70)
 
-    if registry is None:
-        error("sources.yaml: missing top-level 'registry'")
-    elif not isinstance(registry, dict):
-        error("sources.yaml: 'registry' must be a mapping")
+        source_ids: list[str] = []
+        asset_ids: list[str] = []
 
-    # --------------------------------------------------------
-    # Sources
-    #
-    # IMPORTANT:
-    # `sources` is a sibling of `registry`.
-    #
-    # registry:
-    #   name: ...
-    #   version: ...
-    #
-    # sources:
-    #   who_glass:
-    #     ...
-    # --------------------------------------------------------
+        for index, source in enumerate(sources):
+            path = f"sources[{index}]"
 
-    source_entries = sources.get("sources")
-
-    if source_entries is None:
-        error("sources.yaml: missing top-level 'sources'")
-        return
-
-    if not isinstance(source_entries, dict):
-        error("sources.yaml: 'sources' must be a mapping")
-        return
-
-    required_fields = schema.get("required_fields", [])
-    field_rules = schema.get("field_rules", {})
-
-    # --------------------------------------------------------
-    # Validate each source
-    # --------------------------------------------------------
-
-    for source_id, source in source_entries.items():
-
-        prefix = f"sources.{source_id}"
-
-        if not isinstance(source, dict):
-            error(f"{prefix}: must be a mapping")
-            continue
-
-        # ====================================================
-        # REQUIRED FIELDS
-        # ====================================================
-
-        for field in required_fields:
-
-            if field not in source:
-                error(
-                    f"{prefix}: missing required field '{field}'"
-                )
+            if not isinstance(source, dict):
+                error(f"{path}: must be a mapping")
                 continue
 
-            value = source[field]
+            missing = REQUIRED_SOURCE_FIELDS - set(source.keys())
+            for field in sorted(missing):
+                error(f"{path}: missing required field '{field}'")
 
-            rules = field_rules.get(field, {})
-            expected_type = rules.get("type")
+            for field in ("source_id", "asset_id", "name"):
+                if field in source:
+                    require_string(source[field], f"{path}.{field}")
 
-            # ------------------------------------------------
-            # Type
-            # ------------------------------------------------
+            if "source_class" in source:
+                check_enum(source["source_class"], f"{path}.source_class", ALLOWED_SOURCE_CLASSES)
 
-            if expected_type:
-                check_type(
-                    source_id,
-                    field,
-                    value,
-                    expected_type
-                )
+            if "evidence_class" in source:
+                check_enum(source["evidence_class"], f"{path}.evidence_class", ALLOWED_EVIDENCE_CLASSES)
 
-            # ------------------------------------------------
-            # String rules
-            # ------------------------------------------------
+            if "tier" in source:
+                check_enum(source["tier"], f"{path}.tier", ALLOWED_TIERS)
+
+            if "format" in source:
+                check_enum(source["format"], f"{path}.format", ALLOWED_FORMATS)
+
+            if "retrieval_mode" in source:
+                check_enum(source["retrieval_mode"], f"{path}.retrieval_mode", ALLOWED_RETRIEVAL_MODES)
+
+            if "domain" in source:
+                require_non_empty_list(source["domain"], f"{path}.domain")
+
+            if "intended_uses" in source:
+                require_non_empty_list(source["intended_uses"], f"{path}.intended_uses")
+
+            if "citation_required" in source:
+                require_boolean(source["citation_required"], f"{path}.citation_required")
+
+            # ai_restrictions: free-form named keys, each a non-empty string.
+            restrictions = source.get("ai_restrictions")
+            if require_mapping(restrictions, f"{path}.ai_restrictions"):
+                if len(restrictions) == 0:
+                    error(f"{path}.ai_restrictions: must contain at least one restriction")
+                for key, value in restrictions.items():
+                    require_string(value, f"{path}.ai_restrictions.{key}")
+
+            source_id = source.get("source_id")
+            asset_id = source.get("asset_id")
+
+            if is_non_empty_string(source_id):
+                if source_id in source_ids:
+                    error(f"{path}.source_id: duplicate source_id '{source_id}'")
+                source_ids.append(source_id)
+
+            if is_non_empty_string(asset_id):
+                if asset_id in asset_ids:
+                    error(f"{path}.asset_id: duplicate asset_id '{asset_id}'")
+                asset_ids.append(asset_id)
+
+            # Semantic consistency checks
+            if source.get("format") == "csv" and source.get("retrieval_mode") != "structured":
+                warning(f"{path}: CSV source should normally use retrieval_mode='structured'")
+
+            if source.get("format") == "owl" and source.get("retrieval_mode") != "ontology":
+                warning(f"{path}: OWL source should normally use retrieval_mode='ontology'")
+
+            if source.get("evidence_class") == "clinical" and source.get("tier") != "tier_1":
+                error(f"{path}: clinical evidence must be tier_1")
 
             if (
-                expected_type == "string"
-                and isinstance(value, str)
+                source.get("evidence_class") == "molecular"
+                and source.get("tier") not in ALLOWED_MOLECULAR_TIERS
             ):
+                error(f"{path}: molecular evidence must be tier_2 or tier_3")
 
-                min_length = rules.get("min_length")
 
-                if (
-                    min_length is not None
-                    and len(value.strip()) < min_length
-                ):
-                    error(
-                        f"{prefix}.{field}: "
-                        f"must contain at least "
-                        f"{min_length} character(s)"
-                    )
+# ============================================================================
+# EXPECTED CURRENT ASSET COUNT
+# ============================================================================
 
-            # ------------------------------------------------
-            # List rules
-            # ------------------------------------------------
-
-            if expected_type == "list":
-
-                if not isinstance(value, list):
-                    continue
-
-                min_items = rules.get("min_items")
-
-                if (
-                    min_items is not None
-                    and len(value) < min_items
-                ):
-                    error(
-                        f"{prefix}.{field}: "
-                        f"must contain at least "
-                        f"{min_items} item(s)"
-                    )
-
-                item_type = rules.get("item_type")
-
-                if item_type == "string":
-
-                    if not is_list_of_strings(value):
-                        error(
-                            f"{prefix}.{field}: "
-                            f"must be a non-empty list "
-                            f"of strings"
-                        )
-
-            # ------------------------------------------------
-            # Integer rules
-            # ------------------------------------------------
-
-            if expected_type == "integer":
-
-                if (
-                    isinstance(value, bool)
-                    or not isinstance(value, int)
-                ):
-                    continue
-
-                minimum = rules.get("minimum")
-                maximum = rules.get("maximum")
-
-                if (
-                    minimum is not None
-                    and value < minimum
-                ):
-                    error(
-                        f"{prefix}.{field}: "
-                        f"value {value} is below minimum "
-                        f"{minimum}"
-                    )
-
-                if (
-                    maximum is not None
-                    and value > maximum
-                ):
-                    error(
-                        f"{prefix}.{field}: "
-                        f"value {value} exceeds maximum "
-                        f"{maximum}"
-                    )
-
-            # ------------------------------------------------
-            # Allowed values
-            #
-            # Only enforced if the schema explicitly defines
-            # them.
-            # ------------------------------------------------
-
-            allowed = rules.get("allowed")
-
-            if allowed is not None:
-
-                if expected_type == "string":
-
-                    if value not in allowed:
-                        error(
-                            f"{prefix}.{field}: "
-                            f"invalid value '{value}'. "
-                            f"Allowed: {allowed}"
-                        )
-
-                elif expected_type == "list":
-
-                    if isinstance(value, list):
-
-                        for item in value:
-
-                            if item not in allowed:
-                                error(
-                                    f"{prefix}.{field}: "
-                                    f"invalid value '{item}'. "
-                                    f"Allowed: {allowed}"
-                                )
-
-        # ====================================================
-        # SEMANTIC CHECKS
-        # ====================================================
-
-        validate_source_semantics(
-            source_id,
-            source
+if isinstance(sources, list):
+    if len(sources) != 12:
+        warning(
+            "Expected 12 registered AMR sources based on the "
+            f"current knowledge base, found {len(sources)}."
         )
 
+EXPECTED_SOURCE_IDS = {
+    "eucast_detection_resistance_mechanisms",
+    "glass_amr_implementation",
+    "glass_testing_coverage_pathogen_antibiotic_blood",
+    "glass_testing_coverage_infection_type",
+    "glass_resistance_time_series",
+    "glass_global_testing_maps_blood",
+    "glass_afghanistan_bci_frequency",
+    "genome_wode",
+    "pubmed_literature",
+    "source_attribution",
+    "aro",
+    "megares",
+}
 
-# ============================================================
-# SEMANTIC VALIDATION
-# ============================================================
+if isinstance(sources, list):
+    actual_source_ids = {s.get("source_id") for s in sources if isinstance(s, dict)}
+    missing_expected = EXPECTED_SOURCE_IDS - actual_source_ids
+    unexpected = actual_source_ids - EXPECTED_SOURCE_IDS
 
-def validate_source_semantics(source_id, source):
+    for source_id in sorted(missing_expected):
+        error(f"sources: expected source_id missing: '{source_id}'")
 
-    prefix = f"sources.{source_id}"
-
-    # --------------------------------------------------------
-    # ID consistency
-    # --------------------------------------------------------
-
-    if "id" in source:
-
-        if source["id"] != source_id:
-            error(
-                f"{prefix}.id: value '{source['id']}' "
-                f"does not match registry key '{source_id}'"
-            )
-
-    # --------------------------------------------------------
-    # Canonical URL
-    # --------------------------------------------------------
-
-    if "canonical_url" in source:
-
-        url = source["canonical_url"]
-
-        if url is not None:
-
-            if not isinstance(url, str):
-                error(
-                    f"{prefix}.canonical_url: "
-                    f"must be a string"
-                )
-
-            elif not (
-                url.startswith("http://")
-                or url.startswith("https://")
-            ):
-                warning(
-                    f"{prefix}.canonical_url: "
-                    f"does not appear to be an HTTP(S) URL"
-                )
-
-    # --------------------------------------------------------
-    # Priority
-    # --------------------------------------------------------
-
-    if "priority" in source:
-
-        priority = source["priority"]
-
-        if isinstance(priority, bool) or not isinstance(priority, int):
-
-            error(
-                f"{prefix}.priority: "
-                f"must be an integer"
-            )
-
-        elif not 1 <= priority <= 100:
-
-            error(
-                f"{prefix}.priority: "
-                f"must be between 1 and 100"
-            )
-
-    # --------------------------------------------------------
-    # Tier
-    #
-    # This is intentionally the ONLY controlled source
-    # classification.
-    # --------------------------------------------------------
-
-    allowed_tiers = {
-        "primary",
-        "authoritative",
-        "research",
-        "reference",
-        "secondary",
-    }
-
-    tier = source.get("tier")
-
-    if tier is not None:
-
-        if tier not in allowed_tiers:
-
-            error(
-                f"{prefix}.tier: invalid value '{tier}'. "
-                f"Allowed: {sorted(allowed_tiers)}"
-            )
-
-    # --------------------------------------------------------
-    # Capabilities
-    #
-    # We intentionally DO NOT restrict the vocabulary.
-    # --------------------------------------------------------
-
-    capabilities = source.get("capabilities")
-
-    if isinstance(capabilities, list):
-
-        if len(capabilities) == 0:
-            error(
-                f"{prefix}.capabilities: "
-                f"must not be empty"
-            )
-
-        for capability in capabilities:
-
-            if not isinstance(capability, str):
-                error(
-                    f"{prefix}.capabilities: "
-                    f"all values must be strings"
-                )
-
-    # --------------------------------------------------------
-    # Retrieval modes
-    #
-    # Also intentionally extensible.
-    # --------------------------------------------------------
-
-    retrieval_modes = source.get("retrieval_modes")
-
-    if isinstance(retrieval_modes, list):
-
-        if len(retrieval_modes) == 0:
-            error(
-                f"{prefix}.retrieval_modes: "
-                f"must not be empty"
-            )
-
-        for mode in retrieval_modes:
-
-            if not isinstance(mode, str):
-                error(
-                    f"{prefix}.retrieval_modes: "
-                    f"all values must be strings"
-                )
-
-    # --------------------------------------------------------
-    # Domains
-    # --------------------------------------------------------
-
-    domains = source.get("domains")
-
-    if isinstance(domains, list):
-
-        if len(domains) == 0:
-            error(
-                f"{prefix}.domains: "
-                f"must not be empty"
-            )
-
-        for domain in domains:
-
-            if not isinstance(domain, str):
-                error(
-                    f"{prefix}.domains: "
-                    f"all values must be strings"
-                )
-
-    # --------------------------------------------------------
-    # Clinical / susceptibility capability sanity check
-    #
-    # This is a warning, NOT a hard failure.
-    # --------------------------------------------------------
-
-    clinical_terms = {
-        "clinical_susceptibility",
-        "breakpoints",
-        "antibiotic_breakpoints",
-        "susceptibility_testing",
-        "clinical_guidance",
-    }
-
-    capabilities_lower = {
-        str(x).lower()
-        for x in capabilities
-        if isinstance(x, str)
-    } if isinstance(capabilities, list) else set()
-
-    if capabilities_lower.intersection(clinical_terms):
-
-        source_types = {
-            str(x).lower()
-            for x in source.get("source_type", [])
-            if isinstance(x, str)
-        }
-
-        clinical_types = {
-            "guideline",
-            "clinical_guideline",
-            "laboratory_standard",
-            "standards",
-            "clinical_guidance",
-        }
-
-        if not source_types.intersection(clinical_types):
-
-            warning(
-                f"{prefix}: clinical susceptibility/"
-                f"breakpoint capability declared without an "
-                f"explicit guideline/standard source type"
-            )
+    for source_id in sorted(unexpected):
+        warning(f"sources: unexpected source_id present: '{source_id}'")
 
 
-# ============================================================
-# MAIN
-# ============================================================
+# ============================================================================
+# ROUTING RULES
+# ============================================================================
 
-def main():
+if isinstance(data, dict):
+    routing_rules = data.get("routing_rules")
 
-    header("AMR KNOWLEDGE SOURCE REGISTRY VALIDATOR")
+    if require_mapping(routing_rules, "routing_rules"):
+        missing_routes = REQUIRED_ROUTES - set(routing_rules.keys())
+        for route in sorted(missing_routes):
+            error(f"routing_rules: missing required route '{route}'")
 
+        for route_name, route in routing_rules.items():
+            path = f"routing_rules.{route_name}"
+            if not isinstance(route, dict):
+                error(f"{path}: must be a mapping")
+                continue
+            if "preferred_tiers" not in route:
+                error(f"{path}: missing 'preferred_tiers'")
+
+
+# ============================================================================
+# COMPATIBILITY RULES
+# ============================================================================
+
+if isinstance(data, dict):
+    compatibility_rules = data.get("compatibility_rules")
+
+    if require_mapping(compatibility_rules, "compatibility_rules"):
+        missing_rules = REQUIRED_COMPATIBILITY_RULES - set(compatibility_rules.keys())
+        for rule in sorted(missing_rules):
+            error(f"compatibility_rules: missing required rule '{rule}'")
+
+
+# ============================================================================
+# GENERATION CONTRACT
+# ============================================================================
+
+if isinstance(data, dict):
+    generation_contract = data.get("generation_contract")
+
+    if require_mapping(generation_contract, "generation_contract"):
+        missing = REQUIRED_GENERATION_FIELDS - set(generation_contract.keys())
+        for field in sorted(missing):
+            error(f"generation_contract: missing required field '{field}'")
+
+        for field in REQUIRED_GENERATION_FIELDS:
+            if field in generation_contract:
+                require_boolean(generation_contract[field], f"generation_contract.{field}")
+
+
+# ============================================================================
+# FINAL REPORT
+# ============================================================================
+
+print()
+
+if warnings:
+    print("=" * 70)
+    print("WARNINGS")
+    print("=" * 70)
+    for message in warnings:
+        print(f"⚠ {message}")
+
+print()
+
+if errors:
+    print("=" * 70)
+    print("ERRORS")
+    print("=" * 70)
+    for message in errors:
+        print(f"✗ {message}")
     print()
-    print(f"Sources : {SOURCES_FILE}")
-    print(f"Schema  : {SCHEMA_FILE}")
+    print("=" * 70)
+    print("❌ VALIDATION FAILED")
+    print("=" * 70)
+    raise SystemExit(1)
 
-    section("Loading schema...")
+print("=" * 70)
+print("VALIDATION SUMMARY")
+print("=" * 70)
 
-    schema = load_yaml(
-        SCHEMA_FILE,
-        "source.schema.yaml"
-    )
+if isinstance(sources, list):
+    print(f"✓ Registered sources : {len(sources)}")
 
-    if schema is None:
-        print()
-        print("❌ VALIDATION FAILED")
-        sys.exit(1)
-
-    section("Loading sources registry...")
-
-    sources = load_yaml(
-        SOURCES_FILE,
-        "sources.yaml"
-    )
-
-    if sources is None:
-        print()
-        print("❌ VALIDATION FAILED")
-        sys.exit(1)
-
-    section("Running validation...")
-
-    validate_schema_structure(schema)
-
-    if not errors:
-        validate_sources(
-            sources,
-            schema
-        )
-
-    # --------------------------------------------------------
-    # Results
-    # --------------------------------------------------------
-
-    if warnings:
-
-        section("WARNINGS")
-
-        for item in warnings:
-            print(f"⚠ {item}")
-
-    if errors:
-
-        section("ERRORS")
-
-        for item in errors:
-            print(f"✗ {item}")
-
-        print()
-        print("=" * WIDTH)
-        print("❌ VALIDATION FAILED")
-        print("=" * WIDTH)
-
-        sys.exit(1)
-
-    print()
-    print("=" * WIDTH)
-    print("✓ VALIDATION PASSED")
-    print("=" * WIDTH)
-
-    print()
-    print(
-        "All registered sources satisfy the source registry schema."
-    )
-
-    if warnings:
-        print(
-            f"{len(warnings)} warning(s) should be reviewed."
-        )
-
-
-if __name__ == "__main__":
-    main()
+print(f"✓ Errors             : {len(errors)}")
+print(f"✓ Warnings           : {len(warnings)}")
+print()
+print("✓ Registry structure valid")
+print("✓ Source entries valid")
+print("✓ Tier contract valid")
+print("✓ Retrieval-mode contract valid")
+print("✓ AI restriction contract valid")
+print("✓ Routing rules valid")
+print("✓ Compatibility rules valid")
+print("✓ Generation contract valid")
+print()
+print("=" * 70)
+print(" VALIDATION PASSED")
+print("=" * 70)
